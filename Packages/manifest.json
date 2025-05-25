@@ -2,6 +2,7 @@
   "dependencies": {
     "com.unity.ai.navigation": "2.0.6",
     "com.unity.collab-proxy": "2.7.1",
+    "com.unity.entities": "1.3.14",
     "com.unity.ide.rider": "3.0.31",
     "com.unity.ide.visualstudio": "2.0.22",
     "com.unity.inputsystem": "1.13.1",
@@ -11,6 +12,9 @@
     "com.unity.timeline": "1.8.7",
     "com.unity.ugui": "2.0.0",
     "com.unity.visualscripting": "1.9.6",
+    "dev.bxbstudio.inputs-manager": "file:C:\\Users\\lacryma1\\Documents\\GitHub\\HYCC_2025\\Assets\\BxB Studio\\MVC Installer\\Packages\\dev.bxbstudio.inputs-manager@1.1.16.tgz",
+    "dev.bxbstudio.mvc.community": "file:C:\\Users\\lacryma1\\Documents\\GitHub\\HYCC_2025\\Assets\\BxB Studio\\MVC Installer\\Packages\\dev.bxbstudio.mvc.community@1.4.2-beta.3.tgz",
+    "dev.bxbstudio.utilities": "file:C:\\Users\\lacryma1\\Documents\\GitHub\\HYCC_2025\\Assets\\BxB Studio\\MVC Installer\\Packages\\dev.bxbstudio.utilities@1.1.10.tgz",
     "com.unity.modules.accessibility": "1.0.0",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",

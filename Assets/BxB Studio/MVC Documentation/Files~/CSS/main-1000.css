@@ -1,0 +1,39 @@
+@media screen and (max-width: 1000px)
+{
+	body > .background div.title, body > .background div.sub-title, body > .background div.paragraph
+	{
+		max-width: 40rem;
+	}
+	body > footer
+	{
+		text-align: center !important;
+	}
+	body > footer > br.hidden
+	{
+		display: block !important;
+	}
+	body > footer > div.container:nth-of-type(1),
+	body > footer > div.container:nth-of-type(2)
+	{
+		margin-bottom: 2rem;
+	}
+	body > footer > div.container
+	{
+		border-right: unset !important;
+	}
+	body > footer div.footer-link
+	{
+		margin-left: auto;
+		margin-right: auto;
+	}
+	body > footer div.footer-icon
+	{
+		width: 100% !important;
+		margin: 0 !important;
+		background-position: center !important;
+	}
+	body > footer div.footer-icon::before
+	{
+		margin: 0 auto;
+	}
+}

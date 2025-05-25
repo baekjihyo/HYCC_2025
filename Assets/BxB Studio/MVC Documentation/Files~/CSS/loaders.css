@@ -1,0 +1,95 @@
+/* Background loader */
+body > div#page-loading-background
+{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url(../../files/images/logos/mvc-x64.png);
+	background-position: 50% 47.5%;
+	background-size: 256px 64px;
+	background-repeat: no-repeat;
+	z-index: -9999;
+	display: none;
+}
+body > div#page-loading-background > div.progress-bar
+{
+	position: absolute;
+	top: calc(47.5% + 4rem);
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+body > div#page-loading-background > i.loader-icon
+{
+	position: absolute;
+	top: calc(47.5% + 5rem);
+	left: 50%;
+	width: 1.5rem;
+	height: 1.5rem;
+	color: white;
+	font-size: 1.5rem;
+	line-height: 1.5rem;
+	text-align: center;
+	transform: translate(-50%, 0);
+}
+body > div#page-loading-background > i.loader-icon::before
+{
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	line-height: 100%;
+}
+
+/* Progress bar */
+div.progress-bar
+{
+	--progress-bar-width: 16rem;
+	--progress-bar-height: .25rem;
+	--progress: 0;
+	position: relative;
+	width: var(--progress-bar-width);
+	height: var(--progress-bar-height);
+	border-radius: .25rem;
+	background-color: rgba(0, 0, 0, .3333);
+	overflow: hidden;
+}
+body > div#page-loader.progress-bar
+{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	border-radius: 0;
+	box-shadow: 0 0 .25rem black;
+	z-index: 9999;
+}
+div.progress-bar > div.bar
+{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	clip: rect(0, calc(var(--progress-bar-width) * var(--progress)), var(--progress-bar-height), 0);
+	transition: clip .5s ease-in-out;
+	overflow: hidden;
+}
+body.ready > div#page-loader.progress-bar > div.bar
+{
+	--progress: 1 !important;
+}
+div.progress-bar > div.bar > div.background
+{
+	width: 100%;
+	height: 100%;
+	background-image: linear-gradient(to right, rgb(11, 56, 96), rgb(25, 94, 155));
+}
+
+/* Trustpilot */
+body > div#page-loading-background div.trustpilot-widget
+{
+	position: absolute !important;
+	bottom: 2rem;
+	left: 50%;
+	width: 100%;
+	transform: translateX(-50%);
+}

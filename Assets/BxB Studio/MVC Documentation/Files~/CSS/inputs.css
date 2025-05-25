@@ -1,0 +1,483 @@
+div.input-container
+{
+	position: relative;
+	height: -moz-fit-content;
+	height: fit-content;
+	display: table;
+}
+div.input-container.warning[data-exception]:not([data-exception=""])::before,
+div.input-container.error[data-exception]:not([data-exception=""])::before
+{
+	position: absolute;
+	top: 50%;
+	left: calc(100% - .25rem);
+	margin: 0 .75rem;
+	padding: .5rem;
+	border-radius: .25rem;
+	background-color: rgb(32, 32, 32);
+	color: white;
+	font-size: .875rem;
+	line-height: 1rem;
+	white-space: pre;
+	text-shadow: 0 0 .25rem black;
+	box-shadow: 0 0 .5rem black;
+	transform: translateY(-50%);
+	z-index: 10;
+}
+div.input-container.warning[data-exception]:not([data-exception=""])::before,
+div.input-container.error[data-exception]:not([data-exception=""])::before
+{
+	content: attr(data-exception);
+}
+div.input-container.warning[data-exception]:not([data-exception=""])::after,
+div.input-container.error[data-exception]:not([data-exception=""])::after
+{
+	position: absolute;
+	top: 50%;
+	left: calc(100% - .5rem);
+	border: .5rem solid transparent;
+	border-right-color: rgb(32, 32, 32);
+	transform: translateY(-50%);
+	content: "";
+	z-index: 10;
+}
+div.input-container.warning[data-exception]:not([data-exception=""])::before
+{
+	background-image: linear-gradient(to right, rgb(192, 96, 0), rgb(255, 192, 0));
+}
+div.input-container.warning[data-exception]:not([data-exception=""])::after
+{
+	border-right-color: rgb(192, 96, 0);
+}
+div.input-container.error[data-exception]:not([data-exception=""])::before
+{
+	background-image: linear-gradient(to right, darkred, red);
+}
+div.input-container.error[data-exception]:not([data-exception=""])::after
+{
+	border-right-color: darkred;
+}
+div.input-container.invert-exception[data-exception]:not([data-exception=""])::before,
+div.input-container.invert-exception[data-exception]:not([data-exception=""])::after
+{
+	right: 100%;
+	left: unset;
+}
+div.input-container.vertical-exception[data-exception]:not([data-exception=""])::before,
+div.input-container.vertical-exception[data-exception]:not([data-exception=""])::after
+{
+	top: unset;
+	right: unset;
+	bottom: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+}
+div.input-container.vertical-exception.invert-exception[data-exception]:not([data-exception=""])::before,
+div.input-container.vertical-exception.invert-exception[data-exception]:not([data-exception=""])::after
+{
+	top: 100%;
+	bottom: unset;
+}
+div.input-container.invert-exception[data-exception]:not([data-exception=""])::after
+{
+	right: calc(100% - .25rem);
+	border-right-color: transparent !important;
+	border-left-color: rgb(32, 32, 32);
+}
+div.input-container.vertical-exception[data-exception]:not([data-exception=""])::after
+{
+	top: 0;
+	bottom: unset;
+	border-right-color: transparent !important;
+	border-top-color: rgb(32, 32, 32);
+}
+div.input-container.vertical-exception.invert-exception[data-exception]:not([data-exception=""])::after
+{
+	top: unset;
+	bottom: 0;
+	border-top-color: transparent !important;
+	border-bottom-color: rgb(32, 32, 32);
+	border-left-color: transparent !important;
+	transform: unset;
+}
+div.input-container.invert-exception.warning[data-exception]:not([data-exception=""])::after
+{
+	border-left-color: rgb(255, 192, 0);
+}
+div.input-container.vertical-exception.warning[data-exception]:not([data-exception=""])::after
+{
+	border-top-color: rgb(224, 144, 0);
+}
+div.input-container.vertical-exception.invert-exception.warning[data-exception]:not([data-exception=""])::after
+{
+	border-bottom-color: rgb(224, 144, 0);
+}
+div.input-container.invert-exception.error[data-exception]:not([data-exception=""])::after
+{
+	border-left-color: red;
+}
+div.input-container.vertical-exception.error[data-exception]:not([data-exception=""])::after
+{
+	border-top-color: rgb(197, 0, 0);
+}
+div.input-container.vertical-exception.invert-exception.error[data-exception]:not([data-exception=""])::after
+{
+	border-bottom-color: rgb(197, 0, 0);
+}
+div.input-container.six-digit
+{
+	display: inline-table;
+}
+input:not([type="button"]):not([type="checkbox"]):not([type="submit"]),
+textarea
+{
+	width: 11rem;
+	height: 1.5rem;
+	margin: .25rem .5rem;
+	padding: .25rem .875rem;
+	border-radius: .25rem;
+	border: none;
+	background-color: rgba(255, 255, 255, .125);
+	color: white;
+	font-size: .85rem;
+	font-stretch: condensed;
+	box-sizing: content-box;
+	transition: box-shadow .25s;
+	display: block;
+	-webkit-user-select: text;
+	user-select: text;
+}
+input:not([type="button"]):not([type="checkbox"]):not([type="submit"]):-webkit-autofill,
+input:not([type="button"]):not([type="checkbox"]):not([type="submit"]):-internal-autofill-selected,
+input:not([type="button"]):not([type="checkbox"]):not([type="submit"]):-internal-autofill-previewed
+{
+	transition: background-color 99999999s ease 0s;
+	-webkit-text-fill-color: white !important;
+}
+input.loading:not([type="button"]):not([type="checkbox"]):not([type="submit"]),
+textarea.loading
+{
+	color: darkgray;
+	-webkit-user-select: none;
+	user-select: none;
+	pointer-events: none;
+}
+input.loading:not([type="button"]):not([type="checkbox"]):not([type="submit"]):-webkit-autofill,
+input.loading:not([type="button"]):not([type="checkbox"]):not([type="submit"]):-internal-autofill-selected,
+input.loading:not([type="button"]):not([type="checkbox"]):not([type="submit"]):-internal-autofill-previewed
+{
+	-webkit-text-fill-color: darkgray !important;
+}
+input:not([type="button"]):not([type="checkbox"]):not([type="submit"])::placeholder,
+textarea::placeholder
+{
+	color: lightgray;
+	text-transform: capitalize;
+}
+input:not([type="button"]):not([type="checkbox"]):not([type="submit"]):not(:disabled):not(.loading):hover,
+input:not([type="button"]):not([type="checkbox"]):not([type="submit"]):not(:disabled):not(.loading):focus,
+textarea:not(:disabled):not(.loading):hover,
+textarea:not(:disabled):not(.loading):focus
+{
+	background-color: rgba(255, 255, 255, .25);
+}
+input:not([type="button"]):not([type="checkbox"]):not([type="submit"]):not(:disabled):not(.loading):-webkit-autofill:hover,
+input:not([type="button"]):not([type="checkbox"]):not([type="submit"]):not(:disabled):not(.loading):-internal-autofill-selected:hover,
+input:not([type="button"]):not([type="checkbox"]):not([type="submit"]):not(:disabled):not(.loading):-internal-autofill-previewed:hover,
+input:not([type="button"]):not([type="checkbox"]):not([type="submit"]):not(:disabled):not(.loading):-webkit-autofill:focus,
+input:not([type="button"]):not([type="checkbox"]):not([type="submit"]):not(:disabled):not(.loading):-internal-autofill-selected:focus,
+input:not([type="button"]):not([type="checkbox"]):not([type="submit"]):not(:disabled):not(.loading):-internal-autofill-previewed:focus
+{
+	background-color: rgba(0, 96, 192, .25);
+	transition: background-color 99999999s ease 0s;
+}
+input:not([type="button"]):not([type="checkbox"]):not([type="submit"]):not(:disabled):not(.loading):hover::placeholder,
+textarea:not(:disabled):not(.loading):hover::placeholder
+{
+	-webkit-text-fill-color: lightgray;
+}
+input:not([type="button"]):not([type="checkbox"]):not([type="submit"]):not(:disabled):not(.loading):-webkit-autofill:hover::placeholder,
+input:not([type="button"]):not([type="checkbox"]):not([type="submit"]):not(:disabled):not(.loading):-internal-autofill-selected:hover::placeholder,
+input:not([type="button"]):not([type="checkbox"]):not([type="submit"]):not(:disabled):not(.loading):-internal-autofill-previewed:hover::placeholder
+{
+	-webkit-text-fill-color: lightgray !important;
+}
+div.input-container.warning > input:not([type="button"]):not([type="checkbox"]):not([type="submit"]):not(:focus),
+div.input-container.warning > textarea:not(:focus)
+{
+	background-color: rgba(128, 32, 0, .25);
+	box-shadow: 0 0 0 .25rem rgb(255, 128, 0, .5);
+}
+div.input-container.warning > input:not([type="button"]):not([type="checkbox"]):not([type="submit"]):not(:focus):-webkit-autofill,
+div.input-container.warning > input:not([type="button"]):not([type="checkbox"]):not([type="submit"]):not(:focus):-internal-autofill-selected,
+div.input-container.warning > input:not([type="button"]):not([type="checkbox"]):not([type="submit"]):not(:focus):-internal-autofill-previewed
+{
+	transition: background-color 99999999s ease 0s;
+}
+div.input-container.error > input:not([type="button"]):not([type="checkbox"]):not([type="submit"]):not(:focus),
+div.input-container.error > textarea:not(:focus)
+{
+	background-color: rgba(128, 32, 32, .25);
+	box-shadow: 0 0 0 .25rem rgb(255, 0, 0, .5);
+}
+div.input-container.error > input:not([type="button"]):not([type="checkbox"]):not([type="submit"]):not(:focus):-webkit-autofill,
+div.input-container.error > input:not([type="button"]):not([type="checkbox"]):not([type="submit"]):not(:focus):-internal-autofill-selected,
+div.input-container.error > input:not([type="button"]):not([type="checkbox"]):not([type="submit"]):not(:focus):-internal-autofill-previewed
+{
+	transition: background-color 99999999s ease 0s;
+}
+input:not([type="button"]):not([type="checkbox"]):not([type="submit"]):not(:disabled):not(.loading):focus,
+textarea:not(:disabled):not(.loading):focus
+{
+	box-shadow: 0 0 0 .25rem rgb(255, 255, 255, .125);
+}
+input:not([type="button"]):not([type="checkbox"]):not([type="submit"]):disabled,
+textarea:disabled
+{
+	box-shadow: 0 0 0 .125rem inset rgba(255, 255, 255, .125);
+	background-color: transparent;
+	color: rgb(144, 144, 144);
+	cursor: not-allowed;
+}
+input:not([type="button"]):not([type="checkbox"]):not([type="submit"]):-webkit-autofill:disabled,
+input:not([type="button"]):not([type="checkbox"]):not([type="submit"]):-internal-autofill-selected:disabled,
+input:not([type="button"]):not([type="checkbox"]):not([type="submit"]):-internal-autofill-previewed:disabled
+{
+	transition: background-color 99999999s ease 0s;
+}
+div.input-container.large > input:not([type="button"]):not([type="checkbox"]):not([type="submit"]),
+div.input-container.large > textarea
+{
+	height: 2rem;
+	padding: 0 .875rem;
+	font-weight: 400;
+	font-size: 1rem;
+	line-height: 2rem;
+}
+div.input-container.large > textarea
+{
+	padding-top: .5rem;
+	padding-bottom: .5rem;
+}
+div.input-container.long > input:not([type="button"]):not([type="checkbox"]):not([type="submit"]),
+div.input-container.long > textarea
+{
+	width: 25.625rem;
+}
+div.input-container.long > textarea
+{
+	min-width: 25.625rem;
+	max-width: 30.625rem;
+}
+div.input-container.icon > input:not([type="button"]):not([type="checkbox"]):not([type="submit"]),
+div.input-container.icon > textarea
+{
+	padding-left: 2.375rem;
+}
+div.input-container.larger > input:not([type="button"]):not([type="checkbox"]):not([type="submit"]),
+div.input-container.larger > textarea,
+div.input-container.very-large > input:not([type="button"]):not([type="checkbox"]):not([type="submit"]),
+div.input-container.very-large > textarea
+{
+	min-height: 2rem;
+	height: 2rem;
+	margin: .75rem .375rem;
+	padding: .25rem 1rem;
+	font-weight: 500;
+	font-size: 1rem;
+	line-height: 2rem;
+}
+div.input-container.larger > textarea,
+div.input-container.very-large > textarea
+{
+	padding-top: .75rem;
+	padding-bottom: .75rem;
+}
+div.input-container.icon.larger > input:not([type="button"]):not([type="checkbox"]):not([type="submit"]),
+div.input-container.icon.larger > textarea,
+div.input-container.very-large > input:not([type="button"]):not([type="checkbox"]):not([type="submit"]),
+div.input-container.very-large > textarea
+{
+	padding-left: 3rem;
+}
+div.input-container.very-large.icon.svg-icon input:not([type="button"]):not([type="checkbox"]):not([type="submit"]),
+div.input-container.very-large.icon.svg-icon textarea
+{
+	width: 24.625rem;
+	padding-left: 4rem;
+}
+div.input-container.very-large > input:not([type="button"]):not([type="checkbox"]):not([type="submit"]),
+div.input-container.very-large > textarea
+{
+	min-height: 2.5rem;
+	height: 2.5rem;
+	font-size: 1.5rem;
+	line-height: 2.5rem;
+}
+div.input-container.large > textarea,
+div.input-container.larger > textarea
+{
+	line-height: 1.25rem;
+}
+div.input-container.very-large > textarea
+{
+	line-height: 1.5rem;
+}
+div.input-container.six-digit > input:not([type="button"]):not([type="checkbox"]):not([type="submit"])
+{
+	width: .5rem;
+	margin-left: .25rem;
+	margin-right: .25rem;
+	text-align: center;
+}
+div.input-container.stretch
+{
+	width: 100%;
+}
+div.input-container.stretch > input:not([type="button"]):not([type="checkbox"]):not([type="submit"]),
+div.input-container.stretch > textarea
+{
+	width: calc(100% - 2rem);
+}
+div.input-container > textarea
+{
+	min-height: 10rem !important;
+	max-height: 35rem !important;
+}
+div.input-container.icon i.icon,
+div.input-container i.tooltip-icon,
+div.input-container.password i.show-password-icon
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 1rem;
+	height: 1rem;
+	margin: .25rem .5rem;
+	padding: .375rem .5rem .625rem .75rem;
+	font-size: .875rem;
+	line-height: 1rem;
+	cursor: text;
+}
+div.input-container.icon.svg-icon i.icon
+{
+	width: 1.4rem;
+}
+div.input-container.larger.icon i.icon,
+div.input-container.larger i.tooltip-icon,
+div.input-container.larger.password i.show-password-icon,
+div.input-container.very-large.icon i.icon,
+div.input-container.very-large i.tooltip-icon,
+div.input-container.very-large.password i.show-password-icon
+{
+	margin: .75rem .375rem;
+	padding: .75rem .625rem;
+	font-size: 1rem;
+}
+div.input-container.very-large.icon i.icon,
+div.input-container.very-large i.tooltip-icon,
+div.input-container.very-large.password i.show-password-icon
+{
+	height: 1.5rem;
+	font-size: 1.25rem;
+}
+div.input-container.very-large.icon.svg-icon i.icon
+{
+	width: 2.1rem;
+}
+div.input-container.larger.icon i.icon,
+div.input-container.very-large.icon i.icon
+{
+	padding-left: 1rem;
+}
+div.input-container.larger i.tooltip-icon,
+div.input-container.larger.password i.show-password-icon,
+div.input-container.very-large i.tooltip-icon,
+div.input-container.very-large.password i.show-password-icon
+{
+	padding-right: 1rem;
+}
+div.input-container.larger.icon i.icon::before, div.input-container.larger i.tooltip-icon::before, div.input-container.larger.password i.show-password-icon::before
+{
+	margin: 0 0 .125rem;
+}
+div.input-container i.tooltip-icon,
+div.input-container.password i.show-password-icon
+{
+	left: unset;
+	right: -.25rem;
+	cursor: pointer;
+}
+div.input-container[data-tooltip] > input[disabled] ~ i.tooltip-icon
+{
+	display: none;
+}
+div.input-container i.tooltip-icon
+{
+	cursor: help;
+}
+div.input-container:not(.password) i.tooltip-icon
+{
+	right: 0;
+}
+div.input-container.password i.tooltip-icon
+{
+	right: 1.25rem;
+}
+div.input-container.password.show i.show-password-icon::before
+{
+	content: "\e83f";
+}
+div.input-container.icon i.icon::before,
+div.input-container i.tooltip-icon::before,
+div.input-container.password i.show-password-icon::before
+{
+	width: 100%;
+	height: calc(100% - .125rem);
+	margin: .125rem 0 0;
+	color: lightgray;
+	line-height: .875rem;
+}
+div.input-container.very-large.icon i.icon::before,
+div.input-container.very-large i.tooltip-icon::before,
+div.input-container.very-large.password i.show-password-icon::before
+{
+	height: 100%;
+	margin: 0;
+	line-height: 1.5rem;
+}
+div.input-container.small-margin > input:not([type="button"]):not([type="checkbox"]):not([type="submit"]),
+div.input-container.small-margin.icon > i.icon,
+div.input-container.small-margin > i.tooltip-icon,
+div.input-container.small-margin.password > i.show-password-icon,
+div.input-container.small-margin > textarea
+{
+	margin-top: .375rem;
+	margin-bottom: .375rem;
+}
+div.input-container.no-margin > input:not([type="button"]):not([type="checkbox"]):not([type="submit"]),
+div.input-container.no-margin.icon > i.icon,
+div.input-container.no-margin > i.tooltip-icon,
+div.input-container.no-margin.password > i.show-password-icon,
+div.input-container.no-margin > textarea
+{
+	margin-top: 0;
+	margin-bottom: 0;
+}
+div.input-container.no-side-margin > input:not([type="button"]):not([type="checkbox"]):not([type="submit"]),
+div.input-container.no-side-margin > textarea
+{
+	margin-left: 0;
+	margin-right: 0;
+}
+div.input-container.no-side-margin > input:not([type="button"]):not([type="checkbox"]):not([type="submit"]),
+div.input-container.no-side-margin.icon > i.icon,
+div.input-container.no-side-margin > textarea
+{
+	margin-left: 0;
+}
+div.input-container.no-side-margin > i.tooltip-icon,
+div.input-container.no-side-margin.password > i.show-password-icon
+{
+	margin-right: 0;
+}

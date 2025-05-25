@@ -1,0 +1,168 @@
+div.input-container > input[type="checkbox"]
+{
+	display: none;
+}
+div.input-container > div.checkbox
+{
+	position: relative;
+	width: 2rem;
+	height: 2rem;
+	margin: 0;
+	padding: 0;
+	border-radius: .25rem;
+	line-height: 1rem;
+	box-shadow: 0 0 0 .125rem inset rgba(255, 255, 255, .25);
+}
+div.input-container.small > div.checkbox
+{
+	width: 1.5rem;
+	height: 1.5rem;
+	line-height: 1.5rem;
+}
+div.input-container:hover:not(:active) > div.checkbox:not([disabled]),
+div.input-container:focus:not(:active) > div.checkbox:not([disabled])
+{
+	box-shadow: 0 0 0 .125rem inset rgb(11, 56, 96);
+}
+div.checkbox::before
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	color: white;
+	font-family: "fontello";
+	font-size: 1.25rem;
+	font-weight: normal;
+	font-stretch: normal;
+	text-align: center;
+	line-height: 2rem;
+	content: "\00a0";
+}
+div.input-container.small > div.checkbox::before
+{
+	font-size: .9rem;
+	line-height: 1.5rem;
+}
+div.input-container > div.checkbox[checked]
+{
+	background-color: rgb(11, 56, 96);
+	box-shadow: unset;
+}
+div.input-container > div.checkbox[checked]::before
+{
+	content: "\e827";
+}
+div.input-container > div.checkbox[checked][disabled]
+{
+	background-color: rgb(96, 96, 96);
+}
+div.input-container > div.checkbox::after
+{
+	content: "\00a0";
+}
+div.input-container > div.checkbox-label
+{
+	max-width: 31rem;
+	margin-right: .5rem;
+	color: rgb(224, 224, 224);
+	font-size: .95rem;
+	line-height: 1rem;
+	display: inline-table;
+}
+div.input-container > div.checkbox ~ div.checkbox-label
+{
+	margin-left: .5rem;
+	margin-right: unset;
+}
+div.input-container.small > div.checkbox-label
+{
+	font-size: .875rem;
+	line-height: 1.5rem;
+}
+div.input-container:hover:not(:active) > div.checkbox-label,
+div.input-container:focus:not(:active) > div.checkbox-label,
+div.input-container > div.checkbox[checked] ~ div.checkbox-label
+{
+	color: white;
+}
+div.input-container > div.checkbox,
+div.input-container > div.checkbox ~ div.checkbox-label
+{
+	display: inline-table;
+	cursor: pointer;
+}
+div.input-container > div.checkbox[disabled]
+{
+	cursor: not-allowed;
+}
+div.input-container > div.checkbox[disabled] ~ div.checkbox-label,
+div.input-container > div.checkbox[disabled] ~ div.checkbox-label *
+{
+	color: rgb(96, 96, 96);
+	cursor: not-allowed !important;
+}
+div.input-container > div.checkbox.switch
+{
+	width: 4rem;
+	border-radius: 2rem;
+}
+div.input-container.small > div.checkbox.switch
+{
+	width: 2.75rem;
+	border-radius: 1.5rem;
+}
+div.input-container > div.checkbox.switch[checked]:not([disabled]),
+div.input-container:hover > div.checkbox.switch[checked]:not([disabled]),
+div.input-container:focus > div.checkbox.switch[checked]:not([disabled])
+{
+	box-shadow: 0 0 .25rem inset rgba(0, 0, 0, .67);
+}
+div.input-container > div.checkbox.switch::before
+{
+	position: absolute;
+	top: 50%;
+	left: .4375rem;
+	right: unset;
+	width: 1.125rem;
+	height: 1.125rem;
+	border-radius: 1.125rem;
+	background-color: white;
+	transform: translateY(-50%);
+	transition: left .25s ease-in-out, right .25s ease-in-out;
+	content: "\00a0";
+}
+div.input-container.small > div.checkbox.switch::before
+{
+	width: .75rem;
+	height: .75rem;
+	left: .375rem;
+	border-radius: .75rem;
+}
+div.input-container > div.checkbox.switch[disabled]::before
+{
+	background-color: rgba(255, 255, 255, .25);
+}
+div.input-container > div.checkbox.switch[checked]::before
+{
+	left: calc(100% - 1.125rem - .4375rem);
+}
+div.input-container > div.checkbox.switch[checked]:not([disabled]):before
+{
+	box-shadow: 0 0 .25rem black;
+}
+div.input-container.small > div.checkbox.switch[checked]::before
+{
+	left: calc(100% - .75rem - .375rem);
+}
+div.input-container:not(.small) > div.checkbox.switch ~ div.checkbox-label
+{
+	margin-left: .75rem;
+}
+div.input-container:not(.small) > div.checkbox-label ~ div.checkbox.switch
+{
+	margin-left: .25rem;
+}

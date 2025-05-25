@@ -1,0 +1,1581 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>User Manual - Multiversal Vehicle Controller</title>
+		<link rel="icon" type="image/png" href="Files~/Images/favicon.png" />
+		<link rel="stylesheet" type="text/css" href="Files~/CSS/fonts.css" />
+		<link rel="stylesheet" type="text/css" href="Files~/CSS/all.css" />
+		<link rel="stylesheet" type="text/css" href="Files~/CSS/animations.css" />
+		<link rel="stylesheet" type="text/css" href="Files~/CSS/inputs.css" />
+		<link rel="stylesheet" type="text/css" href="Files~/CSS/enumerators.css" />
+		<link rel="stylesheet" type="text/css" href="Files~/CSS/checkboxes.css" />
+		<link rel="stylesheet" type="text/css" href="Files~/CSS/buttons.css" />
+		<link rel="stylesheet" type="text/css" href="Files~/CSS/loaders.css" />
+		<link rel="stylesheet" type="text/css" href="Files~/CSS/main.css" />
+		<link rel="stylesheet" type="text/css" href="Files~/CSS/main-1024.css" />
+		<link rel="stylesheet" type="text/css" href="Files~/CSS/main-1000.css" />
+		<link rel="stylesheet" type="text/css" href="Files~/CSS/main-800.css" />
+		<link rel="stylesheet" type="text/css" href="Files~/CSS/main-600.css" />
+		<link rel="stylesheet" type="text/css" href="Files~/CSS/windows.css" />
+		<link rel="stylesheet" type="text/css" href="Files~/CSS/windows-1000.css" />
+		<link rel="stylesheet" type="text/css" href="Files~/CSS/windows-800.css" />
+		<link rel="stylesheet" type="text/css" href="Files~/CSS/windows-600.css" />
+		<link rel="stylesheet" type="text/css" href="Files~/CSS/docs-manual-api.css" />
+		<link rel="stylesheet" type="text/css" href="Files~/CSS/docs-manual-api-900.css" />
+		<link rel="stylesheet" type="text/css" href="Files~/CSS/docs-manual-api-800.css" />
+		<script type="text/javascript" src="https://mvc.gg/core/js/utilities/jquery-3.5.1.min.js"></script>
+		<script type="text/javascript" src="https://mvc.gg/core/js/archive/1.4.1-beta/utility.js"></script>
+		<script type="text/javascript" src="https://mvc.gg/core/js/archive/1.4.1-beta/visuals.js"></script>
+	</head>
+	<body>
+		<div id="page-background"></div>
+		<div id="page-loader" class="progress-bar">
+			<div class="bar">
+				<div class="background"></div>
+			</div>
+		</div>
+		<div id="page-message">
+			<div class="message-icon"></div>
+			<div class="message-text"></div>
+		</div>
+		<div id="image-preview-container" class="window-container compact  transparent">
+			<div class="window"></div>
+			<i class="close-icon icon-cancel"></i>
+		</div>
+		<aside id="docs-aside-nav">
+			<div class="logo">Manual</div>
+			<div class="search-container">
+				<div class="input-container center icon no-margin">
+					<input type="text" id="docs-manual-search-input" placeholder="Search anything..." data-hj-allow />
+					<i class="icon icon-search"></i>
+				</div>
+			</div>
+			<div class="tabs-container"></div>
+		</aside>
+		<div id="docs-sections-container">
+			<div class="versions-selector right">
+				<div class="input-container" data-tooltip="No physics system available&#xa;in the selected version other&#xa;than Wheel Colliders">
+					<div id="docs-physics-enum" class="enumerator small-margin no-side-margin" disabled>
+						<div class="option">Wheel Collider</div>
+						<div class="option">Volumetric Wheel</div>
+					</div>
+				</div>
+				<div class="input-container" data-tooltip="You're currently using the offline documentation.&#xa;To access other version, visit our website.">
+					<div id="docs-version-enum" class="enumerator no-margin no-side-margin" disabled>
+						<div class="option selected">1.4.1-beta</div>
+					</div>
+				</div>
+			</div>
+			<div class="links-container right">
+				<a href="https://mvc.gg/docs/manual?version=1.4.1-beta" class="no-underline"><i class="icon-book-open-1"></i> Online Manual</a>
+				<a href="https://mvc.gg/docs/api?version=1.4.1-beta" class="no-underline"><i class="icon-code-outline"></i> API Reference</a>
+				<a href="https://mvc.gg/contact" target="_BLANK" class="no-underline"><i class="icon-help-circled-1"></i> Support</a>
+				<a href="https://mvc.gg/buy" target="_BLANK" class="no-underline"><i class="icon-star-empty"></i> Get Started</a>
+			</div>
+			<section data-keywords="how to getting started tutorials">
+				<div class="title text-start small-margin">Getting started</div>
+				<div class="paragraph">The Multiversal Vehicle Controller is a <a aria-title="" href="https://unity.com" target="_BLANK" data-tooltip="External link">Unity <i class="icon-link-ext-alt"></i></a> toolkit made for ambitious game developers to integrate vehicle physics inside their video-games. You can download the Multiversal Vehicle Controller at <a href="https://mvc.gg/download" target="_BLANK" data-tooltip="External link">mvc.gg <i class="icon-link-ext-alt"></i></a>.</div>
+				<div class="paragraph">The MVC User Manual helps you know how to use our toolkit and its features. Read it from start to finish, or use it as a reference. In case you're looking for a way to implement the MVC scripts with your own, make sure you check our <a aria-title="" href="https://mvc.gg/docs/api">API Scripting Reference</a> for more information.</div>
+				<div class="paragraph">If it's your first time using the Multiversal Vehicle Controller, you can check our <a aria-title="" href="https://youtube.com/@bxbstudiodev" target="_BLANK" data-tooltip="External link">YouTube channel <i class="icon-link-ext-alt"></i></a>, where you can find some helpful tutorials to make your first steps.</div>
+			</section>
+			<section data-level="1" data-keywords="how to install wizard import package">
+				<div class="title text-start small-margin">How to install</div>
+				<div class="paragraph">Installing the Multiversal Vehicle Controller is an easy process that takes a few minutes.</div>
+				<div class="paragraph">After downloading the toolkit from the Unity Asset Store or <a aria-title="" href="<?= HOSTNAME ?>/download" target="_BLANK" data-tooltip="External link">mvc.gg <i class="icon-link-ext-alt"></i></a>. All you need to do next is import the downloaded Unity package into your Unity project which is named as <span class="quote">mvc_pro_1.4.1-beta.x.unitypackage</span> or <span class="quote">mvc_community_1.4.1-beta.x.unitypackage</span></div>
+				<div class="paragraph">To import a Unity package, go to the following menu <span class="quote">Assets/Import Package/Custom Package...</span>, then select the downloaded package and click the <span class="quote">Open</span> button and wait for the Unity Editor to decompress the requested package.</div>
+				<div class="image" data-width="512px" data-height="278px" style="width: 512px; height: 278px; background-image: url('Files~/Images/import_package.png');"></div>
+				<div class="spacer"></div>
+				<div class="image" data-width="512px" data-height="363px" style="width: 512px; height: 363px; background-image: url('Files~/Images/open_package.png');"></div>
+				<div class="paragraph">A window will popup, the next thing you need to do is make sure that everything is checked, then click the <span class="quote">Import</span> button of the Unity Package Importer.</div>
+				<div class="image" data-width="512px" data-height="285px" style="width: 512px; height: 285px; background-image: url('Files~/Images/package_importer.png');"></div>
+				<div class="paragraph">Once everything has been compiled the Install Wizard window will appear, all you need to do is accept the requested data and wait for it to import its requirements into your project.</div>
+				<div class="helpbox info">If you were prompted to restart the Unity Editor, click on <span class="quote">Restart</span>, <span class="quote">Apply</span> or <span class="quote">Yes</span>. If the Install Wizard do not appear when the Unity Editor is restarted, all you've to do it go to <span class="quote">Tools > Install MVC</span> and you'll be good to go!</div>
+				<div class="image" data-width="512px" data-height="306px" style="width: 512px; height: 306px; background-image: url('Files~/Images/install_wizard.png');"></div>
+				<div class="paragraph">After fetching & installing the required packages, all is left to do is click <span class="quote">Start Install</span>.</div>
+			</section>
+			<section data-keywords="how to use using setup wizard">
+				<div class="title text-start small-margin">Setup wizard</div>
+				<div class="paragraph">The Setup Wizard is a cool feature made for the MVC to make understanding the toolkit an easy process for our users.</div>
+				<div class="paragraph">Once the toolkit has been installed successfully, the <span class="quote">Setup Wizard</span> window will popup. Next thing to do is click the <span class="quote">Let's get started</span> button.</div>
+				<div class="image" data-width="512px" data-height="371px" style="width: 512px; height: 371px; background-image: url('Files~/Images/setup_wizard_1.png');"></div>
+				<div class="paragraph">The next to appear is the <span class="quote">Configurations</span> panel. There're a couple of things to choose depending on your needs mentioned below...</div>
+				<div class="image" data-width="512px" data-height="371px" style="width: 512px; height: 371px; background-image: url('Files~/Images/setup_wizard_4.png');"></div>
+				<div class="paragraph">
+					<ul>
+						<li>Render Pipeline: The <a aria-title="" href="https://docs.unity3d.com/Manual/render-pipelines.html" target="_BLANK" data-tooltip="External link">render pipeline <i class="icon-link-ext-alt"></i></a> used in your project, somehow it's detected automatically and can be changed, but after making some modifications to your project settings.<br />The available render pipelines are the following: <span class="quote">Standard (<span class="" data-tooltip="Built-in Render Pipeline">Built-in RP <i class="icon-help-circled-1"></i></span>)</span>, <span class="quote">Universal Render Pipeline</span>, <span class="quote">High Definition Render Pipeline</span> and <span class="quote">Custom Render Pipeline</span>.</li>
+						<li>Physics: The vehicle wheel physics, by default it's <span class="quote">Wheel Collider</span>, other physics like <span class="quote">Volumetric Wheel</span> will be available in later versions of the Multiversal Vehicle Controller. <a aria-title="" href="#settings-panel-general-physics-system">Read more...</a></li>
+						<li>Agent Type: The agent type that will be used by the toolkit's AI systems.</li>
+						<div class="helpbox info">Using the built-in <span class="quote">Humanoid</span> agent settings is not recommended. You'll have to create your own agent type by using the <span class="quote"><i class="icon-pencil"></i></span> button. You can also click on <span class="quote">Show Recommended Agent Settings</span> to see the best recommended you can use when creating a new agent type.</div>
+						<li>Vehicles Layer: The layer that MVC uses to regroup its GameObjects.</li>
+						<li>Wheels Layer: A layer used to regroup any available wheels GameObjects.</li>
+						<div class="helpbox info"><span class="quote">Vehicles Layer</span> and <span class="quote">Wheels Layer</span> must be assigned to a layer different than the built-in <span class="quote">Default</span> layer.</div>
+						<div class="helpbox info"><span class="quote">Vehicles Layer</span> and <span class="quote">Wheels Layer</span> values cannot match.</div>
+						<li>Walkable Mask: A layer mask for AI walkable objects.</li>
+						<li>Non-Walkable Mask: A layer mask for AI non-walkable areas, objects and obstacles.</li>
+						<div class="helpbox info"><span class="quote">Walkable Mask</span> and <span class="quote">Non-Walkable Mask</span> cannot have common layers, keep in mind that the <span class="quote">Vehicles Layer</span> and <span class="quote">Wheels Layer</span> cannot added to the mentioned masks as this can cause runtime issues.</div>
+						<div class="helpbox info"><span class="quote">Non-Walkable Mask</span> can be empty, unlike <span class="quote">Walkable Mask</span> which has to have at least one layer added including the built-in <span class="quote">Default</span> layer.</div>
+						<div class="helpbox info">You can click on <span class="quote">Add Recommended Layers</span> to add and setup layers for your project automatically.</div>
+						<li>Runtime Units: To know more about this field, <a aria-title="" href="#settings-panel-general-runtime-units">read this section...</a></li>
+						<li>Editor Units: Just as the Runtime units, the Editor Units are the same, except that the expressed values appear in the MVC component inspectors and within the <a aria-title="" href="#settings-panel">Settings panel</a>.</li>
+						<div class="spacer small"></div>
+						<li>Inputs System: The Inputs System is a system that manages the user's inputs like a keyboard keys or a joystick's. The MVC uses two options:</li>
+						<ul>
+							<li>Inputs Manager: An input system made our team for improved and easy input setup based on the New Unity Input System to manage keyboard and joystick inputs at once.</li>
+							<li>Unity Legacy Input System: Is the original Unity input system, it's stable but missing a lot of features that the Inputs Manager provides.</li>
+						</ul>
+						<div class="spacer small"></div>
+						<li>Audio Folder Path: Is the path the MVC should save audio files and sound effects, the folder should be inside a <span class="quote">Resources</span> folder, so the MVC can load them at runtime.</li>
+						<div class="helpbox info">Click on <span>Use Suggested Path</span> to use the recommended path suggested by the toolkit.</div>
+					</ul>
+				</div>
+				<div class="paragraph">After assigning all of the needed fields, click <span class="quote">Next</span>. A confirmation message will appear, click <span class="quote">Yes</span> to proceed with the setup process.</div>
+				<div class="image" data-width="512px" data-height="371px" style="width: 512px; height: 371px; background-image: url('Files~/Images/setup_wizard_5.png');"></div>
+				<div class="helpbox info">You might be prompted to import the <a href="#sample-and-demo-packages">Getting Started Demo Packages</a> before starting the setup process.</div>
+				<div class="image" data-width="512px" data-height="371px" style="width: 512px; height: 371px; background-image: url('Files~/Images/setup_wizard_6.png');"></div>
+				<div class="paragraph">Once the import process is done, a success message should appear. To close the panel, click <span class="quote">Open Settings</span> to show the <a aria-title="" href="#settings-panel">Settings panel</a>.</div>
+				<div class="image" data-width="512px" data-height="371px" style="width: 512px; height: 371px; background-image: url('Files~/Images/setup_wizard_7.png');"></div>
+			</section>
+			<section data-level="1" data-keywords="how to change render pipeline setup wizard">
+				<div class="title text-start small-margin">Render pipeline</div>
+				<div class="paragraph">A render pipeline performs a series of operations that take the contents of a Scene, and displays them on a screen. To learn more about render pipelines here's a Unity <a aria-title="" href="https://docs.unity3d.com/Manual/render-pipelines.html" target="_BLANK" data-tooltip="External link">documentation section <i class="icon-link-ext-alt"></i></a> that you can make use of.</div>
+				<div class="paragraph">Once you choose a different option than the default one from the <span class="quote">Render Pipeline</span> list. An error message will appear:</div>
+				<div class="unity-helpbox error">This project doesn't have a <span class="quote">&lt;Your New Render Pipeline Option&gt;</span> Asset added to its graphics settings! Please consider changing the render pipeline option above or go to `Edit > Project Settings > Graphics` and add a Scriptable Render Pipeline Asset.</div>
+				<div class="paragraph">To fix this issue, you need to go to <span class="quote">Edit > Project Settings > Graphics</span> and assign an <span class="quote" data-tooltip="Scriptable Render Pipeline Asset">SRP Asset <i class="icon-help-circled-1"></i></span>. Here are some Unity documentation articles about how to create a new <span class="quote" data-tooltip="Scriptable Render Pipeline Asset">SRP Asset <i class="icon-help-circled-1"></i></span> for each render pipeline separately.</div>
+				<div class="paragraph">
+					<ul>
+						<li><a aria-title="" href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@7.5/manual/configuring-universalrp-for-use.html" target="_BLANK" data-tooltip="External link">URP: Universal Render Pipeline <i class="icon-link-ext-alt"></i></a></li>
+						<li><a aria-title="" href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@7.5/manual/HDRP-Asset.html" target="_BLANK" data-tooltip="External link">HDRP: High-Definition Render Pipeline <i class="icon-link-ext-alt"></i></a></li>
+						<li><a aria-title="" href="https://docs.unity3d.com/Manual/srp-creating-render-pipeline-asset-and-render-pipeline-instance.html" target="_BLANK" data-tooltip="External link">C-RP: Custom Render Pipeline <i class="icon-link-ext-alt"></i></a></li>
+					</ul>
+				</div>
+				<div class="helpbox info">In case you chose the <span class="quote">Standard</span> option, the error message will differ from the one above! The Built-in Render Pipeline doesn't require an <span class="quote" data-tooltip="Scriptable Render Pipeline Asset">SRP Asset <i class="icon-help-circled-1"></i></span>, in fact you can just empty the Asset field within the Graphics Settings panel and the error message will disappear. In case you got some visual issues because of the loaded shaders, you can just remove the installed Render Pipeline package from your project and everything will look good again.</div>
+			</section>
+			<section data-level="1" data-keywords="how to change audio sfx folder path">
+				<div class="title text-start small-margin">Audio folder path</div>
+				<div class="paragraph">One of the best features the MVC provides, is the incredible <a aria-title="" href="#settings-panel-sound-effects-sfx">SFX System</a>. For that, a folder is needed to save and load the required sound effects and audio clips for the toolkit.</div>
+				<div class="paragraph no-margin">The <span class="quote">Audio Folder Path</span> is the last field to fill-in. To do that, you need to click on the <span class="quote">...</span> button, and a popup window will appear for you to choose a folder. After creating your own folder, select it and click <span class="quote">Select Folder</span>.</div>
+				<div class="helpbox info">The new audio folder has to be inside the <span class="quote">Resources</span> folder of your project. Example: <span class="quote">&lt;Project Folder&gt;/Assets/Resources/</span>.</div>
+				<div class="image" data-width="512px" data-height="365px" style="width: 512px; height: 365px; background-image: url('Files~/Images/setup_wizard_8.png');"></div>
+			</section>
+			<section data-keywords="how to use dlc mvc packages manager content demo samples">
+				<div class="title text-start small-margin">Sample & Demo Packages</div>
+				<div class="paragraph">Setting up your first vehicle can be hard sometimes, that's why we made some free ready to use packages to get you started and put you on the right path. Read the rest of this section for more informative details.</div>
+				<div class="paragraph">Using MVC's Getting Started Demo packages has never been easier than this, you just need to go to the <span class="quote">Tools</span> menu, then <span class="quote">Multiversal Vehicle Controller > Samples</span> and you'll find the list of sample packages available there.</div>
+				<div class="paragraph">Once you choose a package, the UnityPackage importer will show up.</div>
+				<div class="helpbox info">You might be prompted to import sample packages before starting the setup process of the <a href="#setup-wizard">Setup Wizard</a>.</div>
+				<div class="helpbox error">Any kind of redistribution of the sample packages under any other name than BxB Studio&reg; or the Multiversal Vehicle Controller&trade; without any further permission is an illegal act! <!--a aria-title="" href="<?= HOSTNAME ?>/legal/terms-of-use#ip" target="_BLANK" data-tooltip="External link">Read more... <i class="icon-link-ext-alt"></i--></a></div>
+			</section>
+			<section data-keywords="how to open settings panel window">
+				<div class="title text-start small-margin">Settings panel</div>
+				<div class="paragraph">The Settings panel is where most of the magic happens, it organises all of the MVC systems' configurations.</div>
+				<div class="paragraph">To open it you need to go to <span class="quote">Tools > Multiversal Vehicle Controller > Edit Settings...</span>, and the Settings panel window will appear.</div>
+				<div class="image" data-width="512px" data-height="401px" style="width: 512px; height: 401px; background-image: url('Files~/Images/settings_panel.png');"></div>
+				<div class="paragraph">On the left side of the panel you can find the different settings tabs, that's where you can configure each system on it's own. Check the following sections for more information.</div>
+			</section>
+			<section data-level="1" data-keywords="how to change show general settings tab panel window">
+				<div class="title text-start small-margin">General</div>
+				<div class="paragraph">General settings are dedicated for the most basic configurations of the Multiversal Vehicle Controller, where you can change the physics system, steering method, layers, tags...</div>
+				<div class="paragraph">Check the rest of this section below to learn more about each configuration separately.</div>
+				<div class="image" data-width="512px" data-height="401px" style="width: 512px; height: 401px; background-image: url('Files~/Images/general.png');"></div>
+				<div class="spacer"></div>
+				<div class="sub-title text-start">Physics System</div>
+				<div class="paragraph no-margin">The Physics System/Model is the one responsible for moving your vehicles inside Unity, and each system has its own behaviour style.</div>
+				<div class="paragraph">
+					<ul>
+						<li><span class="quote">Wheel Collider</span>: Basing on the Unity standard <a aria-title="" href="https://docs.unity3d.com/Manual/class-WheelCollider.html" target="_BLANK" data-tooltip="External link">Wheel Colliders <i class="icon-link-ext-alt"></i></a>, the MVC uses this component to simulate vehicles movements and expands the number of available values for an advanced and a precise behaviour. The Wheel Colliders are based on the base physics of Unity, <a href="https://developer.nvidia.com/gameworks-physx-overview" target="_BLANK" data-tooltip="External link">Nvidia PhysX <i class="icon-link-ext-alt"></i></a>.</li>
+						<li><span class="quote">Volumetric Collider</span>: The Volumetric Wheel system is a much more sophisticated version of a simple <a aria-title="" href="https://docs.unity3d.com/ScriptReference/Physics.Raycast.html" target="_BLANK" data-tooltip="External link">Raycasts <i class="icon-link-ext-alt"></i></a> system. With the use of <a href="https://docs.unity3d.com/Manual/JobSystemOverview.html" target="_BLANK" data-tooltip="External link">C# Jobs <i class="icon-link-ext-alt"></i></a> package of Unity, this feature has optimal performance.</li>
+					</ul>
+				</div>
+				<div class="sub-title text-start">Sub Steps</div>
+				<div class="paragraph no-margin">During each <a aria-title="" href="https://docs.unity3d.com/ScriptReference/MonoBehaviour.FixedUpdate.html" target="_BLANK" data-tooltip="External link">Fixed Update <i class="icon-link-ext-alt"></i></a> in the vehicle simulation, the fixed delta time is divided into smaller sub-steps. These sub-steps allow for the calculation of suspension and tire forces for each smaller delta. The resulting forces and torques are then summed up, integrated, and applied to the vehicle's <a href="https://docs.unity3d.com/ScriptReference/Rigidbody.html" target="_BLANK" data-tooltip="External link">Rigidbody <i class="icon-link-ext-alt"></i></a>.</div>
+				<div class="paragraph">The stability of the simulation and, consequently, the <a aria-title="" href="" class="missing" data-tooltip="Link is missing">stability</a> and <a href="" class="missing" data-tooltip="Link is missing">handling</a> of the vehicle are controlled by these sub-steps. Adding more sub-steps improves the stability of the vehicles but also introduces a higher performance impact at runtime.</div>
+				<div class="sub-title text-start">Steering Method</div>
+				<div class="paragraph no-margin">Steering is one of the most important functions of a vehicle, for that our toolkit provides different steering methods which are the following:</div>
+				<div class="paragraph">
+					<ul>
+						<li><span class="quote">Simple</span>: A basic straight-forward steering behaviour basing just on the user inputs.</li>
+						<li><span class="quote">Dynamic</span>: A complex steering behaviour dedicated for a better anti-slip behaviour on higher speeds.</li>
+						<li><span class="quote">Ackermann</span>: Is a geometry method commonly used in the Automotive industry to improve handling at lower and higher speeds. <a aria-title="" href="https://en.wikipedia.org/wiki/Ackermann_steering_geometry" target="_BLANK" data-tooltip="External link">Read more... <i class="icon-link-ext-alt"></i></a></li>
+					</ul>
+				</div>
+				<div class="sub-title text-start">Transmission</div>
+				<div class="paragraph no-margin">One of the most used features used in video-games is transmission/gearbox workflow. The Multiversal Vehicle Controller provides the following:</div>
+				<div class="paragraph">
+					<ul>
+						<li><span class="quote">Automatic</span>: As the name suggests, Automatic is an automated behaviour of a certain system, in this case and while the Unity Editor is in Play mode, the user will just have to move the vehicle freely and the its transmission will shift its gears without a single input.</li>
+						<li><span class="quote">Manual</span>: This type of transmission behaviour is the total opposite of the Automatic one, the player will have shift gears on his own while moving the vehicle.</li>
+					</ul>
+				</div>
+				<div class="sub-title text-start">Wheel Renderer Refresh</div>
+				<div class="paragraph no-margin">This controls how the wheels rotation angles should be calculated.</div>
+				<div class="paragraph">
+					<ul>
+						<li><span class="quote">Accurate</span>: Calculates the wheels rotation angles precisely.</li>
+						<li><span class="quote">Approximate</span>: Gives the wheels rotation angles approximate values.</li>
+					</ul>
+				</div>
+				<div class="sub-title text-start">Runtime Units</div>
+				<div class="paragraph no-margin">While the Unity is in play mode, some values may appear on the screen UI. <span class="quote">Example: Speed, torque, power & weight...</span> These values can be expressed in <span class="quote">Metric</span> units like <span data-tooltip="Kilometre per Hour" class="quote">KM/H <i class="icon-help-circled-1"></i></span>, <span data-tooltip="Newton⋅Metre" class="quote">N.m <i class="icon-help-circled-1"></i></span>, <span data-tooltip="Horsepower" class="quote">hp <i class="icon-help-circled-1"></i></span>, <span data-tooltip="Kilogram" class="quote">Kg <i class="icon-help-circled-1"></i></span>, <span data-tooltip="Metre" class="quote">m <i class="icon-help-circled-1"></i></span> and <span data-tooltip="Litre" class="quote">L <i class="icon-help-circled-1"></i></span>. Or in <span class="quote">Imperial</span> with units like <span data-tooltip="Mile per Hour" class="quote">MPH <i class="icon-help-circled-1"></i></span>, <span data-tooltip="Pound⋅Feet" class="quote">lb⋅ft <i class="icon-help-circled-1"></i></span>, <span data-tooltip="Kilowatt" class="quote">Kw <i class="icon-help-circled-1"></i></span>, <span data-tooltip="Pound" class="quote">lbs <i class="icon-help-circled-1"></i></span>, <span data-tooltip="Feet" class="quote">ft <i class="icon-help-circled-1"></i></span> and <span data-tooltip="Gallon" class="quote">gal <i class="icon-help-circled-1"></i></span>.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Power Unit</div>
+				<div class="paragraph no-margin">The runtime unit used for <span class="quote">Power</span> values.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Torque Unit</div>
+				<div class="paragraph no-margin">The runtime unit used for <span class="quote">Torque</span> values.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Auto Engine Shutdown</div>
+				<div class="paragraph no-margin">This feature will automatically shutdown the player's vehicle engine when stationary.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Engine Shutdown Timeout</div>
+				<div class="paragraph no-margin">The amount of time is take the vehicle engine to be shutdown.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Start Engines at Awake</div>
+				<div class="paragraph no-margin">Once the Unity Editor enters play mode, all of the vehicles engines will start up and they'll be controllable, once the Unity Editor enters play mode. Note that this feature is not available for <a aria-title="" href="" class="missing" data-tooltip="Link is missing">AI vehicle</a>s.</div>
+				<div class="helpbox info">In case <span class="quote">Start Engines At Awake</span> is disabled, the player will be required to turn on his vehicle engine manually using the <a aria-title="" href="#settings-panel-player-inputs-turn-on-off-engine">Turn On/Off Engine</a> input.</div>
+				<div class="helpbox info">You can change the <a aria-title="" href="#settings-panel-player-inputs-turn-on-off-engine">Turn On/Off Engine</a> input using the <span class="quote">Change Input</span> button. Also, you can modify the current input inside the <span class="quote">Inputs Manager</span> by clicking on <span class="quote">Edit Input</span>.</div>
+				<div class="sub-title text-start">Fuel/Battery System</div>
+				<div class="paragraph no-margin">For a much realistic behaviour, you can add fuel/battery consumption while a vehicle is running.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Engine Stall</div>
+				<div class="paragraph no-margin">For a realistic drivetrain and clutch behaviour of your vehicles, you can turn on this feature.<br />Here's how it works: Let's suppose you're in a car, you turn it on, put your foot on the clutch pedal, change from neutral to 1st gear and release your foot off the clutch immediately... Obviously the first is going to happen is that your engine is going to shutdown. This feature allows for such behaviour to happen.</div>
+				<div class="helpbox info">This feature is not available for <span class="underline-dotted" data-tooltip="Electric Vehicles">EVs <i class="icon-help-circled-1"></i></span> or vehicles with automatic gearboxes.</div>
+				<div class="sub-title text-start">Gear Limiter (First Gear/Reverse)</div>
+				<div class="paragraph no-margin">Gear limiter is a feature that prevents an Engine to Over-Rev or Under-Rev by adding brake/motor torque to the wheels, disabling this features (for the first/reverse gear only) will lead for the car stop automatically when not pressing the fuel pedal, but in any case, the engine RPM won't pass the engine's <a aria-title="" href="#settings-panel-engines-and-chargers-engine-preset-redline-rpm">Redline RPM</a>.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Burnouts For Auto Transmission</div>
+				<div class="paragraph no-margin">For vehicles with Automatic <a aria-title="" href="" class="missing" data-tooltip="Link is missing">Gearboxes</a>, enabling this allows the player to do <a href="https://en.wikipedia.org/wiki/Burnout_(vehicle)" target="_BLANK" data-tooltip="External link">Tire Burnouts <i class="icon-link-ext-alt"></i></a>. In reality most car manufacturers that make automatic gearboxes don't allow drivers to do such stunts, burnouts are kind of exclusive to vehicles with Manual <a href="" class="missing" data-tooltip="Link is missing">Gearboxes</a>, since drivers have control over the <a href="https://en.wikipedia.org/wiki/Clutch" target="_BLANK" data-tooltip="External link">Clutch <i class="icon-link-ext-alt"></i></a> through the <span class="quote">Clutch Pedal</span>.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Vehicles Interior</div>
+				<div class="paragraph no-margin">Interior components like steering wheels, speedometer/tachometer help improve the gaming experience. Turning this feature on will allow you to edit these kinds of components from your <a aria-title="" href="" class="missing" data-tooltip="Link is missing">Vehicle</a> inspector.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Reset Vehicles</div>
+				<div class="paragraph no-margin">In case your vehicle flipped over or crashed into something, the reset feature respawns the player's vehicle or any other AI vehicles into their stationary state. You can configure the reset system through the following fields:</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Reset Timeout</div>
+				<div class="paragraph no-margin">How much time it takes for the reset system to detect any flipped vehicles to respawn them.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Reset Cooldown Time</div>
+				<div class="paragraph no-margin">The time it takes the reset system to re-enable collision detection with other objects or vehicles after respawning.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Tags & Layers</div>
+				<div class="paragraph no-margin">This section is dedicated to arranging the objects used by the toolkit for a better workflow.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Vehicles Layer</div>
+				<div class="paragraph no-margin">The Unity Editor layer used by vehicles using the toolkit, as well as some components like the <a aria-title="" href="" class="missing" data-tooltip="Link is missing">Vehicle Manager</a>, <a href="" class="missing" data-tooltip="Link is missing">Vehicle UI Controller</a>, <a href="" class="missing" data-tooltip="Link is missing">Vehicle Follower</a> and more...</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Wheels Layer</div>
+				<div class="paragraph no-margin">A Unity Editor layer used for vehicle wheel models/renderers.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Game Controller Tag</div>
+				<div class="paragraph no-margin">The tag used by the Vehicle Manager component, the used tag makes finding the mentioned component much faster by other MVC components.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Player Tag</div>
+				<div class="paragraph no-margin">A GameObject tag assigned to vehicles without an <a aria-title="" href="" class="missing" data-tooltip="Link is missing">AI controller</a>.</div>
+			
+			</section>
+			<section data-level="1" data-keywords="how to change show artificial intelligence ai procedural settings tab panel window">
+				<div class="title text-start small-margin">Artificial Intelligence (AI)</div>
+				<div class="paragraph">The following section and all of its parameters are dedicated to vehicles with <a aria-title="" href="" class="missing" data-tooltip="Link is missing">AI controller</a>s.</div>
+				<div class="image" data-width="512px" data-height="516px" style="width: 512px; height: 516px; background-image: url('Files~/Images/artificial_intelligence-ai.png');"></div>
+				<div class="spacer"></div>
+				<div class="sub-title text-start">AI Layers</div>
+				<div class="paragraph no-margin">Learn more about this feature in the following <a aria-title="" href="#settings-panel-artificial-intelligence-ai-layers-editor">section</a>.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Agent Type</div>
+				<div class="paragraph no-margin">The preferred Unity <a aria-title="" href="https://docs.unity3d.com/Manual/class-NavMeshAgent.html" target="_BLANK" data-tooltip="External link">AI Agent <i class="icon-link-ext-alt"></i></a> for baking <a href="" class="missing" data-tooltip="Link is missing">AI Surface</a>s within the <a href="" class="missing" data-tooltip="Link is missing">Vehicle Manager</a> inspector. You can edit the currently used agent by clicking the <span class="quote"><i class="icon-pencil"></i></span> button on the right side of the mentioned parameter. You can also show the recommended settings if you're willing to create a new agent, as using the default <span class="quote">Humanoid</span> agent settings is not recommended.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Smooth Steering</div>
+				<div class="paragraph no-margin">Smooth Steering gives the AI behaviour a bit of a realistic flavour, instead of instantly applying the steering calculations of the <a aria-title="" href="" class="missing" data-tooltip="Link is missing">AI Controller</a>, this feature improves the output to be better, visually and in the back-end.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Steer Intensity</div>
+				<div class="paragraph no-margin">Refers to the steering speed intensity. Higher values cause a more responsive behaviour of the wheels.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Vehicle Path Distance</div>
+				<div class="paragraph no-margin">The required distance between an AI vehicle and a path point for the <a aria-title="" href="" class="missing" data-tooltip="Link is missing">AI Controller</a> to switch his focus on the next point of the <a href="" class="missing" data-tooltip="Link is missing">AI Path</a>.</div>
+				<div class="paragraph">The <span class="quote">Vehicle Path Distance</span> has two modes:</div>
+				<div class="paragraph">
+					<ul>
+						<li><span class="quote">Dynamic</span>: In this mode, the <span class="quote">Distance</span> value is an interval that has a <span class="quote">Minimum</span> and a <span class="quote">Maximum</span> for certain speeds.</li>
+						<ul>
+							<li><span class="quote">Min</span>: The vehicle to path point distance at 0 <span class="quote">Kilometres Per Hour (km/h)</span> / 0 <span class="quote">Miles Per Hour (mph)</span>.</li>
+							<li><span class="quote">Max</span>: The vehicle to path point distance at 100 <span class="quote">Kilometres Per Hour (km/h)</span> / 62 <span class="quote">Miles Per Hour (mph)</span>.</li>
+						</ul>
+						<li><span class="quote">Fixed</span>: Where the <span class="quote">Distance</span> will be a fixed value without any ranges unlike the <span class="quote">Dynamic</span> mode.</li>
+					</ul>
+				</div>
+				<div class="sub-title text-start">Path Point Spacing</div>
+				<div class="paragraph no-margin">The distance between each <a aria-title="" href="" class="missing" data-tooltip="Link is missing">AI Path</a> point.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Reverse Timeout</div>
+				<div class="paragraph no-margin">How much time it takes <a aria-title="" href="" class="missing" data-tooltip="Link is missing">AI Vehicle</a>s to engage the <span class="quote">Reverse</span> gear when it's stuck and can't move forward to its target position anymore.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Reverse Time Span</div>
+				<div class="paragraph no-margin">The amount of time it takes <a aria-title="" href="" class="missing" data-tooltip="Link is missing">AI Vehicle</a>s to disengage the <span class="quote">Reverse</span> gear.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Agent Refresh Timeout</div>
+				<div class="paragraph no-margin">A time span for AI agents to refresh their destination path.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Agent Refresh Timeout</div>
+				<div class="paragraph no-margin">A time span for AI agents to refresh their destination path.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Path Avoidance Curve</div>
+				<div class="paragraph no-margin">A smoothness curve for <a aria-title="" href="" class="missing" data-tooltip="Link is missing">AI Path</a> components used to avoid obstacles. The linear the curve is, the sharper <a href="" class="missing" data-tooltip="Link is missing">AI Path</a>s avoid obstacles.</div>
+				<div class="helpbox warning">The <span class="quote">Path Avoidance Curve</span> limits cannot exceed <span class="quote">0</span> and <span class="quote">1</span> on both axes, <span class="quote">Time (X)</span> and <span class="quote">Value (Y)</span>, otherwise the curve will be stretched or clamped automatically at Runtime which is not recommended.</div>
+				<div class="sub-title text-start">Obstacle Detection</div>
+				<div class="paragraph no-margin">The following parameters of this sub-section, have control over AI obstacle detection & avoidance.</div>
+				<div class="paragraph">You can set the detection & avoidance quality of vehicle obstacles by using the enumerator on the right side of this parameter. The better the quality, the low the performance becomes.</div>
+				<div class="helpbox info">Some AI features might be disabled for some range of qualities.</div>
+				<div class="sub-title text-start">Geometry Type</div>
+				<div class="paragraph no-margin">The type of geometry system used to treat static <a aria-title="" href="https://docs.unity3d.com/Manual/class-GameObject.html" target="_BLANK" data-tooltip="External link">GameObjects <i class="icon-link-ext-alt"></i></a> as obstacles.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Sensors/Front Sensors</div>
+				<div class="paragraph no-margin">To avoid obstacles, <a aria-title="" href="" class="missing" data-tooltip="Link is missing">AI Vehicle</a>s need sensors to detect them.</div>
+				<div class="paragraph"><span class="quote">Front Sensors</span> are the main sensors of any <a aria-title="" href="" class="missing" data-tooltip="Link is missing">AI Vehicle</a> and have two modes:</div>
+				<div class="paragraph">
+					<ul>
+						<li><span class="quote">Dynamic</span>: This mode allows the toolkit to change the sensors length & angle depending on their vehicle speed.</li>
+						<li><span class="quote">Fixed</span>: By enabling this mode, the sensors length will be static and won't change.</li>
+					</ul>
+				</div>
+				<div class="sub-title text-start">Sensors Steer</div>
+				<div class="paragraph no-margin">This feature allows the <a aria-title="" href="#settings-panel-artificial-intelligence-ai-sensors-front-sensors">Front Sensors</a> to steer in relation to their <a href="" class="missing" data-tooltip="Link is missing">AI Vehicle</a> steering angle.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Sensors Steer Multiplier</div>
+				<div class="paragraph no-margin">The sensors steering angle multiplier.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Sensors Length</div>
+				<div class="paragraph no-margin">The front sensors length.</div>
+				<div class="paragraph">The type of sensors length depends on the <a aria-title="" href="#settings-panel-artificial-intelligence-ai-sensors-front-sensors">Sensors Mode</a>. Here's a small recap for each mode:</div>
+				<div class="paragraph">
+					<ul>
+						<li><span class="quote">Dynamic</span>: An interval value with a minimum and a maximum.</li>
+						<ul>
+							<li><span class="quote">Min</span>: The minimum sensor length at 0 <span class="quote">Kilometres Per Hour (km/h)</span> / 0 <span class="quote">Miles Per Hour (mph)</span>.</li>
+							<li><span class="quote">Max</span>: The maximum sensor length at 100 <span class="quote">Kilometres Per Hour (km/h)</span> / 62 <span class="quote">Miles Per Hour (mph)</span>.</li>
+						</ul>
+						<li><span class="quote">Fixed</span>: A single static number value.</li>
+					</ul>
+				</div>
+				<div class="sub-title text-start">Clamp Sensors Length</div>
+				<div class="paragraph no-margin">Setting this parameter to <span class="quote">No</span> allows the sensors length to exceed to its <span class="quote">Maximum</span> value.</div>
+				<div class="paragraph">This parameter is only available for <span class="quote">Dynamic</span> sensors.</div>
+				<div class="sub-title text-start">Sensors Angle</div>
+				<div class="paragraph no-margin">The front side sensors angle.</div>
+				<div class="paragraph">The type of sensors angle depends on the <a aria-title="" href="#settings-panel-artificial-intelligence-ai-sensors-front-sensors">Sensors Mode</a>. Here's a small recap for each mode:</div>
+				<div class="paragraph">
+					<ul>
+						<li><span class="quote">Dynamic</span>: An interval value with a minimum and a maximum.</li>
+						<ul>
+							<li><span class="quote">Min</span>: The minimum sensor angle at 100 <span class="quote">Kilometres Per Hour (km/h)</span> / 62 <span class="quote">Miles Per Hour (mph)</span>.</li>
+							<li><span class="quote">Max</span>: The maximum sensor angle at 0 <span class="quote">Kilometres Per Hour (km/h)</span> / 0 <span class="quote">Miles Per Hour (mph)</span>.</li>
+						</ul>
+						<li><span class="quote">Fixed</span>: A single static number value.</li>
+					</ul>
+				</div>
+				<div class="paragraph">The sensors angle is always clamped between <span class="quote">0</span> and <span class="quote">90</span> degrees.</div>
+				<div class="sub-title text-start">Clamp Sensors Angle</div>
+				<div class="paragraph no-margin">Setting this parameter to <span class="quote">No</span> allows the sensors angle to exceed to its <span class="quote">Maximum</span> value.</div>
+				<div class="paragraph">This parameter is only available for <span class="quote">Dynamic</span> sensors.</div>
+				<div class="helpbox info">Setting the <span class="quote">Maximum</span> <a aria-title="" href="#settings-panel-artificial-intelligence-ai-sensors-angle">Sensor Angle</a> to 90 degrees and enabling the <a href="#settings-panel-artificial-intelligence-ai-clamp-sensors-angle">Sensors Angle Clamp</a> toggle won't make any change to the sensors behaviour. This only applies to <span class="quote">Dynamic</span> sensors.</div>
+				<div class="sub-title text-start">Side Sensors Length</div>
+				<div class="paragraph no-margin">The length of side sensors for <a aria-title="" href="" class="missing" data-tooltip="Link is missing">AI Vehicle</a>s.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Tags & Layers</div>
+				<div class="paragraph no-margin">This section is dedicated to arranging the objects used by the toolkit for a better workflow.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Vehicles Layer</div>
+				<div class="paragraph no-margin">This parameter is the same as <a aria-title="" href="#settings-panel-general-vehicles-layer">Vehicles Layer</a> of the <a href="#settings-panel-general">General</a> section.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Wheels Layer</div>
+				<div class="paragraph no-margin">This parameter is the same as <a aria-title="" href="#settings-panel-general-wheels-layer">Wheels Layer</a> of the <a href="#settings-panel-general">General</a> section.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Walkable Mask</div>
+				<div class="paragraph no-margin">A layer mask that targets walkable objects within the active scene.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Non-Walkable Mask</div>
+				<div class="paragraph no-margin">A layer mask that targets non-walkable objects (i.e. Obstacles) within the active scene.</div>
+			</section>
+			<section data-level="2" data-keywords="how to change show artificial intelligence ai procedural settings tab panel window">
+				<div class="title text-start small-margin">AI Layers Editor</div>
+				<div class="paragraph">AI Layers allow you to manage and differentiate between AI vehicles.</div>
+				<div class="helpbox info">AI Layers don't affect the AI behaviour in any way possible.</div>
+				<div class="sub-title text-start">Layers List</div>
+				<div class="paragraph">Within the <span class="quote">AI Layers List</span> you can do different actions to manage the different available layers, here's a detailed list about what's possible:</div>
+				<div class="image" data-width="350px" data-height="190px" style="width: 350px; height: 190px; background-image: url('Files~/Images/ai-layers-editor-layers-list.png');"></div>
+				<div class="spacer"></div>
+				<div class="paragraph">
+					<ul>
+						<li><i class="icon-sort"></i>: The sort button allows you arrange available layers as you want. Note that this action doesn't affect the layers behaviour.</li>
+						<li><i class="icon-plus"></i>: This button allows you to add new layers to the list.</li>
+						<li><i class="icon-trash"></i>: The remove button can act in two ways, when using the top remove button, you'll be able to remove all of the AI layers and the MVC will add a new one, since it's not possible to remove all of them. When using the buttons on the side of each AI layer, you'll be able to remove each layer individually.</li>
+						<li><i class="icon-pencil"></i>: Clicking on this button allows you to change the layer's name.</li>
+						<li><i class="icon-docs"></i>: The duplicate button basically allows you to create an exact copy of a desired layer.</li>
+					</ul>
+				</div>
+				<div class="sub-title text-start">Chasability Matrix</div>
+				<div class="paragraph">Using this layers matrix, you can have control over which layers can chase each other and which cannot. This matrix affects AI vehicles with <a aria-title="" href="" class="missing" data-tooltip="Link is missing...">type</a> set to <span class="quote">Chase Vehicle</span>.</div>
+				<div class="helpbox info">AI Layers don't affect the AI behaviour in any way possible.</div>
+				<div class="image" data-width="350px" data-height="257px" style="width: 350px; height: 257px; background-image: url('Files~/Images/ai-layers-editor-chasability-matrix.png');"></div>
+				<div class="spacer"></div>
+				<div class="paragraph no-margin">In addition to the layers mentioned in the <span class="quote">Layers List</span> tab, a Player layer will always be shown automatically to represent vehicles without an <a aria-title="" href="" class="missing" data-tooltip="Link is missing...">AI Vehicle</a> component attached to them.</div>
+				<div class="paragraph">Every chasability pair has two layers, one on the left of the matrix and another one on the top of the matrix. The first layer of pair will be destined to chase the second layer.</div>
+				<div class="paragraph">The toggle in the intersection between every two layers represent the chasability switch of that pair.</div>
+			</section>
+			<section data-level="1" data-keywords="how to change show behaviour & and physics settings tab panel window">
+				<div class="title text-start small-margin">Behaviour & Physics</div>
+				<div class="paragraph">The Multiversal Vehicle Controller is all about physics, when it comes to that, we try to deliver the best advanced sets of configuration so developers can make the most of our systems and tweak values as they want. For this, the MVC provides a list of fields as mentioned below in this section.</div>
+				<div class="image" data-width="512px" data-height="437px" style="width: 512px; height: 437px; background-image: url('Files~/Images/behaviour_and_physics.png');"></div>
+				<div class="spacer"></div>
+				<div class="sub-title text-start">Aerodynamic Wings</div>
+				<div class="paragraph no-margin">Enabling this toggle allows you to use vehicle's <a aria-title="" href="" class="missing" data-tooltip="Link is missing">Aerodynamic Wings</a>.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Downforce</div>
+				<div class="paragraph no-margin">When you enable <a aria-title="" href="" class="missing" data-tooltip="Link is missing">Downforce</a>, you get to use it within the <a href="" class="missing" data-tooltip="Link is missing">Stability</a> settings and when you configure your vehicle's <a href="" class="missing" data-tooltip="Link is missing">Active Aerodynamics</a>.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Air Anti-Roll</div>
+				<div class="paragraph no-margin">In case this feature is enabled: When a vehicle is flying in the air and it's on its way to flip, the Air Anti-Roll adds some forces to try to fix this issue and get rid of un-wanted flipping behaviours. This feature is not very suitable for simulation physics, since it adds forces to neglect realistic behaviours caused by the physics systems.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Air Anti-Roll Intensity</div>
+				<div class="paragraph no-margin">The intensity/multiplier of forces applied to the vehicle.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Non-Ground Downforce</div>
+				<div class="paragraph no-margin">Should the vehicle's <a aria-title="" href="" class="missing" data-tooltip="Link is missing">Stability</a> system and its <a href="" class="missing" data-tooltip="Link is missing">Aerodynamics</a> add downforce when it's not collided with a ground object. This feature is suitable for simulation physics.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Drag</div>
+				<div class="paragraph no-margin">Drag usually means resistance, and in this case we're talking about air resistance at higher speeds.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Wheel Mass</div>
+				<div class="paragraph no-margin">Neglecting wheels' mass from the overall vehicle mass has an effect on the vehicle's centre of mass and it's behaviour in general, this causes a realistic behaviour because of the happening back-end calculations.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Engine Mass</div>
+				<div class="paragraph no-margin">This feature is the same as the <a aria-title="" href="#settings-panel-behaviour-and-physics-wheel-mass">Wheels Mass</a> feature, except that it has a much more noticeable effect in the vehicle's behaviour and relies on the <a href="" class="missing" data-tooltip="Link is missing">Engine Position</a> configuration of the <a href="" class="missing" data-tooltip="Link is missing">Chassis</a> component and on the <a href="#settings-panel-engines-and-chargers-engine-preset-mass">mass of the vehicle's engine</a>.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Steer Intensity</div>
+				<div class="paragraph no-margin">The mentioned field controls the player's steering input's intensity, the higher the value, the intense the vehicle steering, the lower this value is, the slower the vehicle steering responsiveness.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Steer Release Intensity</div>
+				<div class="paragraph no-margin">Just like <a aria-title="" href="#settings-panel-behaviour-and-physics-steer-intensity">Steer Intensity</a>, <span class="quote">Release Intensity</span> is meant to take control when the <a href="#">Steering Wheel</a> input has been released or is inverting direction.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Steer Interpolation</div>
+				<div class="paragraph no-margin">The way in which the steering value should interpolate over time.</div>
+				<div class="paragraph">
+					<ul>
+						<li><span class="quote">Instant</span>: The steering value will instantly change to the target value.</li>
+						<li><span class="quote">Linear</span>: The steering value will move constantly over time.</li>
+						<li><span class="quote">Exponential</span>: This will let the steering value reach its target in a <a aria-title="" href="https://en.wikipedia.org/wiki/Logarithmic_growth" target="_BLANK" data-tooltip="External link">Logarithmic Form <i class="icon-link-ext-alt"></i></a> (i.e. fast at first and slow when reaching the target value).</li>
+					</ul>
+				</div>
+				<div class="sub-title text-start">Maximum Steer Angle</div>
+				<div class="paragraph no-margin">The maximum steering angle value for every vehicle.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Minimum Steer Angle</div>
+				<div class="paragraph no-margin">The minimum steering angle value for every vehicle.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Suspension Adjustments</div>
+				<div class="paragraph no-margin">Enabling this feature allows you to customize the vehicle's suspension stancing values, such as <a aria-title="" href="https://en.wikipedia.org/wiki/Camber_angle" target="_BLANK" data-tooltip="External link">Camber <i class="icon-link-ext-alt"></i></a>, <a href="https://en.wikipedia.org/wiki/Caster_angle" target="_BLANK" data-tooltip="External link">Caster <i class="icon-link-ext-alt"></i></a> and <a href="https://en.wikipedia.org/wiki/Toe_(automotive)" target="_BLANK" data-tooltip="External link">Toe <i class="icon-link-ext-alt"></i></a>.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Maximum Camber</div>
+				<div class="paragraph no-margin">The suspension's maximum <a aria-title="" href="https://en.wikipedia.org/wiki/Camber_angle" target="_BLANK" data-tooltip="External link">camber angle <i class="icon-link-ext-alt"></i></a> for every vehicle.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Maximum Caster</div>
+				<div class="paragraph no-margin">The suspension's maximum <a aria-title="" href="https://en.wikipedia.org/wiki/Caster_angle" target="_BLANK" data-tooltip="External link">caster angle <i class="icon-link-ext-alt"></i></a> for every vehicle.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Maximum Toe</div>
+				<div class="paragraph no-margin">The suspension's maximum <a aria-title="" href="https://en.wikipedia.org/wiki/Toe_(automotive)" target="_BLANK" data-tooltip="External link">toe angle <i class="icon-link-ext-alt"></i></a> for every vehicle.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Maximum Side Offset</div>
+				<div class="paragraph no-margin">The rim maximum <a aria-title="" href="https://www.lesschwab.com/article/what-is-wheel-offset.html" target="_BLANK" data-tooltip="External link">side offset <i class="icon-link-ext-alt"></i></a> for every vehicle.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Side Offset Affect Handling</div>
+				<div class="paragraph no-margin">Should <a aria-title="" href="" class="missing" data-tooltip="Link is missing">Side Offset</a> values affect a vehicle physics handling?</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Launch Control</div>
+				<div class="paragraph no-margin">Launch Control is a feature commonly used in the automotive industry to get the best launch time out of a vehicle. Launch control usually acts like a normal RPM rev-limiter, but instead of limiting the RPM to the corresponding engine's <a aria-title="" href="#settings-panel-engines-and-chargers-engine-preset-over-rev-rpm">Over-Rev RPM</a>, this feature limits the vehicle's revving range to the engine's <a href="#settings-panel-engines-and-chargers-engine-preset-peak-torque-rpm">torque peak RPM</a> when it's enabled. The mentioned feature is disabled by default at runtime, you can activate it using the <a href="#settings-panel-player-inputs-turn-on-off-launch-control">Launch Control Input</a>.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Counter Steering</div>
+				<div class="paragraph no-margin">Counter Steering is a stability feature that acts when a vehicle's rear wheels are slipping on one of their sideways axes. The counter steering system steers the vehicle automatically to the opposite of the vehicle's slipping direction to maintain stability.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Counter Steering Priority</div>
+				<div class="paragraph no-margin">This selection field is responsible for how the counter steering system should work, each option is described below:</div>
+				<div class="paragraph">
+					<ul>
+						<li><span class="quote">Steering Wheel</span>: The following option prioritizes the player's input over the counter steering system stability input.</li>
+						<li><span class="quote">Average</span>: Using this option will let the steering system calculates the average between the counter steering system input and the player's input and applies the result value to the steering wheels.</li>
+						<li><span class="quote">Counter Steer</span>: This option prioritizes the counter steering system's input over the player's steering input.</li>
+					</ul>
+				</div>
+				<div class="sub-title text-start">Counter Steer Intensity</div>
+				<div class="paragraph no-margin">The counter steer angle input multiplier.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Counter Steering Damping</div>
+				<div class="paragraph no-margin">This field smooths out the counter steering system angle input, the lower the value, the slower the counter steering to react and vice-versa.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">NOS</div>
+				<div class="paragraph no-margin">Nitrous, commonly spelled as NOS thanks to the <a aria-title="" href="https://en.wikipedia.org/wiki/Fast_%26_Furious" target="_BLANK" data-tooltip="External link">Fast & Furious <i class="icon-link-ext-alt"></i></a> culture, is a method to boost engines in order to get more power and torque by adding a denser air composition called Nitrogen-dioxide (NO₂) inside the engine's air intake in order to get an efficient fuel burning process. NOS is usually stored inside bottles, which they differ in size, number and boost efficiency.</div>
+				<div class="helpbox info">This feature is not available for <span class="underline-dotted" data-tooltip="Electric Vehicles">EVs <i class="icon-help-circled-1"></i></span>, since they use electric motors instead of internal combustion engines.</div>
+				<div class="sub-title text-start">NOS Reloading</div>
+				<div class="paragraph no-margin">Enabling this feature will allow the player to get reproduceable amounts of NOS after consumption.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">NOS Delay</div>
+				<div class="paragraph no-margin">When both of the <a aria-title="" href="#settings-panel-behaviour-and-physics-nos-reloading">NOS Reloading</a> and this feature are enabled, the reload system will have wait a for specific time span before regenerating NOS.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">NOS Delay</div>
+				<div class="paragraph no-margin">How much time does it take to start reloading the NOS bottles after last use.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Progressive NOS</div>
+				<div class="paragraph no-margin">Progressive NOS has a huge effect on NOS bottles performance, the lower the NOS amount inside a specific NOS bottle, the lower the boost is and vice-versa.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">One Shot NOS</div>
+				<div class="paragraph no-margin">When enabled, once the player activates the <a aria-title="" href="#settings-panel-player-inputs-nos">NOS Input</a>, he'll not be able to cancel boosting his vehicle's engine unless the currently used NOS bottle becomes fully empty.</div>
+			</section>
+			<section data-level="1" data-keywords="how to change show damage settings tab panel window">
+				<div class="title text-start small-margin">Damage</div>
+				<div class="paragraph">The Damage system in its beta phase is still pretty basic and simple, we're working on improving it in future releases of our toolkit! Until that time, here's a full list of the available fields and configurations.</div>
+				<div class="image" data-width="512px" data-height="261px" style="width: 512px; height: 261px; background-image: url('Files~/Images/damage.png');"></div>
+				<div class="spacer"></div>
+				<div class="sub-title text-start">Velocity Levels</div>
+				<div class="paragraph no-margin">The damage system used velocity levels to determine the intensity of the vehicle's collision or impact with other objects or vehicles. We can identify three levels: <span class="quote">Low</span>, <span class="quote">Medium</span> and <span class="quote">High</span>.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Wheel Health</div>
+				<div class="paragraph no-margin">Wheels Health is a feature that has been included in the damage system to simulate tires health, for example a tire can blow up because of wearing out due to doing <a aria-title="" href="https://google.com/search?q=car+skids" target="_BLANK" data-tooltip="External link">skids <i class="icon-link-ext-alt"></i></a> and <a href="https://google.com/search?q=car+donuts" target="_BLANK" data-tooltip="External link">donuts <i class="icon-link-ext-alt"></i></a>. That can cause wheel tires to get flat-out and blow, that will make the damage system simulate some <a href="#settings-panel-visual-effects-vfx">Visual Effects</a> that can be configured below.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Wheel Damage Intensity</div>
+				<div class="paragraph no-margin">This field indicates the how much fast the wheel's tire will become flat, the higher the value the much damage a tire gets and vice-versa.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Explosion Force</div>
+				<div class="paragraph no-margin">The force of the <a aria-title="" href="#settings-panel-visual-effects-vfx-particle-systems-tire-explosion-force-field">Tire Explosion Field</a>.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Rim Edge Emission Colour</div>
+				<div class="paragraph no-margin">The emission colour that will be visualized at the wheel's rim edges when at higher rates of heat caused by the friction between the metal of the rim and the ground the wheel is sitting on.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Rim Custom Emission Property</div>
+				<div class="paragraph no-margin">The emission property of the wheel's material, this property can be added when using a custom shaders to render the wheel object. The MVC systems can handle standard Unity shaders, HDRP and URP standard shaders as well. When using a custom built shader you'll have to assign this field in order to visualize the damage effect otherwise an error will be thrown in the <a aria-title="" href="https://docs.unity3d.com/Manual/Console.html" target="_BLANK" data-tooltip="External link">Console window <i class="icon-link-ext-alt"></i></a>.</div>
+			</section>
+			<section data-level="1" data-keywords="how to change show cameras settings tab panel window">
+				<div class="title text-start small-margin">Cameras</div>
+				<div class="paragraph">The Cameras configurations are a useful way to create several camera presets and to manipulate the feeling of your game.</div>
+				<div class="image" data-width="512px" data-height="261px" style="width: 512px; height: 261px; background-image: url('Files~/Images/cameras.png');"></div>
+				<div class="spacer"></div>
+				<div class="paragraph">When opening this panel, you'll find a bunch of buttons that will help you manage your camera presets, in this section we're going to explain them one by one.</div>
+				<div class="paragraph"><span class="quote">Import</span>: You can use this button to import a <span class="quote">Json</span> file with existing camera presets.</div>
+				<div class="paragraph"><span class="quote">Export</span>: If you want to share or copy existing camera presets from a project to another, use this button to do so.</div>
+				<div class="paragraph"><span class="quote"><i class="icon-sort"></i></span>: The sort button allows you arrange the camera presets and prioritize them as you want.</div>
+				<div class="paragraph"><span class="quote"><i class="icon-plus"></i></span>: This button allows you to add new presets to the cameras list.</div>
+				<div class="paragraph"><span class="quote"><i class="icon-trash"></i></span>: The remove button can act in two ways, when using the top remove button, you'll be able to remove all of the camera presets and the MVC will add a new one, since it's not possible to remove all of them. And when using the buttons on the side of each camera preset, you'll be able to remove each preset individually.</div>
+				<div class="paragraph"><span class="quote"><i class="icon-pencil"></i></span>: Clicking on this button will open another panel for you, in which you can find all of the different settings of the preset.</div>
+				<div class="paragraph"><span class="quote"><i class="icon-docs"></i></span>: The duplicate button basically allows you to create an exact copy of a desired preset.</div>
+			</section>
+			<section data-level="2" data-keywords="how to change show cameras preset settings tab panel window">
+				<div class="title text-start small-margin">Camera Preset</div>
+				<div class="paragraph">A camera preset is an instance that contains the necessary information about the <a aria-title="" href="" class="missing" data-tooltip="Link is missing">Vehicle Follower</a>'s behaviour. You can switch between presets at runtime using the <a href="#settings-panel-player-inputs-change-camera">Camera Switch Input</a>. The preset settings can differ from a preset to another depending on their enabled features.</div>
+				<div class="image" data-width="512px" data-height="401px" style="width: 512px; height: 401px; background-image: url('Files~/Images/camera_preset.png');"></div>
+				<div class="spacer"></div>
+				<div class="sub-title text-start">Name</div>
+				<div class="paragraph no-margin">The camera name is the preset identifier and cannot be a duplicate of another preset.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Type</div>
+				<div class="paragraph no-margin">The type field indicates the main behaviour type of the preset. A camera could be a <span class="quote">Follower</span> or a <span class="quote">Pivot</span>.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Features</div>
+				<div class="paragraph no-margin">Each camera preset should has its own set of features depending on its <span class="quote">Type</span>. Here's a full list of features and which types of cameras are compatible with:</div>
+				<div class="paragraph">
+					<ul>
+						<li><span class="quote">Vertical Orbit</span>: The camera can rotate around the vehicle's X axis. Available for <span class="quote">Follower</span> and <span class="quote">Pivot</span> type of presets.</li>
+						<li><span class="quote">Horizontal Orbit</span>: The camera can rotate around the vehicle's Y axis. Available for <span class="quote">Follower</span> and <span class="quote">Pivot</span> type of presets.</li>
+						<li><span class="quote">Speed Pulse</span>: This features allows the camera to go a bit backwards at higher speeds. Available for <span class="quote">Follower</span> type of presets.</li>
+						<li><span class="quote">Speed <span class="quote cursor-help" data-tooltip="Field Of View">FOV <i class="icon-help-circled-1"></i></span></span>: This feature allows the camera to feel like going backwards at higher speeds, by just changing its <a aria-title="" href="https://docs.unity3d.com/ScriptReference/Camera-fieldOfView.html" target="_BLANK" data-tooltip="External link">Field Of View <i class="icon-link-ext-alt"></i></a>. Available for <span class="quote">Pivot</span> type of presets.</li>
+						<li><span class="quote">Gear Pulse</span>: This features allows the camera to go a bit forward in a fast way while shifting gears, so the player can get the feeling of something happening. Available for <span class="quote">Follower</span> type of presets.</li>
+						<li><span class="quote">Sideways Slip Pulse</span>: The camera can move left and right while the <a aria-title="" href="" class="missing" data-tooltip="Link is missing">target vehicle</a> is slipping on its X axis. Available for <span class="quote">Follower</span> and <span class="quote">Pivot</span> type of presets.</li>
+						<li><span class="quote">Steering Tilt</span>: This feature will allow the camera to rotate around its Z axis, this rotation depends on the vehicle's velocity at the X axis. Available for <span class="quote">Follower</span> and <span class="quote">Pivot</span> type of presets.</li>
+						<li><span class="quote" class="cursor-help" data-tooltip="Nitrous Field Of View">NOS FOV <i class="icon-help-circled-1"></i></span>: While the vehicle's NOS is active, the player will feel like the camera is moving backward in an intense way, by just changing its <a aria-title="" href="https://docs.unity3d.com/ScriptReference/Camera-fieldOfView.html" target="_BLANK" data-tooltip="External link">Field Of View <i class="icon-link-ext-alt"></i></a>. Available for <span class="quote">Follower</span> and <span class="quote">Pivot</span> type of presets.</li>
+						<li><span class="quote">Speed Shaking</span>: While running at higher speeds, the camera will simulate some shaking effects with a certain intensity. Available for <span class="quote">Follower</span> and <span class="quote">Pivot</span> type of presets.</li>
+						<li><span class="quote">Off-Road Shaking</span>: Off-Road grounds can be configured in the <a aria-title="" href="#settings-panel-grounds-and-surfaces">Grounds & Surfaces</a> panel, and if the <a href="" class="missing" data-tooltip="Link is missing">target vehicle</a> is on top of one of these grounds and this feature is enabled, the player will get that feeling of the vehicle running on top of something rough. Available for <span class="quote">Follower</span> and <span class="quote">Pivot</span> type of presets.</li>
+						<li><span class="quote">NOS Shaking</span>: The camera will shake randomly in case the vehicle's NOS is active. Available for <span class="quote">Follower</span> and <span class="quote">Pivot</span> type of presets.</li>
+						<li><span class="quote">Sideways Slip Shaking</span>: As the vehicle's absolute <a aria-title="" href="https://docs.unity3d.com/ScriptReference/WheelHit.html" target="_BLANK" data-tooltip="External link">sideways slip <i class="icon-link-ext-alt"></i></a> value gets higher, the camera starts to shake randomly. Available for <span class="quote">Follower</span> type of presets.</li>
+						<li><span class="quote">Forward Slip Shaking</span>: The camera will shake in case the vehicle's <a aria-title="" href="https://docs.unity3d.com/ScriptReference/WheelHit.html" target="_BLANK" data-tooltip="External link">forward slip <i class="icon-link-ext-alt"></i></a> value is positive. The higher the slip value, the intense the shaking is. Available for <span class="quote">Follower</span> type of presets.</li>
+						<li><span class="quote">Brake Slip Shaking</span>: The camera will shake in case vehicle's <a aria-title="" href="https://docs.unity3d.com/ScriptReference/WheelHit.html" target="_BLANK" data-tooltip="External link">forward slip <i class="icon-link-ext-alt"></i></a> value is negative. The lower the slip value, the intense the shaking is. Available for <span class="quote">Follower</span> type of presets.</li>
+						<li><span class="quote">Showcase</span>: When the <a aria-title="" href="" class="missing" data-tooltip="Link is missing">target vehicle</a> is idle for a period of time, the camera will rotate around the vehicle in slow-motion to visualise it in a cinematic way. Available for <span class="quote">Follower</span> type of presets.</li>
+						<li><span class="quote">Stunts Showcase</span>: While doing stunts with the <a aria-title="" href="" class="missing" data-tooltip="Link is missing">target vehicle</a> like <a href="https://google.com/search?q=car+donuts" target="_BLANK" data-tooltip="External link">donuts <i class="icon-link-ext-alt"></i></a>, the camera will stay in an idle position for a better cinematic view. Available for <span class="quote">Follower</span> type of presets.</li>
+						<li><span class="quote">Obstacles Detection</span>: This feature will make the camera dodge intensely in case its <a aria-title="" href="" class="missing" data-tooltip="Link is missing">target vehicle</a> collides with an object or another vehicle. Available for <span class="quote">Follower</span> and <span class="quote">Pivot</span> type of presets.</li>
+					</ul>
+				</div>
+				<div class="sub-title text-start">Pivot Position</div>
+				<div class="paragraph no-margin">This field indicates whether a camera pivot should be situated <span class="quote">Inside</span> a vehicle like an FPS camera, or <span class="quote">Outside</span> of it, like a Bumper or a Hood camera. This configuration field is only available for <span class="quote">Pivot</span> type of cameras.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Pivot</div>
+				<div class="paragraph no-margin">For camera presets type of <span class="quote">Follower</span>, the pivot indicates the position of on which the Vehicle Follower should focus on and rotate around, the pivot position is always relative to the vehicle position and rotation, so you can choose separately on each axis the option you want as the following:</div>
+				<div class="paragraph">
+					<ul>
+						<li><span class="quote">X</span>: <span class="quote">Left</span>, <span class="quote">Centre</span> and <span class="quote">Right</span></li>
+						<li><span class="quote">Y</span>: <span class="quote">Top</span>, <span class="quote">Middle</span> and <span class="quote">Bottom</span></li>
+						<li><span class="quote">Z</span>: <span class="quote">Front</span>, <span class="quote">Middle</span> and <span class="quote">Rear</span></li>
+					</ul>
+				</div>
+				<div class="sub-title text-start">Impact Shaking</div>
+				<div class="paragraph no-margin">The Impact Shaking mask indicates the axes that a camera could shake on when the <a aria-title="" href="" class="missing" data-tooltip="Link is missing">target vehicle</a> collides with an object or another vehicle. A camera could shake on the <span class="quote">Vertical (Y)</span> axis or on the <span class="quote">Horizontal (X)</span> axis.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Impact Shaking Type</div>
+				<div class="paragraph no-margin">A camera could shake <span class="quote">Normally</span> like a single shot to a specified direction (could be left, right, up, down) depending the Impact Shaking mask. A camera can also shake in an <span class="quote">Intense</span> form as a <a aria-title="" href="https://en.wikipedia.org/wiki/Sine_wave" target="_BLANK" data-tooltip="External link">Sine Wave <i class="icon-link-ext-alt"></i></a>, for example from left/top to right/bottom and then from right/bottom to left/top until the camera gets back to its original position.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Mouse Orbit</div>
+				<div class="paragraph no-margin">This feature allows a camera to rotate around the <a aria-title="" href="" class="missing" data-tooltip="Link is missing">target vehicle</a> while looking at it, using a Mouse or a Keyboard or any kind of controller input. It can be configured using the settings mentioned below.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Orbit Horizontal (X) Interval</div>
+				<div class="paragraph no-margin">This interval indicates the camera horizontal rotation limits around the <a aria-title="" href="" class="missing" data-tooltip="Link is missing">target vehicle</a>.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Orbit Vertical (Y) Interval</div>
+				<div class="paragraph no-margin">This interval indicates the camera vertical rotation limits around the <a aria-title="" href="" class="missing" data-tooltip="Link is missing">target vehicle</a>.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Invert X Orbit</div>
+				<div class="paragraph no-margin">Enabling this setting will invert the camera's orbit rotation in the opposite horizontal direction.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Invert Y Orbit</div>
+				<div class="paragraph no-margin">Enabling this setting will invert the camera's orbit rotation in the opposite vertical direction.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Use Orbit Mouse Button</div>
+				<div class="paragraph no-margin">By enabling this feature, you'll only be able to orbit the camera around the <a aria-title="" href="" class="missing" data-tooltip="Link is missing">target vehicle</a> when a specified <a href="#settings-panel-camera-preset-orbit-mouse-button">mouse button</a> is pressed.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Orbit Mouse Button</div>
+				<div class="paragraph no-margin">The used mouse button to orbit the camera. A mouse button could be one of these: <span class="quote">Left</span>, <span class="quote">Right</span>, <span class="quote">Middle</span>, <span class="quote">Back</span> or <span class="quote">Forward</span>.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Skip Distant Angles</div>
+				<div class="paragraph no-margin">When a camera has a specific <a aria-title="" href="#settings-panel-camera-preset-camera-distant-angle">distant orbit angle</a>, it will skip the smooth transition and go directly to the requested orbit offset.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Distant Angle</div>
+				<div class="paragraph no-margin">The orbit angle offset at which a camera will skip rotating in a smooth way and just rotate around the <a aria-title="" href="" class="missing" data-tooltip="Link is missing">target vehicle</a> instantly.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Orbit Timeout</div>
+				<div class="paragraph no-margin">After the last orbit rotation occurs, a timer will start counting until a specific time is reached, and then the camera will get back to its original orbit offset smoothly.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Field Of View Interval</div>
+				<div class="paragraph no-margin">The <span class="underline-dotted cursor-help" data-tooltip="Field Of View">FOV <i class="icon-help-circled-1"></i></span> Interval is dedicated for both NOS and high speeds behaviours, when one of these features is in action, the camera's Field Of View will be set smoothly to the <span class="quote">High</span> value of this interval, otherwise it'll be set to the <span class="quote">Idle</span> value.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Shaking Speed</div>
+				<div class="paragraph no-margin">The <a aria-title="" href="" class="missing" data-tooltip="Link is missing">target vehicle</a>'s speed interval. The <span class="quote">Min</span> value indicates the speed at which the shaking will start and the <span class="quote">Max</span> speed indicates the speed at which the camera shaking will reach its top intensity. You can configure the intensity of shake from the <a href="" class="missing" data-tooltip="Link is missing">Vehicle Follower</a> editor.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Tilt Angle</div>
+				<div class="paragraph no-margin">The Camera Tilt Angle is an angle at which the camera rotate around its Z axis to simulate a steering feel at higher speeds.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Invert Tilt Angle</div>
+				<div class="paragraph no-margin">This feature inverts the simulation of the <a aria-title="" href="#settings-panel-camera-preset-camera-tilt-angle">Camera Tilt Angle</a>.</div>
+			</section>
+			<section data-level="1" data-keywords="how to change show player inputs manager system settings tab panel window">
+				<div class="title text-start small-margin">Player Inputs</div>
+				<div class="paragraph">The only way to control a vehicle is through inputs, either with a Keyboard, Gamepad or using your mobile device touch screen. The Multiversal Vehicle Controller provides a variety of systems to make everything easy to manage.</div>
+				<div class="image" data-width="512px" data-height="423px" style="width: 512px; height: 423px; background-image: url('Files~/Images/player-inputs.png');"></div>
+				<div class="spacer"></div>
+				<div class="sub-title text-start">Input System</div>
+				<div class="paragraph no-margin">This indicates which input system should be used by the Multiversal Vehicle Controller to control vehicles.</div>
+				<div class="paragraph">
+					<ul>
+						<li><span class="quote">Inputs Manager</span>: This input system has been made on top Unity's new <a aria-title="" href="https://docs.unity3d.com/Manual/com.unity.inputsystem.html" target="_BLANK" data-tooltip="External link">Input System <i class="icon-link-ext-alt"></i></a>. It is an open source plugin that has been developed by BxB Studio. Check the Inputs Manager's <a href="https://github.com/yboumaiza7/Inputs-Manager" target="_BLANK" data-tooltip="External link">GitHub repository <i class="icon-link-ext-alt"></i></a> for more information.</li>
+						<li><span class="quote">Unity Legacy Input System</span>: For users who cannot adapt to the Inputs Manager, we've added the support of Unity's <a aria-title="" href="https://docs.unity3d.com/Manual/class-InputManager.html" target="_BLANK" data-tooltip="External link">Legacy Input System <i class="icon-link-ext-alt"></i></a>.</li>
+					</ul>
+				</div>
+				<div class="helpbox info">When using <span class="quote">Unity Legacy Input System</span>, you'll have to assign the inputs' names manually by specifying the used input name instead of choosing from a predefined list.</div>
+				<div class="helpbox info">Using the <span class="quote">Inputs Manager</span> allows you to edit each input individually using the <span class="quote"><i class="icon-pencil"></i></span> button on the right side of each one.</div>
+				<div class="sub-title text-start">Gamepad Rumble</div>
+				<div class="paragraph no-margin">Enabling this feature will let you control the player's gamepad rumble motors according to the <a aria-title="" href="" class="missing" data-tooltip="Link is missing">Vehicle Follower</a> shaking settings the can be changed by setting-up its <a href="#settings-panel-camera-preset">Camera Preset</a> features.</div>
+				<div class="helpbox info">Make sure you're not using <span class="quote">Unity Legacy Input System</span> as your default input system, as <span class="quote">Gamepad Rumble</span> is only available for the <span class="quote">Inputs Manager</span> input system.</div>
+				<div class="sub-title text-start">Gamepad Levelled Rumble</div>
+				<div class="paragraph no-margin">Turning this feature <span class="quote">On</span> will give the Gamepad's Rumble a variety of levels, from low to high depending on Camera's shaking intensity.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Merge Gamepad Rumble Sides</div>
+				<div class="paragraph no-margin">Enabling this feature will match between the gamepad rumble motors intensity and vice-versa.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Mobile Inputs</div>
+				<div class="paragraph no-margin">When turning this feature On, you'll be allowed to use UI elements to control your vehicle (i.e. through Touch inputs).</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Steering Wheel</div>
+				<div class="paragraph no-margin">Used to turn the vehicle left or right.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Fuel Pedal</div>
+				<div class="paragraph no-margin">This pedal is for accelerating.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Brake Pedal</div>
+				<div class="paragraph no-margin">The brake pedal is for decelerating.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Clutch Pedal</div>
+				<div class="paragraph no-margin">This pedal disengages the vehicle's drivetrain from its gearbox.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Handbrake</div>
+				<div class="paragraph no-margin">Used to lock the vehicle's rear wheels.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Gear Shift Up</div>
+				<div class="paragraph no-margin">Use this input to shift up the vehicle's current gear by one.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Gear Shift Down</div>
+				<div class="paragraph no-margin">Use this input to shift down the vehicle's current gear by one.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Turn On/Off Engine</div>
+				<div class="paragraph no-margin">When the player's vehicle engine is On or Off, this input can change the engine state.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">NOS</div>
+				<div class="paragraph no-margin">This input will activate the vehicle's <a aria-title="" href="#settings-panel-behaviour-and-physics-nos">NOS</a> booster.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Turn On/Off Launch Control</div>
+				<div class="paragraph no-margin">The following input will switch the player's vehicle <a aria-title="" href="#settings-panel-behaviour-and-physics-launch-control">Launch Control</a>.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Reset</div>
+				<div class="paragraph no-margin">Used to respawn the vehicle on with its initial rotation in a stationary form.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Change Camera</div>
+				<div class="paragraph no-margin">This input is used to switch the different available <a aria-title="" href="#settings-panel-camera-preset">Camera Preset</a>s.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Camera Forward View</div>
+				<div class="paragraph no-margin">The mentioned input is used to position the <a aria-title="" href="" class="missing" data-tooltip="Link is missing">Vehicle Follower</a> on the front or back side of the <a href="" class="missing" data-tooltip="Link is missing">Player Vehicle</a>.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Camera Sideways View</div>
+				<div class="paragraph no-margin">The mentioned input is used to position the <a aria-title="" href="" class="missing" data-tooltip="Link is missing">Vehicle Follower</a> on the left or right side of the <a href="" class="missing" data-tooltip="Link is missing">Player Vehicle</a>.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Turn On/Off Lights</div>
+				<div class="paragraph no-margin">Used to switch lights on or off.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Turn On/Off Highbeam</div>
+				<div class="paragraph no-margin">Used to switch high beam headlights on or off.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Highbeam Use Double Press</div>
+				<div class="paragraph no-margin">Enabling this feature will require the player to press the switch button twice in order to switch the high beam headlights on.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Turn On/Off Interior Light</div>
+				<div class="paragraph no-margin">Used to switch interior lights on or off.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Turn On/Off Left Signal Light</div>
+				<div class="paragraph no-margin">Used to switch left indicator lights on or off.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Turn On/Off Right Signal Light</div>
+				<div class="paragraph no-margin">Used to switch right indicator lights on or off.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Turn On/Off Hazard Lights</div>
+				<div class="paragraph no-margin">Used to switch left & right indicator lights on or off.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Link/Unlink Trailer</div>
+				<div class="paragraph no-margin">This input is used to detach a vehicle from its trailer, or attach a trailer manually.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Link Trailer Manually</div>
+				<div class="paragraph no-margin">When turned On, you can attach a trailer to a vehicle only when they're close to each other and the <span class="quote">Link/Un-link Trailer</span> input is activated.</div>
+			</section>
+			<section data-level="1" data-keywords="how to change show engine turbocharger supercharger settings tab panel window">
+				<div class="title text-start small-margin">Engines & Chargers</div>
+				<div class="paragraph">The following list of presets are the main components that drive a vehicle in reality. But, with the MVC these components are represented as presets and each preset has certain values, like <span class="quote">Power</span>, <span class="quote">Torque</span>, <span class="quote underline-dotted" data-tooltip="Revolution Per Minute">RPM <i class="icon-help-circled-1"></i></span> & more...</div>
+				<div class="paragraph">In this panel you can setup two main components that are Engines & Chargers (i.e. Turbochargers & Superchargers).</div>
+				<div class="image" data-width="512px" data-height="261px" style="width: 512px; height: 261px; background-image: url('Files~/Images/engines_and_chargers.png');"></div>
+				<div class="spacer"></div>
+				<div class="paragraph">When opening this panel, you'll find a bunch of buttons that will help you manage your engine and/or charger presets, in this section we're going to explain them one by one.</div>
+				<div class="paragraph"><span class="quote">Import</span>: You can use this button to import a <span class="quote">Json</span> file with existing engine & charger presets.</div>
+				<div class="paragraph"><span class="quote">Export</span>: If you want to share or copy existing engine and/or charger presets from a project to another, use this button to do so.</div>
+				<div class="paragraph"><span class="quote"><i class="icon-sort"></i></span>: The sort button allows you arrange available presets and prioritize them as you want.</div>
+				<div class="paragraph"><span class="quote"><i class="icon-plus"></i></span>: This button allows you to add new presets to the engines or chargers list.</div>
+				<div class="paragraph"><span class="quote"><i class="icon-trash"></i></span>: The remove button can act in two ways, when using the top remove button, you'll be able to remove all of the engine or charger presets and the MVC will add a new ones, since it's not possible to remove all of them. And when using the buttons on the side of each engine/charger preset, you'll be able to remove each preset individually.</div>
+				<div class="paragraph"><span class="quote"><i class="icon-pencil"></i></span>: Clicking on this button will open another panel for you, in which you can find all of the different settings of the preset.</div>
+				<div class="paragraph"><span class="quote"><i class="icon-docs"></i></span>: The duplicate button basically allows you to create an exact copy of a desired preset.</div>
+			</section>
+			<section data-level="2" data-keywords="how to change show engine preset settings tab panel window">
+				<div class="title text-start small-margin">Engine Preset</div>
+				<div class="paragraph">An engine can be found in any type of vehicle as its responsible for movement by delivering torque and power to the <a aria-title="" href="" class="missing" data-tooltip="Link is missing">Vehicle Wheel</a>s.</div>
+				<div class="image" data-width="512px" data-height="454px" style="width: 512px; height: 454px; background-image: url('Files~/Images/engine_preset.png');"></div>
+				<div class="paragraph">In this section we're going to explain every single option and configuration so you can create your own engine preset with ease.</div>
+				<div class="helpbox info">Every parameter has its own effect on the behaviour, inertia or performance of the engine or the vehicle even in small/un-noticeable ways.</div>
+				<div class="helpbox info">You can use the <span class="quote icon-cog"></span> button to modify the current engine in a separate configuration window that has the same parameters and settings mentioned below.</div>
+				<div class="spacer"></div>
+				<div class="sub-title text-start">Name</div>
+				<div class="paragraph no-margin">Is the engine identifier, each engine has its own unique name and cannot match with any other engine preset.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Alignment</div>
+				<div class="paragraph no-margin">Each engine has its own alignment configuration, and everything related to the engine relies on this parameter. The available options are mentioned below:</div>
+				<div class="paragraph">
+					<ul>
+						<li><span class="quote">Inline</span>: An <span class="quote">Inline</span> internal combustion engine have its cylinders arranged in straight form.</li>
+						<li><span class="quote">V</span>: <span class="quote">V</span> engines are like two <span class="quote">Inline</span> blocks, except they're combined together in a V shape.</li>
+						<li><span class="quote">Boxer</span>: Commonly known as <span class="quote">Flat</span> engines, are the same as <span class="quote">V</span> engines except that this kind of configuration combines two <span class="quote">Inline</span> blocks in a perfect flat angle.</li>
+						<li><span class="quote">W</span>: This kind of engines is basically formed of two <span class="quote">V</span> engines combined together.</li>
+						<li><span class="quote">Rotary</span>: Commonly referred to as a <a aria-title="" href="https://en.wikipedia.org/wiki/Wankel_engine" target="_BLANK" data-tooltip="External link">Wankel <i class="icon-link-ext-alt"></i></a> engine, is un-like normal internal combustion engines that use cylinders, <span>Rotary</span> engines are made out of a block containing a triangular shape rotating around a central axis, called the <span class="quote">Central drive shaft</span>.</li>
+						<li><span class="quote">Electric</span>: As the name suggests, <span class="quote">Electric</span> engines are basically electric motors that work with electricity instead of normal fuel (i.e. <span class="quote">Gas</span> or <span class="quote">Diesel</span>)</li>
+					</ul>
+				</div>
+				<div class="sub-title text-start">Fuel Type</div>
+				<div class="paragraph no-margin">This indicates the fuel type of an internal combustion engine, it's going to be either <span class="quote">Gas</span> or <span class="quote">Diesel</span>. Note that this parameter is not available for <span class="quote">Electric</span> engines. As for <span class="quote">Rotary</span> engines, this parameter will be locked to <span class="quote">Gas</span> only.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Cylinders Count</div>
+				<div class="paragraph no-margin">Number of cylinders for normal internal combustion engines.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Rotors Count</div>
+				<div class="paragraph no-margin">Number of rotors for <span class="quote">Rotary</span> engines.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Mass</div>
+				<div class="paragraph no-margin">The engine weight</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Minimum RPM</div>
+				<div class="paragraph no-margin">This value indicates the engine's minimum RPM at idle.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Redline RPM</div>
+				<div class="paragraph no-margin">The engine's "dangerous" RPM that should not be passed.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Over-Rev RPM</div>
+				<div class="paragraph no-margin">The RPM at which the engine is Over-Revving.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Maximum RPM</div>
+				<div class="paragraph no-margin">The Maximum RPM an engine could reach, in case a vehicle doesn't have a <a aria-title="" href="" class="missing" data-tooltip="Link is missing">Rev-Limiter</a>.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Power</div>
+				<div class="paragraph no-margin">Amount of power an engine could deliver at a certain RPM.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Peak Power RPM</div>
+				<div class="paragraph no-margin">Refers to <span class="quote">@</span> in front of the <a aria-title="" href="#settings-panel-engines-and-chargers-engine-preset-power">Power</a> field and is the RPM value at which the engine is at its full delivery of power.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Torque</div>
+				<div class="paragraph no-margin">Amount of torque an engine could deliver at a certain RPM.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Peak Torque RPM</div>
+				<div class="paragraph no-margin">Refers to <span class="quote">@</span> in front of the <a aria-title="" href="#settings-panel-engines-and-chargers-engine-preset-torque">Torque</a> field and is the RPM value at which the engine is at its full delivery of torque.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Sound Effects</div>
+				<div class="paragraph no-margin">The parameters mentioned below define the sound of a vehicle's engine.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Folder Name</div>
+				<div class="paragraph no-margin">The folder name at which engine sounds could be found. By default, the folder name is linked to the engine's name. When a folder name is defined, you can press the <span class="quote">Clear</span> button to use the default name.</div>
+				<div class="spacer small"></div>
+				<div class="paragraph no-margin">To setup your own engine folder, check the <a aria-title="" href="#settings-panel-engine-folder-setup">Engine Folder Setup</a> section.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Sound Outputs</div>
+				<div class="paragraph no-margin">This parameter allows you to choose between an engine sound output, exhaust sound output or both. Make sure that the <a aria-title="" href="#settings-panel-engines-and-chargers-engine-preset-folder-name">Engine Folder</a> has the required directories to make everything eligible to prevent the MVC from choosing automatically for you.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Sound Celeration</div>
+				<div class="paragraph no-margin">Every object in real-world has an acceleration phase and a deceleration phase, for engines, the MVC uses the same concept and applies some sounds from the <a aria-title="" href="#settings-panel-engines-and-chargers-engine-preset-folder-name">Engine Folder</a>. Make sure that it has the required directories to make everything eligible to prevent the MVC from choosing automatically for you.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Startup Clip</div>
+				<div class="paragraph no-margin">The engine starting audio clip.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Audio Mixing</div>
+				<div class="paragraph no-margin">The parameters below help improve the sound quality of the engine or add some audible effects to make your game feel different.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Engine Audio Mixer</div>
+				<div class="paragraph no-margin">The engine audio mixer group.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Exhaust Audio Mixer</div>
+				<div class="paragraph no-margin">The engine's exhaust audio mixer group.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Low RPM Volume</div>
+				<div class="paragraph no-margin">The engine's sound volume at low RPMs.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Max RPM Distortion</div>
+				<div class="paragraph no-margin">The engine sound <a aria-title="" href="https://docs.unity3d.com/Manual/class-AudioDistortionFilter.html" target="_BLANK" data-tooltip="External link">Distortion <i class="icon-link-ext-alt"></i></a> at high RPMs.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Rev-Limiter Distortion</div>
+				<div class="paragraph no-margin">The engine sound <a aria-title="" href="https://docs.unity3d.com/Manual/class-AudioDistortionFilter.html" target="_BLANK" data-tooltip="External link">Distortion <i class="icon-link-ext-alt"></i></a> when the vehicle's <a href="" class="missing" data-tooltip="Link is missing">Rev-Limiter</a> is active.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Deceleration Low-Pass Frequency</div>
+				<div class="paragraph no-margin">The engine sound <a aria-title="" href="https://docs.unity3d.com/Manual/class-AudioLowPassFilter.html" target="_BLANK" data-tooltip="External link">low-pass frequency <i class="icon-link-ext-alt"></i></a> at RPM deceleration.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Acceleration Low-Pass</div>
+				<div class="paragraph no-margin">Enabling this feature will apply a specific <a aria-title="" href="https://docs.unity3d.com/Manual/class-AudioLowPassFilter.html" target="_BLANK" data-tooltip="External link">low-pass frequency <i class="icon-link-ext-alt"></i></a> to the engine sound when accelerating.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Acceleration Low-Pass Frequency</div>
+				<div class="paragraph no-margin">The engine sound <a aria-title="" href="https://docs.unity3d.com/Manual/class-AudioLowPassFilter.html" target="_BLANK" data-tooltip="External link">low-pass frequency <i class="icon-link-ext-alt"></i></a> at acceleration.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Acceleration Low-Pass End RPM</div>
+				<div class="paragraph no-margin">This indicates at which RPM the engine sound <a aria-title="" href="https://docs.unity3d.com/Manual/class-AudioLowPassFilter.html" target="_BLANK" data-tooltip="External link">low-pass frequency <i class="icon-link-ext-alt"></i></a> gets fully cancelled.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Acceleration Low-Pass Damping</div>
+				<div class="paragraph no-margin">Enabling this feature will allow the engine sound <a aria-title="" href="https://docs.unity3d.com/Manual/class-AudioLowPassFilter.html" target="_BLANK" data-tooltip="External link">low-pass frequency <i class="icon-link-ext-alt"></i></a> to be cancelled or enabled smoothly.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Acceleration Low-Pass Damping Value</div>
+				<div class="paragraph no-margin">The acceleration sound <a aria-title="" href="https://docs.unity3d.com/Manual/class-AudioLowPassFilter.html" target="_BLANK" data-tooltip="External link">low-pass frequency <i class="icon-link-ext-alt"></i></a> smoothness intensity. The higher the value the slower the frequency transition is, and vice-versa.</div>
+			</section>
+			<section data-level="3" data-keywords="how to change show engine preset folder setup settings tab panel window">
+				<div class="title text-start small-margin">Engine Folder Setup</div>
+				<div class="paragraph">Every Engine Preset can have a folder where it can store audio clips of the engine sound and later used by the MVC audio systems. These folder can be located under the main <a aria-title="" href="#setup-wizard-audio-folder-path">Audio Folder</a>, within the <a href="#settings-panel-sound-effects-sfx-engine-sfx-path" class="missing" data-tooltip="Link is missing">Engines Folder</a>.</div>
+				<div class="paragraph">The default path of the mentioned directory is the following: <span class="quote">Assets/Resources/&lt;Audio Folder&gt;/&lt;Engines Folder&gt;/&lt;Engine Name&gt;</span>.<br />Example: <span class="quote">Assets/Resources/Audio/Engines/V8NM 4.0L P60B40</span></div>
+				<div class="paragraph">The structure of the engine folder is the following:</div>
+				<div class="paragraph">
+					<ul>
+						<li><span class="quote">&lt;Engine Name&gt;</span>: The main engine directory</li>
+						<br />
+						<ul>
+							<li><span class="quote">Engine</span>: This folder contains the vehicle's engine sound. (Optional in case the <span class="quote">Exhaust</span> folder is available)</li>
+							<br />
+							<ul>
+								<li><span class="quote">&lt;Engine Audio Clips Here&gt;</span>: Acceleration/Deceleration audio clips. (Optional in case of using <span class="quote">Accel</span> & <span class="quote">Decel</span> folders)</li>
+							</ul>
+							<br />
+							<ul>
+								<li><span class="quote">Accel</span>: For acceleration audio clips. (Optional in case of using audio clips inside the <span class="quote">Engine</span> folder directly)</li>
+								<ul>
+									<li><span class="quote">&lt;Engine Acceleration Audio Clips Here&gt;</span></li>
+								</ul>
+								<li><span class="quote">Decel</span>: For acceleration audio clips. (Optional - See <span class="quote">Accel</span> folder notice above)</li>
+								<ul>
+									<li><span class="quote">&lt;Engine Deceleration Audio Clips Here&gt;</span></li>
+								</ul>
+							</ul>
+							<br />
+							<li><span class="quote">Exhaust</span>: This folder contains the vehicle's exhaust sound. (Optional in case the <span class="quote">Engine</span> folder is available)</li>
+							<br />
+							<ul>
+								<li><span class="quote">&lt;Exhaust Audio Clips Here&gt;</span>: Acceleration or Deceleration audio clips. (Optional in case of using <span class="quote">Accel</span> & <span class="quote">Decel</span> folders)</li>
+							</ul>
+							<br />
+							<ul>
+								<li><span class="quote">Accel</span>: For acceleration audio clips. (Optional in case of using audio clips inside the <span class="quote">Exhaust</span> folder directly)</li>
+								<ul>
+									<li><span class="quote">&lt;Exhaust Acceleration Audio Clips Here&gt;</span></li>
+								</ul>
+								<li><span class="quote">Decel</span>: For acceleration audio clips. (Optional - See <span class="quote">Accel</span> folder notice above)</li>
+								<ul>
+									<li><span class="quote">&lt;Exhaust Deceleration Audio Clips Here&gt;</span></li>
+								</ul>
+							</ul>
+						</ul>
+					</ul>
+				</div>
+				<div class="helpbox info">It's unnecessary to have an <span class="quote">Exhaust</span> folder for an <span class="quote">Electric</span> engine as exhaust sounds are not available for <span class="underline-dotted" data-tooltip="Electric Vehicles">EVs <i class="icon-help-circled-1"></i></span> in real-life.</div>
+				<div class="spacer small"></div>
+				<div class="paragraph">Audio clips inside the specified folders should meet the following naming requirements in order to get recognized by the MVC audio systems:</div>
+				<div class="paragraph">Every audio clip represents a <span class="underline-dotted" data-tooltip="Revolution Per Minute">RPM <i class="icon-help-circled-1"></i></span> level of the sound.</div>
+				<div class="paragraph">To separate between numbers and unrelated text within the audio clip name, the audio systems uses a <a aria-title="" href="" class="missing" data-tooltip="Link is missing">Name Separator</a>, which is defined in the <a href="#settings-panel-sound-effects-sfx" class="missing" data-tooltip="Link is missing">Sound Effects</a> panel. The default value of this separator is <span class="quote">_</span>.</div>
+				<div class="paragraph">The separator can be located anywhere in the audio clip name, just make sure it separates the <span class="underline-dotted" data-tooltip="Revolution Per Minute">RPM <i class="icon-help-circled-1"></i></span> value.</div>
+				<div class="paragraph">You can also use only <span class="underline-dotted" data-tooltip="Revolution Per Minute">RPM <i class="icon-help-circled-1"></i></span> values to name your audio clips.</div>
+				<div class="paragraph">
+					<span>Here's a quick recap of the requirements mentioned above:</span>
+					<ul>
+						<li><span class="quote">engine-name_&lt;RPM&gt;.wav</span></li>
+						<li><span class="quote">engine_name_&lt;RPM&gt;.wav</span></li>
+						<li><span class="quote">&lt;RPM&gt;_engine_name.mp3</span></li>
+						<li><span class="quote">&lt;RPM&gt;_engine-name.wav</span></li>
+						<li><span class="quote">some_text_&lt;RPM&gt;_engine_name.mp3</span></li>
+						<li><span class="quote">&lt;RPM&gt;.wav</span></li>
+					</ul>
+					<span>Here are some wrong examples that are incorrect:</span>
+					<ul>
+						<li><span class="quote">engine-name&lt;RPM&gt;.wav</span></li>
+						<li><span class="quote">&lt;RPM&gt;engine_name.wav</span></li>
+						<li><span class="quote">&lt;RPM&gt;-engine_name.wav</span></li>
+						<li><span class="quote">some_text-&lt;RPM&gt;_engine_name.mp3</span></li>
+						<li><span class="quote">abcd&lt;RPM&gt;.wav</span></li>
+					</ul>
+				</div>
+				<div class="spacer"></div>
+			</section>
+			<section data-level="2" data-keywords="how to change show charger preset settings tab panel window">
+				<div class="title text-start small-margin">Charger Preset</div>
+				<div class="paragraph">A charger preset boosts a <a aria-title="" href="#settings-panel-engines-and-chargers-engine-preset">Vehicle Engine</a> power & torque values. In this section we'll be explaining the shared parameters between <a href="#settings-panel-engines-and-chargers-turbocharger-preset">Turbocharger</a>s and <a href="#settings-panel-engines-and-chargers-supercharger-preset">Supercharger</a>s.</div>
+				<div class="helpbox info">Note that this component cannot be used by <span class="underline-dotted" data-tooltip="Electric Vehicles">EVs <i class="icon-help-circled-1"></i></span></div>
+				<div class="image" data-width="512px" data-height="339px" style="width: 512px; height: 339px; background-image: url('Files~/Images/charger_preset.png');"></div>
+				<div class="spacer"></div>
+				<div class="sub-title text-start">Name</div>
+				<div class="paragraph no-margin">This is the charger identifier, each charger has its own unique name and cannot match with any other charger preset.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Is Stock</div>
+				<div class="paragraph no-margin">Indicates whether a Charger is a stock part of a vehicle or not? This parameter will increase performance if it's set to <span class="quote">Yes</span>, otherwise the Charger will just affect the vehicle <a aria-title="" href="" class="missing" data-tooltip="Link is missing">Torque</a> & <a href="" class="missing" data-tooltip="Link is missing">Horsepower</a> curves.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Mass Difference</div>
+				<div class="paragraph no-margin">If <span class="quote">Charger Is Stock</span> is set to <span class="quote">No</span>, this parameter adds (if positive) or removes (if negative) a specified amount of weight from the vehicle's mass.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Weight Distribution Difference</div>
+				<div class="paragraph no-margin">If <span class="quote">Charger Is Stock</span> is set to <span class="quote">No</span>, this parameter moves the <a aria-title="" href="" class="missing" data-tooltip="Link is missing">Weight Distribution</a> factor of a vehicle forward (if negative), or backward (if positive).</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Type</div>
+				<div class="paragraph no-margin">A charger could be a <span class="quote"><a aria-title="" href="#settings-panel-engines-and-chargers-turbocharger-preset">Turbocharger</a></span> commonly referred to as "Turbo", or a <span class="quote"><a href="#settings-panel-engines-and-chargers-supercharger-preset">Supercharger</a></span>. Unlike <a href="https://en.wikipedia.org/wiki/Turbocharger" target="_BLANK" data-tooltip="External link">Turbos <i class="icon-link-ext-alt"></i></a>, <a href="https://en.wikipedia.org/wiki/Supercharger" target="_BLANK" data-tooltip="External link">Superchargers <i class="icon-link-ext-alt"></i></a> have many sub-types, explained in the sections below.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Sound Effects</div>
+				<div class="paragraph no-margin">The parameters mentioned below define the sound of a vehicle's charger.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Idle Clip</div>
+				<div class="paragraph no-margin">Charger sound clip at low RPMs.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Active Clip</div>
+				<div class="paragraph no-margin">Charger sound clip at high RPMs.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Fuel Blowout Clip</div>
+				<div class="paragraph no-margin">Blowout sound clip when the fuel pedal is lifted at medium-to-high RPMs.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Gear Blowout Clip</div>
+				<div class="paragraph no-margin">Blowout sound clip when the shift gears up at medium-to-high RPMs.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Rev Blowout Clip</div>
+				<div class="paragraph no-margin">Blowout sound clip when the fuel pedal is lifted at high RPMs.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Compatible Engines</div>
+				<div class="paragraph no-margin">The following list indicates the engines that a Charger should be compatible with (except electric engines). If the list is empty, the Charger becomes compatible with all the engines.</div>
+				<div class="paragraph">To add an engine, you need to click on the selection input with the <span class="quote">None</span> label beside the <span class="quote"><b>+</b></span> button, there you'll find the available engines.</div>
+				<div class="paragraph">In order to remove an engine from the list, all you've to do is press the <span class="quote"><i class="icon-trash"></i></span> button on the right side of the engine.</div>
+			</section>
+			<section data-level="3" data-keywords="how to change show supercharger preset settings tab panel window">
+				<div class="title text-start small-margin">Supercharger Preset</div>
+				<div class="paragraph"><a aria-title="" href="https://en.wikipedia.org/wiki/Supercharger" target="_BLANK" data-tooltip="External link">Superchargers <i class="icon-link-ext-alt"></i></a> are a famous type of engine aspiration components that blows compressed dense air into an internal combustion engine to get more power.</div>
+				<div class="image" data-width="512px" data-height="339px" style="width: 512px; height: 339px; background-image: url('Files~/Images/supercharger_preset.png');"></div>
+				<div class="spacer"></div>
+				<div class="sub-title text-start">Supercharger Type</div>
+				<div class="paragraph no-margin">Superchargers have a variety of types:</div>
+				<div class="paragraph">
+					<ul>
+						<li><span class="quote">Roots</span>: One of the <span class="quote">Positive Displacement</span> chargers. This type of superchargers is commonly used in old American Muscle cars with <a aria-title="" href="https://google.com/search?q=supercharger+hood+blower" target="_BLANK" data-tooltip="External link">Hood-blowers <i class="icon-link-ext-alt"></i></a>. In real-life, this type gives lower-boost values compared to <span class="quote">Twin Screw</span> superchargers due to its old-tech components.</li>
+						<li><span class="quote">Twin Screw</span>: One of the <span class="quote">Positive Displacement</span> chargers. This type of superchargers is usually used by the majority of vehicles. In real-life, this type gives higher-boost values compared to <span class="quote">Roots</span> superchargers due to the usage of high-tech components.</li>
+						<li><span class="quote">Centrifugal</span>: A <span class="quote">Centrifugal</span> supercharger is very similar to a turbo in terms of performance, except it uses a belt linked to the engine crank instead of using exhaust gases to drive the charger. This type of superchargers provide high levels of boost at high RPMs (higher than <span class="quote">Positive Displacement</span> superchargers in real-life) and lower boost levels at low RPMs, just like <a aria-title="" href="#settings-panel-engines-and-chargers-turbocharger-preset">Turbocharger</a>s.</li>
+					</ul>
+				</div>
+				<div class="sub-title text-start">Minimum Boost</div>
+				<div class="paragraph no-margin">The supercharger boost multiplier at low RPMs. <i>(Only available for <span class="quote">Centrifugal</span> superchargers)</i></div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Maximum Boost</div>
+				<div class="paragraph no-margin">The supercharger boost multiplier at high RPMs.</div>
+			</section>
+			<section data-level="3" data-keywords="how to change show turbocharger preset settings tab panel window">
+				<div class="title text-start small-margin">Turbocharger Preset</div>
+				<div class="paragraph">A <a aria-title="" href="https://en.wikipedia.org/wiki/Turbocharger" target="_BLANK" data-tooltip="External link">Turbocharger <i class="icon-link-ext-alt"></i></a> is technically a type of Superchargers that blows compressed dense air into an internal combustion engine using its exhaust gases, commonly referred to as a "Turbo". This section will explain the component's different parameters.</div>
+				<div class="image" data-width="512px" data-height="339px" style="width: 512px; height: 339px; background-image: url('Files~/Images/turbocharger_preset.png');"></div>
+				<div class="spacer"></div>
+				<div class="sub-title text-start">Turbos Count</div>
+				<div class="paragraph no-margin">Number of turbochargers used by this preset, the higher the number, the efficient the boost responsiveness. The number could be limited by the Engine Type, such as <span class="quote">Inline</span> engines that do not support <span class="quote">Quad</span> turbos, only <span class="quote">Single</span> and <span class="quote">Twin</span> turbos are available for the mentioned type of engines.</div>
+				<div class="paragraph">
+					<ul>
+						<li><span class="quote">Single</span>: As the name suggests, it's just a single turbo.</li>
+						<li><span class="quote">Twin</span>: Twin refers to two turbos.</li>
+						<li><span class="quote">Quad</span>: Quad means four turbos.</li>
+					</ul>
+				</div>
+				<div class="sub-title text-start">Inertia RPM</div>
+				<div class="paragraph no-margin">The <span class="underline-dotted" data-tooltip="Revolution Per Minute">RPM <i class="icon-help-circled-1"></i></span> value at which a turbocharger must start boosting its engine.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Size</div>
+				<div class="paragraph no-margin">Rob size of a turbocharger. It has an effect on the engine output curves, the higher the value, the less the engine is responsive and vice-versa.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Minimum Boost</div>
+				<div class="paragraph no-margin">The turbocharger boost multiplier at low RPMs.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Maximum Boost</div>
+				<div class="paragraph no-margin">The turbocharger boost multiplier at high RPMs.</div>
+			</section>
+			<section data-level="1" data-keywords="how to change show grounds & and surfaces settings tab panel window">
+				<div class="title text-start small-margin">Grounds & Surfaces</div>
+				<div class="paragraph">In real-life, Asphalt isn't the only thing a vehicle can run on top of. This section allows you to create and identify new <a aria-title="" href="#settings-panel-grounds-and-surfaces-ground-preset">Ground Preset</a>s for vehicles, as you'll be able to customize friction values, visual effects when a vehicle is interacting with certain grounds/surfaces, and many more options...</div>
+				<div class="image" data-width="512px" data-height="260px" style="width: 512px; height: 260px; background-image: url('Files~/Images/grounds_and_surfaces.png');"></div>
+				<div class="spacer"></div>
+				<div class="paragraph">When opening this panel, you'll find a bunch of buttons that will help you manage your ground presets, in this section we're going to explain them one by one.</div>
+				<div class="paragraph"><span class="quote">Import</span>: You can use this button to import a <span class="quote">Json</span> file with existing ground presets.</div>
+				<div class="paragraph"><span class="quote">Export</span>: If you want to share or copy existing ground presets from a project to another, use this button to do so.</div>
+				<div class="paragraph"><span class="quote"><i class="icon-sort"></i></span>: The sort button allows you arrange the ground presets and prioritize them as you want.</div>
+				<div class="paragraph"><span class="quote"><i class="icon-plus"></i></span>: This button allows you to add new presets to the grounds list.</div>
+				<div class="paragraph"><span class="quote"><i class="icon-trash"></i></span>: The remove button can act in two ways, when using the top remove button, you'll be able to remove all of the ground presets and the MVC will add a new one, since it's not possible to remove all of them. And when using the buttons on the side of each ground preset, you'll be able to remove each preset individually.</div>
+				<div class="paragraph"><span class="quote"><i class="icon-pencil"></i></span>: Clicking on this button will open another panel for you, in which you can find all of the different settings of the preset.</div>
+				<div class="paragraph"><span class="quote"><i class="icon-docs"></i></span>: The duplicate button basically allows you to create an exact copy of a desired preset.</div>
+			</section>
+			<section data-level="2" data-keywords="how to change show grounds & and surfaces preset settings tab panel window">
+				<div class="title text-start small-margin">Ground Preset</div>
+				<div class="paragraph">A ground preset will allow a vehicle to distinguish different types of surfaces and interact differently to each one of them as configured.</div>
+				<div class="image" data-width="512px" data-height="376px" style="width: 512px; height: 376px; background-image: url('Files~/Images/ground_preset.png');"></div>
+				<div class="spacer"></div>
+				<div class="sub-title text-start">Name</div>
+				<div class="paragraph no-margin">This is the ground identifier, each ground/surface has its own unique name and cannot match with any other ground preset.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Default Stiffness</div>
+				<div class="paragraph no-margin">The default wheels friction stiffness multiplier.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Damage Stiffness</div>
+				<div class="paragraph no-margin">This indicates the damaged wheels friction stiffness multiplier.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Slip Value</div>
+				<div class="paragraph no-margin">A slip value at which a wheel is considered sliding on top of a ground.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Wheel Damping</div>
+				<div class="paragraph no-margin">Changing this value may affect the wheel's <span class="underline-dotted" data-tooltip="Revolution Per Minute">RPM <i class="icon-help-circled-1"></i></span> value. Lower values makes a wheel rotate freely without moving, like it's kind of slipping except there's no force added on the forward wheel's axis. Higher values will make the wheel rotate accurately to its supposed <span class="underline-dotted" data-tooltip="Revolution Per Minute">RPM <i class="icon-help-circled-1"></i></span> value.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Off-Road</div>
+				<div class="paragraph no-margin">By enabling this flag, the ground will be considered as an Off-Road surface by vehicles.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Visual Effects</div>
+				<div class="paragraph no-margin">The following parameters represent the visual effects happening while wheels are interacting with this kind of ground.</div>
+				<div class="helpbox info">Leaving fields empty won't cause any errors, instead they'll be ignored.</div>
+				<div class="sub-title text-start">Particle Effect</div>
+				<div class="paragraph no-margin">The main particle effect of any wheel interacting with this surface.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Flat Wheel Particle Effect</div>
+				<div class="paragraph no-margin">For damaged wheels, this particle effect is meant to be played instead of the main <a aria-title="" href="#settings-panel-ground-preset-particle-effect">Particle Effect</a>.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Wheel Mark Material</div>
+				<div class="paragraph no-margin">The main tire mark material of any wheel interacting with this surface.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Wheel Mark Material Tiling</div>
+				<div class="paragraph no-margin">The main tire mark material UV tiling multiplier.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Flat Wheel Mark Material</div>
+				<div class="paragraph no-margin">The mark material for damaged wheels instead of the main <a aria-title="" href="#settings-panel-ground-preset-wheel-mark-material">Wheel Mark Material</a>.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Flat Wheel Mark Material Tiling</div>
+				<div class="paragraph no-margin">The damaged tire mark material UV tiling multiplier.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Speed Emissive</div>
+				<div class="paragraph no-margin">By enabling this flag, marks & particle effects will be emitted every time a wheel is moving. Setting it to <span class="quote">No</span>, emitting effects & marks happens only when wheels are sliding (slipping) on top of the surface.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Sound Effects</div>
+				<div class="paragraph no-margin">The following parameters represent the sound effects heard while wheels are interacting with this kind of ground.</div>
+				<div class="helpbox info">Leaving fields empty won't cause any errors, instead they'll be ignored.</div>
+				<div class="helpbox info">The Multiversal Vehicle Controller will always try to merge audio clips to generate the appropriate sound from the given audio clips.</div>
+				<div class="sub-title text-start">Forward Skid</div>
+				<div class="paragraph no-margin">When a wheel is accelerating and losing traction, this sound effect will be played.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Braking Skid</div>
+				<div class="paragraph no-margin">If a wheel is decelerating and sliding, this sound file will be played.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Sideways Skid</div>
+				<div class="paragraph no-margin">In a case where a wheel is sliding sideways, this audio clip will be played.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Rolling Sound</div>
+				<div class="paragraph no-margin">This sound effect will be played when a wheel is rolling on top of a surface without sliding.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Flat Skid Sound</div>
+				<div class="paragraph no-margin">For damaged wheels, when a wheel is sliding in any way possible, the audio clip mentioned above will be played.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Flat Rolling Sound</div>
+				<div class="paragraph no-margin">For damaged wheels, when a wheel is not sliding, this sound effect will be played.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Volume</div>
+				<div class="paragraph no-margin">This slider controls the volume of every single audio clip mentioned above multiplied by the <a aria-title="" href="#settings-panel-sound-effects-sfx-global-volume">Global Sound Effects Volume</a>.</div>
+			</section>
+			<section data-level="1" data-keywords="how to change show sfx audio sound effects settings tab panel window">
+				<div class="title text-start small-margin">Sound Effects (SFX)</div>
+				<div class="paragraph">Sound design for the Multiversal Vehicle Controller is a very modular & diverse system and has a lot of cool features. In this section we'll be explaining everything bit by bit.</div>
+				<div class="image" data-width="512px" data-height="438px" style="width: 512px; height: 438px; background-image: url('Files~/Images/sound_effects.png');"></div>
+				<div class="spacer"></div>
+				<div class="sub-title text-start">Audio Folder Path</div>
+				<div class="paragraph no-margin">A project folder path where audio clips are stored.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Engine SFX Path</div>
+				<div class="paragraph no-margin">The folder path where engine audio clips are stored.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Engine Name Splitter</div>
+				<div class="paragraph no-margin">While each engine could have many audio clips, a string is used to separate numbers from random text inside an audio clip name. Refer to <a aria-title="" href="#settings-panel-engine-folder-setup">Engine Folder Setup</a> for more information.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Maximum Engine Clips</div>
+				<div class="paragraph no-margin">This counter overrides how many audio clips for an engine/exhaust could be played per vehicle.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Global Volume</div>
+				<div class="paragraph no-margin">The global volume multiplier of every audio clip played by the SFX system.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Audio Clips</div>
+				<div class="paragraph no-margin">This part of the <a aria-title="" href="#settings-panel-sound-effects-sfx">Sound Effects</a> section contains different audio clips shared by every vehicle.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Reversing</div>
+				<div class="paragraph no-margin">The transmission reverse sound.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Wind</div>
+				<div class="paragraph no-margin">Wind sound of vehicles running at high speeds.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Brakes</div>
+				<div class="paragraph no-margin">The sound of a fully heated brake disk/drum making contact with its own calliper.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Indicator Lights</div>
+				<div class="paragraph no-margin">The indicator lights switch sound clip.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Tire Explosion</div>
+				<div class="paragraph no-margin">Explosion sound clip of torn wheel tire.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Impact Clips</div>
+				<div class="paragraph no-margin">A set of clips for different possible vehicle impacts. <a aria-title="" href="#settings-panel-sound-effects-sfx-impact-sound-effects">Learn more...</a></div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Gear Shifting Clips</div>
+				<div class="paragraph no-margin">Gear shifting up/down audio clips. <a aria-title="" href="#settings-panel-sound-effects-sfx-gear-sound-effects">Learn more...</a></div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Exhaust Clips</div>
+				<div class="paragraph no-margin">Exhaust pop/gurgle sounds for different types of vehicles. <a aria-title="" href="#settings-panel-sound-effects-sfx-exhaust-sound-effects">Learn more...</a></div>
+				<div class="spacer small"></div>
+				<!--div class="sub-title text-start">Exterior Clips</div>
+				<div class="paragraph no-margin">Sounds of exterior parts when opening or closing. <a aria-title="" href="#settings-panel-sound-effects-sfx-exterior-sound-effects">Learn more...</a></div>
+				<div class="helpbox info">Exterior clips are not an active feature & won't affect your Runtime experience. They're just a placeholder for future updates.</div-->
+				<div class="sub-title text-start">NOS Clips</div>
+				<div class="paragraph no-margin">Nitrous starting/active sound clips. <a aria-title="" href="#settings-panel-sound-effects-sfx-nos-sound-effects">Learn more...</a></div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Transmission Clips</div>
+				<div class="paragraph no-margin">Transmission sounds for different gearboxes & vehicles. <a aria-title="" href="#settings-panel-sound-effects-sfx-transmission-sound-effects">Learn more...</a></div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Audio Mixers</div>
+				<div class="paragraph no-margin">This part contains different shared Audio Mixers for different active vehicles.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Exhaust Effects Mixer</div>
+				<div class="paragraph no-margin">This mixer is destined for audio clips like exhaust <span class="quote">Pops</span> & <span class="quote">Gurgles</span>.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Chargers Effects Mixer</div>
+				<div class="paragraph no-margin">Charger effects are the <a aria-title="" href="#settings-panel-engines-and-chargers-charger-preset-idle-clip">Charger idle sound</a> & <a href="#settings-panel-engines-and-chargers-charger-preset-active-clip">Charger active sound</a>.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Turbocharger Mixer</div>
+				<div class="paragraph no-margin">Turbocharger sounds like the <a aria-title="" href="#settings-panel-engines-and-chargers-charger-preset-fuel-blowout-clip">Fuel</a>, <a href="#settings-panel-engines-and-chargers-charger-preset-gear-blowout-clip">Gear</a> & <a href="#settings-panel-engines-and-chargers-charger-preset-rev-blowout-clip">Rev</a> blowouts are related to this mixer.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Supercharger Mixer</div>
+				<div class="paragraph no-margin">Supercharger sounds like the <a aria-title="" href="#settings-panel-engines-and-chargers-charger-preset-fuel-blowout-clip">Fuel</a>, <a href="#settings-panel-engines-and-chargers-charger-preset-gear-blowout-clip">Gear</a> & <a href="#settings-panel-engines-and-chargers-charger-preset-rev-blowout-clip">Rev</a> blowouts are related to the mentioned mixer.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Transmission Mixer</div>
+				<div class="paragraph no-margin">The mentioned mixer affects audio clips like <a aria-title="" href="#settings-panel-sound-effects-sfx-transmission-sound-effects">Transmission</a>, <a href="#settings-panel-sound-effects-sfx-reversing">Reversing</a> & <a href="#settings-panel-sound-effects-sfx-gear-sound-effects">Gear Shifting</a> clips.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">NOS Mixer</div>
+				<div class="paragraph no-margin">The NOS mixer only affects <a aria-title="" href="#settings-panel-sound-effects-sfx-nos-sound-effects">NOS clips</a>.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Wheel Effects Mixer</div>
+				<div class="paragraph no-margin">This mixer has an effect on sounds like <a aria-title="" href="#settings-panel-grounds-and-surfaces-ground-preset-sound-effects">Ground Effects</a> & <a href="#settings-panel-sound-effects-sfx-tire-explosion">Tire Explosion</a> clips.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Environment Effects Mixer</div>
+				<div class="paragraph no-margin">This mixer handles the rest of the unmentioned clips, like <a aria-title="" href="#settings-panel-sound-effects-sfx-wind">Wind</a>, <a href="#settings-panel-sound-effects-sfx-brakes">Brakes</a>, <a href="#settings-panel-sound-effects-sfx-indicator-lights">Indicator Lights</a> & <a href="#settings-panel-sound-effects-sfx-impact-sound-effects">Impact Clips</a>.</div>
+			</section>
+			<section data-level="2" data-keywords="how to change show sfx audio sound impact clips effects settings tab panel window">
+				<div class="title text-start small-margin">Impact Sound Effects</div>
+				<div class="paragraph">A set of clips for different possible vehicle impacts.</div>
+				<div class="image" data-width="512px" data-height="236px" style="width: 512px; height: 236px; background-image: url('Files~/Images/sound_effects-impact_sound_effects.png');"></div>
+				<div class="spacer small"></div>
+				<div class="paragraph no-margin">The impact clips are split into 8 types: <span class="quote">Cars</span>, <span class="quote">Walls</span>, <span class="quote">Glass Crack</span>, <span class="quote">Glass Scatter</span>, <span class="quote">Metal Fences</span>, <span class="quote">Road Cones</span>, <span class="quote">Road Signs</span> & <span class="quote">Road Misc.</span>. The first two types are levelled for better sound quality.</div>
+				<div class="helpbox info">Impact levels (<span class="quote">Low</span>, <span class="quote">Medium</span> & <span class="quote">High</span>) can be modified from within the <a aria-title="" href="#settings-panel-damage">Damage</a> section.</div>
+				<div class="sub-title text-start">Cars</div>
+				<div class="paragraph no-margin">Car impact sounds are destined for vehicle-to-vehicle or bump impacts. This type of impact clips is split into 3 levels: <span class="quote">Low</span>, <span class="quote">Medium</span> & <span class="quote">High</span>.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Walls</div>
+				<div class="paragraph no-margin">Wall impact sounds are destined for static obstacle/wall impacts. This type of impact clips is split into 3 levels: <span class="quote">Low</span>, <span class="quote">Medium</span> & <span class="quote">High</span>.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Others</div>
+				<div class="paragraph no-margin">This part of the impact sounds includes 6 different types of clips:</div>
+				<div class="paragraph">
+					<ul>
+						<li>Glass Crack: The impact sound effects of a cracked windshield or other types of vehicle glass.</li>
+						<li>Glass Scatter: Impact audio clips of scattered windshield of other types of vehicle glass.</li>
+						<li>Metal Fences: Vehicle-to-metal fence impact sound effects.</li>
+						<li>Road Cones: Audio clips of vehicle-to-road cone impact.</li>
+						<li>Road Signs: Refers to impact sound effects of vehicle hitting relatively small/medium road signs that can be detached from the ground.</li>
+						<li>Road Misc.: Impact sound effects of any other small/medium road items that can be detached from the ground.</li>
+					</ul>
+				</div>
+				<div class="sub-title text-start">Volume</div>
+				<div class="paragraph no-margin">Every impact group has its own <span class="quote">Volume</span> slider that controls its audio clips volume values.</div>
+				<div class="helpbox info">The 6 impact clip types mentioned above are still inactive & won't affect your Runtime experience, they're just a placeholder for future updates.</div>
+			</section>
+			<section data-level="2" data-keywords="how to change show sfx audio sound gearboxes shifting up down clips effects settings tab panel window">
+				<div class="title text-start small-margin">Gear Sound Effects</div>
+				<div class="paragraph">A set of gear changing audio clips for certain gearboxes.</div>
+				<div class="helpbox info">The gear shifting sound effects apply only to <span class="quote">Manual</span> gearboxes, as <span class="quote">Automatic</span> gearboxes are usually silent and don't make the much of noise when changing gears.</div>
+				<div class="image" data-width="512px" data-height="264px" style="width: 512px; height: 264px; background-image: url('Files~/Images/sound_effects-gear_sound_effects.png');"></div>
+				<div class="sub-title text-start">Shifting Up</div>
+				<div class="paragraph no-margin">A list of sound effects played while a vehicle is shifting up.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Shifting Down</div>
+				<div class="paragraph no-margin">A list of sound effects played while a vehicle is shifting down.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Volume</div>
+				<div class="paragraph no-margin">The mentioned slider controls the shifting audio clips volume.</div>
+			</section>
+			<section data-level="2" data-keywords="how to change show sfx audio sound exhausts pop gurgle clips effects settings tab panel window">
+				<div class="title text-start small-margin">Exhaust Sound Effects</div>
+				<div class="paragraph">A set of exhaust audio clips for different types of vehicles.</div>
+				<div class="image" data-width="512px" data-height="472px" style="width: 512px; height: 472px; background-image: url('Files~/Images/sound_effects-exhaust_sound_effects.png');"></div>
+				<div class="helpbox info">Keep in mind: <span class="quote"><span class="underline-dotted" data-tooltip="Stroke Length to Bore Diameter Ratio">SLBDR <i class="icon-help-circled-1"></i></span> = Stroke Length / Bore Diameter</span>.</div>
+				<div class="sub-title text-start">American Muscle Cars</div>
+				<div class="paragraph no-margin">This group of cars refers to American vehicles with <span class="quote">V6</span>, <span class="quote">V8</span> or <span class="quote">V10</span> engines, or any vehicle with an engine that has a <a aria-title="" href="https://en.wikipedia.org/wiki/Crossplane" target="_BLANK" data-tooltip="External link">Cross-plane crankshaft <i class="icon-link-ext-alt"></i></a> and a piston <span class="underline-dotted" data-tooltip="Stroke Length to Bore Diameter Ratio">SLBDR <i class="icon-help-circled-1"></i></span> greater than <span class="quote">1</span>. This kind of engines could be found in pickup trucks as well.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Elite Cars</div>
+				<div class="paragraph no-margin">Refers to cars with smooth low-revving engines (around <span class="quote">5500 <span class="underline-dotted" data-tooltip="Revolution Per Minute">RPM <i class="icon-help-circled-1"></i></span></span> to <span class="quote">8000 <span class="underline-dotted" data-tooltip="Revolution Per Minute">RPM <i class="icon-help-circled-1"></i></span></span> or less), with <span class="quote">V</span> or <span class="quote">W</span> alignment layout. Usually found in expensive/luxury cars with smooth engines.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">F1 Cars</div>
+				<div class="paragraph no-margin">This type refers to cars with high-revving engines (around <span class="quote">8000 <span class="underline-dotted" data-tooltip="Revolution Per Minute">RPM <i class="icon-help-circled-1"></i></span></span> to <span class="quote">12000 <span class="underline-dotted" data-tooltip="Revolution Per Minute">RPM <i class="icon-help-circled-1"></i></span></span> or more), with a <a aria-title="" href="https://en.wikipedia.org/wiki/Flat-plane_crank" target="_BLANK" data-tooltip="External link">Flat-plane crankshaft <i class="icon-link-ext-alt"></i></a> and a <span class="quote">V</span> or <span>Rotary</span> alignment layout. These types of engines usually have a piston <span class="underline-dotted" data-tooltip="Stroke Length to Bore Diameter Ratio">SLBDR <i class="icon-help-circled-1"></i></span> less than <span class="quote">1</span>.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Road Cars</div>
+				<div class="paragraph no-margin">This group refers to cars with engines that has <span class="quote">Inline 3</span> or <span class="quote">Inline 4</span> alignment layout. Usually found in affordable sport & family cars.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Super Cars</div>
+				<div class="paragraph no-margin">This group includes cars with low/medium-revving engines (around <span class="quote">5500 <span class="underline-dotted" data-tooltip="Revolution Per Minute">RPM <i class="icon-help-circled-1"></i></span></span> to <span class="quote">9000 <span class="underline-dotted" data-tooltip="Revolution Per Minute">RPM <i class="icon-help-circled-1"></i></span></span> or less), that has <span class="quote">Inline</span> or <span>Flat/Boxer</span> alignment layouts, or even <span class="quote">V</span> with <a aria-title="" href="https://en.wikipedia.org/wiki/Crossplane" target="_BLANK" data-tooltip="External link">Cross-plane crankshaft <i class="icon-link-ext-alt"></i></a> and a piston <span class="underline-dotted" data-tooltip="Stroke Length to Bore Diameter Ratio">SLBDR <i class="icon-help-circled-1"></i></span> less than <span class="quote">1</span>.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Road Heavy Trucks</div>
+				<div class="paragraph no-margin">This group includes normal heavy-duty trucks. This type vehicles usually tend to have a low-revving engine (around <span class="quote">5500 <span class="underline-dotted" data-tooltip="Revolution Per Minute">RPM <i class="icon-help-circled-1"></i></span></span> to <span class="quote">7000 <span class="underline-dotted" data-tooltip="Revolution Per Minute">RPM <i class="icon-help-circled-1"></i></span></span> or less), with a piston <span class="underline-dotted" data-tooltip="Stroke Length to Bore Diameter Ratio">SLBDR <i class="icon-help-circled-1"></i></span> greater than <span class="quote">1</span>.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Sport Heavy Trucks</div>
+				<div class="paragraph no-margin">This group includes sport & racing heavy-duty trucks. This type vehicles usually tend to have a medium-revving engine (around <span class="quote">6500 <span class="underline-dotted" data-tooltip="Revolution Per Minute">RPM <i class="icon-help-circled-1"></i></span></span> to <span class="quote">8000 <span class="underline-dotted" data-tooltip="Revolution Per Minute">RPM <i class="icon-help-circled-1"></i></span></span> or less), with a piston <span class="underline-dotted" data-tooltip="Stroke Length to Bore Diameter Ratio">SLBDR <i class="icon-help-circled-1"></i></span> greater or less than <span class="quote">1</span>.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Volume</div>
+				<div class="paragraph no-margin">Each exhaust group has its own <span class="quote">Volume</span> slider that controls its audio clips volume value.</div>
+			</section>
+			<section data-level="2" data-keywords="how to change show sfx audio sound exterior parts doors hood bonnet trunk boot clips effects settings tab panel window">
+				<div class="title text-start small-margin">Exterior Sound Effects</div>
+				<div class="paragraph">A set of sound effects for vehicles chassis exterior parts.</div>
+				<div class="helpbox info">Exterior clips are not an active feature & won't affect your Runtime experience. They're just a placeholder for future updates.</div>
+				<div class="image" data-width="512px" data-height="262px" style="width: 512px; height: 262px; background-image: url('Files~/Images/sound_effects-exterior_sound_effects.png');"></div>
+				<div class="paragraph">All vehicle exterior parts have two sections, a section for clips while a part is opening and a section dedicated for the same part while closing.</div>
+				<div class="sub-title text-start">Doors</div>
+				<div class="paragraph no-margin">A list of sound effects played for doors parts.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Hood (Bonnet)</div>
+				<div class="paragraph no-margin">A list of audio clips for the vehicle front hood (or bonnet).</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Trunk (Boot)</div>
+				<div class="paragraph no-margin">A list of audio clips for the vehicle rear trunk (or boot).</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Volume</div>
+				<div class="paragraph no-margin">The mentioned slider controls the opening & closing audio clips volume.</div>
+			</section>
+			<section data-level="2" data-keywords="how to change show sfx audio sound nos nitrous clips effects settings tab panel window">
+				<div class="title text-start small-margin">NOS Sound Effects</div>
+				<div class="paragraph">A set of sound effects for Nitrous emissions.</div>
+				<div class="image" data-width="512px" data-height="262px" style="width: 512px; height: 262px; background-image: url('Files~/Images/sound_effects-NOS_sound_effects.png');"></div>
+				<div class="paragraph">All vehicle exterior parts have two sections, a section for clips while a part is opening and a section dedicated for the same part while closing.</div>
+				<div class="sub-title text-start">Starting</div>
+				<div class="paragraph no-margin">NOS starting audio clips. These effects will be used only if <a aria-title="" href="#settings-panel-behaviour-and-physics-nos-delay">NOS Delay</a> is enabled.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Boosting (Active)</div>
+				<div class="paragraph no-margin">NOS sound effects while an engine is being boosted.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Volume</div>
+				<div class="paragraph no-margin">The mentioned slider controls the audio clips volume.</div>
+			</section>
+			<section data-level="2" data-keywords="how to change show sfx audio sound transmission gearboxes groups clips effects settings tab panel window">
+				<div class="title text-start small-margin">Transmission Sound Effects</div>
+				<div class="paragraph">This sections focuses on transmission audio clip groups. Each transmission group provide sound effects for a set of vehicles.</div>
+				<div class="image" data-width="512px" data-height="271px" style="width: 512px; height: 271px; background-image: url('Files~/Images/sound_effects-transmission_sound_effects.png');"></div>
+				<div class="paragraph">Transmission groups could be controlled as a whole or per instance. The buttons on the right side of the <span class="quote">Transmissions</span> are described as follows:</div>
+				<div class="paragraph">
+					<ul>
+						<li><span class="quote"><i class="icon-plus"></i></span>: This button allows you to add a new group.</li>
+						<li><span class="quote"><i class="icon-trash"></i></span>: Removes every existing group from the list.</li>
+					</ul>
+				</div>
+				<div class="paragraph">Each transmission group has its own configurations described as the following:</div>
+				<div class="sub-title text-start">Name</div>
+				<div class="paragraph no-margin">The name of the clips group.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Mixer</div>
+				<div class="paragraph no-margin">Represents the group clips main Audio Mixer.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Deceleration Low-Pass Frequency</div>
+				<div class="paragraph no-margin">The audio clips low-pass frequency at low speeds.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Clutch Volume</div>
+				<div class="paragraph no-margin">When the clutch pedal of a certain vehicle is fully engaged, this value multiplies the original audio clips volume values.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Clips</div>
+				<div class="paragraph no-margin">The following part is where you can assign audio clips to a specific transmission group. You can use the <span class="quote"><i class="icon-add"></i></span> to add a new clip slot to the list. Using the <span class="quote"><i class="icon-trash"></i></span> button will remove the targeted clip slot.</div>
+				<div class="paragraph">Every clip slot has two fields, described as the following:</div>
+				<div class="paragraph">
+					<ul>
+						<li>Number: This field represents the vehicle speed at which this slot should be fully activated. Speed is measured in </li>
+						<li>Audio Clip: The audio clip that is meant to be played at Runtime.</li>
+					</ul>
+				</div>
+			</section>
+			<section data-level="1" data-keywords="how to change show vfx visual effects settings tab panel window">
+				<div class="title text-start small-margin">Visual Effects (VFX)</div>
+				<div class="paragraph">Visual effects have a major part in improving the gameplay feeling, especially when it comes to making a game unique from others. For this purpose, the Multiversal Vehicle Controller provides a ton of settings to play with and configure with ease.</div>
+				<div class="image" data-width="512px" data-height="401px" style="width: 512px; height: 401px; background-image: url('Files~/Images/visual_effects.png');"></div>
+				<div class="paragraph">The following sections will help understand the implemented systems in our toolkit in details.</div>
+				<div class="paragraph">Each VFX module can be enabled/disabled using its own <span class="quote">On</span>/<span class="quote">Off</span> toggle.</div>
+			</section>
+			<section data-level="2" data-keywords="how to change show vfx visual particles systems effects settings tab panel window">
+				<div class="title text-start small-margin">Particle Systems</div>
+				<div class="paragraph">Particle effects are an essential part of the <a aria-title="" href="#settings-panel-visual-effects-vfx">Visual Effects</a> system. The following parameters control particles behaviour & shape at Runtime.</div>
+				<div class="image" data-width="512px" data-height="187px" style="width: 512px; height: 187px; background-image: url('Files~/Images/visual_effects-particle_systems.png');"></div>
+				<div class="helpbox info">Leaving any field as empty will lead the VFX system to ignore it and should not cause any errors.</div>
+				<div class="sub-title text-start">Exhaust Smoke</div>
+				<div class="paragraph no-margin">For vehicles with <span class="quote">Diesel</span> engines, this particle system will be emitted depending on how much a vehicle <a aria-title="" href="#settings-panel-player-inputs-fuel-pedal">Fuel Pedal</a> is engaged.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Exhaust Flame</div>
+				<div class="paragraph no-margin">Unlike <span class="quote">Diesel</span> engines, <span class="quote">Petrol</span> or <span class="quote">Gas</span> engines throw flames instead of smoke. This particle effect can be emitted in case a vehicle's <a aria-title="" href="" class="missing" data-tooltip="Link is missing">Exhaust Effects</a> flag is enabled. The particle system is emitted randomly depending on the vehicle <a href="" class="missing" data-tooltip="Link is missing">Emission probability</a> value, when the <a href="#settings-panel-player-inputs-fuel-pedal">Fuel Pedal</a> is released, a gear shift has occurred or when the engine RPM exceeds the <a href="#settings-panel-engines-and-chargers-engine-preset-over-rev-rpm">Over-Rev RPM</a>.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">NOS Flame Type</div>
+				<div class="paragraph no-margin">To prevent resource redundancy, we though maybe the <span class="quote">NOS Flame</span> could override the original <a aria-title="" href="#settings-panel-visual-effects-vfx-particle-systems-exhaust-flame">Exhaust Flame</a> using two methods:</div>
+				<div class="paragraph">
+					<ul>
+						<li><span class="quote">Particle System</span>: By choosing this option, the <a aria-title="" href="#settings-panel-visual-effects-vfx-particle-systems-exhaust-flame">Exhaust Flame</a> will be overridden by another <span class="quote">Particle System</span> prefab.</li>
+						<li><span class="quote">Material</span>: If you prefer to just override the <a aria-title="" href="#settings-panel-visual-effects-vfx-particle-systems-exhaust-flame">Exhaust Flame</a> particle material, this option will do the job for you.</li>
+					</ul>
+				</div>
+				<div class="helpbox info">You'll have a field to assign below this parameter depending on your type choice.</div>
+				<div class="sub-title text-start">NOS Flame Particle System</div>
+				<div class="paragraph no-margin">If <a aria-title="" href="#settings-panel-visual-effects-vfx-particle-systems-nos-flame-type">NOS Flame Type</a> is set to <span class="quote">Particle System</span>, a particle system prefab is required to override the original <a href="#settings-panel-visual-effects-vfx-particle-systems-exhaust-flame">Exhaust Flame</a>.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">NOS Flame Material</div>
+				<div class="paragraph no-margin">In case <a aria-title="" href="#settings-panel-visual-effects-vfx-particle-systems-nos-flame-type">NOS Flame Type</a> is set to <span class="quote">Material</span>, a material asset would be enough to save resources and generate a new particle system based on the original <a href="#settings-panel-visual-effects-vfx-particle-systems-exhaust-flame">Exhaust Flame</a>.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Damage Sparks</div>
+				<div class="paragraph no-margin">When a vehicle chassis is making constant contact with another object, a sparks particle effect will be emitted at the contact point.</div>
+				<div class="helpbox info">To use this feature, the <a aria-title="" href="#settings-panel-damage">Damage</a> system has to be enabled.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Tire Explosion</div>
+				<div class="paragraph no-margin">At the moment where a vehicle tire becomes fully damaged, the mentioned particle system will be emitted.</div>
+				<div class="helpbox info">For this feature to work, both <a aria-title="" href="#settings-panel-damage">Damage</a> & <a href="#settings-panel-damage-wheel-health">Wheel Health</a> systems have to be enabled.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Tire Explosion Force Field</div>
+				<div class="paragraph no-margin">Once the <a aria-title="" href="#settings-panel-visual-effects-vfx-particle-systems-tire-explosion">Tire Explosion</a> particle effect is emitted, a <a href="https://docs.unity3d.com/Manual/class-ParticleSystemForceField.html" target="_BLANK" data-tooltip="External link">Particle System Force Field <i class="icon-link-ext-alt"></i></a> could be created to visualize the intensity of the event by pushing the <a href="#settings-panel-grounds-and-surfaces-ground-preset-particle-effect">Ground Particle Effect</a> away from the centre of the explosion (generally, tires burnout smoke).</div>
+				<div class="helpbox info">The <a aria-title="" href="#settings-panel-visual-effects-vfx-particle-systems-tire-explosion">Tire Explosion</a> field has to be assigned for this feature to work properly.</div>
+			</section>
+			<section data-level="2" data-keywords="how to change show vfx visual ai artificial intelligence path visualizer effects settings tab panel window">
+				<div class="title text-start small-margin">AI Path Visualizer</div>
+				<div class="paragraph">While <a aria-title="" href="" class="missing" data-tooltip="Link is missing">AI Vehicle</a>s could predict where to use brakes on its own, this job might be difficult for beginner players. For this, the MVC has its own <span class="quote">AI Path Visualizer</span> implemented, to tell the player whether to brake or accelerate to keep his own vehicle on track.</div>
+				<div class="image" data-width="512px" data-height="116px" style="width: 512px; height: 116px; background-image: url('Files~/Images/visual_effects-ai_path_visualizer.png');"></div>
+				<div class="sub-title text-start">Renderer Material</div>
+				<div class="paragraph no-margin">The <span class="quote">Path Visualizer</span> renderer material.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Ground Offset</div>
+				<div class="paragraph no-margin">The <span class="quote">Visualizer</span> offset from its target surface.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Width</div>
+				<div class="paragraph no-margin">The <span class="quote">Path Visualizer</span> mesh width.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Heat Gradient</div>
+				<div class="paragraph no-margin">This colour gradient defines how the <span class="quote">AI Path Visualizer</span> should appear. The colour to the extreme left is for acceleration, while the colour to the extreme right is for braking.</div>
+			</section>
+			<section data-level="2" data-keywords="how to change show vfx visual wheels marks effects settings tab panel window">
+				<div class="title text-start small-margin">Wheel Marks</div>
+				<div class="paragraph">Wheels marks basically are tire trails on a specific type of surface.</div>
+				<div class="image" data-width="512px" data-height="96px" style="width: 512px; height: 96px; background-image: url('Files~/Images/visual_effects-wheel_marks.png');"></div>
+				<div class="sub-title text-start">Resolution</div>
+				<div class="paragraph no-margin">The wheel mark level of detail.</div>
+				<div class="helpbox warning">Increasing <span class="quote">Resolution</span> to higher values, might cause some performance drops without making any noticeable visual changes.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Ground Offset</div>
+				<div class="paragraph no-margin">The wheel contact point offset. This method is used to prevent wheel marks from interfering with ground surfaces, therefore preventing visual problems. Measured in Metres <span class="quote">m</span> or Feet <span class="quote">ft</span>.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Occlusion Distance</div>
+				<div class="paragraph no-margin">The distance between the mark mesh & the main camera at which a wheel mark renderer gets disabled to gain performance.</div>
+			</section>
+			<section data-level="2" data-keywords="how to change show vfx visual lights effects settings tab panel window">
+				<div class="title text-start small-margin">Lights</div>
+				<div class="paragraph">This settings section controls vehicles light behaviour.</div>
+				<div class="image" data-width="512px" data-height="166px" style="width: 512px; height: 166px; background-image: url('Files~/Images/visual_effects-lights.png');"></div>
+				<div class="helpbox info">Leaving any field as empty will lead the VFX system to ignore it and should not cause any errors.</div>
+				<div class="sub-title text-start">Indicators At Engine Stall</div>
+				<div class="paragraph no-margin">This indicates whether indicator lights should be enabled when a vehicle engine stalls.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Indicators At Fog Time</div>
+				<div class="paragraph no-margin">Should vehicle indicator lights be enabled when the <a aria-title="" href="" class="missing" data-tooltip="Link is missing">Fog Time</a> toggle is set to <span class="quote">On</span>.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Exhaust Flame Light</div>
+				<div class="paragraph no-margin">A light prefab to be created along with a <a aria-title="" href="#settings-panel-visual-effects-vfx-particle-systems-exhaust-flame">Exhaust Flame</a> or a <a href="#settings-panel-visual-effects-vfx-particle-systems-nos-flame-type">NOS Flame</a> to simulate fire lighting.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Side Signals Period</div>
+				<div class="paragraph no-margin">The time period it take for side signal lights (indicators) to complete an <span class="quote">On</span> & <span class="quote">Off</span> cycle.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Lamp Lights Damping</div>
+				<div class="paragraph no-margin">The speed at which lights of type <span class="quote"><a aria-title="" href="" class="missing" data-tooltip="Link is missing">Lamp</a></span> switch between <span class="quote">On</span> & <span class="quote">Off</span> states visually.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Custom Emission Property</div>
+				<div class="paragraph no-margin">For lighting mesh renderers that has materials using a custom made shader, this key field refers to the emission property of the mentioned shader.</div>
+			</section>
+			<section data-level="2" data-keywords="how to change show vfx visual wheels spin effects settings tab panel window">
+				<div class="title text-start small-margin">Wheel Spin Effect</div>
+				<div class="paragraph">A set of configurations for the <a aria-title="" href="" class="missing" data-tooltip="Link is missing">Vehicle Wheel Spin Effect</a> component.</div>
+				<div class="image" data-width="512px" data-height="144px" style="width: 512px; height: 144px; background-image: url('Files~/Images/visual_effects-wheel_spin_effect.png');"></div>
+				<div class="sub-title text-start">RPM Threshold</div>
+				<div class="paragraph no-margin">The wheel speed threshold at which the spin effect is fully spread across a full circle (a full the spread angle is equal to 360 degrees).</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Shutter Amount</div>
+				<div class="paragraph no-margin">The radial blur intensity multiplier.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Mesh Instancing</div>
+				<div class="paragraph no-margin">Use this feature to improve runtime performance using <a aria-title="" href="https://docs.unity3d.com/Manual/GPUInstancing.html" target="_BLANK" data-tooltip="External link">GPU Instancing <i class="icon-link-ext-alt"></i></a>.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Samples Count</div>
+				<div class="paragraph no-margin">The number of mesh clones the toolkit should draw at runtime.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Alpha Offset</div>
+				<div class="paragraph no-margin">The transparency/opacity offset of the spin mesh material.</div>
+				<div class="spacer small"></div>
+			</section>
+			<section data-level="2" data-keywords="how to change show vfx visual wheels brakes heat effects settings tab panel window">
+				<div class="title text-start small-margin">Brakes Heat</div>
+				<div class="paragraph">For brakes friction simulation, the Multiversal Vehicle Controller provides the <span class="quote">Brakes Heat</span> system.</div>
+				<div class="image" data-width="512px" data-height="158px" style="width: 512px; height: 158px; background-image: url('Files~/Images/visual_effects-brakes_heat.png');"></div>
+				<div class="sub-title text-start">Emission Color Property</div>
+				<div class="paragraph no-margin">The material emission property key for brake disks mesh renderers.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Heat Emission Color</div>
+				<div class="paragraph no-margin">Colour of brake disks at a maximum heat level.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Heating Speed</div>
+				<div class="paragraph no-margin">The speed intensity at which the brake heat increases.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Cooling Speed</div>
+				<div class="paragraph no-margin">The speed intensity at which the brake heat decreases.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Clamp Brake Heat</div>
+				<div class="paragraph no-margin">Enabling this flag will max out the brake heat level and prevent it from exceeding the maximum level.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Affect Performance</div>
+				<div class="paragraph no-margin">Setting this flag to <span class="quote">On</span> will make the physics system consider the heat factor as a performance downgrade for brakes.</div>
+			</section>
+			<section data-level="1" data-keywords="ho tow change show mvc unity editor settings tab panel window">
+				<div class="title text-start small-margin">Editor Settings</div>
+				<div class="paragraph">The last things left to configure are Editor settings. Using the parameters mentioned below, you can modify how the toolkit visualize its different features inside the Unity <a aria-title="" href="https://docs.unity3d.com/Manual/UsingTheSceneView.html" target="_BLANK" data-tooltip="External link">Scene View <i class="icon-link-ext-alt"></i></a> and <a href="https://docs.unity3d.com/Manual/UsingTheInspector.html" target="_BLANK" data-tooltip="External link">Inspector <i class="icon-link-ext-alt"></i></a>, as well as the toolkit's <a href="#settings-panel">Settings Panel</a>.</div>
+				<div class="image" data-width="512px" data-height="536px" style="width: 512px; height: 536px; background-image: url('Files~/Images/editor-general.png');"></div>
+				<div class="sub-title text-start">Auto Update Check</div>
+				<div class="paragraph no-margin">Enables and disables the toolkit automatic update detection. If this parameter is disabled, you can check for updates manually through the <span class="quote">Check For Updates</span> button below.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Values Unit</div>
+				<div class="paragraph no-margin">Same as <a aria-title="" href="#settings-panel-general-runtime-units">Runtime Units</a>, except it's for editor windows & inspectors.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Power Unit</div>
+				<div class="paragraph no-margin">The editor unit for <span class="quote">Power</span> values.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Torque Unit</div>
+				<div class="paragraph no-margin">The editor unit for <span class="quote">Torque</span> values.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Spring Target Measurement</div>
+				<div class="paragraph no-margin">Vehicle suspension <a aria-title="" href="" class="missing" data-tooltip="Link is missing">Spring Target</a> measurement type. This parameter could be of two values:</div>
+				<div class="paragraph">
+					<ul>
+						<li><span class="quote">Target</span>: Or better say the target percentage.</li>
+						<li><span class="quote">Length</span>: Will make the <span class="quote">Spring Target</span> measurable in Millimetres <span class="quote">mm</span>. This value will be clamped to the vehicle suspension <a aria-title="" href="" class="missing" data-tooltip="Link is missing">Spring Length</a>.</li>
+					</ul>
+				</div>
+				<div class="sub-title text-start">Exhaust Simulation FPS</div>
+				<div class="paragraph no-margin">When <a aria-title="" href="" class="missing" data-tooltip="Link is missing">simulating exhaust flames</a> in edit mode, you would not want the editor FPS to drop below a certain value. This parameter defines the simulation FPS limit.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Preview Suspension Adjustment</div>
+				<div class="paragraph no-margin">Enabling this feature will let you see changes to your vehicles suspension in edit mode within the <a aria-title="" href="https://docs.unity3d.com/Manual/UsingTheSceneView.html" target="_BLANK" data-tooltip="External link">Scene View <i class="icon-link-ext-alt"></i></a>.</div>
+				<div class="spacer small"></div>
+				<div class="sub-title text-start">Gizmos</div>
+				<div class="paragraph no-margin">While working with MVC inside Unity, our systems will try to visualize some important details inside the <a aria-title="" href="https://docs.unity3d.com/Manual/UsingTheSceneView.html" target="_BLANK" data-tooltip="External link">Scene View <i class="icon-link-ext-alt"></i></a>. The following parameters define the look of these visual elements inside Unity:</div>
+				<div class="paragraph">
+					<ul>
+						<li><span class="quote">Gizmos Size</span>: The size multiplier of the toolkit gizmos.</li>
+						<li><span class="quote">COM</span>: A coloured sphere indicating the position of a vehicle centre of mass.</li>
+						<li><span class="quote">Engine</span>: A coloured sphere indicating the position of the engine.</li>
+						<li><span class="quote">Exhausts</span>: A coloured sphere indicating the position of the vehicle exhaust output.</li>
+						<li><span class="quote">Wheel Marks</span>: Coloured lines visualizing Wheel Marks paths.</li>
+						<li><span class="quote">Headlights</span>: Some coloured spheres indicating the position of a vehicle headlight sources.</li>
+						<li><span class="quote">Side Signal Lights</span>: Same as <span class="quote">Headlights</span>, except for side signal & indicator lights.</li>
+						<li><span class="quote">Interior Lights</span>: Coloured spheres indicating the vehicle interior lights position. Same as <span class="quote">Headlights</span> & <span class="quote">Side Signal Lights</span>.</li>
+						<li><span class="quote">Rear Lights</span>: Coloured spheres indicating the vehicle rear lights position. The same as <span class="quote">Headlights</span>, <span class="quote">Side Signal Lights</span> & <span class="quote">Interior Lights</span>.</li>
+						<!--li><span class="quote">Joints</span>: Coloured spheres visualizing a <a aria-title="" href="" class="missing" data-tooltip="Link is missing">Part Joint</a> attachement points.</li-->
+						<li><span class="quote">IK Pivots</span>: Some coloured spheres referring to <a aria-title="" href="" class="missing" data-tooltip="Link is missing">Vehicle IK Pivot</a>s' position.</li>
+						<li><span class="quote">Audio Reverb Zone</span>: A box/sphere indicating an <a aria-title="" href="" class="missing" data-tooltip="Link is missing">Audio Zone</a> of type <span class="quote">Reverb</span>.</li>
+						<li><span class="quote">Darkness Weather Zone</span>: A box/sphere indicating an <a aria-title="" href="" class="missing" data-tooltip="Link is missing">Weather Zone</a> of type <span class="quote">Darkness</span>.</li>
+						<li><span class="quote">Fog Weather Zone</span>: A box/sphere indicating an <a aria-title="" href="" class="missing" data-tooltip="Link is missing">Weather Zone</a> of type <span class="quote">Fog</span>.</li>
+						<li><span class="quote">Wheels Damage Zone</span>: A box/sphere indicating an <a aria-title="" href="" class="missing" data-tooltip="Link is missing">Damage Zone</a> of type <span class="quote">Wheels</span>.</li>
+						<li><span class="quote">Damage Repair Zone</span>: A box/sphere indicating an <a aria-title="" href="" class="missing" data-tooltip="Link is missing">Damage Zone</a> of type <span class="quote">Repair</span>.</li>
+						<li><span class="quote">AI Path Bezier</span>: The <a aria-title="" href="" class="missing" data-tooltip="Link is missing">AI Path</a> gizmos colour.</li>
+						<li><span class="quote">AI Path Bezier Selected</span>: The <a aria-title="" href="" class="missing" data-tooltip="Link is missing">AI Path</a> gizmos colour at its own state of selection.</li>
+						<li><span class="quote">AI Path Anchor</span>: A coloured sphere indicating the positions of the <a aria-title="" href="" class="missing" data-tooltip="Link is missing">AI Path</a> points.</li>
+						<li><span class="quote">AI Path Start Anchor</span>: A coloured sphere that refers to the <a aria-title="" href="" class="missing" data-tooltip="Link is missing">AI Path</a> start point.</li>
+						<li><span class="quote">AI Path Moved Anchor</span>: A coloured sphere that refers to the <a aria-title="" href="" class="missing" data-tooltip="Link is missing">AI Path</a> moved points due to interference with obstacles.</li>
+						<li><span class="quote">AI Path Failed Moving Anchor</span>: A coloured sphere that refers to the <a aria-title="" href="" class="missing" data-tooltip="Link is missing">AI Path</a> points that have failed being moved or aligned to the ground.</li>
+						<li><span class="quote">AI Path Controls</span>: Some coloured lines & handles that you can use to modify & stance a specific <a aria-title="" href="" class="missing" data-tooltip="Link is missing">AI Path</a>.</li>
+						<li><span class="quote">AI Brake Zone</span>: A box/sphere indicating an <a aria-title="" href="" class="missing" data-tooltip="Link is missing">AI Zone</a> of type <span class="quote">Brake</span>.</li>
+						<li><span class="quote">AI Handbrake Zone</span>: A box/sphere indicating an <a aria-title="" href="" class="missing" data-tooltip="Link is missing">AI Zone</a> of type <span class="quote">Handbrake</span>.</li>
+						<li><span class="quote">AI NOS Zone</span>: A box/sphere indicating an <a aria-title="" href="" class="missing" data-tooltip="Link is missing">AI Zone</a> of type <span class="quote">NOS</span>.</li>
+						<li><span class="quote">AI Obstacle Bounds</span>: A coloured box indicating AI obstacles bounds.</li>
+						<li><span class="quote">AI Obstacle Sensors</span>: Some coloured lines referring to <a aria-title="" href="" class="missing" data-tooltip="Link is missing">AI Vehicle</a>'s obstacle sensors.</li>
+						<li><span class="quote">AI Obstacle Sensors Active</span>: The <a aria-title="" href="" class="missing" data-tooltip="Link is missing">AI Vehicle</a> sensors colour when hitting an obstacle.</li>
+					</ul>
+				</div>
+			</section>
+			
+			<section data-ignore="true">
+				<div class="title large">We're working on it...<br>There's more coming!</div>
+				<div class="title no-text-transform">We're still adding content to this page, stay tuned for more content very soon...</div>
+				<div class="sub-title">You can subscribe to our news letter for future updates!</div>
+				<div id="news-letter-subscribe-form">
+					<button id="news-letter-submit-button" class="very-large center"><div class="text">Subscribe</div><i class="loader icon-spin1"></i></button>
+				</div>
+			</section>
+		</div>
+		<script type="text/javascript" src="https://mvc.gg/core/js/archive/1.4.1-beta/init.js"></script>
+		<script type="text/javascript" src="https://mvc.gg/core/js/archive/1.4.1-beta/docs.js"></script>
+		<script id="loaded-script" type="text/javascript">
+			$("div#page-loader").css("display", "none");
+			$("script#loaded-script").remove();
+		</script>
+	</body>
+</html>
