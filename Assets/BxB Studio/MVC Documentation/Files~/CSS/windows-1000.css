@@ -1,0 +1,18 @@
+@media screen and (max-width: 1000px)
+{
+	body > div#user-panel-window.window-container div.container div.panel-button > div.icon
+	{
+		/*display: none;*/
+	}
+	body > div#user-panel-window.window-container div.container div.panel-button > div.text
+	{
+		/*width: -moz-fit-content;
+		width: fit-content;
+		margin-left: 3rem;
+		text-align: unset !important;*/
+	}
+	body > div#user-panel-window.window-container div.container div.panel-button > div.notice-icon
+	{
+		right: .5rem !important;
+	}
+}

@@ -1,0 +1,9 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/scripts/NewUSSFile.uss?fileID=7433441132597879392&amp;guid=6833d63ed2b2b98408e41fa4fa0506cc&amp;type=3#NewUSSFile" />
+    <ui:VisualElement style="flex-grow: 1; width: auto; height: auto; -unity-background-image-tint-color: rgb(255, 255, 255); background-color: rgba(134, 134, 134, 0); background-image: url(&quot;project://database/Assets/Art/Materials/Drone%20Camera%20render.renderTexture?fileID=8400000&amp;guid=7daf084a4edfb6843a2b7bc1d35b417a&amp;type=2#Drone Camera render&quot;); background-size: cover; background-position-x: center 0; -unity-background-scale-mode: scale-and-crop; align-items: center; justify-content: center; align-content: auto;">
+        <ui:Button text="Start" name="Button_Start" class="neon-button neon-label" style="align-self: center;" />
+        <ui:Button text="Ranking" name="Button" class="neon-button neon-label" style="align-self: center;" />
+        <ui:Button text="Credits" name="Button" class="neon-button neon-label" style="align-self: center;" />
+        <ui:Button text="Quit" name="Button" class="neon-button neon-label" style="align-self: center;" />
+    </ui:VisualElement>
+</ui:UXML>

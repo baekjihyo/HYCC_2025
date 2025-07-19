@@ -1,0 +1,511 @@
+div.enumerator
+{
+	--enumerator-height: 2rem;
+	position: relative;
+	width: 14.5rem;
+	height: var(--enumerator-height);
+	margin: 1rem .375rem;
+	border-radius: .25rem;
+	background-color: rgba(255, 255, 255, .125);
+	color: white;
+	line-height: 1rem;
+	overflow: hidden;
+	cursor: pointer;
+	z-index: 2;
+}
+div.enumerator.visible
+{
+	background-color: transparent;
+}
+div.enumerator:not([disabled]).active
+{
+	background-color: transparent;
+	overflow: visible;
+	z-index: 10;
+}
+div.input-container.error > div.enumerator:not(.visible):not(.active):not([disabled])
+{
+	background-color: rgba(128, 32, 32, .25);
+	box-shadow: 0 0 0 .25rem rgb(255, 0, 0, .5);
+	transition: box-shadow .125s;
+}
+div.input-container.warning > div.enumerator:not(.visible):not(.active):not([disabled])
+{
+	background-color: rgba(128, 32, 0, .25);
+	box-shadow: 0 0 0 .25rem rgb(255, 128, 0, .5);
+	transition: box-shadow .125s;
+}
+div.enumerator.long
+{
+	width: 29.625rem;
+}
+div.input-container.stretch > div.enumerator
+{
+	width: 100%;
+}
+div.enumerator.small-margin
+{
+	margin-top: .375rem;
+	margin-bottom: .375rem;
+}
+div.enumerator.no-margin
+{
+	margin-top: 0;
+	margin-bottom: 0;
+}
+div.enumerator.no-side-margin
+{
+	margin-left: 0;
+	margin-right: 0;
+}
+div.enumerator:not(.visible):not([disabled]):hover,
+div.enumerator:not(.visible):not([disabled]):active,
+div.enumerator:not(.visible):not([disabled]):focus
+{
+	background-color: rgba(255, 255, 255, .25);
+}
+div.enumerator:not(.visible):not([disabled]).active
+{
+	background-color: transparent;
+}
+div.enumerator.large
+{
+	--enumerator-height: 2.5rem;
+	font-weight: 500;
+}
+div.enumerator.larger
+{
+	--enumerator-height: 3rem;
+	font-weight: 500;
+}
+div.enumerator.visible
+{
+	--enumerator-height: fit-content;
+	width: -moz-fit-content;
+	width: fit-content;
+	border-radius: unset;
+	overflow: visible;
+}
+div.enumerator[disabled]
+{
+	color: gray;
+}
+div.enumerator[disabled]:not(.visible)
+{
+	background-color: transparent;
+	box-shadow: 0 0 0 .125rem inset rgba(255, 255, 255, .125);
+}
+div.enumerator::before
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 2rem;
+	height: 2rem;
+	margin: 0;
+	color: white;
+	font-family: "fontello";
+	font-stretch: normal;
+	font-weight: normal;
+	font-size: 1rem;
+	line-height: 2rem;
+	text-align: center;
+	-webkit-backdrop-filter: opacity(0);
+	backdrop-filter: opacity(0);
+	content: "\e877";
+	z-index: 5;
+}
+div.enumerator[disabled]::before
+{
+	color: gray;
+}
+div.enumerator.active::before,
+div.enumerator.visible::before
+{
+	display: none;
+}
+div.enumerator.visible.wide
+{
+	width: calc(100% - 1rem);
+}
+div.enumerator.large::before
+{
+	width: 2.5rem;
+	height: 2.5rem;
+	font-size: 1rem;
+	line-height: 2.5rem;
+}
+div.enumerator.larger::before
+{
+	width: 3rem;
+	height: 3rem;
+	font-size: 1rem;
+	line-height: 3rem;
+}
+div.enumerator > div.option
+{
+	visibility: hidden;
+}
+div.enumerator > div.options-container
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	border-radius: .25rem;
+	transition: top .25s ease-in-out;
+	box-shadow: 0 0 .25rem black;
+	opacity: 1;
+	z-index: -1;
+}
+div.enumerator:not(.visible) > div.options-container
+{
+	pointer-events: none;
+}
+div.enumerator.active > div.options-container
+{
+	height: 0;
+	overflow: hidden;
+}
+div.enumerator:not(.visible) > div.options-list
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	max-height: 700%;
+	border-radius: .25rem;
+	background-color: rgba(255, 255, 255, .125);
+	box-shadow: 0 0 .25rem black;
+	overflow-x: hidden;
+	overflow-y: overlay;
+	z-index: 10;
+	display: none;
+}
+div.enumerator.search:not(.visible) > div.options-list
+{
+	max-height: 600%;
+}
+div.enumerator:not(.visible).active > div.options-list
+{
+	-webkit-backdrop-filter: blur(1rem) brightness(50%);
+	backdrop-filter: blur(1rem) brightness(50%);
+	display: block;
+}
+div.enumerator:not(.visible) > div.options-list > div.option:not([disabled]):hover,
+div.enumerator:not(.visible) > div.options-list > div.option.selected:not([disabled])
+{
+	background-color: rgba(255, 255, 255, .125);
+}
+div.enumerator:not(.visible) > div.options-container > div.option[disabled],
+div.enumerator:not(.visible) > div.options-list > div.option[disabled]
+{
+	color: rgb(144, 144, 144);
+	text-transform: capitalize;
+}
+div.enumerator.visible > div.options-container > div.option[disabled]
+{
+	color: rgb(144, 144, 144);
+	cursor: not-allowed;
+}
+div.enumerator.visible > div.options-container
+{
+	position: unset;
+	top: unset;
+	left: unset;
+	width: auto;
+	border-radius: unset;
+	background-color: unset;
+	box-shadow: unset;
+}
+div.enumerator.visible.wide > div.options-container
+{
+	width: 100%;
+}
+div.enumerator > div.options-container > div.option,
+div.enumerator:not(.visible) > div.options-list > div.option
+{
+	position: relative;
+	width: calc(100% - 2rem);
+	height: var(--enumerator-height);
+	padding: 0 1rem;
+	line-height: var(--enumerator-height);
+	cursor: pointer;
+	white-space: nowrap;
+	display: block;
+}
+div.enumerator:not([disabled]) > div.options-container > div.option:not([disabled]):active,
+div.enumerator:not([disabled]) > div.options-container > div.option:not([disabled]):focus,
+div.enumerator:not(.visible) > div.options-list > div.option:not([disabled]):active,
+div.enumerator:not(.visible) > div.options-list > div.option:not([disabled]):focus
+{
+	background-color: rgba(0, 0, 0, .125);
+}
+div.enumerator > div.options-container > div.option.icon::before,
+div.enumerator:not(.visible) > div.options-list > div.option.icon::before
+{
+	position: absolute;
+	top: 50%;
+	left: 1rem;
+	width: 1rem;
+	height: 1rem;
+	margin: 0;
+	color: rgb(144, 144, 144);
+	font-size: .875rem;
+	line-height: 1rem;
+	transform: translateY(-50%);
+}
+div.enumerator > div.options-container > div.option.icon.background-icon::before,
+div.enumerator:not(.visible) > div.options-list > div.option.icon.background-icon::before
+{
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+div.enumerator.large > div.options-container > div.option.icon::before,
+div.enumerator.large:not(.visible) > div.options-list > div.option.icon::before,
+div.enumerator.larger > div.options-container > div.option.icon::before,
+div.enumerator.larger:not(.visible) > div.options-list > div.option.icon::before
+{
+	font-size: 1rem;
+}
+div.enumerator > div.options-container > div.option.icon > div.option-text,
+div.enumerator:not(.visible) > div.options-list > div.option.icon > div.option-text
+{
+	padding-left: 2rem;
+}
+div.enumerator[disabled],
+div.enumerator[disabled] > div.options-container > div.option,
+div.enumerator:not(.visible)[disabled] > div.options-list > div.option
+{
+	cursor: not-allowed;
+}
+div.enumerator.visible > div.options-container > div.option
+{
+	width: 1rem;
+	padding: .875rem;
+	border-radius: .3rem;
+	border: .0625rem solid rgba(255, 255, 255, .125);
+	text-align: center;
+	display: inline-block;
+}
+div.enumerator.visible:not(.close-options) > div.options-container > div.option
+{
+	background-color: rgba(0, 0, 0, .1875);
+}
+div.enumerator.visible > div.options-container > div.option:not(:last-of-type)
+{
+	margin-right: .5rem;
+}
+div.enumerator.visible.wide > div.options-container > div.option
+{
+	width: calc(100% - 2.5rem);
+	height: -moz-fit-content;
+	height: fit-content;
+	margin: 0 0 .5rem;
+	padding: 1rem;
+	border-radius: .3rem;
+	text-align: start;
+	line-height: 1rem;
+	display: block;
+}
+div.enumerator.visible.close-options:not([disabled]) > div.options-container > div.option:not([disabled]):hover,
+div.enumerator.visible.close-options:not([disabled]) > div.options-container > div.option:not([disabled]):active,
+div.enumerator.visible.close-options:not([disabled]) > div.options-container > div.option:not([disabled]):focus,
+div.enumerator.visible:not([disabled]) > div.options-container > div.option.selected:not([disabled])
+{
+	background-color: rgba(255, 255, 255, .125);
+}
+div.enumerator.visible:not([disabled]) > div.options-container > div.option.selected:not([disabled])
+{
+	box-shadow: 0 0 .5rem rgba(0, 0, 0, .5);
+}
+div.enumerator.visible:not([disabled]) > div.options-container > div.option:not([disabled]):hover,
+div.enumerator.visible:not([disabled]) > div.options-container > div.option:not([disabled]):active,
+div.enumerator.visible:not([disabled]) > div.options-container > div.option:not([disabled]):focus,
+div.enumerator.visible:not([disabled]) > div.options-container > div.option.selected:not([disabled])
+{
+	border-color: rgba(255, 255, 255, .375);
+}
+div.enumerator.visible:not(.wide) > div.options-container > div.option.custom
+{
+	width: 2rem;
+	padding-left: .375rem;
+	padding-right: .375rem;
+}
+div.enumerator.visible.wide > div.options-container > div.option > div.option-title,
+div.enumerator.visible.wide > div.options-container > div.option > div.option-sub-title
+{
+	width: -moz-fit-content;
+	width: fit-content;
+	height: 1.5rem;
+	font-size: 1.25rem;
+	font-weight: 400;
+	line-height: 1.5rem;
+}
+div.enumerator.visible.wide > div.options-container > div.option > div.option-sub-title
+{
+	font-size: .875rem;
+}
+div.enumerator.visible.wide > div.options-container > div.option > div.option-text
+{
+	font-size: .875rem;
+}
+div.enumerator.visible:not(.wide) > div.options-container > div.option.custom > div.option-text
+{
+	width: 100%;
+	height: 100%;
+}
+div.enumerator.visible:not(.wide) > div.options-container > div.option.custom > input
+{
+	display: none;
+}
+div.enumerator.visible:not(.wide) > div.options-container > div.option.custom.selected
+{
+	width: 2.75rem;
+	height: 2.75rem;
+	margin: 0;
+	padding: 0;
+	line-height: 2.75rem;
+}
+div.enumerator.visible:not(.wide) > div.options-container > div.option.custom.selected.error
+{
+	border-color: rgba(255, 0, 0, .5);
+	background-color: rgba(255, 0, 0, .25);
+}
+div.enumerator.visible:not(.wide) > div.options-container > div.option.custom.selected > div.option-text
+{
+	display: none;
+}
+div.enumerator.visible:not(.wide) > div.options-container > div.option.custom.selected > input,
+div.enumerator.visible:not(.wide):not([disabled]) > div.options-container > div.option.custom.selected > input:hover,
+div.enumerator.visible:not(.wide):not([disabled]) > div.options-container > div.option.custom.selected > input:active,
+div.enumerator.visible:not(.wide):not([disabled]) > div.options-container > div.option.custom.selected > input:focus
+{
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background-color: transparent;
+	font-size: 1rem;
+	text-align: center;
+	box-shadow: unset;
+	display: block;
+}
+div.enumerator.visible:not(.wide)[disabled] > div.options-container > div.option.custom > input
+{
+	color: rgb(144, 144, 144);
+	cursor: not-allowed;
+	pointer-events: none;
+}
+div.enumerator.search:not(.visible) > div.options-list
+{
+	border-radius: 0 0 .25rem .25rem;
+}
+div.enumerator.search:not(.visible) > div.search-container
+{
+	position: absolute;
+	bottom: 100%;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: .25rem .25rem 0 0;
+	background-color: rgb(32,32,32);
+	box-shadow: 0 0 .25rem black;
+	cursor: default;
+	overflow: hidden;
+	display: none;
+}
+div.enumerator.search.active:not(.visible) > div.search-container
+{
+	display: block;
+}
+div.enumerator.search:not(.visible) > div.search-container::before
+{
+	position: absolute;
+    top: 0;
+    left: 0;
+    padding: 1rem;
+    color: gray;
+}
+div.enumerator.search:not(.visible) > div.search-container > input.search-input
+{
+	width: calc(100% - 3.75rem);
+	margin: 0;
+	padding: .25rem .75rem .25rem 3rem !important;
+	border-radius: 0;
+	background-color: unset;
+	font-size: 1rem;
+}
+div.enumerator.search:not(.visible) > div.search-container > input.search-input:hover,
+div.enumerator.search:not(.visible) > div.search-container > input.search-input:focus
+{
+	background-color: unset;
+}
+div.enumerator.search:not(.visible) > div.search-container > input.search-input:active
+{
+	background-color: rgba(0, 0, 0, .125);
+}
+div.enumerator.wide.search:not(.visible) > div.search-container > input.search-input,
+div.enumerator.stretch.search:not(.visible) > div.search-container > input.search-input
+{
+	width: calc(100% - 4rem);
+	padding-right: 1rem !important;
+}
+div.enumerator.large.search:not(.visible) > div.search-container > input.search-input
+{
+	padding-top: .5rem !important;
+	padding-bottom: .5rem !important;
+}
+div.enumerator.larger.search:not(.visible) > div.search-container > input.search-input
+{
+	padding-top: .75rem !important;
+	padding-bottom: .75rem !important;
+}
+div.enumerator.blur:not(.visible),
+div.enumerator.blur.close-options.visible
+{
+	-webkit-backdrop-filter: blur(1rem);
+	backdrop-filter: blur(1rem);
+}
+div.enumerator.blur.visible:not(.close-options) > div.options-container > div.option
+{
+	-webkit-backdrop-filter: blur(2rem);
+	backdrop-filter: blur(2rem);
+}
+div.enumerator.visible.large > div.options-container > div.option
+{
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	font-size: 1.125rem;
+}
+div.enumerator.visible.larger > div.options-container > div.option
+{
+	padding-top: 1.25rem;
+	padding-bottom: 1.25rem;
+	font-size: 1.25rem;
+}
+div.enumerator.visible.close-options > div.options-container > div.option
+{
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+	border-radius: 0;
+}
+div.enumerator.visible.close-options > div.options-container > div.option:first-of-type
+{
+	border-radius: .3rem 0 0 .3rem;
+}
+div.enumerator.visible.close-options > div.options-container > div.option:last-of-type
+{
+	border-radius: 0 .3rem .3rem 0;
+}
+div.enumerator.visible.close-options > div.options-container > div.option.selected
+{
+	border-radius: .3rem;
+}
+div.enumerator.visible.close-options:not([disabled]) > div.options-container > div.option:hover:not([disabled]),
+div.enumerator.visible.close-options:not([disabled]) > div.options-container > div.option.selected:not([disabled])
+{
+	z-index: 1;
+}

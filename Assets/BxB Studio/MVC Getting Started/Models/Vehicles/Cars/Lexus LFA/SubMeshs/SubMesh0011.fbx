@@ -1,0 +1,248 @@
+; FBX 6.1.0 project file
+; Copyright (C) 1997-2008 Autodesk Inc. and/or its licensors.
+; All rights reserved.
+; ----------------------------------------------------
+
+FBXHeaderExtension:  {
+	FBXHeaderVersion: 1003
+	FBXVersion: 6100
+	CreationTimeStamp:  {
+		Version: 1000
+		Year: 2021
+		Month: 02
+		Day: 09
+		Hour: 22
+		Minute: 43
+		Second: 14
+		Millisecond: 259
+	}
+	Creator: "EJM Software FBX Exporter"
+	OtherFlags:  {
+		FlagPLE: 0
+	}
+}
+CreationTime: "2021-02-09 22:43:14:259"
+Creator: "EJM Software FBX Exporter"
+
+; Object definitions
+;------------------------------------------------------------------
+
+Definitions:  {
+	Version: 100
+	Count: 4
+		ObjectType: "Model" {
+			Count: 1
+		}
+		ObjectType: "Material" {
+			Count: 1
+		}
+		ObjectType: "Texture" {
+			Count: 1
+		}
+		ObjectType: "GlobalSettings" {
+			Count: 1
+		}
+}
+
+
+; Object properties
+;------------------------------------------------------------------
+
+Objects:  {
+	Model: "Model::SubMesh0011", "Mesh" {
+		Version: 232
+		Properties60:  {
+			Property: "GeometricScaling", "Vector3D", "",1,1,1
+			Property:"Show","bool","",1
+			Property:"NegativePercentShapeSupport","bool","",1
+			Property:"DefaultAttributeIndex","int","",0
+			Property:"Visibility","Visibility","A+",1
+			Property:"Color","ColorRGB","N",0.23921568627451,0.52156862745098,0.0235294117647059
+			Property: "BBoxMin","Vector3D","N",0,0,0
+			Property: "BBoxMax","Vector3D","N",0,0,0
+		}
+		MultiLayer: 1
+		MultiTake: 1
+		Shading: T
+		Culling: "CullingOff"
+		Vertices: -30.167730,14.671170,61.635370,-29.755050,18.777450,61.202040,-28.516990,22.759900,60.397290,-28.516990,22.759900,60.397290,-29.755050,18.777450,61.202040,-30.167730,14.671170,61.635370,-29.218540,10.337890,61.944890,-30.167730,14.671170,61.635370,-28.516990,22.759900,60.397290,-28.516990,22.759900,60.397290,-30.167730,14.671170,61.635370,-29.218540,10.337890,61.944890,-27.010650,6.561784,61.821090,-29.218540,10.337890,61.944890,-28.516990,22.759900,60.397290,-28.516990,22.759900,60.397290,-29.218540,10.337890,61.944890,-27.010650,6.561784,61.821090,-14.402950,22.471040,57.137050,-27.010650,6.561784,61.821090,-28.516990,22.759900,60.397290,-12.937890,4.869752,59.489390,-27.010650,6.561784,61.821090,-14.402950,22.471040,57.137050,-14.402950,22.471040,57.137050,-27.010650,6.561784,61.821090,-12.937890,4.869752,59.489390,-28.516990,22.759900,60.397290,-27.010650,6.561784,61.821090,-14.402950,22.471040,57.137050
+		PolygonVertexIndex: 25,24,-27,22,21,-24,19,18,-21,16,15,-18,13,12,-15,10,9,-12,7,6,-9,4,3,-6,1,0,-3,28,27,-30
+		GeometryVersion: 124
+		LayerElementNormal: 0 {
+			Version: 101
+			Name: ""
+			MappingInformationType: "ByVertice"
+			ReferenceInformationType: "Direct"
+			Normals: 0.197333,0.108853,0.974274,0.416499,0.053911,0.907537,0.234971,0.103721,0.966453,-0.234971,-0.103721,-0.966453,-0.416499,-0.053911,-0.907537,-0.197333,-0.108853,-0.974274,0.232244,0.107323,0.966718,0.197333,0.108853,0.974274,0.234971,0.103721,0.966453,-0.234971,-0.103721,-0.966453,-0.197333,-0.108853,-0.974274,-0.232244,-0.107323,-0.966718,0.206927,0.123871,0.970483,0.232244,0.107323,0.966718,0.234971,0.103721,0.966453,-0.234971,-0.103721,-0.966453,-0.232244,-0.107323,-0.966718,-0.206927,-0.123871,-0.970483,0.204508,0.123817,0.971003,0.206927,0.123871,0.970483,0.234971,0.103721,0.966453,0.178670,0.144933,0.973176,0.206927,0.123871,0.970483,0.204508,0.123817,0.971003,-0.204508,-0.123817,-0.971003,-0.206927,-0.123871,-0.970483,-0.178670,-0.144933,-0.973176,-0.234971,-0.103721,-0.966453,-0.206927,-0.123871,-0.970483,-0.204508,-0.123817,-0.971003
+		}
+		LayerElementSmoothing: 0 {
+			Version: 102
+			Name: ""
+			MappingInformationType: "ByPolygon"
+			ReferenceInformationType: "Direct"
+			Smoothing: 1
+		}
+		LayerElementUV: 0 {
+			Version: 101
+			Name: "UVMap"
+			MappingInformationType: "ByVertice"
+			ReferenceInformationType: "Direct"
+			UV: 0.956696,0.003906,0.933404,0.006471,0.909558,0.003906,0.956696,0.014345,0.932849,0.016909,0.909558,0.014345,0.771344,0.321993,0.747185,0.328838,0.700547,0.321993,0.771344,0.311241,0.724706,0.318086,0.700547,0.311241,0.984711,0.073998,0.962471,0.084768,0.892497,0.073998,0.984711,0.088674,0.914737,0.099445,0.892497,0.088674,0.848909,0.218311,0.933758,0.299793,0.841544,0.299793,0.949506,0.220222,0.933758,0.299793,0.848909,0.218311,0.830274,0.225853,0.745425,0.307335,0.729677,0.227764,0.837638,0.307335,0.745425,0.307335,0.830274,0.225853
+		}
+		LayerElementTexture: 0 {
+			Version: 101
+			Name: ""
+			MappingInformationType: "NoMappingInformation"
+			ReferenceInformationType: "IndexToDirect"
+			BlendMode: "Translucent"
+			TextureAlpha: 1
+			TextureId: 
+		}
+		LayerElementMaterial: 0 {
+			Version: 101
+			Name: ""
+			MappingInformationType: "ByPolygon"
+			ReferenceInformationType: "IndexToDirect"
+			Materials: 0,0,0,0,0,0,0,0,0,0
+		}
+		Layer: 0 {
+			Version: 100
+			LayerElement:  {
+				Type: "LayerElementNormal"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementSmoothing"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementUV"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementTexture"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementMaterial"
+				TypedIndex: 0
+			}
+		}
+	}
+
+	Material: "Material::tail_indicator_lights", "" {
+		Version: 102
+		ShadingModel: "lambert"
+		MultiLayer: 0
+		Properties60:  {
+			Property: "ShadingModel", "KString", "", "Lambert"
+			Property: "MultiLayer", "bool", "",0
+			Property: "EmissiveColor", "ColorRGB", "",0.8000,0.8000,0.8000
+			Property: "EmissiveFactor", "double", "",0.0000
+			Property: "AmbientColor", "ColorRGB", "",1.0000,0.6275,0.2510
+			Property: "AmbientFactor", "double", "",1.0000
+			Property: "DiffuseColor", "ColorRGB", "",1.0000,0.6275,0.2510
+			Property: "DiffuseFactor", "double", "",0.8000
+			Property: "Bump", "Vector3D", "",0,0,0
+			Property: "TransparentColor", "ColorRGB", "",1,1,1
+			Property: "TransparencyFactor", "double", "",0.0000
+			Property: "SpecularColor", "ColorRGB", "",1.0000,1.0000,1.0000
+			Property: "SpecularFactor", "double", "",0.5000
+			Property: "ShininessExponent", "double", "",12.3
+			Property: "ReflectionColor", "ColorRGB", "",0,0,0
+			Property: "ReflectionFactor", "double", "",1
+			Property: "Emissive", "ColorRGB", "",0,0,0
+			Property: "Ambient", "ColorRGB", "",1.0,1.0,1.01.0,0.6,0.3
+			Property: "Diffuse", "ColorRGB", "",0.8,0.8,0.81.0,0.6,0.3
+			Property: "Specular", "ColorRGB", "",1.0,1.0,1.0
+			Property: "Shininess", "double", "",12.3
+			Property: "Opacity", "double", "",1.0
+			Property: "Reflectivity", "double", "",0
+		}
+	}
+
+	Texture: "Texture::tail_indicator_lights_diff", "" {
+		Type: "TextureVideoClip"
+		Version: 202
+		TextureName: "Texture::tail_indicator_lights_diff"
+		Properties60:  {
+			Property: "TextureTypeUse", "enum", "",0
+			Property: "Texture alpha", "Number", "A+",1
+			Property: "CurrentMappingType", "enum", "",0
+			Property: "WrapModeU", "enum", "",0
+			Property: "WrapModeV", "enum", "",0
+			Property: "UVSwap", "bool", "",0
+			Property: "Translation", "Vector", "A+",0,0,0
+			Property: "Rotation", "Vector", "A+",0,0,0
+			Property: "Scaling", "Vector", "A+",1,1,1
+			Property: "TextureRotationPivot", "Vector3D", "",0,0,0
+			Property: "TextureScalingPivot", "Vector3D", "",0,0,0
+			Property: "UseMaterial", "bool", "",1
+			Property: "UseMipMap", "bool", "",0
+			Property: "CurrentTextureBlendMode", "enum", "",1
+			Property: "UVSet", "KString", "", "UVChannel_1"
+		}
+		FileName: "C:/Users/media/Documents/Multiversal Vehicle Controller/Assets"
+		ModelUVTranslation: 0,0
+		ModelUVScaling: 1,1
+		Texture_Alpha_Source: "None"
+		Cropping: 0,0,0,0
+	}
+
+
+
+GlobalSettings:  {
+		Version: 1000
+		Properties60:  {
+			Property: "UpAxis", "int", "",1
+			Property: "UpAxisSign", "int", "",1
+			Property: "FrontAxis", "int", "",2
+			Property: "FrontAxisSign", "int", "",1
+			Property: "CoordAxis", "int", "",0
+			Property: "CoordAxisSign", "int", "",1
+			Property: "UnitScaleFactor", "double", "",100
+		}
+}
+
+}
+
+
+; Object connections
+;------------------------------------------------------------------
+
+Connections:  {
+	Connect: "OO", "Model::SubMesh0011", "Model::Scene"
+	Connect: "OO", "Material::tail_indicator_lights", "Model::SubMesh0011"
+	Connect: "OO", "Texture::tail_indicator_lights_diff", "Model::SubMesh0011"
+}
+
+
+;Version 5 settings
+;------------------------------------------------------------------
+
+Version5:  {
+	AmbientRenderSettings:  {
+		Version: 101
+		AmbientLightColor: 0.0,0.0,0.0,0
+	}
+	FogOptions:  {
+		FogEnable: 0
+		FogMode: 0
+		FogDensity: 0.000
+		FogStart: 5.000
+		FogEnd: 25.000
+		FogColor: 0.1,0.1,0.1,1
+	}
+	Settings:  {
+		FrameRate: "24"
+		TimeFormat: 1
+		SnapOnFrames: 0
+		ReferenceTimeIndex: -1
+		TimeLineStartTime: 0
+		TimeLineStopTime: 479181389250
+	}
+	RendererSetting:  {
+		DefaultCamera: "Producer Perspective"
+		DefaultViewingMode: 0
+	}
+}

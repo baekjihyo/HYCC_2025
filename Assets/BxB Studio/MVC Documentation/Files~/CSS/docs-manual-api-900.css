@@ -1,0 +1,24 @@
+@media screen and (max-width: 900px)
+{
+	aside#docs-aside-nav
+	{
+		width: 12.5rem;
+	}
+	aside#docs-aside-nav > div.search-container input
+	{
+		width: 8rem;
+	}
+	div#docs-sections-container
+	{
+		width: calc(100% - 12.5625rem);
+		margin-left: 12.5625rem;
+	}
+	div#docs-sections-container > div.links-container
+	{
+		display: none;
+	}
+	div#docs-sections-container > section div.image
+	{
+		zoom: 59%;
+	}
+}

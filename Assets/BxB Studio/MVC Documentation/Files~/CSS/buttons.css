@@ -1,0 +1,528 @@
+button,
+input[type="button"],
+input[type="submit"]
+{
+	height: 1.5rem;
+	margin: 1rem .5rem;
+	padding: .125rem .875rem;
+	background-color: rgb(11, 56, 96);
+	border: .125rem solid transparent;
+	border-radius: .25rem;
+	color: rgb(192, 192, 192);
+	font-family: "Roboto";
+	cursor: pointer;
+	box-sizing: content-box;
+	display: block;
+}
+button.medium,
+input[type="button"].medium,
+input[type="submit"].medium
+{
+	width: 17.375rem;
+}
+button:not([disabled]):not(.loading):hover,
+input[type="button"]:not([disabled]):not(.loading):hover,
+input[type="submit"]:not([disabled]):not(.loading):hover,
+button:not([disabled]):not(.loading):focus,
+input[type="button"]:not([disabled]):not(.loading):focus,
+input[type="submit"]:not([disabled]):not(.loading):focus
+{
+	box-shadow: 0 0 0 .1875rem rgba(0, 0, 0, .125);
+}
+button.fit,
+input[type="button"].fit,
+input[type="submit"].fit
+{
+	width: 22.375rem;
+}
+button.long,
+input[type="button"].long,
+input[type="submit"].long
+{
+	width: 27.375rem;
+}
+button.stretch,
+input[type="button"].stretch,
+input[type="submit"].stretch
+{
+	width: calc(100% - 2.25rem);
+}
+button > div.text
+{
+	font-stretch: normal;
+}
+button.loading > div.text
+{
+	display: none;
+}
+button > i.loader
+{
+	width: .8333rem;
+	height: .8333rem;
+	margin: 0 auto;
+	line-height: .8333rem;
+	display: none;
+	animation: spin 1s cubic-bezier(0, 1.25, 1, -0.25) infinite;
+}
+button.large > i.loader,
+button.larger > i.loader
+{
+	width: 1rem;
+	height: 1rem;
+	line-height: 1rem;
+}
+button.very-large > i.loader
+{
+	width: 1.25rem;
+	height: 1.25rem;
+	line-height: 1.25rem;
+}
+button.loading > i.loader
+{
+	display: block;
+}
+button > i.loader::before
+{
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	color: white;
+}
+a button,
+a input[type="button"],
+a input[type="submit"]
+{
+	display: inline-block;
+}
+button.transparent.color-text:not(.white):not(:hover):not(:active):not(:focus):not(:disabled),
+input[type="button"].transparent.color-text:not(.white):not(:hover):not(:active):not(:focus):not(:disabled),
+input[type="submit"].transparent.color-text:not(.white):not(:hover):not(:active):not(:focus):not(:disabled)
+{
+	color: rgb(25, 94, 155);
+}
+button.gradient:not(.transparent):not(:disabled):not(.loading),
+input[type="button"].gradient:not(.transparent):not(:disabled):not(.loading),
+input[type="submit"].gradient:not(.transparent):not(:disabled):not(.loading)
+{
+	background-image: linear-gradient(to right, rgb(11, 56, 96), rgb(25, 94, 155));
+	border-left-color: rgb(11, 56, 96);
+	border-right-color: rgb(25, 94, 155);
+}
+button.yellow,
+input[type="button"].yellow,
+input[type="submit"].yellow
+{
+	background-color: rgb(255, 192, 0);
+	color: rgb(224, 224, 224);
+}
+button.transparent.yellow.color-text:not(:hover):not(:active):not(:focus):not(:disabled),
+input[type="button"].transparent.yellow.color-text:not(:hover):not(:active):not(:focus):not(:disabled),
+input[type="submit"].transparent.yellow.color-text:not(:hover):not(:active):not(:focus):not(:disabled)
+{
+	color: rgb(255, 192, 0);
+}
+button.yellow.gradient:not(.transparent):not(:disabled):not(.loading),
+input[type="button"].yellow.gradient:not(.transparent):not(:disabled):not(.loading),
+input[type="submit"].yellow.gradient:not(.transparent):not(:disabled):not(.loading)
+{
+	background-image: linear-gradient(to right, rgb(255, 128, 0), rgb(255, 192, 0));
+	border-left-color: rgb(255, 128, 0);
+	border-right-color: rgb(255, 192, 0);
+}
+button.red,
+input[type="button"].red,
+input[type="submit"].red
+{
+	background-color: rgb(255, 32, 0);
+	color: rgb(224, 224, 224);
+}
+button.transparent.red.color-text:not(:hover):not(:active):not(:focus):not(:disabled),
+input[type="button"].transparent.red.color-text:not(:hover):not(:active):not(:focus):not(:disabled),
+input[type="submit"].transparent.red.color-text:not(:hover):not(:active):not(:focus):not(:disabled)
+{
+	color: rgb(255, 32, 0);
+}
+button.red.gradient:not(.transparent):not(:disabled):not(.loading),
+input[type="button"].red.gradient:not(.transparent):not(:disabled):not(.loading),
+input[type="submit"].red.gradient:not(.transparent):not(:disabled):not(.loading)
+{
+	background-image: linear-gradient(to right, rgb(192, 0, 0), rgb(255, 32, 0));
+	border-left-color: rgb(192, 0, 0);
+	border-right-color: rgb(255, 32, 0);
+}
+button.white:not(.transparent):not(:disabled):not(.loading),
+input[type="button"].white:not(.transparent):not(:disabled):not(.loading),
+input[type="submit"].white:not(.transparent):not(:disabled):not(.loading)
+{
+	background-color: rgb(128, 128, 128);
+	font-weight: 500;
+}
+button.white:not(.transparent):not(:disabled):not(.loading),
+input[type="button"].white:not(.transparent):not(:disabled),
+input[type="submit"].white:not(.transparent):not(:disabled)
+{
+	color: rgb(64, 64, 64);
+}
+button.white.gradient:not(.transparent):not(:disabled):not(.loading),
+input[type="button"].white.gradient:not(.transparent):not(:disabled):not(.loading),
+input[type="submit"].white.gradient:not(.transparent):not(:disabled):not(.loading)
+{
+	background-image: linear-gradient(to right, rgb(128, 128, 128), rgb(192, 192, 192));
+	border-left-color: rgb(128, 128, 128);
+	border-right-color: rgb(192, 192, 192);
+}
+button.black,
+input[type="button"].black,
+input[type="submit"].black
+{
+	background-color: rgb(32, 32, 32);
+}
+button.transparent.black.color-text:not(:hover):not(:active):not(:focus):not(:disabled),
+input[type="button"].transparent.black.color-text:not(:hover):not(:active):not(:focus):not(:disabled),
+input[type="submit"].transparent.black.color-text:not(:hover):not(:active):not(:focus):not(:disabled)
+{
+	color: rgb(32, 32, 32);
+}
+button.black.gradient:not(.transparent):not(:disabled):not(.loading),
+input[type="button"].black.gradient:not(.transparent):not(:disabled):not(.loading),
+input[type="submit"].black.gradient:not(.transparent):not(:disabled):not(.loading)
+{
+	background-image: linear-gradient(to right, rgb(32, 32, 32), rgb(48, 48, 48));
+	border-left-color: rgb(32, 32, 32);
+	border-right-color: rgb(48, 48, 48);
+}
+button.transparent:not(:disabled),
+input[type="button"].transparent:not(:disabled),
+input[type="submit"].transparent:not(:disabled),
+button.yellow.transparent:not(:disabled),
+input[type="button"].yellow.transparent:not(:disabled),
+input[type="submit"].yellow.transparent:not(:disabled),
+button.red.transparent:not(:disabled),
+input[type="button"].red.transparent:not(:disabled),
+input[type="submit"].red.transparent:not(:disabled),
+button.white.transparent:not(:disabled),
+input[type="button"].white.transparent:not(:disabled),
+input[type="submit"].white.transparent:not(:disabled)
+button.black.transparent:not(:disabled),
+input[type="button"].black.transparent:not(:disabled),
+input[type="submit"].black.transparent:not(:disabled)
+{
+	background-color: transparent;
+	background-image: none;
+}
+button.transparent:not(:disabled):not(.blur),
+input[type="button"].transparent:not(:disabled):not(.blur),
+input[type="submit"].transparent:not(:disabled):not(.blur)
+{
+	border-color: rgb(11, 56, 96);
+}
+button.yellow.transparent:not(:disabled):not(.blur),
+input[type="button"].yellow.transparent:not(:disabled):not(.blur),
+input[type="submit"].yellow.transparent:not(:disabled):not(.blur)
+{
+	border-color: rgb(255, 192, 0);
+}
+button.red.transparent:not(:disabled):not(.blur),
+input[type="button"].red.transparent:not(:disabled):not(.blur),
+input[type="submit"].red.transparent:not(:disabled):not(.blur)
+{
+	border-color: rgb(255, 32, 0);
+}
+button.white.transparent:not(:disabled):not(.blur),
+input[type="button"].white.transparent:not(:disabled):not(.blur),
+input[type="submit"].white.transparent:not(:disabled):not(.blur)
+{
+	border-color: rgb(128, 128, 128);
+}
+button.black.transparent:not(:disabled):not(.blur),
+input[type="button"].black.transparent:not(:disabled):not(.blur),
+input[type="submit"].black.transparent:not(:disabled):not(.blur)
+{
+	border-color: rgb(32, 32, 32);
+}
+button.transparent.blur:not(:disabled):not(.loading),
+input[type="button"].transparent.blur:not(:disabled):not(.loading),
+input[type="submit"].transparent.blur:not(:disabled):not(.loading)
+{
+	border-color: transparent;
+}
+button.transparent:hover:not(:disabled):not(.loading):not(.blur),
+input[type="button"].transparent:hover:not(:disabled):not(.loading):not(.blur),
+input[type="submit"].transparent:hover:not(:disabled):not(.loading):not(.blur),
+button.transparent:active:not(:disabled):not(.loading):not(.blur),
+input[type="button"].transparent:active:not(:disabled):not(.loading):not(.blur),
+input[type="submit"].transparent:active:not(:disabled):not(.loading):not(.blur),
+button.transparent:focus:not(:disabled):not(.loading):not(.blur),
+input[type="button"].transparent:focus:not(:disabled):not(.loading):not(.blur),
+input[type="submit"].transparent:focus:not(:disabled):not(.loading):not(.blur)
+{
+	background-color: rgb(11, 56, 96);
+}
+button.transparent.blur:not(:disabled):not(.loading),
+input[type="button"].transparent.blur:not(:disabled):not(.loading),
+input[type="submit"].transparent.blur:not(:disabled):not(.loading)
+{
+	background-color: rgba(11, 56, 96, .5);
+}
+button.transparent.yellow:hover:not(:disabled):not(.loading):not(.blur),
+input[type="button"].transparent.yellow:hover:not(:disabled):not(.loading):not(.blur),
+input[type="submit"].transparent.yellow:hover:not(:disabled):not(.loading):not(.blur),
+button.transparent.yellow:active:not(:disabled):not(.loading):not(.blur),
+input[type="button"].transparent.yellow:active:not(:disabled):not(.loading):not(.blur),
+input[type="submit"].transparent.yellow:active:not(:disabled):not(.loading):not(.blur),
+button.transparent.yellow:focus:not(:disabled):not(.loading):not(.blur),
+input[type="button"].transparent.yellow:focus:not(:disabled):not(.loading):not(.blur),
+input[type="submit"].transparent.yellow:focus:not(:disabled):not(.loading):not(.blur)
+{
+	background-color: rgb(255, 192, 0);
+}
+button.transparent.blur.yellow:not(:disabled):not(.loading),
+input[type="button"].transparent.blur.yellow:not(:disabled):not(.loading),
+input[type="submit"].transparent.blur.yellow:not(:disabled):not(.loading)
+{
+	background-color: rgba(255, 192, 0, .5);
+}
+button.transparent.red:hover:not(:disabled):not(.loading):not(.blur),
+input[type="button"].transparent.red:hover:not(:disabled):not(.loading):not(.blur),
+input[type="submit"].transparent.red:hover:not(:disabled):not(.loading):not(.blur),
+button.transparent.red:active:not(:disabled):not(.loading):not(.blur),
+input[type="button"].transparent.red:active:not(:disabled):not(.loading):not(.blur),
+input[type="submit"].transparent.red:active:not(:disabled):not(.loading):not(.blur),
+button.transparent.red:focus:not(:disabled):not(.loading):not(.blur),
+input[type="button"].transparent.red:focus:not(:disabled):not(.loading):not(.blur),
+input[type="submit"].transparent.red:focus:not(:disabled):not(.loading):not(.blur)
+{
+	background-color: rgb(255, 32, 0);
+}
+button.transparent.blur.red:not(:disabled):not(.loading),
+input[type="button"].transparent.blur.red:not(:disabled):not(.loading),
+input[type="submit"].transparent.blur.red:not(:disabled):not(.loading)
+{
+	background-color: rgba(255, 32, 0, .5);
+}
+button.transparent.white:hover:not(:disabled):not(.loading):not(.blur),
+input[type="button"].transparent.white:hover:not(:disabled):not(.loading):not(.blur),
+input[type="submit"].transparent.white:hover:not(:disabled):not(.loading):not(.blur),
+button.transparent.white:active:not(:disabled):not(.loading):not(.blur),
+input[type="button"].transparent.white:active:not(:disabled):not(.loading):not(.blur),
+input[type="submit"].transparent.white:active:not(:disabled):not(.loading):not(.blur),
+button.transparent.white:focus:not(:disabled):not(.loading):not(.blur),
+input[type="button"].transparent.white:focus:not(:disabled):not(.loading):not(.blur),
+input[type="submit"].transparent.white:focus:not(:disabled):not(.loading):not(.blur)
+{
+	background-color: rgb(128, 128, 128);
+}
+button.transparent.blur.white:not(:disabled):not(.loading),
+input[type="button"].transparent.blur.white:not(:disabled):not(.loading),
+input[type="submit"].transparent.blur.white:not(:disabled):not(.loading)
+{
+	background-color: rgba(128, 128, 128, .5);
+}
+button.transparent.black:hover:not(:disabled):not(.loading):not(.blur),
+input[type="button"].transparent.black:hover:not(:disabled):not(.loading):not(.blur),
+input[type="submit"].transparent.black:hover:not(:disabled):not(.loading):not(.blur),
+button.transparent.black:active:not(:disabled):not(.loading):not(.blur),
+input[type="button"].transparent.black:active:not(:disabled):not(.loading):not(.blur),
+input[type="submit"].transparent.black:active:not(:disabled):not(.loading):not(.blur),
+button.transparent.black:focus:not(:disabled):not(.loading):not(.blur),
+input[type="button"].transparent.black:focus:not(:disabled):not(.loading):not(.blur),
+input[type="submit"].transparent.black:focus:not(:disabled):not(.loading):not(.blur)
+{
+	background-color: rgb(32, 32, 32);
+}
+button.transparent.blur.black:not(:disabled):not(.loading),
+input[type="button"].transparent.blur.black:not(:disabled):not(.loading),
+input[type="submit"].transparent.blur.black:not(:disabled):not(.loading)
+{
+	background-color: rgba(32, 32, 32, .25);
+}
+button.transparent.blur,
+input[type="button"].transparent.blur,
+input[type="submit"].transparent.blur
+{
+	-webkit-backdrop-filter: blur(1rem) brightness(.85);
+	backdrop-filter: blur(1rem) brightness(.85);
+}
+button.transparent.blur:hover,
+input[type="button"].transparent.blur:hover,
+input[type="submit"].transparent.blur:hover,
+button.transparent.blur:active,
+input[type="button"].transparent.blur:active,
+input[type="submit"].transparent.blur:active,
+button.transparent.blur:focus,
+input[type="button"].transparent.blur:focus,
+input[type="submit"].transparent.blur:focus
+{
+	-webkit-backdrop-filter: blur(1rem) brightness(.5);
+	backdrop-filter: blur(1rem) brightness(.5);
+}
+button.large,
+input[type="button"].large,
+input[type="submit"].large
+{
+	height: 2rem;
+	margin: 1rem .5rem;
+	padding: 0 .875rem;
+	font-size: 1rem;
+	line-height: 2rem;
+}
+button.large.white:not(.transparent),
+input[type="button"].large.white:not(.transparent),
+input[type="submit"].large.white:not(.transparent)
+{
+	font-weight: 500;
+}
+button.larger,
+input[type="button"].larger,
+input[type="submit"].larger
+{
+	height: 2rem;
+	margin: .75rem .375rem;
+	padding: .25rem 1rem;
+	font-weight: 500;
+	font-size: 1rem;
+	line-height: 2rem;
+}
+button.very-large,
+input[type="button"].very-large,
+input[type="submit"].very-large
+{
+	width: 12rem;
+	height: 3rem;
+	margin: .75rem .375rem;
+	font-weight: 500;
+	font-size: 1.25rem;
+	line-height: 3rem;
+}
+button.larger.white:not(.transparent),
+button.very-large.white:not(.transparent),
+input[type="button"].larger.white:not(.transparent),
+input[type="button"].very-large.white:not(.transparent),
+input[type="submit"].larger.white:not(.transparent),
+input[type="submit"].very-large.white:not(.transparent)
+{
+	font-weight: 700;
+}
+button:hover:not(:disabled):not(.loading),
+input[type="button"]:hover:not(:disabled):not(.loading),
+input[type="submit"]:hover:not(:disabled):not(.loading)
+{
+	color: white;
+}
+button.white:hover:not(.transparent):not(:disabled):not(.loading),
+input[type="button"].white:hover:not(.transparent):not(:disabled),
+input[type="submit"].white:hover:not(.transparent):not(:disabled)
+{
+	color: black;
+}
+button:active:not(:disabled):not(.loading),
+input[type="button"]:active:not(:disabled):not(.loading),
+input[type="submit"]:active:not(:disabled):not(.loading),
+button:focus:not(:disabled):not(.loading),
+input[type="button"]:focus:not(:disabled):not(.loading),
+input[type="submit"]:focus:not(:disabled):not(.loading)
+{
+	color: white;
+	box-shadow: 0 0 0 .25rem rgba(11, 56, 96, .5);
+}
+button:focus:not(:disabled):not(.loading),
+input[type="button"]:focus:not(:disabled):not(.loading),
+input[type="submit"]:focus:not(:disabled):not(.loading)
+{
+	transition: box-shadow .125s;
+}
+button.yellow:active:not(:disabled):not(.loading),
+input[type="button"].yellow:active:not(:disabled):not(.loading),
+input[type="submit"].yellow:active:not(:disabled):not(.loading),
+button.yellow:focus:not(:disabled):not(.loading),
+input[type="button"].yellow:focus:not(:disabled):not(.loading),
+input[type="submit"].yellow:focus:not(:disabled):not(.loading)
+{
+	box-shadow: 0 0 0 .25rem rgba(255, 160, 0, .5);
+}
+button.red:active:not(:disabled):not(.loading),
+input[type="button"].red:active:not(:disabled):not(.loading),
+input[type="submit"].red:active:not(:disabled):not(.loading),
+button.red:focus:not(:disabled):not(.loading),
+input[type="button"].red:focus:not(:disabled):not(.loading),
+input[type="submit"].red:focus:not(:disabled):not(.loading)
+{
+	box-shadow: 0 0 0 .25rem rgba(255, 0, 0, .5);
+}
+button.white:active:not(:disabled):not(.loading),
+input[type="button"].white:active:not(:disabled):not(.loading),
+input[type="submit"].white:active:not(:disabled):not(.loading),
+button.white:focus:not(:disabled):not(.loading),
+input[type="button"].white:focus:not(:disabled):not(.loading),
+input[type="submit"].white:focus:not(:disabled):not(.loading)
+{
+	color: black;
+	box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .25);
+}
+button.white.transparent:active:not(:disabled):not(.loading),
+input[type="button"].white.transparent:active:not(:disabled):not(.loading),
+input[type="submit"].white.transparent:active:not(:disabled):not(.loading),
+button.white.transparent:focus:not(:disabled):not(.loading),
+input[type="button"].white.transparent:focus:not(:disabled):not(.loading),
+input[type="submit"].white.transparent:focus:not(:disabled):not(.loading)
+{
+	color: white;
+}
+button.black:active:not(:disabled):not(.loading),
+input[type="button"].black:active:not(:disabled):not(.loading),
+input[type="submit"].black:active:not(:disabled):not(.loading),
+button.black:focus:not(:disabled):not(.loading),
+input[type="button"].black:focus:not(:disabled):not(.loading),
+input[type="submit"].black:focus:not(:disabled):not(.loading)
+{
+	box-shadow: 0 0 0 .25rem rgba(0, 0, 0, .5);
+}
+button.loading,
+button:disabled,
+input[type="button"]:disabled,
+input[type="submit"]:disabled
+{
+	border-color: transparent;
+	background-color: rgba(128, 128, 128, .25);
+	color: rgb(128, 128, 128);
+	cursor: not-allowed;
+}
+button.loading
+{
+	pointer-events: none;
+}
+button.transparent:disabled,
+input[type="button"].transparent:disabled,
+input[type="submit"].transparent:disabled
+{
+	border-color: rgb(64, 64, 64);
+	background-color: unset;
+	color: rgb(160, 160, 160);
+}
+button.transparent.blur:disabled,
+input[type="button"].transparent.blur:disabled,
+input[type="submit"].transparent.blur:disabled
+{
+	background-color: rgba(128, 128, 128, .5);
+}
+button.small-margin,
+input[type="button"].small-margin,
+input[type="submit"].small-margin
+{
+	margin-top: .375rem;
+	margin-bottom: .375rem;
+}
+button.no-margin,
+input[type="button"].no-margin,
+input[type="submit"].no-margin
+{
+	margin-top: 0;
+	margin-bottom: 0;
+}
+button.no-side-margin,
+input[type="button"].no-side-margin,
+input[type="submit"].no-side-margin
+{
+	margin-left: 0;
+	margin-right: 0;
+}

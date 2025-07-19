@@ -1,0 +1,23 @@
+@media screen and (max-width: 600px)
+{
+	body > .background div.title, body > .background div.sub-title, body > .background div.paragraph
+	{
+		max-width: 20rem;
+	}
+	body div.title
+	{
+		font-size: 1.95rem;
+	}
+	body > nav#page-navigator > div.compact-tabs-menu > div.footer
+	{
+		width: calc(100% - 8rem) !important;
+		margin: 0 4rem !important;
+	}
+}
+@media screen and (max-height: 600px)
+{
+	body > nav#page-navigator > div.compact-tabs-menu > div.footer
+	{
+		position: unset;
+	}
+}
