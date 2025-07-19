@@ -1,0 +1,53 @@
+@media screen and (max-width: 1024px)
+{
+	body > nav#page-navigator
+	{
+		position: absolute !important;
+		width: 100% !important;
+		margin: 0 !important;
+		padding: 0 !important;
+		border-radius: unset !important;
+		backdrop-filter: unset !important;
+	}
+	body > nav#page-navigator:not(.transparent):not(.compact)
+	{
+		background-color: rgb(16, 16, 16) !important;
+	}
+	body > nav#page-navigator > div#compact-tabs-button
+	{
+		display: inline-block !important;
+	}
+	body > nav#page-navigator > div.tabs-container > a:first-of-type
+	{
+		position: absolute !important;
+		margin-left: 4rem;
+	}
+	body > nav#page-navigator > div.tabs-container > a:not(:first-of-type)
+	{
+		display: none !important;
+	}
+	body > nav#page-navigator:not(.compact) > div.right-container
+	{
+		margin-right: 1rem;
+	}
+	body > nav#page-navigator > div.right-container > div.button
+	{
+		display: none !important;
+	}
+	body > nav#page-navigator.compact > div.right-container > div#user-panel-button.button
+	{
+		display: inline-block !important;
+	}
+	body > footer
+	{
+		width: 90% !important;
+		margin: 3rem 0 0 !important;
+		padding-left: 5% !important;
+		padding-right: 5% !important;
+		border-radius: unset !important;
+	}
+	body > footer ~ div.spacer
+	{
+		display: none;
+	}
+}

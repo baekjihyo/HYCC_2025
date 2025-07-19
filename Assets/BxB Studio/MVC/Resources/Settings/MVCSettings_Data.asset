@@ -1,0 +1,560 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1278821849, guid: 7c0bac27308dcf24eb0bf21c68fb9c41, type: 3}
+  m_Name: MVCSettings_Data
+  m_EditorClassIdentifier: 
+  settingsFoldout: 0
+  soundEffectsFoldout: 0
+  autoCheckForUpdates: 1
+  editorValuesUnit: 0
+  editorTorqueUnit: 0
+  editorPowerUnit: 0
+  springTargetMeasurement: 1
+  exhaustSimulationFPS: 60
+  previewSuspensionAdjustmentsAtEditMode: 1
+  useHideFlags: 1
+  gizmosSize: 1
+  COMGizmoColor: {r: 1, g: 1, b: 1, a: 1}
+  engineGizmoColor: {r: 0.5, g: 0, b: 1, a: 1}
+  exhaustGizmoColor: {r: 1, g: 0.5, b: 0, a: 1}
+  wheelMarkGizmoColor: {r: 1, g: 0, b: 1, a: 1}
+  headlightGizmoColor: {r: 1, g: 1, b: 1, a: 1}
+  sideSignalLightGizmoColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  interiorLightGizmoColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  rearLightGizmoColor: {r: 1, g: 0, b: 0, a: 1}
+  jointsGizmoColor: {r: 0, g: 1, b: 0, a: 1}
+  driverIKGizmoColor: {r: 0, g: 0, b: 1, a: 1}
+  audioReverbZoneGizmoColor: {r: 1, g: 0.5, b: 0, a: 0.5}
+  darknessWeatherZoneGizmoColor: {r: 0.5, g: 0, b: 1, a: 0.5}
+  fogWeatherZoneGizmoColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
+  wheelsDamageZoneGizmoColor: {r: 1, g: 0, b: 1, a: 0.5}
+  damageRepairZoneGizmoColor: {r: 0, g: 1, b: 0.5, a: 0.5}
+  AIPathBezierColor: {r: 0, g: 1, b: 1, a: 1}
+  AIPathBezierSelectedColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  AIPathAnchorGizmoColor: {r: 0, g: 0, b: 1, a: 1}
+  AIPathBezierStartAnchorColor: {r: 0, g: 1, b: 0, a: 1}
+  AIPathControlsGizmoColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  AIBrakeZoneGizmoColor: {r: 1, g: 0, b: 0, a: 0.5}
+  AIHandbrakeZoneGizmoColor: {r: 0, g: 1, b: 0, a: 0.5}
+  AINOSZoneGizmoColor: {r: 0, g: 0.5, b: 1, a: 0.5}
+  AIObstaclesSensorGizmoColor: {r: 0, g: 1, b: 0, a: 1}
+  AIObstaclesSensorActiveGizmoColor: {r: 1, g: 0, b: 0, a: 1}
+  physicsSubSteps:
+    min: 15
+    max: 50
+    overrideBorders: 0
+    clampToZero: 1
+  steerMethod: 2
+  transmissionType: 1
+  wheelRendererRefreshType: 0
+  valuesUnit: 0
+  powerUnit: 0
+  torqueUnit: 0
+  startEnginesAtAwake: 1
+  engineStartMode: 1
+  autoEngineShutDown: 1
+  engineShutDownTimeout: 60
+  useEngineStalling: 0
+  useGearLimiterOnReverseAndFirstGear: 0
+  burnoutsForAutomaticTransmissions: 1
+  useFuelSystem: 1
+  useInterior: 1
+  useReset: 1
+  resetPreviewTime: 5
+  resetTimeout: 3
+  vehiclesLayer: 6
+  vehicleWheelsLayer: 7
+  gameControllerTag: GameController
+  playerVehicleTag: Player
+  useDynamicAIPathPointDistance: 1
+  useDownforce: 1
+  useDownforceWhenNotGrounded: 0
+  useAirAntiRoll: 1
+  airAntiRollIntensity: 1
+  useDrag: 1
+  useChassisWings: 1
+  useAntiGroundColliders: 1
+  useEngineMass: 1
+  useWheelsMass: 1
+  steeringInterpolation: 2
+  steerIntensity: 1
+  steerReleaseIntensity: 5
+  maximumSteerAngle: 45
+  minimumSteerAngle: 5
+  useSuspensionAdjustments: 1
+  maximumCamberAngle: 10
+  maximumCasterAngle: 10
+  maximumToeAngle: 10
+  maximumSideOffset: 0.25
+  sideOffsetAffectHandling: 1
+  useNOS: 1
+  useNOSReload: 1
+  useNOSDelay: 1
+  NOSDelay: 0.75
+  useProgressiveNOS: 1
+  useOneShotNOS: 0
+  useLaunchControl: 1
+  useCounterSteer: 1
+  counterSteerType: 0
+  counterSteerPriority: -1
+  counterSteerIntensity: 1
+  counterSteerDamping: 25
+  useDynamicSteering: 1
+  useDamage: 1
+  damageLowVelocity: 5
+  damageMediumVelocity: 15
+  damageHighVelocity: 25
+  useWheelHealth: 1
+  tireDamageIntensity: 1
+  tireExplosionForce: 1000
+  rimEdgeEmissionColor: {r: 0, g: 0, b: 0, a: 1}
+  customRimShaderEmissionColorProperty: 
+  inputSystem: 0
+  useMobileInputs: 1
+  gamepadRumbleType: 2
+  gamepadRumbleMask: -1
+  useGamepadLevelledRumble: 1
+  useSeparateGamepadRumbleSides: 1
+  steerInput: Steering Wheel
+  fuelInput: Fuel Pedal
+  brakeInput: Brake Pedal
+  clutchInput: Clutch Pedal
+  handbrakeInput: Handbrake
+  engineStartSwitchInput: Start Engine
+  gearShiftUpButtonInput: Gear Shift Up
+  gearShiftDownButtonInput: Gear Shift Down
+  NOSButtonInput: NOS Boost
+  launchControlSwitchInput: Switch Launch Control
+  resetButtonInput: Reset Vehicle
+  changeCameraButtonInput: Change Camera
+  forwardCameraViewInput: Camera Forward
+  sidewaysCameraViewInput: Camera Sideways
+  lightSwitchInput: Switch Light
+  highBeamLightSwitchInput: Switch High Beam Light
+  interiorLightSwitchInput: Switch Interior Light
+  sideSignalLeftLightSwitchInput: Switch Left Side Signal Light
+  sideSignalRightLightSwitchInput: Switch Right Side Signal Light
+  hazardLightsSwitchInput: Switch Hazard Lights
+  trailerLinkSwitchInput: Switch Trailer Link
+  switchHighBeamOnDoublePress: 1
+  linkTrailerManually: 0
+  gamepadRumbleSpeedInterval:
+    min: 150
+    max: 300
+    overrideBorders: 0
+    clampToZero: 1
+  audioMixers:
+    chargersEffects: {fileID: 0}
+    exhaustEffects: {fileID: 0}
+    transmission: {fileID: 0}
+    brakeEffects: {fileID: 0}
+    supercharger: {fileID: 0}
+    turbocharger: {fileID: 0}
+    wheelEffects: {fileID: 0}
+    NOS: {fileID: 0}
+    environmentalEffects: {fileID: 0}
+  audioFolderPath: Audio
+  engineSFXFolderPath: SFX\Engines
+  engineSFXNameSplitter: 95
+  maxEngineSFXClips: 10
+  SFXVolume: 1
+  impactClips:
+    cars:
+      low: []
+      medium: []
+      high: []
+      volume: 1
+    walls:
+      low: []
+      medium: []
+      high: []
+      volume: 1
+    glassCrack: []
+    glassShatter: []
+    metalFences: []
+    roadCones: []
+    roadMisc: []
+    roadSigns: []
+    clipsVolume: 1
+  gearShiftingClips:
+    up: []
+    down: []
+    volume: 1
+  exhaustClips:
+    americanMuscle:
+      gurgle: []
+      pop: []
+      volume: 1
+    eliteCars:
+      gurgle: []
+      pop: []
+      volume: 1
+    f1Cars:
+      gurgle: []
+      pop: []
+      volume: 1
+    roadCars:
+      gurgle: []
+      pop: []
+      volume: 1
+    superCars:
+      gurgle: []
+      pop: []
+      volume: 1
+    roadHeavyTrucks:
+      gurgle: []
+      pop: []
+      volume: 1
+    sportHeavyTrucks:
+      gurgle: []
+      pop: []
+      volume: 1
+  NOSClips:
+    starting: []
+    active: []
+    volume: 1
+  hornClips: []
+  transmissionWhineGroups: []
+  reversingClip: {fileID: 0}
+  windClip: {fileID: 0}
+  brakeClip: {fileID: 0}
+  indicatorClip: {fileID: 0}
+  tireExplosionClip: {fileID: 0}
+  useParticleSystems: 1
+  exhaustSmoke: {fileID: 0}
+  exhaustFlame: {fileID: 0}
+  NOSFlameOverrideMode: 0
+  NOSFlame: {fileID: 0}
+  NOSFlameMaterial: {fileID: 0}
+  damageSparks: {fileID: 0}
+  collisionSparks: {fileID: 0}
+  tireExplosion: {fileID: 0}
+  tireExplosionForceField: {fileID: 0}
+  useWheelMarks: 1
+  wheelMarkResolution: 5
+  wheelMarkGroundOffset: 0.02
+  wheelMarkHideDistance: 50
+  useAIPathVisualizer: 1
+  pathVisualizerMaterial: {fileID: 0}
+  pathVisualizerGroundOffset: 0.1
+  pathVisualizerWidth: 0.25
+  pathVisualizerHeatColorGradient:
+    serializedVersion: 2
+    key0: {r: 0, g: 0.5, b: 1, a: 1}
+    key1: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+    key2: {r: 1, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 32768
+    ctime2: 65535
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 3
+    m_NumAlphaKeys: 2
+  useLights: 1
+  useIndicatorLightsAtEngineStall: 1
+  useIndicatorLightsInFog: 1
+  exhaustFlameLight: {fileID: 0}
+  customLightShaderEmissionColorProperty: 
+  signalLightsPeriod: 1
+  lampLightsIntensityDamping: 10
+  useWheelSpinEffect: 1
+  wheelSpinTransparentMaterial: {fileID: 0}
+  wheelSpinMeshMaterialAlbedoProperty: _BaseColorMap
+  wheelSpinMeshMaterialNormalMapProperty: _NormalMap
+  wheelSpinMeshMaterialMaskMapProperty: _MaskMap
+  wheelSpinMeshMaterialColorProperty: _BaseColor
+  wheelSpinMeshMaterialOtherProperties:
+  - name: _Metallic
+    type: 3
+  - name: _Smoothness
+    type: 3
+  - name: _NormalScale
+    type: 3
+  - name: _SmoothnessRemapMin
+    type: 2
+  - name: _SmoothnessRemapMax
+    type: 2
+  - name: _AORemapMin
+    type: 2
+  - name: _AORemapMax
+    type: 2
+  - name: _EmissiveColorMap
+    type: 4
+  - name: _EmissiveColor
+    type: 0
+  wheelSpinMeshMaterialKeywords:
+  - _NORMALMAP
+  - _MASKMAP
+  - _EMISSIVE_COLOR_MAP
+  useBrakesHeat: 1
+  brakeMaterialEmissionColorProperty: _EmissiveColor
+  brakeHeatEmissionColor: {r: 7.5, g: 1.25, b: 0, a: 10}
+  clampBrakeHeat: 1
+  brakeHeatAffectPerformance: 0
+  hasInternalErrors: 0
+  physics: 0
+  aiPathPointDistanceInterval:
+    min: 5
+    max: 20
+    overrideBorders: 0
+    clampToZero: 1
+  aiLayers:
+  - name: Default
+  aiChasePlayerLayers: 00000000
+  aiChaseLayerPairs: []
+  aiPathPointDistance: 20
+  aiPathSpacedPointsSpacing: 2
+  aiPathLengthSamples: 128
+  aiReverseTimeout: 1.5
+  aiReverseTimeSpan: 1.5
+  cameras:
+  - featuresMask: 0
+    followerFeatures: 0
+    pivotFeatures: 0
+    impactShaking: 0
+    orbitInterval:
+      x:
+        min: -Infinity
+        max: Infinity
+        overrideBorders: 0
+        clampToZero: 0
+      y:
+        min: -90
+        max: 90
+        overrideBorders: 0
+        clampToZero: 0
+    invertXOrbit: 0
+    invertYOrbit: 1
+    orbitUsingMouseButton: 1
+    orbitMouseButton: 1
+    skipDistantOrbit: 0
+    invertTiltAngle: 0
+    type: 0
+    pivotPosition: 0
+    name: Default
+    impactAxes: -1
+    pivotPoint:
+      x: 0
+      y: 0
+      z: 0
+    orbitSkipAngle: 150
+    orbitTimeout: 10
+    fieldOfViewInterval:
+      min: 50
+      max: 60
+      overrideBorders: 1
+      clampToZero: 1
+    shakeSpeedInterval:
+      min: 150
+      max: 300
+      overrideBorders: 0
+      clampToZero: 1
+    tiltAngle: 10
+  engines:
+  - name: Default Engine
+    type: 0
+    fuelType: 1
+    mass: 200
+    minimumRPM: 1000
+    redlineRPM: 5500
+    overRevRPM: 6000
+    maximumRPM: 7000
+    power: 300
+    peakPowerRPM: 5000
+    torque: 400
+    peakTorqueRPM: 3500
+    cylinderCount: 6
+    isElectric: 0
+    isValid: 1
+    audio:
+      outputs: 0
+      celerationType: 0
+      startingClip: {fileID: 0}
+      folderName: 
+      lowRPMVolume: 0.5
+      maxRPMDistortion: 0.67
+      overRPMDistortion: 0.33
+      decelLowPassFrequency: 5000
+      useAccelLowPass: 0
+      accelLowPassFrequency: 22000
+      accelLowPassRPMEnd: 1
+      useLowPassDamping: 0
+      lowPassDamping: 5
+      mixerGroups:
+        engine: {fileID: 0}
+        exhaust: {fileID: 0}
+  - name: Electric Engine
+    type: 5
+    fuelType: 1
+    mass: 200
+    minimumRPM: 0
+    redlineRPM: 5500
+    overRevRPM: 7000
+    maximumRPM: 10000
+    power: 500
+    peakPowerRPM: 5000
+    torque: 500
+    peakTorqueRPM: 3500
+    cylinderCount: 6
+    isElectric: 1
+    isValid: 1
+    audio:
+      outputs: 0
+      celerationType: 0
+      startingClip: {fileID: 0}
+      folderName: 
+      lowRPMVolume: 0.5
+      maxRPMDistortion: 0.67
+      overRPMDistortion: 0.33
+      decelLowPassFrequency: 5000
+      useAccelLowPass: 0
+      accelLowPassFrequency: 22000
+      accelLowPassRPMEnd: 1
+      useLowPassDamping: 0
+      lowPassDamping: 5
+      mixerGroups:
+        engine: {fileID: 0}
+        exhaust: {fileID: 0}
+  chargers:
+  - name: Default Turbocharger
+    isStock: 0
+    massDifference: 0
+    weightDistributionDifference: 0
+    type: 0
+    turboCount: 1
+    superchargerType: 1
+    minimumBoost: 1.25
+    maximumBoost: 0.75
+    inertiaRPM: 2000
+    chargerSize: 1
+    audio:
+      idleClip: {fileID: 0}
+      activeClip: {fileID: 0}
+      fuelBlowoutClip: {fileID: 0}
+      gearBlowoutClip: {fileID: 0}
+      revBlowoutClip: {fileID: 0}
+    compatibleEngineIndexes: 
+  - name: Default Supercharger
+    isStock: 0
+    massDifference: 0
+    weightDistributionDifference: 0
+    type: 1
+    turboCount: 1
+    superchargerType: 1
+    minimumBoost: 1.25
+    maximumBoost: 0.75
+    inertiaRPM: 2000
+    chargerSize: 1
+    audio:
+      idleClip: {fileID: 0}
+      activeClip: {fileID: 0}
+      fuelBlowoutClip: {fileID: 0}
+      gearBlowoutClip: {fileID: 0}
+      revBlowoutClip: {fileID: 0}
+    compatibleEngineIndexes: 
+  tireCompounds:
+  - frictionComplexity: 0
+    wheelColliderAccelerationFriction:
+      extremumSlip: 0.2
+      extremumValue: 1
+      asymptoteSlip: 0.8
+      asymptoteValue: 0.75
+      stiffnessComplexity: 0
+      stiffness: 1
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    wheelColliderBrakeFriction:
+      extremumSlip: 0.2
+      extremumValue: 1
+      asymptoteSlip: 0.8
+      asymptoteValue: 0.75
+      stiffnessComplexity: 0
+      stiffness: 1
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    wheelColliderSidewaysFriction:
+      extremumSlip: 0.25
+      extremumValue: 1
+      asymptoteSlip: 0.5
+      asymptoteValue: 0.75
+      stiffnessComplexity: 0
+      stiffness: 1
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    widthFrictionModifiers:
+    - width: 150
+      frictionMultiplier: 0.8625
+    - width: 400
+      frictionMultiplier: 1.03125
+    - width: 650
+      frictionMultiplier: 1.3476
+    wetFrictionMultiplier: 0.955
+    wetSlipMultiplier: 1.15
+    name: Default
+  grounds:
+  - particleEffect: {fileID: 0}
+    flatWheelParticleEffect: {fileID: 0}
+    markMaterial: {fileID: 0}
+    flatWheelMarkMaterial: {fileID: 0}
+    useSpeedEmission: 0
+    isOffRoad: 0
+    forwardSkidClip: {fileID: 0}
+    brakeSkidClip: {fileID: 0}
+    sidewaysSkidClip: {fileID: 0}
+    rollClip: {fileID: 0}
+    flatSkidClip: {fileID: 0}
+    flatRollClip: {fileID: 0}
+    name: Default
+    frictionStiffness: 1
+    damagedWheelStiffness: 0.5
+    wheelDampingRate: 1
+    wheelBurnoutDampingRate: 0.1
+    markMaterialTiling: 4
+    flatWheelMarkMaterialTiling: 1
+    volume: 1
+  wheelSpinRPMThreshold: 1000
+  wheelHideRPMThreshold: 300
+  wheelSpinSamplesCount: 32
+  wheelSpinAlphaOffset: 0.5
+  wheelSpinCullingDistance: 20
+  brakeHeatingSpeed: 1
+  brakeCoolingSpeed: 1

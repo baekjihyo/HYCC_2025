@@ -1,0 +1,15 @@
+@media screen and (max-width: 800px)
+{
+	div#docs-sections-container > section div.feedback-text-field-container
+	{
+		width: min-content;
+		margin-top: 1rem;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	div#docs-sections-container > section div.feedback-text-field-container > button.feedback-submit-button
+	{
+		width: 12.75rem;
+		margin: 0;
+	}
+}
