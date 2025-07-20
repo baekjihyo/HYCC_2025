@@ -1,0 +1,17 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/_UI/USS/NeonButton.uss?fileID=7433441132597879392&amp;guid=3b31215f6e2a29a47bf26c0cf5508040&amp;type=3#NeonButton" />
+    <ui:VisualElement style="flex-grow: 1; background-image: url(&quot;project://database/Assets/_Art/Materials/Materials/Drone%20Camera%20Render%20Texture.renderTexture?fileID=8400000&amp;guid=54329c58d8c17df4c804111f673468cf&amp;type=2#Drone Camera Render Texture&quot;); -unity-background-scale-mode: scale-and-crop; justify-content: center;">
+        <ui:VisualElement name="MainMenuContainer">
+            <ui:Label text="&lt;TITLE&gt;" style="font-size: 100px; align-self: center; -unity-font-definition: resource(&apos;FlatSkin/Font/Roboto-BoldItalic&apos;); letter-spacing: 5px; color: rgb(0, 255, 255); -unity-font-style: bold;" />
+            <ui:Button text="Start" name="Button_Start" class="neon-button neon-label" />
+            <ui:Button text="Options" name="Button_Options" class="neon-button neon-label" />
+            <ui:Button text="Rankings" name="Button_Rankings" class="neon-button neon-label" />
+            <ui:Button text="Quit" name="Button_Quit" class="neon-button neon-label" />
+        </ui:VisualElement>
+        <ui:VisualElement name="TutorialPromptContainer" style="display: none; flex-direction: column; align-items: center;">
+            <ui:Label text="튜토리얼을 먼저 하시겠습니까?" style="color: white; font-size: 40px; -unity-font-style: bold; -unity-text-align: upper-center;" />
+            <ui:Button name="Button_TutorialYes" text="Yes" class="neon-button neon-label" />
+            <ui:Button name="Button_TutorialNo" text="No" class="neon-button neon-label" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
