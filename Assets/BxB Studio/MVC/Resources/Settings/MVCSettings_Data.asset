@@ -1,0 +1,2065 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1278821849, guid: 7c0bac27308dcf24eb0bf21c68fb9c41, type: 3}
+  m_Name: MVCSettings_Data
+  m_EditorClassIdentifier: 
+  settingsFoldout: 0
+  soundEffectsFoldout: 0
+  autoCheckForUpdates: 1
+  editorValuesUnit: 0
+  editorTorqueUnit: 0
+  editorPowerUnit: 0
+  springTargetMeasurement: 1
+  exhaustSimulationFPS: 60
+  previewSuspensionAdjustmentsAtEditMode: 1
+  useHideFlags: 1
+  gizmosSize: 1
+  COMGizmoColor: {r: 1, g: 1, b: 1, a: 1}
+  engineGizmoColor: {r: 0.5, g: 0, b: 1, a: 1}
+  exhaustGizmoColor: {r: 1, g: 0.5, b: 0, a: 1}
+  wheelMarkGizmoColor: {r: 1, g: 0, b: 1, a: 1}
+  headlightGizmoColor: {r: 1, g: 1, b: 1, a: 1}
+  sideSignalLightGizmoColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  interiorLightGizmoColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  rearLightGizmoColor: {r: 1, g: 0, b: 0, a: 1}
+  jointsGizmoColor: {r: 0, g: 1, b: 0, a: 1}
+  driverIKGizmoColor: {r: 0, g: 0, b: 1, a: 0.5019608}
+  audioReverbZoneGizmoColor: {r: 1, g: 0.5, b: 0, a: 0.5}
+  darknessWeatherZoneGizmoColor: {r: 0.5, g: 0, b: 1, a: 0.5}
+  fogWeatherZoneGizmoColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
+  wheelsDamageZoneGizmoColor: {r: 1, g: 0, b: 1, a: 0.5}
+  damageRepairZoneGizmoColor: {r: 0, g: 1, b: 0.5019608, a: 0.5}
+  AIPathBezierColor: {r: 0, g: 0.5019608, b: 1, a: 1}
+  AIPathBezierSelectedColor: {r: 1, g: 1, b: 0, a: 1}
+  AIPathAnchorGizmoColor: {r: 0.2509804, g: 0.5019608, b: 1, a: 1}
+  AIPathBezierStartAnchorColor: {r: 0, g: 1, b: 0, a: 1}
+  AIPathControlsGizmoColor: {r: 0, g: 0, b: 0, a: 0.7529412}
+  AIBrakeZoneGizmoColor: {r: 1, g: 0, b: 0, a: 0.5}
+  AIHandbrakeZoneGizmoColor: {r: 1, g: 0.5, b: 0, a: 0.5}
+  AINOSZoneGizmoColor: {r: 0, g: 0.5, b: 1, a: 0.5}
+  AIObstaclesSensorGizmoColor: {r: 0.2509804, g: 0.7529412, b: 0.2509804, a: 1}
+  AIObstaclesSensorActiveGizmoColor: {r: 0.7529412, g: 0.1254902, b: 0.1254902, a: 1}
+  physicsSubSteps:
+    min: 25
+    max: 50
+    overrideBorders: 0
+    clampToZero: 1
+  steerMethod: 2
+  transmissionType: 1
+  wheelRendererRefreshType: 1
+  valuesUnit: 0
+  powerUnit: 0
+  torqueUnit: 0
+  startEnginesAtAwake: 0
+  engineStartMode: 1
+  autoEngineShutDown: 1
+  engineShutDownTimeout: 60
+  useEngineStalling: 0
+  useGearLimiterOnReverseAndFirstGear: 0
+  burnoutsForAutomaticTransmissions: 1
+  useFuelSystem: 1
+  useInterior: 1
+  useReset: 1
+  resetPreviewTime: 1.5
+  resetTimeout: 1.5
+  vehiclesLayer: 6
+  vehicleWheelsLayer: 7
+  gameControllerTag: GameController
+  playerVehicleTag: Player
+  useDynamicAIPathPointDistance: 1
+  useDownforce: 1
+  useDownforceWhenNotGrounded: 1
+  useAirAntiRoll: 1
+  airAntiRollIntensity: 1
+  useDrag: 1
+  useChassisWings: 1
+  useAntiGroundColliders: 1
+  useEngineMass: 1
+  useWheelsMass: 1
+  steeringInterpolation: 0
+  steerIntensity: 5
+  steerReleaseIntensity: 10
+  maximumSteerAngle: 45
+  minimumSteerAngle: 5
+  useSuspensionAdjustments: 1
+  maximumCamberAngle: 10
+  maximumCasterAngle: 10
+  maximumToeAngle: 10
+  maximumSideOffset: 0.25
+  sideOffsetAffectHandling: 1
+  useNOS: 1
+  useNOSReload: 1
+  useNOSDelay: 1
+  NOSDelay: 0.75000006
+  useProgressiveNOS: 0
+  useOneShotNOS: 0
+  useLaunchControl: 1
+  useCounterSteer: 1
+  counterSteerType: 0
+  counterSteerPriority: -1
+  counterSteerIntensity: 0.5
+  counterSteerDamping: 25
+  useDynamicSteering: 1
+  useDamage: 1
+  damageLowVelocity: 5
+  damageMediumVelocity: 15
+  damageHighVelocity: 25
+  useWheelHealth: 1
+  tireDamageIntensity: 0.5
+  tireExplosionForce: 1000
+  rimEdgeEmissionColor: {r: 2.1185474, g: 1.0648196, b: 0, a: 1}
+  customRimShaderEmissionColorProperty: 
+  inputSystem: 0
+  useMobileInputs: 1
+  gamepadRumbleType: 2
+  gamepadRumbleMask: 2
+  useGamepadLevelledRumble: 1
+  useSeparateGamepadRumbleSides: 1
+  steerInput: Steering Wheel
+  fuelInput: Fuel Pedal
+  brakeInput: Brake Pedal
+  clutchInput: Clutch Pedal
+  handbrakeInput: Handbrake
+  engineStartSwitchInput: Start Engine
+  gearShiftUpButtonInput: Gear Shift Up
+  gearShiftDownButtonInput: Gear Shift Down
+  NOSButtonInput: NOS Boost
+  launchControlSwitchInput: Switch Launch Control
+  resetButtonInput: Reset Vehicle
+  changeCameraButtonInput: Change Camera
+  forwardCameraViewInput: Camera Forward
+  sidewaysCameraViewInput: Camera Sideways
+  lightSwitchInput: Switch Light
+  highBeamLightSwitchInput: Switch High Beam Light
+  interiorLightSwitchInput: Switch Interior Light
+  sideSignalLeftLightSwitchInput: Switch Left Side Signal Light
+  sideSignalRightLightSwitchInput: Switch Right Side Signal Light
+  hazardLightsSwitchInput: Switch Hazard Lights
+  trailerLinkSwitchInput: Switch Trailer Link
+  switchHighBeamOnDoublePress: 1
+  linkTrailerManually: 0
+  gamepadRumbleSpeedInterval:
+    min: 150
+    max: 300
+    overrideBorders: 0
+    clampToZero: 1
+  audioMixers:
+    chargersEffects: {fileID: -3261320763957501097, guid: 5ecbc57e0773a0641bb39f6ed944c1bd, type: 2}
+    exhaustEffects: {fileID: -7815889557025561738, guid: 5ecbc57e0773a0641bb39f6ed944c1bd, type: 2}
+    transmission: {fileID: 3567668762878806808, guid: 5ecbc57e0773a0641bb39f6ed944c1bd, type: 2}
+    brakeEffects: {fileID: -8846071483507910223, guid: 5ecbc57e0773a0641bb39f6ed944c1bd, type: 2}
+    supercharger: {fileID: -5374699924163291427, guid: 5ecbc57e0773a0641bb39f6ed944c1bd, type: 2}
+    turbocharger: {fileID: -5374699924163291427, guid: 5ecbc57e0773a0641bb39f6ed944c1bd, type: 2}
+    wheelEffects: {fileID: 6494340886103356284, guid: 5ecbc57e0773a0641bb39f6ed944c1bd, type: 2}
+    NOS: {fileID: -4363650246847592777, guid: 5ecbc57e0773a0641bb39f6ed944c1bd, type: 2}
+    environmentalEffects: {fileID: 509569534979570355, guid: 5ecbc57e0773a0641bb39f6ed944c1bd, type: 2}
+  audioFolderPath: Audio
+  engineSFXFolderPath: SFX/Engines
+  engineSFXNameSplitter: 95
+  maxEngineSFXClips: 7
+  SFXVolume: 1
+  impactClips:
+    cars:
+      low:
+      - {fileID: 8300000, guid: 9dffd48f532092940abb9907f9540768, type: 3}
+      medium:
+      - {fileID: 8300000, guid: 9c9dcf3f3fe03d444b1f16b47dcfc750, type: 3}
+      high:
+      - {fileID: 8300000, guid: 9c9dcf3f3fe03d444b1f16b47dcfc750, type: 3}
+      volume: 0.3333333
+    walls:
+      low:
+      - {fileID: 8300000, guid: 99376d598b42cd748921ec8efcce8d5a, type: 3}
+      medium:
+      - {fileID: 8300000, guid: f0f81f84429e81f4c8e2a24adb9f1560, type: 3}
+      high:
+      - {fileID: 8300000, guid: f0f81f84429e81f4c8e2a24adb9f1560, type: 3}
+      volume: 0.3333333
+    glassCrack: []
+    glassShatter: []
+    metalFences: []
+    roadCones: []
+    roadMisc: []
+    roadSigns: []
+    clipsVolume: 1
+  gearShiftingClips:
+    up:
+    - {fileID: 8300000, guid: 36f83e488417e4f49a1050b878725140, type: 3}
+    down:
+    - {fileID: 8300000, guid: 0f2606d6997f5be4c9001ff2482f5bfc, type: 3}
+    volume: 1
+  exhaustClips:
+    americanMuscle:
+      gurgle: []
+      pop: []
+      volume: 1
+    eliteCars:
+      gurgle: []
+      pop: []
+      volume: 1
+    f1Cars:
+      gurgle: []
+      pop: []
+      volume: 1
+    roadCars:
+      gurgle:
+      - {fileID: 8300000, guid: 7eb5af6254227164e97e4b001c758af3, type: 3}
+      pop:
+      - {fileID: 8300000, guid: f2f6c8f410260b8438b1fc3291a99bd7, type: 3}
+      volume: 1
+    superCars:
+      gurgle:
+      - {fileID: 8300000, guid: 2b1675dcbd7dcc1469ac3b8c1f01852a, type: 3}
+      pop:
+      - {fileID: 8300000, guid: 4997839bc582e3545bfc487720291f95, type: 3}
+      volume: 1
+    roadHeavyTrucks:
+      gurgle: []
+      pop: []
+      volume: 1
+    sportHeavyTrucks:
+      gurgle: []
+      pop: []
+      volume: 1
+  NOSClips:
+    starting:
+    - {fileID: 8300000, guid: 18c9cf2aeaea35646a62f46aa325422d, type: 3}
+    active:
+    - {fileID: 8300000, guid: 7c3241fdcaeb6b643834d17ea81fb10e, type: 3}
+    volume: 1
+  hornClips: []
+  transmissionWhineGroups:
+  - name: BMW P60B40 Straight Cut
+    clips:
+    - clip: {fileID: 8300000, guid: ff4a72d4fa390a549a6eb9e49c95f06b, type: 3}
+      speed: 100
+    - clip: {fileID: 8300000, guid: 8600bc78d716ddc48a5a24d6a808f921, type: 3}
+      speed: 200
+    mixer: {fileID: 24300002, guid: f199859582e913a40b26e0854f1dd8fc, type: 2}
+    decelerationLowPassFrequency: 22000
+    clutchVolume: 0.5
+    volume: 1
+  reversingClip: {fileID: 8300000, guid: 504366e8a8a713b43b676259cd5a7b58, type: 3}
+  windClip: {fileID: 8300000, guid: 6c7312d1af74e3f4599722894161fafc, type: 3}
+  brakeClip: {fileID: 8300000, guid: 4b6a38decd073724fb0aebb87b9ae8ee, type: 3}
+  indicatorClip: {fileID: 8300000, guid: 64545518873b33e49b90fdf05c6ea7a6, type: 3}
+  tireExplosionClip: {fileID: 8300000, guid: 2a22acc91e14f844c9c31e6ed9d0910f, type: 3}
+  useParticleSystems: 1
+  exhaustSmoke: {fileID: 8499106402007016503, guid: a16dfb1d8840dfd41928bb8d02042101, type: 3}
+  exhaustFlame: {fileID: 6882473096946604302, guid: 2a05bf75067c5e44f9aa84983bbdbfe1, type: 3}
+  NOSFlameOverrideMode: 0
+  NOSFlame: {fileID: 2987803087921573492, guid: 443023bde302bb84a8aa6b2fb6efc0f2, type: 3}
+  NOSFlameMaterial: {fileID: 0}
+  damageSparks: {fileID: 2448743359346857956, guid: 738d8d61d82e2034e80139a4431d3e21, type: 3}
+  collisionSparks: {fileID: 2448743359346857956, guid: 738d8d61d82e2034e80139a4431d3e21, type: 3}
+  tireExplosion: {fileID: 223351637340711364, guid: 2c81dfc5e035e574fb7999843b39eb8b, type: 3}
+  tireExplosionForceField: {fileID: 3731449560849970098, guid: dcce82cbc8572c34bbd8859727c281b1, type: 3}
+  useWheelMarks: 1
+  wheelMarkResolution: 5
+  wheelMarkGroundOffset: 0.02
+  wheelMarkHideDistance: 30
+  useAIPathVisualizer: 1
+  pathVisualizerMaterial: {fileID: 2100000, guid: 9fc16d6070963864cadda88eb3ad6d07, type: 2}
+  pathVisualizerGroundOffset: 0.02
+  pathVisualizerWidth: 0.5
+  pathVisualizerHeatColorGradient:
+    serializedVersion: 2
+    key0: {r: 0, g: 0.5, b: 1, a: 1}
+    key1: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+    key2: {r: 1, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 32768
+    ctime2: 65535
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 3
+    m_NumAlphaKeys: 2
+  useLights: 1
+  useIndicatorLightsAtEngineStall: 1
+  useIndicatorLightsInFog: 1
+  exhaustFlameLight: {fileID: 4644012081563024231, guid: 1b68c066dec45fb4b815c0fa7b65166f, type: 3}
+  customLightShaderEmissionColorProperty: _Emission
+  signalLightsPeriod: 1
+  lampLightsIntensityDamping: 10
+  useWheelSpinEffect: 1
+  wheelSpinTransparentMaterial: {fileID: 2100000, guid: 9ebf3188a2a4cfc4fad1d0ed3767395e, type: 2}
+  wheelSpinMeshMaterialAlbedoProperty: _MainTex
+  wheelSpinMeshMaterialNormalMapProperty: _BumpMap
+  wheelSpinMeshMaterialMaskMapProperty: _MetallicGlossMap
+  wheelSpinMeshMaterialColorProperty: _Color
+  wheelSpinMeshMaterialOtherProperties:
+  - name: _Metallic
+    type: 3
+  - name: _Glossiness
+    type: 3
+  - name: _BumpScale
+    type: 2
+  - name: _GlossMapScale
+    type: 3
+  - name: _Cutoff
+    type: 3
+  - name: _Parallax
+    type: 3
+  - name: _ParallaxMap
+    type: 4
+  - name: _OcclusionStrength
+    type: 3
+  - name: _OcclusionMap
+    type: 4
+  - name: _EmissionColor
+    type: 0
+  - name: _EmissionMap
+    type: 4
+  - name: _DetailMask
+    type: 4
+  - name: _DetailAlbedoMap
+    type: 4
+  - name: _DetailNormalMapScale
+    type: 2
+  - name: _DetailNormalMap
+    type: 4
+  - name: _UVSec
+    type: 2
+  - name: _SpecularHighlights
+    type: 2
+  - name: _GlossyReflections
+    type: 2
+  wheelSpinMeshMaterialKeywords:
+  - DIRECTIONAL
+  - LIGHTPROBE_SH
+  - _ALPHABLEND_ON
+  - _METALLICGLOSSMAP
+  - _NORMALMAP
+  - _PARALLAXMAP
+  - SHADOWS_SCREEN
+  - VERTEXLIGHT_ON
+  useBrakesHeat: 1
+  brakeMaterialEmissionColorProperty: _EmissionColor
+  brakeHeatEmissionColor: {r: 2.1185474, g: 1.0648196, b: 0, a: 1}
+  clampBrakeHeat: 1
+  brakeHeatAffectPerformance: 0
+  hasInternalErrors: 0
+  physics: 0
+  aiPathPointDistanceInterval:
+    min: 5
+    max: 15
+    overrideBorders: 0
+    clampToZero: 1
+  aiLayers:
+  - name: Default
+  aiChasePlayerLayers: 00000000
+  aiChaseLayerPairs: []
+  aiPathPointDistance: 11.09
+  aiPathSpacedPointsSpacing: 2
+  aiPathLengthSamples: 128
+  aiReverseTimeout: 1.5
+  aiReverseTimeSpan: 1.5
+  cameras:
+  - featuresMask: 61390
+    followerFeatures: 61390
+    pivotFeatures: 61390
+    impactShaking: 1
+    orbitInterval:
+      x:
+        min: -Infinity
+        max: Infinity
+        overrideBorders: 0
+        clampToZero: 0
+      y:
+        min: -90
+        max: 90
+        overrideBorders: 0
+        clampToZero: 0
+    invertXOrbit: 0
+    invertYOrbit: 0
+    orbitUsingMouseButton: 1
+    orbitMouseButton: 1
+    skipDistantOrbit: 1
+    invertTiltAngle: 0
+    type: 0
+    pivotPosition: 0
+    name: Arcade
+    impactAxes: -1
+    pivotPoint:
+      x: 0
+      y: -1
+      z: -1
+    orbitSkipAngle: 135
+    orbitTimeout: 10
+    fieldOfViewInterval:
+      min: 55
+      max: 80
+      overrideBorders: 1
+      clampToZero: 0
+    shakeSpeedInterval:
+      min: 200
+      max: 300
+      overrideBorders: 0
+      clampToZero: 0
+    tiltAngle: 10
+  - featuresMask: 41223
+    followerFeatures: 41223
+    pivotFeatures: 41223
+    impactShaking: 0
+    orbitInterval:
+      x:
+        min: -Infinity
+        max: Infinity
+        overrideBorders: 0
+        clampToZero: 0
+      y:
+        min: -10
+        max: 75
+        overrideBorders: 0
+        clampToZero: 0
+    invertXOrbit: 0
+    invertYOrbit: 1
+    orbitUsingMouseButton: 0
+    orbitMouseButton: 1
+    skipDistantOrbit: 1
+    invertTiltAngle: 0
+    type: 0
+    pivotPosition: 0
+    name: Normal
+    impactAxes: -1
+    pivotPoint:
+      x: 0
+      y: -1
+      z: 0
+    orbitSkipAngle: 135
+    orbitTimeout: 10
+    fieldOfViewInterval:
+      min: 50
+      max: 50
+      overrideBorders: 0
+      clampToZero: 0
+    shakeSpeedInterval:
+      min: 200
+      max: 300
+      overrideBorders: 0
+      clampToZero: 0
+    tiltAngle: 10
+  - featuresMask: 43806
+    followerFeatures: 43806
+    pivotFeatures: 43806
+    impactShaking: 0
+    orbitInterval:
+      x:
+        min: -Infinity
+        max: Infinity
+        overrideBorders: 0
+        clampToZero: 0
+      y:
+        min: 0
+        max: 0
+        overrideBorders: 0
+        clampToZero: 0
+    invertXOrbit: 0
+    invertYOrbit: 0
+    orbitUsingMouseButton: 1
+    orbitMouseButton: 1
+    skipDistantOrbit: 1
+    invertTiltAngle: 1
+    type: 0
+    pivotPosition: 0
+    name: Drift
+    impactAxes: -1
+    pivotPoint:
+      x: 0
+      y: -1
+      z: -1
+    orbitSkipAngle: 135
+    orbitTimeout: 10
+    fieldOfViewInterval:
+      min: 50
+      max: 50
+      overrideBorders: 0
+      clampToZero: 0
+    shakeSpeedInterval:
+      min: 200
+      max: 300
+      overrideBorders: 0
+      clampToZero: 0
+    tiltAngle: 10
+  - featuresMask: 418
+    followerFeatures: 418
+    pivotFeatures: 418
+    impactShaking: 1
+    orbitInterval:
+      x:
+        min: -90
+        max: 90
+        overrideBorders: 0
+        clampToZero: 0
+      y:
+        min: 0
+        max: 45
+        overrideBorders: 0
+        clampToZero: 0
+    invertXOrbit: 0
+    invertYOrbit: 0
+    orbitUsingMouseButton: 0
+    orbitMouseButton: 1
+    skipDistantOrbit: 0
+    invertTiltAngle: 0
+    type: 1
+    pivotPosition: 0
+    name: Bumper
+    impactAxes: -1
+    pivotPoint:
+      x: 0
+      y: 0
+      z: 0
+    orbitSkipAngle: 150
+    orbitTimeout: 10
+    fieldOfViewInterval:
+      min: 50
+      max: 40
+      overrideBorders: 1
+      clampToZero: 0
+    shakeSpeedInterval:
+      min: 200
+      max: 300
+      overrideBorders: 0
+      clampToZero: 0
+    tiltAngle: 10
+  - featuresMask: 1007
+    followerFeatures: 1007
+    pivotFeatures: 1007
+    impactShaking: 1
+    orbitInterval:
+      x:
+        min: -90
+        max: 90
+        overrideBorders: 0
+        clampToZero: 0
+      y:
+        min: 0
+        max: 45
+        overrideBorders: 0
+        clampToZero: 0
+    invertXOrbit: 0
+    invertYOrbit: 1
+    orbitUsingMouseButton: 0
+    orbitMouseButton: 1
+    skipDistantOrbit: 0
+    invertTiltAngle: 0
+    type: 1
+    pivotPosition: 0
+    name: Hood
+    impactAxes: -1
+    pivotPoint:
+      x: 0
+      y: 0
+      z: 0
+    orbitSkipAngle: 150
+    orbitTimeout: 10
+    fieldOfViewInterval:
+      min: 50
+      max: 40
+      overrideBorders: 1
+      clampToZero: 0
+    shakeSpeedInterval:
+      min: 200
+      max: 350
+      overrideBorders: 0
+      clampToZero: 0
+    tiltAngle: 10
+  - featuresMask: 930
+    followerFeatures: 930
+    pivotFeatures: 930
+    impactShaking: 1
+    orbitInterval:
+      x:
+        min: -90
+        max: 90
+        overrideBorders: 0
+        clampToZero: 0
+      y:
+        min: -30
+        max: 30
+        overrideBorders: 0
+        clampToZero: 0
+    invertXOrbit: 0
+    invertYOrbit: 0
+    orbitUsingMouseButton: 1
+    orbitMouseButton: 1
+    skipDistantOrbit: 0
+    invertTiltAngle: 0
+    type: 1
+    pivotPosition: 0
+    name: First Person
+    impactAxes: -1
+    pivotPoint:
+      x: 0
+      y: 0
+      z: 0
+    orbitSkipAngle: 150
+    orbitTimeout: 10
+    fieldOfViewInterval:
+      min: 50
+      max: 45
+      overrideBorders: 1
+      clampToZero: 0
+    shakeSpeedInterval:
+      min: 200
+      max: 300
+      overrideBorders: 0
+      clampToZero: 0
+    tiltAngle: 10
+  engines:
+  - name: E2BV Taycan
+    type: 5
+    fuelType: 1
+    mass: 858.9
+    minimumRPM: 0
+    redlineRPM: 15500
+    overRevRPM: 16467
+    maximumRPM: 17000
+    power: 751
+    peakPowerRPM: 5500
+    torque: 1050
+    peakTorqueRPM: 5000
+    cylinderCount: 6
+    isElectric: 1
+    isValid: 1
+    audio:
+      outputs: 1
+      celerationType: 0
+      startingClip: {fileID: 0}
+      folderName: 
+      lowRPMVolume: 0.5
+      maxRPMDistortion: 0.67
+      overRPMDistortion: 0.33
+      decelLowPassFrequency: 5000
+      useAccelLowPass: 0
+      accelLowPassFrequency: 22000
+      accelLowPassRPMEnd: 1
+      useLowPassDamping: 0
+      lowPassDamping: 5
+      mixerGroups:
+        engine: {fileID: -1284776019752758480, guid: 9868126ed15170743859f050b96e5ab7, type: 2}
+        exhaust: {fileID: 0}
+  - name: F4TM 2.5L EJ25 STi
+    type: 2
+    fuelType: 1
+    mass: 140
+    minimumRPM: 800
+    redlineRPM: 6000
+    overRevRPM: 7016
+    maximumRPM: 8000
+    power: 305
+    peakPowerRPM: 5200
+    torque: 454.6
+    peakTorqueRPM: 2800
+    cylinderCount: 4
+    isElectric: 0
+    isValid: 1
+    audio:
+      outputs: 0
+      celerationType: 0
+      startingClip: {fileID: 8300000, guid: 2af90fb4217a51a45a671c8ee517b20d, type: 3}
+      folderName: F4TM 2.5L EJ25
+      lowRPMVolume: 0.283
+      maxRPMDistortion: 0.433
+      overRPMDistortion: 0.316
+      decelLowPassFrequency: 2341
+      useAccelLowPass: 1
+      accelLowPassFrequency: 22000
+      accelLowPassRPMEnd: 1
+      useLowPassDamping: 1
+      lowPassDamping: 5
+      mixerGroups:
+        engine: {fileID: -1284776019752758480, guid: f59edb7049184af43bec0e5b408c0a15, type: 2}
+        exhaust: {fileID: 2169200352524684375, guid: f59edb7049184af43bec0e5b408c0a15, type: 2}
+  - name: I4TM 2.0L GTI TSI MK7
+    type: 0
+    fuelType: 1
+    mass: 146.4
+    minimumRPM: 800
+    redlineRPM: 6000
+    overRevRPM: 6500
+    maximumRPM: 8000
+    power: 242
+    peakPowerRPM: 4700
+    torque: 370
+    peakTorqueRPM: 1500
+    cylinderCount: 4
+    isElectric: 0
+    isValid: 1
+    audio:
+      outputs: 0
+      celerationType: 0
+      startingClip: {fileID: 8300000, guid: 2af90fb4217a51a45a671c8ee517b20d, type: 3}
+      folderName: 
+      lowRPMVolume: 0.25
+      maxRPMDistortion: 0.493
+      overRPMDistortion: 0.123
+      decelLowPassFrequency: 1215
+      useAccelLowPass: 0
+      accelLowPassFrequency: 22000
+      accelLowPassRPMEnd: 1
+      useLowPassDamping: 0
+      lowPassDamping: 5
+      mixerGroups:
+        engine: {fileID: -1284776019752758480, guid: 180b5617c4ce3a94baa2a2c5981f2196, type: 2}
+        exhaust: {fileID: 2169200352524684375, guid: 180b5617c4ce3a94baa2a2c5981f2196, type: 2}
+  - name: I6TM 3.0L 2JZ-GTE
+    type: 0
+    fuelType: 1
+    mass: 230
+    minimumRPM: 800
+    redlineRPM: 6800
+    overRevRPM: 7121
+    maximumRPM: 8500
+    power: 320
+    peakPowerRPM: 5900
+    torque: 427.5
+    peakTorqueRPM: 5300
+    cylinderCount: 6
+    isElectric: 0
+    isValid: 1
+    audio:
+      outputs: 0
+      celerationType: 0
+      startingClip: {fileID: 8300000, guid: b78b8260a3f5b3547b263896f9894493, type: 3}
+      folderName: 
+      lowRPMVolume: 0.334
+      maxRPMDistortion: 0.429
+      overRPMDistortion: 0.091
+      decelLowPassFrequency: 2319
+      useAccelLowPass: 0
+      accelLowPassFrequency: 22000
+      accelLowPassRPMEnd: 1
+      useLowPassDamping: 0
+      lowPassDamping: 5
+      mixerGroups:
+        engine: {fileID: -1284776019752758480, guid: e9ac98fd9b76ddd4cb71e5fce3c02eb0, type: 2}
+        exhaust: {fileID: 2169200352524684375, guid: e9ac98fd9b76ddd4cb71e5fce3c02eb0, type: 2}
+  - name: I6NM 3.2L S54B32
+    type: 0
+    fuelType: 1
+    mass: 156
+    minimumRPM: 800
+    redlineRPM: 8000
+    overRevRPM: 8378
+    maximumRPM: 9500
+    power: 333
+    peakPowerRPM: 7900
+    torque: 355.2
+    peakTorqueRPM: 4900
+    cylinderCount: 6
+    isElectric: 0
+    isValid: 1
+    audio:
+      outputs: 0
+      celerationType: 0
+      startingClip: {fileID: 8300000, guid: 4694facc93b63de4e8b340265b4e79dd, type: 3}
+      folderName: 
+      lowRPMVolume: 0.35
+      maxRPMDistortion: 0.429
+      overRPMDistortion: 0.228
+      decelLowPassFrequency: 3543
+      useAccelLowPass: 0
+      accelLowPassFrequency: 22000
+      accelLowPassRPMEnd: 1
+      useLowPassDamping: 0
+      lowPassDamping: 5
+      mixerGroups:
+        engine: {fileID: -1284776019752758480, guid: 94aff138f7e26fc4abe27fe3fa3c5831, type: 2}
+        exhaust: {fileID: 2169200352524684375, guid: 94aff138f7e26fc4abe27fe3fa3c5831, type: 2}
+  - name: V8NM 4.0L P60B40
+    type: 1
+    fuelType: 1
+    mass: 156
+    minimumRPM: 700
+    redlineRPM: 8500
+    overRevRPM: 8893
+    maximumRPM: 10000
+    power: 444
+    peakPowerRPM: 7500
+    torque: 480
+    peakTorqueRPM: 5500
+    cylinderCount: 8
+    isElectric: 0
+    isValid: 1
+    audio:
+      outputs: 2
+      celerationType: 0
+      startingClip: {fileID: 8300000, guid: 106474cfaf95a134a8b3e210c7bc76a1, type: 3}
+      folderName: 
+      lowRPMVolume: 0.32
+      maxRPMDistortion: 0.622
+      overRPMDistortion: 0.221
+      decelLowPassFrequency: 3355
+      useAccelLowPass: 0
+      accelLowPassFrequency: 22000
+      accelLowPassRPMEnd: 1
+      useLowPassDamping: 0
+      lowPassDamping: 5
+      mixerGroups:
+        engine: {fileID: -1284776019752758480, guid: 585c34cf70d9f244691cf1cca4b9e54d, type: 2}
+        exhaust: {fileID: 2169200352524684375, guid: 585c34cf70d9f244691cf1cca4b9e54d, type: 2}
+  - name: V10NM 4.8L 1LR-GSE
+    type: 1
+    fuelType: 1
+    mass: 240
+    minimumRPM: 800
+    redlineRPM: 9000
+    overRevRPM: 9425
+    maximumRPM: 10500
+    power: 552
+    peakPowerRPM: 8700
+    torque: 480
+    peakTorqueRPM: 6800
+    cylinderCount: 10
+    isElectric: 0
+    isValid: 1
+    audio:
+      outputs: 0
+      celerationType: 0
+      startingClip: {fileID: 8300000, guid: a9db2c4aeda3c8c4abd4a52cccdf6639, type: 3}
+      folderName: 
+      lowRPMVolume: 0.421
+      maxRPMDistortion: 0.46
+      overRPMDistortion: 0.111
+      decelLowPassFrequency: 2037
+      useAccelLowPass: 1
+      accelLowPassFrequency: 2240
+      accelLowPassRPMEnd: 0.3710145
+      useLowPassDamping: 1
+      lowPassDamping: 11
+      mixerGroups:
+        engine: {fileID: -1284776019752758480, guid: 74b9cd8219380ae4cae12072d8535b3b, type: 2}
+        exhaust: {fileID: 2169200352524684375, guid: 74b9cd8219380ae4cae12072d8535b3b, type: 2}
+  chargers:
+  - name: EJ25 STi Single Turbo
+    isStock: 1
+    massDifference: 0
+    weightDistributionDifference: 0
+    type: 0
+    turboCount: 1
+    superchargerType: 1
+    minimumBoost: 0.925
+    maximumBoost: 1.5
+    inertiaRPM: 1700
+    chargerSize: 0.9167
+    audio:
+      idleClip: {fileID: 8300000, guid: 32c8a141602ceef4b9a2cc635732ecc7, type: 3}
+      activeClip: {fileID: 8300000, guid: 82f93a6a8712c3344bd3f691b87de877, type: 3}
+      fuelBlowoutClip: {fileID: 0}
+      gearBlowoutClip: {fileID: 0}
+      revBlowoutClip: {fileID: 0}
+    compatibleEngineIndexes: 01000000
+  - name: GTI TSI MK7 Single Turbo
+    isStock: 1
+    massDifference: 0
+    weightDistributionDifference: 0
+    type: 0
+    turboCount: 1
+    superchargerType: 1
+    minimumBoost: 0.915
+    maximumBoost: 1.6
+    inertiaRPM: 800
+    chargerSize: 0.9063
+    audio:
+      idleClip: {fileID: 8300000, guid: 32c8a141602ceef4b9a2cc635732ecc7, type: 3}
+      activeClip: {fileID: 8300000, guid: 82f93a6a8712c3344bd3f691b87de877, type: 3}
+      fuelBlowoutClip: {fileID: 0}
+      gearBlowoutClip: {fileID: 0}
+      revBlowoutClip: {fileID: 0}
+    compatibleEngineIndexes: 02000000
+  - name: 2JZ-GTE Twin-Turbo
+    isStock: 1
+    massDifference: 0
+    weightDistributionDifference: 0
+    type: 0
+    turboCount: 2
+    superchargerType: 1
+    minimumBoost: 0.886
+    maximumBoost: 1.39
+    inertiaRPM: 1780
+    chargerSize: 0.9299
+    audio:
+      idleClip: {fileID: 8300000, guid: 6ba0691edc1e54243ba7147afdb832a2, type: 3}
+      activeClip: {fileID: 8300000, guid: f51721146789d3342a15d3babd83570c, type: 3}
+      fuelBlowoutClip: {fileID: 8300000, guid: f05c73d3a1646d241b4799609e03fa30, type: 3}
+      gearBlowoutClip: {fileID: 8300000, guid: 2892fdc4069265f41b179c642340a988, type: 3}
+      revBlowoutClip: {fileID: 8300000, guid: 7c90a06f25750eb4585ed32ef3ea4d7a, type: 3}
+    compatibleEngineIndexes: 03000000
+  tireCompounds:
+  - frictionComplexity: 0
+    wheelColliderAccelerationFriction:
+      extremumSlip: 0.2
+      extremumValue: 1
+      asymptoteSlip: 0.8
+      asymptoteValue: 0.75
+      stiffnessComplexity: 0
+      stiffness: 1
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    wheelColliderBrakeFriction:
+      extremumSlip: 0.2
+      extremumValue: 1
+      asymptoteSlip: 0.8
+      asymptoteValue: 0.75
+      stiffnessComplexity: 0
+      stiffness: 1
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    wheelColliderSidewaysFriction:
+      extremumSlip: 0.25
+      extremumValue: 1
+      asymptoteSlip: 0.5
+      asymptoteValue: 0.75
+      stiffnessComplexity: 0
+      stiffness: 1
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    widthFrictionModifiers:
+    - width: 150
+      frictionMultiplier: 0.8625
+    - width: 400
+      frictionMultiplier: 1.03125
+    - width: 650
+      frictionMultiplier: 1.3476
+    wetFrictionMultiplier: 0.955
+    wetSlipMultiplier: 1.15
+    name: Generic
+  - frictionComplexity: 1
+    wheelColliderAccelerationFriction:
+      extremumSlip: 0.23232323
+      extremumValue: 0.93
+      asymptoteSlip: 1
+      asymptoteValue: 0.8091
+      stiffnessComplexity: 0
+      stiffness: 1.18
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    wheelColliderBrakeFriction:
+      extremumSlip: 0.23232323
+      extremumValue: 0.93
+      asymptoteSlip: 1
+      asymptoteValue: 0.8091
+      stiffnessComplexity: 0
+      stiffness: 1.35
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    wheelColliderSidewaysFriction:
+      extremumSlip: 0.3131313
+      extremumValue: 0.88
+      asymptoteSlip: 1
+      asymptoteValue: 0.8096
+      stiffnessComplexity: 0
+      stiffness: 1.4
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    widthFrictionModifiers:
+    - width: 150
+      frictionMultiplier: 0.8625
+    - width: 400
+      frictionMultiplier: 1.03125
+    - width: 650
+      frictionMultiplier: 1.3476
+    wetFrictionMultiplier: 0.955
+    wetSlipMultiplier: 1.1
+    name: Vintage (Bias)
+  - frictionComplexity: 1
+    wheelColliderAccelerationFriction:
+      extremumSlip: 0.2020202
+      extremumValue: 1.04
+      asymptoteSlip: 1
+      asymptoteValue: 0.9414579
+      stiffnessComplexity: 1
+      stiffness: 1
+      stiffnessInterval:
+        a: 1.25
+        b: 1.18
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    wheelColliderBrakeFriction:
+      extremumSlip: 0.2020202
+      extremumValue: 1.04
+      asymptoteSlip: 1
+      asymptoteValue: 0.9414579
+      stiffnessComplexity: 0
+      stiffness: 1.4
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    wheelColliderSidewaysFriction:
+      extremumSlip: 0.2020202
+      extremumValue: 0.99
+      asymptoteSlip: 1
+      asymptoteValue: 0.8903506
+      stiffnessComplexity: 0
+      stiffness: 1.45
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    widthFrictionModifiers:
+    - width: 150
+      frictionMultiplier: 0.8625
+    - width: 400
+      frictionMultiplier: 1.03125
+    - width: 650
+      frictionMultiplier: 1.3476
+    wetFrictionMultiplier: 0.955
+    wetSlipMultiplier: 1.1
+    name: Touring
+  - frictionComplexity: 1
+    wheelColliderAccelerationFriction:
+      extremumSlip: 0.2020202
+      extremumValue: 1.04
+      asymptoteSlip: 1
+      asymptoteValue: 0.9414579
+      stiffnessComplexity: 1
+      stiffness: 1
+      stiffnessInterval:
+        a: 1.3
+        b: 1.2
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    wheelColliderBrakeFriction:
+      extremumSlip: 0.2020202
+      extremumValue: 1.04
+      asymptoteSlip: 1
+      asymptoteValue: 0.9414579
+      stiffnessComplexity: 0
+      stiffness: 1.6
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    wheelColliderSidewaysFriction:
+      extremumSlip: 0.2020202
+      extremumValue: 0.99
+      asymptoteSlip: 1
+      asymptoteValue: 0.8903506
+      stiffnessComplexity: 0
+      stiffness: 1.6
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    widthFrictionModifiers:
+    - width: 150
+      frictionMultiplier: 0.8625
+    - width: 400
+      frictionMultiplier: 1.03125
+    - width: 650
+      frictionMultiplier: 1.3476
+    wetFrictionMultiplier: 0.955
+    wetSlipMultiplier: 1.1
+    name: Muscle (Bias)
+  - frictionComplexity: 1
+    wheelColliderAccelerationFriction:
+      extremumSlip: 0.2020202
+      extremumValue: 1.06
+      asymptoteSlip: 1
+      asymptoteValue: 0.95487237
+      stiffnessComplexity: 1
+      stiffness: 1
+      stiffnessInterval:
+        a: 1.3
+        b: 1.18
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    wheelColliderBrakeFriction:
+      extremumSlip: 0.2020202
+      extremumValue: 1.06
+      asymptoteSlip: 1
+      asymptoteValue: 0.95487237
+      stiffnessComplexity: 0
+      stiffness: 1.65
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    wheelColliderSidewaysFriction:
+      extremumSlip: 0.2020202
+      extremumValue: 1.01
+      asymptoteSlip: 1
+      asymptoteValue: 0.90454185
+      stiffnessComplexity: 0
+      stiffness: 1.628
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    widthFrictionModifiers:
+    - width: 150
+      frictionMultiplier: 0.8625
+    - width: 400
+      frictionMultiplier: 1.03125
+    - width: 650
+      frictionMultiplier: 1.3476
+    wetFrictionMultiplier: 0.955
+    wetSlipMultiplier: 1.12
+    name: Sport (Bias)
+  - frictionComplexity: 1
+    wheelColliderAccelerationFriction:
+      extremumSlip: 0.2020202
+      extremumValue: 1.06
+      asymptoteSlip: 1
+      asymptoteValue: 0.95487237
+      stiffnessComplexity: 1
+      stiffness: 1
+      stiffnessInterval:
+        a: 1.3
+        b: 1.2
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    wheelColliderBrakeFriction:
+      extremumSlip: 0.2020202
+      extremumValue: 1.06
+      asymptoteSlip: 1
+      asymptoteValue: 0.95487237
+      stiffnessComplexity: 0
+      stiffness: 1.6
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    wheelColliderSidewaysFriction:
+      extremumSlip: 0.2020202
+      extremumValue: 1.01
+      asymptoteSlip: 1
+      asymptoteValue: 0.90454185
+      stiffnessComplexity: 0
+      stiffness: 1.55
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    widthFrictionModifiers:
+    - width: 150
+      frictionMultiplier: 0.8625
+    - width: 400
+      frictionMultiplier: 1.03125
+    - width: 650
+      frictionMultiplier: 1.3476
+    wetFrictionMultiplier: 0.955
+    wetSlipMultiplier: 1.12
+    name: Grand Touring
+  - frictionComplexity: 1
+    wheelColliderAccelerationFriction:
+      extremumSlip: 0.18181819
+      extremumValue: 1.08
+      asymptoteSlip: 1
+      asymptoteValue: 0.96810985
+      stiffnessComplexity: 1
+      stiffness: 1
+      stiffnessInterval:
+        a: 1.3
+        b: 1.2
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    wheelColliderBrakeFriction:
+      extremumSlip: 0.18181819
+      extremumValue: 1.08
+      asymptoteSlip: 1
+      asymptoteValue: 0.96810985
+      stiffnessComplexity: 0
+      stiffness: 1.65
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    wheelColliderSidewaysFriction:
+      extremumSlip: 0.18181819
+      extremumValue: 1.03
+      asymptoteSlip: 1
+      asymptoteValue: 0.9185818
+      stiffnessComplexity: 0
+      stiffness: 1.655
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    widthFrictionModifiers:
+    - width: 150
+      frictionMultiplier: 0.8625
+    - width: 400
+      frictionMultiplier: 1.03125
+    - width: 650
+      frictionMultiplier: 1.3476
+    wetFrictionMultiplier: 0.955
+    wetSlipMultiplier: 1.15
+    name: Performance
+  - frictionComplexity: 1
+    wheelColliderAccelerationFriction:
+      extremumSlip: 0.18181819
+      extremumValue: 1.09
+      asymptoteSlip: 1
+      asymptoteValue: 0.9674273
+      stiffnessComplexity: 1
+      stiffness: 1
+      stiffnessInterval:
+        a: 1.3
+        b: 1.25
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    wheelColliderBrakeFriction:
+      extremumSlip: 0.18181819
+      extremumValue: 1.09
+      asymptoteSlip: 1
+      asymptoteValue: 0.9674273
+      stiffnessComplexity: 0
+      stiffness: 1.72
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    wheelColliderSidewaysFriction:
+      extremumSlip: 0.18181819
+      extremumValue: 1.05
+      asymptoteSlip: 1
+      asymptoteValue: 0.9285265
+      stiffnessComplexity: 0
+      stiffness: 1.66
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    widthFrictionModifiers:
+    - width: 150
+      frictionMultiplier: 0.8625
+    - width: 400
+      frictionMultiplier: 1.03125
+    - width: 650
+      frictionMultiplier: 1.3476
+    wetFrictionMultiplier: 0.955
+    wetSlipMultiplier: 1.15
+    name: High Performance
+  - frictionComplexity: 1
+    wheelColliderAccelerationFriction:
+      extremumSlip: 0.17171717
+      extremumValue: 0.97
+      asymptoteSlip: 1
+      asymptoteValue: 0.8245
+      stiffnessComplexity: 0
+      stiffness: 1.3
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    wheelColliderBrakeFriction:
+      extremumSlip: 0.17171717
+      extremumValue: 0.97
+      asymptoteSlip: 1
+      asymptoteValue: 0.8245
+      stiffnessComplexity: 0
+      stiffness: 1.75
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    wheelColliderSidewaysFriction:
+      extremumSlip: 0.17171717
+      extremumValue: 0.98
+      asymptoteSlip: 1
+      asymptoteValue: 0.8624
+      stiffnessComplexity: 0
+      stiffness: 1.8
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    widthFrictionModifiers:
+    - width: 150
+      frictionMultiplier: 0.8625
+    - width: 400
+      frictionMultiplier: 1.03125
+    - width: 650
+      frictionMultiplier: 1.3476
+    wetFrictionMultiplier: 0.955
+    wetSlipMultiplier: 1.15
+    name: Race (Bias)
+  - frictionComplexity: 1
+    wheelColliderAccelerationFriction:
+      extremumSlip: 0.16161616
+      extremumValue: 1.14
+      asymptoteSlip: 1
+      asymptoteValue: 1.0017158
+      stiffnessComplexity: 1
+      stiffness: 1
+      stiffnessInterval:
+        a: 1.28
+        b: 1.22
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    wheelColliderBrakeFriction:
+      extremumSlip: 0.16161616
+      extremumValue: 1.14
+      asymptoteSlip: 1
+      asymptoteValue: 1.0017158
+      stiffnessComplexity: 0
+      stiffness: 1.8
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    wheelColliderSidewaysFriction:
+      extremumSlip: 0.16161616
+      extremumValue: 1.09
+      asymptoteSlip: 1
+      asymptoteValue: 0.95570546
+      stiffnessComplexity: 0
+      stiffness: 1.673
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    widthFrictionModifiers:
+    - width: 150
+      frictionMultiplier: 0.8625
+    - width: 400
+      frictionMultiplier: 1.03125
+    - width: 650
+      frictionMultiplier: 1.3476
+    wetFrictionMultiplier: 0.975
+    wetSlipMultiplier: 1.15
+    name: Ultra High Performance
+  - frictionComplexity: 1
+    wheelColliderAccelerationFriction:
+      extremumSlip: 0.16161616
+      extremumValue: 1.19
+      asymptoteSlip: 1
+      asymptoteValue: 1.0355083
+      stiffnessComplexity: 1
+      stiffness: 1
+      stiffnessInterval:
+        a: 1.33
+        b: 1.21
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    wheelColliderBrakeFriction:
+      extremumSlip: 0.16161616
+      extremumValue: 1.19
+      asymptoteSlip: 1
+      asymptoteValue: 1.0355083
+      stiffnessComplexity: 0
+      stiffness: 1.85
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    wheelColliderSidewaysFriction:
+      extremumSlip: 0.16161616
+      extremumValue: 1.12
+      asymptoteSlip: 1
+      asymptoteValue: 0.9771776
+      stiffnessComplexity: 0
+      stiffness: 1.7
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    widthFrictionModifiers:
+    - width: 150
+      frictionMultiplier: 0.8625
+    - width: 400
+      frictionMultiplier: 1.03125
+    - width: 650
+      frictionMultiplier: 1.3476
+    wetFrictionMultiplier: 0.98
+    wetSlipMultiplier: 1.2
+    name: Max Performance
+  - frictionComplexity: 1
+    wheelColliderAccelerationFriction:
+      extremumSlip: 0.16161616
+      extremumValue: 1.22
+      asymptoteSlip: 1
+      asymptoteValue: 1.0616134
+      stiffnessComplexity: 1
+      stiffness: 1
+      stiffnessInterval:
+        a: 1.34
+        b: 1.21
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    wheelColliderBrakeFriction:
+      extremumSlip: 0.16161616
+      extremumValue: 1.22
+      asymptoteSlip: 1
+      asymptoteValue: 1.0616134
+      stiffnessComplexity: 0
+      stiffness: 1.875
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    wheelColliderSidewaysFriction:
+      extremumSlip: 0.16161616
+      extremumValue: 1.15
+      asymptoteSlip: 1
+      asymptoteValue: 1.003352
+      stiffnessComplexity: 0
+      stiffness: 1.7
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    widthFrictionModifiers:
+    - width: 150
+      frictionMultiplier: 0.8625
+    - width: 400
+      frictionMultiplier: 1.03125
+    - width: 650
+      frictionMultiplier: 1.3476
+    wetFrictionMultiplier: 0.98
+    wetSlipMultiplier: 1.2
+    name: DOT Sport
+  - frictionComplexity: 1
+    wheelColliderAccelerationFriction:
+      extremumSlip: 0.14141414
+      extremumValue: 1.25
+      asymptoteSlip: 1
+      asymptoteValue: 1.077065
+      stiffnessComplexity: 1
+      stiffness: 1
+      stiffnessInterval:
+        a: 1.35
+        b: 1.21
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    wheelColliderBrakeFriction:
+      extremumSlip: 0.1414141
+      extremumValue: 1.25
+      asymptoteSlip: 1
+      asymptoteValue: 1.077065
+      stiffnessComplexity: 0
+      stiffness: 1.9
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    wheelColliderSidewaysFriction:
+      extremumSlip: 0.14141414
+      extremumValue: 1.18
+      asymptoteSlip: 1
+      asymptoteValue: 1.0244347
+      stiffnessComplexity: 0
+      stiffness: 1.7
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    widthFrictionModifiers:
+    - width: 150
+      frictionMultiplier: 0.8625
+    - width: 400
+      frictionMultiplier: 1.03125
+    - width: 650
+      frictionMultiplier: 1.3476
+    wetFrictionMultiplier: 0.985
+    wetSlipMultiplier: 1
+    name: DOT Competition
+  - frictionComplexity: 1
+    wheelColliderAccelerationFriction:
+      extremumSlip: 0.121212125
+      extremumValue: 1.32
+      asymptoteSlip: 1
+      asymptoteValue: 1.1616
+      stiffnessComplexity: 1
+      stiffness: 1
+      stiffnessInterval:
+        a: 1.35
+        b: 1.22
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    wheelColliderBrakeFriction:
+      extremumSlip: 0.121212125
+      extremumValue: 1.32
+      asymptoteSlip: 1
+      asymptoteValue: 1.1616
+      stiffnessComplexity: 0
+      stiffness: 1.8
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    wheelColliderSidewaysFriction:
+      extremumSlip: 0.121212125
+      extremumValue: 1.3
+      asymptoteSlip: 1
+      asymptoteValue: 1.105
+      stiffnessComplexity: 0
+      stiffness: 1.54
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    widthFrictionModifiers:
+    - width: 150
+      frictionMultiplier: 0.8625
+    - width: 400
+      frictionMultiplier: 1.03125
+    - width: 650
+      frictionMultiplier: 1.3476
+    wetFrictionMultiplier: 0.95
+    wetSlipMultiplier: 1
+    name: Racing Slick
+  - frictionComplexity: 1
+    wheelColliderAccelerationFriction:
+      extremumSlip: 0.23232323
+      extremumValue: 0.93
+      asymptoteSlip: 1
+      asymptoteValue: 0.8742
+      stiffnessComplexity: 0
+      stiffness: 1.2
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    wheelColliderBrakeFriction:
+      extremumSlip: 0.2020202
+      extremumValue: 0.93
+      asymptoteSlip: 1
+      asymptoteValue: 0.8742
+      stiffnessComplexity: 0
+      stiffness: 1.4
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    wheelColliderSidewaysFriction:
+      extremumSlip: 0.23232323
+      extremumValue: 0.81
+      asymptoteSlip: 1
+      asymptoteValue: 0.7533
+      stiffnessComplexity: 0
+      stiffness: 1.5
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    widthFrictionModifiers:
+    - width: 150
+      frictionMultiplier: 0.8625
+    - width: 400
+      frictionMultiplier: 1.03125
+    - width: 650
+      frictionMultiplier: 1.3476
+    wetFrictionMultiplier: 0.955
+    wetSlipMultiplier: 1.1
+    name: Off-Road (Bias)
+  - frictionComplexity: 1
+    wheelColliderAccelerationFriction:
+      extremumSlip: 0.23232323
+      extremumValue: 0.92
+      asymptoteSlip: 1
+      asymptoteValue: 0.8372
+      stiffnessComplexity: 1
+      stiffness: 1
+      stiffnessInterval:
+        a: 1.35
+        b: 1.52
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    wheelColliderBrakeFriction:
+      extremumSlip: 0.2020202
+      extremumValue: 0.92
+      asymptoteSlip: 1
+      asymptoteValue: 0.8372
+      stiffnessComplexity: 0
+      stiffness: 1.85
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    wheelColliderSidewaysFriction:
+      extremumSlip: 0.23232323
+      extremumValue: 0.85
+      asymptoteSlip: 1
+      asymptoteValue: 0.782
+      stiffnessComplexity: 0
+      stiffness: 1.88
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    widthFrictionModifiers:
+    - width: 150
+      frictionMultiplier: 0.8625
+    - width: 400
+      frictionMultiplier: 1.03125
+    - width: 650
+      frictionMultiplier: 1.3476
+    wetFrictionMultiplier: 0.955
+    wetSlipMultiplier: 1.12
+    name: All Terrain
+  - frictionComplexity: 1
+    wheelColliderAccelerationFriction:
+      extremumSlip: 0.23232323
+      extremumValue: 0.93
+      asymptoteSlip: 1
+      asymptoteValue: 0.8556
+      stiffnessComplexity: 1
+      stiffness: 1
+      stiffnessInterval:
+        a: 1.4
+        b: 1.77
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    wheelColliderBrakeFriction:
+      extremumSlip: 0.16161616
+      extremumValue: 0.93
+      asymptoteSlip: 1
+      asymptoteValue: 0.8556
+      stiffnessComplexity: 0
+      stiffness: 2
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    wheelColliderSidewaysFriction:
+      extremumSlip: 0.2020202
+      extremumValue: 0.87
+      asymptoteSlip: 1
+      asymptoteValue: 0.8004
+      stiffnessComplexity: 0
+      stiffness: 2.08
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    widthFrictionModifiers:
+    - width: 150
+      frictionMultiplier: 0.8625
+    - width: 400
+      frictionMultiplier: 1.03125
+    - width: 650
+      frictionMultiplier: 1.3476
+    wetFrictionMultiplier: 0.975
+    wetSlipMultiplier: 1.1
+    name: Extreme Off-Road
+  - frictionComplexity: 1
+    wheelColliderAccelerationFriction:
+      extremumSlip: 0.23232323
+      extremumValue: 0.93
+      asymptoteSlip: 1
+      asymptoteValue: 0.8556
+      stiffnessComplexity: 1
+      stiffness: 1
+      stiffnessInterval:
+        a: 1.4
+        b: 1.77
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    wheelColliderBrakeFriction:
+      extremumSlip: 0.16161616
+      extremumValue: 0.93
+      asymptoteSlip: 1
+      asymptoteValue: 0.8556
+      stiffnessComplexity: 0
+      stiffness: 2
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    wheelColliderSidewaysFriction:
+      extremumSlip: 0.2020202
+      extremumValue: 0.87
+      asymptoteSlip: 1
+      asymptoteValue: 0.8004
+      stiffnessComplexity: 0
+      stiffness: 2.08
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    widthFrictionModifiers:
+    - width: 150
+      frictionMultiplier: 0.8625
+    - width: 400
+      frictionMultiplier: 1.03125
+    - width: 650
+      frictionMultiplier: 1.3476
+    wetFrictionMultiplier: 0.955
+    wetSlipMultiplier: 1.1
+    name: Buggy
+  - frictionComplexity: 0
+    wheelColliderAccelerationFriction:
+      extremumSlip: 0.4
+      extremumValue: 1
+      asymptoteSlip: 1
+      asymptoteValue: 1
+      stiffnessComplexity: 0
+      stiffness: 1.5
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    wheelColliderBrakeFriction:
+      extremumSlip: 0.4
+      extremumValue: 1
+      asymptoteSlip: 1
+      asymptoteValue: 1
+      stiffnessComplexity: 0
+      stiffness: 1.75
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    wheelColliderSidewaysFriction:
+      extremumSlip: 0.5
+      extremumValue: 1
+      asymptoteSlip: 0.6
+      asymptoteValue: 0.5
+      stiffnessComplexity: 0
+      stiffness: 1.25
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    widthFrictionModifiers:
+    - width: 150
+      frictionMultiplier: 0.8625
+    - width: 400
+      frictionMultiplier: 1.03125
+    - width: 650
+      frictionMultiplier: 1.3476
+    wetFrictionMultiplier: 0.975
+    wetSlipMultiplier: 1.15
+    name: Drift
+  - frictionComplexity: 1
+    wheelColliderAccelerationFriction:
+      extremumSlip: 0.14141414
+      extremumValue: 1.763157
+      asymptoteSlip: 1
+      asymptoteValue: 1.5956571
+      stiffnessComplexity: 0
+      stiffness: 2
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    wheelColliderBrakeFriction:
+      extremumSlip: 0.14141414
+      extremumValue: 1.728243
+      asymptoteSlip: 1
+      asymptoteValue: 1.56406
+      stiffnessComplexity: 0
+      stiffness: 2
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    wheelColliderSidewaysFriction:
+      extremumSlip: 0.14141414
+      extremumValue: 1.281
+      asymptoteSlip: 1
+      asymptoteValue: 1.155462
+      stiffnessComplexity: 0
+      stiffness: 2
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    widthFrictionModifiers:
+    - width: 150
+      frictionMultiplier: 0.8625
+    - width: 400
+      frictionMultiplier: 1.03125
+    - width: 650
+      frictionMultiplier: 1.3476
+    wetFrictionMultiplier: 0.975
+    wetSlipMultiplier: 1.15
+    name: Drag
+  - frictionComplexity: 1
+    wheelColliderAccelerationFriction:
+      extremumSlip: 0.16161616
+      extremumValue: 1
+      asymptoteSlip: 1
+      asymptoteValue: 0.95
+      stiffnessComplexity: 1
+      stiffness: 1
+      stiffnessInterval:
+        a: 1.4
+        b: 1.55
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    wheelColliderBrakeFriction:
+      extremumSlip: 0.16161616
+      extremumValue: 1.12
+      asymptoteSlip: 1
+      asymptoteValue: 1.064
+      stiffnessComplexity: 0
+      stiffness: 2.1
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    wheelColliderSidewaysFriction:
+      extremumSlip: 0.16161616
+      extremumValue: 1.06
+      asymptoteSlip: 1
+      asymptoteValue: 0.90282744
+      stiffnessComplexity: 0
+      stiffness: 1.92
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    widthFrictionModifiers:
+    - width: 150
+      frictionMultiplier: 0.8625
+    - width: 400
+      frictionMultiplier: 1.03125
+    - width: 650
+      frictionMultiplier: 1.3476
+    wetFrictionMultiplier: 1
+    wetSlipMultiplier: 1.2
+    name: Off-Road
+  - frictionComplexity: 1
+    wheelColliderAccelerationFriction:
+      extremumSlip: 0.18181819
+      extremumValue: 1.22
+      asymptoteSlip: 1
+      asymptoteValue: 1.0870566
+      stiffnessComplexity: 1
+      stiffness: 1
+      stiffnessInterval:
+        a: 1.34
+        b: 1.21
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    wheelColliderBrakeFriction:
+      extremumSlip: 0.18181819
+      extremumValue: 1.22
+      asymptoteSlip: 1
+      asymptoteValue: 1.0870566
+      stiffnessComplexity: 0
+      stiffness: 1.875
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    wheelColliderSidewaysFriction:
+      extremumSlip: 0.18181819
+      extremumValue: 1.15
+      asymptoteSlip: 1
+      asymptoteValue: 0.960158
+      stiffnessComplexity: 0
+      stiffness: 1.7
+      stiffnessInterval:
+        a: 1
+        b: 0.9
+      stiffnessSpeedInterval:
+        a: 18
+        b: 54
+    widthFrictionModifiers:
+    - width: 150
+      frictionMultiplier: 0.8625
+    - width: 400
+      frictionMultiplier: 1.03125
+    - width: 650
+      frictionMultiplier: 1.3476
+    wetFrictionMultiplier: 1
+    wetSlipMultiplier: 1
+    name: Snow
+  grounds:
+  - particleEffect: {fileID: 3426693536222010874, guid: e41d13b1d4405c644b0f0fd6d9877752, type: 3}
+    flatWheelParticleEffect: {fileID: 2448743359346857956, guid: 738d8d61d82e2034e80139a4431d3e21, type: 3}
+    markMaterial: {fileID: 2100000, guid: a40163ab3fd55ec47839357b815c3297, type: 2}
+    flatWheelMarkMaterial: {fileID: 2100000, guid: e386cc05bea58f74b8a256e59ee94f0f, type: 2}
+    useSpeedEmission: 0
+    isOffRoad: 0
+    forwardSkidClip: {fileID: 8300000, guid: 9cffa87722b739342ab15969766b1005, type: 3}
+    brakeSkidClip: {fileID: 8300000, guid: 93b9f5f2dfb21d340a36931f165d6fb0, type: 3}
+    sidewaysSkidClip: {fileID: 8300000, guid: 93b9f5f2dfb21d340a36931f165d6fb0, type: 3}
+    rollClip: {fileID: 8300000, guid: 56d7a6f7375a25d49b4403cc627664a9, type: 3}
+    flatSkidClip: {fileID: 8300000, guid: 2f7d892e29c0adc4780c88b154a1f741, type: 3}
+    flatRollClip: {fileID: 8300000, guid: bfff940736b5401459a3ce4e58548aa5, type: 3}
+    name: Asphalt
+    frictionStiffness: 1
+    damagedWheelStiffness: 0.4
+    wheelDampingRate: 1
+    wheelBurnoutDampingRate: 0.1
+    markMaterialTiling: 4
+    flatWheelMarkMaterialTiling: 1
+    volume: 1
+  - particleEffect: {fileID: 0}
+    flatWheelParticleEffect: {fileID: 0}
+    markMaterial: {fileID: 2100000, guid: 86bb6860a94b43f46a34e8afeb80becb, type: 2}
+    flatWheelMarkMaterial: {fileID: 2100000, guid: cbe8053e508028749b941a1078235742, type: 2}
+    useSpeedEmission: 1
+    isOffRoad: 1
+    forwardSkidClip: {fileID: 8300000, guid: 01df09a27887c72479caf2b8b1877f84, type: 3}
+    brakeSkidClip: {fileID: 8300000, guid: 01df09a27887c72479caf2b8b1877f84, type: 3}
+    sidewaysSkidClip: {fileID: 8300000, guid: 01df09a27887c72479caf2b8b1877f84, type: 3}
+    rollClip: {fileID: 8300000, guid: d797def3b6eb2de408c303be184936b3, type: 3}
+    flatSkidClip: {fileID: 8300000, guid: 01df09a27887c72479caf2b8b1877f84, type: 3}
+    flatRollClip: {fileID: 8300000, guid: d797def3b6eb2de408c303be184936b3, type: 3}
+    name: Dirt
+    frictionStiffness: 0.76
+    damagedWheelStiffness: 0.381
+    wheelDampingRate: 0.815
+    wheelBurnoutDampingRate: 0.0001
+    markMaterialTiling: 4
+    flatWheelMarkMaterialTiling: 1
+    volume: 1
+  wheelSpinRPMThreshold: 1000
+  wheelHideRPMThreshold: 700
+  wheelSpinSamplesCount: 32
+  wheelSpinAlphaOffset: 0
+  wheelSpinCullingDistance: 20
+  brakeHeatingSpeed: 2
+  brakeCoolingSpeed: 0.5

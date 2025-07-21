@@ -1,0 +1,141 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7512069955092176895
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 885247599, guid: dd7303a945a4372458d0c1c4dbb0504e, type: 3}
+      propertyPath: m_Version
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2037287726, guid: dd7303a945a4372458d0c1c4dbb0504e, type: 3}
+      propertyPath: m_Version
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 355462464946365494, guid: dd7303a945a4372458d0c1c4dbb0504e,
+        type: 3}
+      propertyPath: m_Version
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6392705046347184830, guid: dd7303a945a4372458d0c1c4dbb0504e,
+        type: 3}
+      propertyPath: m_Version
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076889, guid: dd7303a945a4372458d0c1c4dbb0504e,
+        type: 3}
+      propertyPath: aiBehaviours.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076889, guid: dd7303a945a4372458d0c1c4dbb0504e,
+        type: 3}
+      propertyPath: aiBehaviours.Array.data[0]
+      value: 
+      objectReference: {fileID: 1966442642}
+    - target: {fileID: 7486787342897076894, guid: dd7303a945a4372458d0c1c4dbb0504e,
+        type: 3}
+      propertyPath: m_Name
+      value: 1993 Toyota Supra MK4 - AI
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076894, guid: dd7303a945a4372458d0c1c4dbb0504e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076895, guid: dd7303a945a4372458d0c1c4dbb0504e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076895, guid: dd7303a945a4372458d0c1c4dbb0504e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -25.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076895, guid: dd7303a945a4372458d0c1c4dbb0504e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076895, guid: dd7303a945a4372458d0c1c4dbb0504e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -40.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076895, guid: dd7303a945a4372458d0c1c4dbb0504e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076895, guid: dd7303a945a4372458d0c1c4dbb0504e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076895, guid: dd7303a945a4372458d0c1c4dbb0504e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076895, guid: dd7303a945a4372458d0c1c4dbb0504e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076895, guid: dd7303a945a4372458d0c1c4dbb0504e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076895, guid: dd7303a945a4372458d0c1c4dbb0504e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076895, guid: dd7303a945a4372458d0c1c4dbb0504e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dd7303a945a4372458d0c1c4dbb0504e, type: 3}
+--- !u!1 &1127679711818941793 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7486787342897076894, guid: dd7303a945a4372458d0c1c4dbb0504e,
+    type: 3}
+  m_PrefabInstance: {fileID: 7512069955092176895}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1966442642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1127679711818941793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa4b8666327f07c48bb9665cafc08e96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  updateType: 0
+  updateMethod: 0
+  aiLayerIndex: -1
+  aiLayerName: 
+  path: {fileID: 0}
+  pathWidthMultiplier: 0.4
+  followDirection: 0
+  startPoint: 1
+  inputInterpolation: 1
+  targetSpeedMultiplier: 1.25
+  obstacleDetectionMethod: 0
+  sensorsMaximumHits: 3
+  obstaclesLayerMask:
+    serializedVersion: 2
+    m_Bits: 1537
+  sensorsIntensityPower: 3
+  diagonalSensorsSteerIntensity: 0.33333334
+  diagonalSensorsDynamicSteerIntensity: 0.125
+  sideSensorsSteerIntensity: 0.25
