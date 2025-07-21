@@ -17,29 +17,20 @@ public class MainMenu : MonoBehaviour
         var tutorialYesButton = root.Q<Button>("Button_TutorialYes");
         var tutorialNoButton = root.Q<Button>("Button_TutorialNo");
 
-        if (startButton != null)
+        startButton.clicked += () =>
         {
-            startButton.RegisterCallback<ClickEvent>((evt) =>
-            {
-                mainMenuContainer.style.display = DisplayStyle.None;
-                tutorialPromptContainer.style.display = DisplayStyle.Flex;
-            });
-        }
+            mainMenuContainer.style.display = DisplayStyle.None;
+            tutorialPromptContainer.style.display = DisplayStyle.Flex;
+        };
 
-        if (tutorialYesButton != null)
+        tutorialYesButton.clicked += () =>
         {
-            tutorialYesButton.RegisterCallback<ClickEvent>((evt) =>
-            {
-                SceneManager.LoadScene("1_Tutorial");
-            });
-        }
+            SceneManager.LoadScene("1_Tutorial");
+        };
 
-        if (tutorialNoButton != null)
+        tutorialNoButton.clicked += () =>
         {
-            tutorialNoButton.RegisterCallback<ClickEvent>((evt) =>
-            {
-                SceneManager.LoadScene("3_Garage");
-            });
-        }
+            SceneManager.LoadScene("3_Garage");
+        };
     }
 }
