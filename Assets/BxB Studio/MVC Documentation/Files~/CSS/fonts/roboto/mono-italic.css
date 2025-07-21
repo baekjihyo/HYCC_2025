@@ -1,0 +1,56 @@
+@font-face
+{
+	font-family: "Roboto Mono";
+	font-weight: 100;
+	font-style: italic;
+	font-stretch: normal;
+	src: url(RobotoMono-ThinItalic.ttf) format("truetype");
+}
+@font-face
+{
+	font-family: "Roboto Mono";
+	font-weight: 200;
+	font-style: italic;
+	font-stretch: normal;
+	src: url(RobotoMono-ExtraLightItalic.ttf) format("truetype");
+}
+@font-face
+{
+	font-family: "Roboto Mono";
+	font-weight: 300;
+	font-style: italic;
+	font-stretch: normal;
+	src: url(RobotoMono-LightItalic.ttf) format("truetype");
+}
+@font-face
+{
+	font-family: "Roboto Mono";
+	font-weight: 400;
+	font-style: italic;
+	font-stretch: normal;
+	src: url(RobotoMono-Italic.ttf) format("truetype");
+}
+@font-face
+{
+	font-family: "Roboto Mono";
+	font-weight: 500;
+	font-style: italic;
+	font-stretch: normal;
+	src: url(RobotoMono-MediumItalic.ttf) format("truetype");
+}
+@font-face
+{
+	font-family: "Roboto Mono";
+	font-weight: 600;
+	font-style: italic;
+	font-stretch: normal;
+	src: url(RobotoMono-SemiBoldItalic.ttf) format("truetype");
+}
+@font-face
+{
+	font-family: "Roboto Mono";
+	font-weight: 700;
+	font-style: italic;
+	font-stretch: normal;
+	src: url(RobotoMono-BoldItalic.ttf) format("truetype");
+}

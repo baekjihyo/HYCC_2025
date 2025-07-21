@@ -1,0 +1,330 @@
+aside#docs-aside-nav
+{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 16rem;
+	height: calc(100% - 2rem);
+	padding: 1rem 0;
+	border-right: .0625rem solid rgba(255, 255, 255, .125);
+}
+aside#docs-aside-nav > div.logo
+{
+	width: calc(100% - 3.5rem);
+	height: 2rem;
+	margin-bottom: .5rem;
+	padding-left: 3.5rem;
+	background-image: url(../images/m-x32.png);
+	background-size: 2rem;
+	background-position: 1rem center;
+	background-repeat: no-repeat;
+	color: white;
+	font-size: 1.5rem;
+	line-height: 2rem;
+}
+aside#docs-aside-nav > div.search-container
+{
+	width: 100%;
+	margin-bottom: 1rem;
+}
+aside#docs-aside-nav > div.tabs-container
+{
+	position: relative;
+	width: 100%;
+	height: calc(100% - 5.5rem);
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+aside#docs-aside-nav > div.tabs-container:hover
+{
+	overflow-y: overlay;
+}
+aside#docs-aside-nav > div.tabs-container > div.tab
+{
+	position: relative;
+	width: calc(100% - 2.25rem);
+	height: 1rem;
+	margin-left: auto;
+	padding: .75rem .5rem .75rem 1.25rem;
+	line-height: 1rem;
+	color: rgb(192, 192, 192);
+	transition: width .25s ease-in-out, height .25s ease-in-out, margin-bottom .25s ease-in-out, padding-top .25s ease-in-out, padding-bottom .25s ease-in-out;
+	cursor: pointer;
+	overflow: hidden;
+}
+body.searching > aside#docs-aside-nav > div.tabs-container > div.tab
+{
+	display: block !important;
+}
+aside#docs-aside-nav > div.tabs-container > div.tab::before
+{
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: .25rem;
+	height: 2.5rem;
+	background-color: rgb(80, 80, 80);
+	font-size: 0;
+	transform: translateY(-50%);
+	content: "\0a00";
+}
+aside#docs-aside-nav > div.tabs-container > div.tab.parent
+{
+    background-color: rgba(255, 255, 255, .01171875);
+}
+aside#docs-aside-nav > div.tabs-container > div.tab:hover
+{
+	background-color: rgba(255, 255, 255, .03125);
+}
+aside#docs-aside-nav > div.tabs-container > div.tab:active,
+aside#docs-aside-nav > div.tabs-container > div.tab.active
+{
+	/*border-right: .5rem solid rgb(25, 94, 155);
+	padding-right: 0;*/
+	background-color: rgba(25, 94, 155, .125);
+	color: rgb(25, 94, 155);
+}
+aside#docs-aside-nav > div.tabs-container > div.tab:active
+{
+	background-color: rgba(0, 0, 0, .125);
+}
+aside#docs-aside-nav > div.tabs-container > div.tab:hover::before,
+aside#docs-aside-nav > div.tabs-container > div.tab:active::before,
+aside#docs-aside-nav > div.tabs-container > div.tab.active::before,
+aside#docs-aside-nav > div.tabs-container > div.tab.parent::before
+{
+	background-color: rgb(25, 94, 155);
+}
+aside#docs-aside-nav > div.tabs-container > div.tab:not(:last-of-type)
+{
+	margin-bottom: .5rem;
+}
+aside#docs-aside-nav > div.tabs-container > div.tab.hide-tab
+{
+	height: 0;
+	margin-bottom: 0;
+	padding-top: 0;
+	padding-bottom: 0;
+}
+body:not(.searching) > aside#docs-aside-nav > div.tabs-container > div.tab[data-parent]
+{
+	width: calc(100% - 3.5rem);
+}
+body:not(.searching) > aside#docs-aside-nav > div.tabs-container > div.tab[data-child-parent]
+{
+	width: calc(100% - 4.75rem);
+}
+body:not(.searching) > aside#docs-aside-nav > div.tabs-container > div.tab[data-child-child-parent]
+{
+	width: calc(100% - 6rem);
+}
+aside#docs-aside-nav > div.tabs-container > div.tab > div.text
+{
+	max-width: 100%;
+	text-transform: capitalize;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+div#docs-sections-container
+{
+	width: calc(100% - 16.0625rem);
+	margin-left: 16.0625rem;
+	overflow: visible;
+}
+div#docs-sections-container > div.versions-selector
+{
+	width: max-content;
+	margin-right: 2.5rem;
+	margin-left: .5rem;
+	padding: 1.625rem 0 0;
+}
+div#docs-sections-container > div.versions-selector > div.input-container[data-tooltip]
+{
+	--tooltip-left: unset;
+	--tooltip-right: 0;
+	--tooltip-transform: unset;
+}
+div#docs-sections-container > div.versions-selector > div.input-container[data-tooltip]#docs-version-select
+{
+	--tooltip-top: calc(100% + 2.75rem);
+}
+div#docs-sections-container > div.versions-selector > div.input-container[data-tooltip]#docs-physics-model-select
+{
+	--tooltip-top: calc(100%);
+}
+div#docs-sections-container > div.versions-selector > div.input-container[data-tooltip]::after
+{
+	text-align: center;
+}
+div#docs-sections-container > div.versions-selector div.enumerator
+{
+	width: 9rem;
+}
+div#docs-sections-container > div.links-container
+{
+	width: max-content;
+	padding: 2rem 0 0;
+}
+div#docs-sections-container > div.links-container > a
+{
+	margin: 0 1rem;
+}
+div#docs-sections-container > section
+{
+	width: calc(100% - 6rem);
+	margin: 3rem 0;
+	padding: 3rem;
+}
+div#docs-sections-container > section:first-of-type
+{
+	margin-top: 0;
+	padding-top: 6rem;
+}
+div#docs-sections-container > section:not(:first-of-type)
+{
+	border-top: .0625rem solid rgba(255, 255, 255, .125);
+}
+div#docs-sections-container > section[data-level="1"],
+div#docs-sections-container > section[data-level="2"],
+div#docs-sections-container > section[data-level="3"]
+{
+	margin-left: 3rem;
+	margin-right: 3rem;
+	padding-left: 0;
+	padding-right: 0;
+}
+div#docs-sections-container > section [data-tooltip]
+{
+	--tooltip-top: calc(100% + .25rem);
+	white-space: nowrap;
+}
+div#docs-sections-container > section [data-tooltip]:not(a)
+{
+	cursor: help;
+}
+div#docs-sections-container > section div.image
+{
+	position: relative;
+	width: 512px;
+	min-height: 64px;
+	margin: 0 auto;
+	border: .125rem solid transparent;
+	border-radius: .5rem;
+	background-color: rgba(255, 255, 255, .03125);
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	cursor: zoom-in;
+}
+div#docs-sections-container > section:not(:last-of-type) div.title,
+div#docs-sections-container > section:not(:last-of-type) div.sub-title
+{
+	position: relative;
+	cursor: pointer;
+}
+div#docs-sections-container > section div.sub-title
+{
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-top: 2rem;
+	padding-bottom: 1rem;
+}
+div#docs-sections-container > section div.title::before,
+div#docs-sections-container > section div.sub-title::before
+{
+	position: absolute;
+	left: -1.5rem;
+	font-size: 1rem;
+	color: rgb(25, 94, 155);
+	display: none;
+}
+div#docs-sections-container > section div.title:hover::before,
+div#docs-sections-container > section div.sub-title:hover::before
+{
+	display: block;
+}
+div#docs-sections-container > section div.image:hover
+{
+	border-radius: .25rem;
+	border-color: rgb(25, 94, 155);
+}
+div#docs-sections-container > section div.image:active,
+div#docs-sections-container > section div.image:focus
+{
+	box-shadow: 0 0 .5rem rgb(11, 56, 96);
+	border-color: rgb(25, 94, 155);
+}
+div#docs-sections-container > section div.image.icon-spin1.spin-loader-before::before
+{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	color: white;
+	font-size: 1.5rem;
+	line-height: 1.5rem;
+	transform: translate(-50%, -50%);
+}
+div#docs-sections-container > section:not(:last-of-type) *
+{
+	user-select: text;
+}
+div#docs-sections-container > section > iframe
+{
+	width: 512px;
+	height: 288px;
+	margin: 0 auto;
+	border: none;
+	display: block;
+}
+div#docs-sections-container > section > div.feedback-container
+{
+	margin: 3rem 2rem 0;
+}
+div#docs-sections-container > section div.feedback-message,
+div#docs-sections-container > section div.feedback-actions,
+div#docs-sections-container > section div.feedback-action
+{
+	display: inline-block;
+}
+div#docs-sections-container > section div.feedback-message
+{
+	color: white;
+text-align: justify;}
+div#docs-sections-container > section div.feedback-action
+{
+	margin-left: .5rem;
+	font-weight: 600;
+}
+div#docs-sections-container > section div.feedback-action:hover
+{
+	color: rgb(32 160 255);
+}
+div#docs-sections-container > section div.feedback-text-field-container
+{
+	display: none;
+}
+div#docs-sections-container > section div.feedback-text-field-container input
+{
+	width: 13rem;
+}
+div#docs-sections-container > section div.feedback-text-field-container > button.feedback-submit-button
+{
+	width: 2.75rem;
+}
+div#docs-sections-container > section div.feedback-text-field-container > div.input-container,
+div#docs-sections-container > section div.feedback-text-field-container > button.feedback-submit-button
+{
+	display: inline-block;
+}
+div#image-preview-container.window-container > div.window
+{
+	width: 100%;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+}
+section > div#news-letter-subscribe-form > div.input-container > input#news-letter-email-input
+{
+	width: 20rem;
+}

@@ -1,0 +1,22 @@
+@media screen and (max-width: 800px)
+{
+    body > div#user-panel-window.window-container div.container div.panel-button
+    {
+        width: calc(100% - 1rem) !important;
+        display: block !important;
+    }
+	body > div#user-panel-window.window-container div.container div.panel-button > div.icon
+	{
+		display: block !important;
+	}
+	body > div#user-panel-window.window-container div.container div.panel-button > div.text
+	{
+		width: auto !important;
+		margin-left: unset !important;
+		text-align: center !important;
+	}
+	body > div#user-panel-window.window-container div.container div.panel-button > div.notice-icon
+	{
+		right: 1.5rem !important;
+	}
+}

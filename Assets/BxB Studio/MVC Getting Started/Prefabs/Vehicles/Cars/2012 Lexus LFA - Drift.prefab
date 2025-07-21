@@ -1,0 +1,146 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &5686071811938107116
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 305064206538942645, guid: edf759d53bc03804bb5c95faa082e9f4,
+        type: 3}
+      propertyPath: tireCompoundName
+      value: Drift
+      objectReference: {fileID: 0}
+    - target: {fileID: 305064206538942645, guid: edf759d53bc03804bb5c95faa082e9f4,
+        type: 3}
+      propertyPath: tireCompoundIndex
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 305064206677948471, guid: edf759d53bc03804bb5c95faa082e9f4,
+        type: 3}
+      propertyPath: tireCompoundName
+      value: Drift
+      objectReference: {fileID: 0}
+    - target: {fileID: 305064206677948471, guid: edf759d53bc03804bb5c95faa082e9f4,
+        type: 3}
+      propertyPath: tireCompoundIndex
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 305064206780832993, guid: edf759d53bc03804bb5c95faa082e9f4,
+        type: 3}
+      propertyPath: tireCompoundName
+      value: Drift
+      objectReference: {fileID: 0}
+    - target: {fileID: 305064206780832993, guid: edf759d53bc03804bb5c95faa082e9f4,
+        type: 3}
+      propertyPath: tireCompoundIndex
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 305064207724820795, guid: edf759d53bc03804bb5c95faa082e9f4,
+        type: 3}
+      propertyPath: tireCompoundName
+      value: Drift
+      objectReference: {fileID: 0}
+    - target: {fileID: 305064207724820795, guid: edf759d53bc03804bb5c95faa082e9f4,
+        type: 3}
+      propertyPath: tireCompoundIndex
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859803594570668340, guid: edf759d53bc03804bb5c95faa082e9f4,
+        type: 3}
+      propertyPath: steering.method
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859803594570668340, guid: edf759d53bc03804bb5c95faa082e9f4,
+        type: 3}
+      propertyPath: stability.useABS
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859803594570668340, guid: edf759d53bc03804bb5c95faa082e9f4,
+        type: 3}
+      propertyPath: stability.useESP
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859803594570668340, guid: edf759d53bc03804bb5c95faa082e9f4,
+        type: 3}
+      propertyPath: stability.useTCS
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859803594570668340, guid: edf759d53bc03804bb5c95faa082e9f4,
+        type: 3}
+      propertyPath: stability.handlingRate
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859803594570668340, guid: edf759d53bc03804bb5c95faa082e9f4,
+        type: 3}
+      propertyPath: steering.overrideMethod
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859803594570668340, guid: edf759d53bc03804bb5c95faa082e9f4,
+        type: 3}
+      propertyPath: stability.useHandbrakeABS
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859803594570668342, guid: edf759d53bc03804bb5c95faa082e9f4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859803594570668342, guid: edf759d53bc03804bb5c95faa082e9f4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 264.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859803594570668342, guid: edf759d53bc03804bb5c95faa082e9f4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.190268
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859803594570668342, guid: edf759d53bc03804bb5c95faa082e9f4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -69.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859803594570668342, guid: edf759d53bc03804bb5c95faa082e9f4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9975213
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859803594570668342, guid: edf759d53bc03804bb5c95faa082e9f4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859803594570668342, guid: edf759d53bc03804bb5c95faa082e9f4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.070365794
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859803594570668342, guid: edf759d53bc03804bb5c95faa082e9f4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859803594570668342, guid: edf759d53bc03804bb5c95faa082e9f4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859803594570668342, guid: edf759d53bc03804bb5c95faa082e9f4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 8.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859803594570668342, guid: edf759d53bc03804bb5c95faa082e9f4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859803594570668343, guid: edf759d53bc03804bb5c95faa082e9f4,
+        type: 3}
+      propertyPath: m_Name
+      value: 2012 Lexus LFA - Drift
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: edf759d53bc03804bb5c95faa082e9f4, type: 3}

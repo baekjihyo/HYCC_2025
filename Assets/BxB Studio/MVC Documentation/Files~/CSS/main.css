@@ -1,0 +1,1323 @@
+/* Standard elements */
+body div.spacer
+{
+	height: 2rem;
+}
+body div.spacer.vertical
+{
+	width: 2rem;
+}
+body div.spacer.very-tiny
+{
+	height: .25rem;
+}
+body div.spacer.very-tiny.vertical
+{
+	width: .25rem;
+}
+body div.spacer.tiny
+{
+	height: .5rem;
+}
+body div.spacer.tiny.vertical
+{
+	width: .5rem;
+}
+body div.spacer.small
+{
+	height: 1rem;
+}
+body div.spacer.small.vertical
+{
+	width: 1rem;
+}
+body div.spacer.large
+{
+	height: 3rem;
+}
+body div.spacer.large.vertical
+{
+	width: 3rem;
+}
+body div.spacer.larger
+{
+	height: 4rem;
+}
+body div.spacer.larger.vertical
+{
+	width: 4rem;
+}
+body div.separator
+{
+	width: 100%;
+	height: .125rem;
+	border-top: .0625rem solid rgba(0, 0, 0, 1);
+	background-color: rgba(255, 255, 255, .1);
+}
+body div.separator.no-border
+{
+	border: unset;
+}
+body div.separator.black
+{
+	background-color: rgba(0, 0, 0, .5);
+}
+body div.separator.vertical
+{
+	width: .125rem;
+	height: 100%;
+}
+body div.separator.small
+{
+	height: .0625rem;
+}
+body div.separator.vertical.small
+{
+	width: .0625rem;
+}
+
+/* Page Elements */
+body div.title
+{
+	margin: 2rem;
+	font-size: 2rem;
+	font-weight: 700;
+	line-height: 3rem;
+	text-align: center;
+	text-transform: capitalize;
+	color: white;
+}
+body div.title.small-margin
+{
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+body div.title.tiny-margin
+{
+	margin-top: .5rem;
+	margin-bottom: .5rem;
+}
+body div.title.no-margin
+{
+	margin-top: 0;
+	margin-bottom: 0;
+}
+body div.title.no-side-margin
+{
+	margin-left: 0;
+	margin-right: 0;
+}
+body div.title.small
+{
+	font-size: 1.5rem;
+	font-weight: 400;
+}
+body div.title.large
+{
+	font-size: 3rem;
+	/*font-stretch: normal;*/
+	/*font-weight: 400;*/
+	/*word-spacing: .25rem;*/
+	letter-spacing: .125rem;
+}
+body div.title.larger
+{
+	font-size: 6rem;
+	line-height: 6rem;
+	letter-spacing: .25rem;
+}
+body div.sub-title
+{
+	margin: 1rem 2rem;
+	font-size: 1.25rem;
+	font-weight: 400;
+	text-align: center;
+	line-height: 1.25rem;
+	color: #E0E0E0;
+}
+body div.sub-title.small-margin
+{
+	margin-top: .5rem;
+	margin-bottom: .5rem;
+}
+body div.sub-title.tiny-margin
+{
+	margin-top: .25rem;
+	margin-bottom: .25rem;
+}
+body div.sub-title.no-margin
+{
+	margin-top: 0;
+	margin-bottom: 0;
+}
+body div.sub-title.no-side-margin
+{
+	margin-left: 0;
+	margin-right: 0;
+}
+body div.sub-title.small
+{
+	font-size: 1rem;
+}
+body div.sub-title.tiny
+{
+	font-size: .75rem;
+}
+body div.paragraph
+{
+	margin: 1rem 2rem;
+	font-size: 1rem;
+	font-weight: 300;
+	text-align: justify;
+	line-height: 1.25rem;
+	color: rgb(192, 192, 192);
+	-webkit-user-select: text;
+	user-select: text;
+}
+body div.paragraph.no-margin
+{
+	margin-top: 0;
+	margin-bottom: 0;
+}
+body div.paragraph.no-side-margin
+{
+	margin-left: 0;
+	margin-right: 0;
+}
+body div.paragraph a[data-tooltip]
+{
+	--tooltip-top: unset;
+	--tooltip-bottom: calc(100% + .25rem);
+}
+body span.quote:not(span.quote span.quote)
+{
+	background-color: rgba(0, 0, 0, .25);
+	border-radius: .25rem;
+	padding: .0625rem .25rem;
+	box-shadow: 0 0 .25rem inset rgba(0, 0, 0, .25);
+	font-size: 90%;
+}
+body span.quote,
+body span.quote *
+{
+	font-family: "Roboto Mono", "Courier New", Courier, monospace;
+	white-space: break-spaces;
+}
+body span.quote[data-tooltip],
+body span.quote[data-tooltip] *,
+body span.quote [data-tooltip]
+{
+	white-space: nowrap;
+}
+body div.paragraph *
+{
+	-webkit-user-select: text;
+	user-select: text;
+}
+body > .background div.title,
+body > .background div.sub-title,
+body > .background div.paragraph
+{
+	text-shadow: 0 0 .25rem black;
+}
+body div.helpbox,
+body div.unity-helpbox
+{
+	position: relative;
+	max-width: 32rem;
+	margin: 1rem auto;
+	padding: 1.5rem 1.5rem 1.5rem 6rem;
+	border-radius: .25rem;
+	border: .0625rem solid rgba(255, 255, 255, .0625);
+	background-color: rgba(255, 255, 255, .01675);
+	color: white;
+	text-align: justify;
+}
+body div.unity-helpbox
+{
+	border-width: .125rem;
+	background-color: rgb(16, 16, 16);
+}
+body div.helpbox::before,
+body div.unity-helpbox::before
+{
+	position: absolute;
+	top: 50%;
+	left: 1.5rem;
+	width: 3rem;
+	height: 3rem;
+	font-family: "Fontello";
+	font-size: 3rem;
+	line-height: 3rem;
+	transform: translateY(-50%);
+	content: "\e8e2";
+}
+body div.helpbox.info
+{
+	border-color: rgb(25, 94, 155);
+	background-color: rgba(25, 94, 155, .125);
+}
+body div.helpbox.warning
+{
+	border-color: darkorange;
+	background-color: rgb(255, 128, 0, .125);
+}
+body div.helpbox.error
+{
+	border-color: rgb(192, 0, 0);
+	background-color: rgb(192, 0, 0, .125);
+}
+body div.helpbox.blur
+{
+	-webkit-backdrop-filter: blur(2rem) brightness(.85);
+	backdrop-filter: blur(2rem) brightness(.85);
+	box-shadow: 0 0 .25rem black;
+}
+body div.helpbox.info::before
+{
+	color: rgb(25, 94, 155);
+}
+body div.helpbox.warning::before,
+body div.unity-helpbox.warning::before
+{
+	color: darkorange;
+	content: "\ec0f";
+}
+body div.helpbox.error::before,
+body div.unity-helpbox.error::before
+{
+	color: rgb(192, 0, 0);
+	content: "\ec0f";
+}
+body div.helpbox.no-margin,
+body div.unity-helpbox.no-margin
+{
+	margin-top: 0;
+	margin-bottom: 0;
+}
+body div.helpbox.small-margin,
+body div.unity-helpbox.small-margin
+{
+	margin-top: .5rem;
+	margin-bottom: .5rem;
+}
+
+/* Messages */
+body > div#page-message
+{
+	position: fixed;
+	top: -100%;
+	left: 50%;
+	border-radius: .5rem;
+	color: white;
+	-webkit-backdrop-filter: blur(.5rem) brightness(80%);
+	backdrop-filter: blur(.5rem) brightness(80%);
+	box-shadow: 0 0 .25rem black;
+	transform: translateX(-50%);
+	transition: top .5s ease-in-out;
+	z-index: 9998;
+}
+body > div#page-message > div.message-icon
+{
+	position: absolute;
+	top: 50%;
+	left: 1rem;
+	width: 1.5rem;
+	height: 1.5rem;
+	font-family: "fontello";
+	font-size: 1.125rem;
+	line-height: 1.5rem;
+	text-align: center;
+	text-shadow: 0 0 .25rem black;
+	transform: translateY(-50%);
+}
+body > div#page-message.info > div.message-icon::before
+{
+	content: "\e8e2";
+}
+body > div#page-message.warning > div.message-icon::before
+{
+	content: "\e85a";
+}
+body > div#page-message.error > div.message-icon::before
+{
+	content: "\ec0f";
+}
+body > div#page-message.success > div.message-icon::before
+{
+	content: "\ed0f";
+}
+body > div#page-message > div.message-text
+{
+	max-width: 17rem;
+	min-height: 1rem;
+	padding: 1rem 1.5rem 1rem 3.5rem;
+	font-size: 1rem;
+	text-shadow: 0 0 .25rem black;
+	display: inline-table;
+}
+
+/* Navigator */
+body > nav#page-navigator
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: calc(100% - 3.5rem);
+	height: 4rem;
+	margin: .5rem 1rem 0 .5rem;
+	padding: 0 1rem;
+	border-radius: .375rem;
+	background-color: rgba(0, 0, 0, .9);
+	-webkit-backdrop-filter: blur(.5rem);
+	backdrop-filter: blur(.5rem);
+	box-shadow: 0 0 .25rem black;
+	z-index: 100;
+}
+body > nav#page-navigator.transparent
+{
+	width: calc(100% - 2rem);
+	margin: 0;
+	border-radius: 0;
+	background-color: unset;
+	background-image: linear-gradient(to bottom, black, transparent);
+	-webkit-backdrop-filter: unset;
+	backdrop-filter: unset;
+	box-shadow: unset;
+}
+body > nav#page-navigator.compact:not(.transparent)
+{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	border-radius: 0;
+	background-color: transparent;
+	box-shadow: unset;
+	-webkit-backdrop-filter: unset;
+	backdrop-filter: unset;
+}
+body > nav#page-navigator:not(.transparent)
+{
+	position: fixed;
+}
+body > nav#page-navigator > *,
+body > nav#page-navigator > * > *,
+body > nav#page-navigator button,
+body > nav#page-navigator a
+{
+	height: 4rem;
+	line-height: 4rem;
+	text-transform: capitalize;
+}
+body > nav#page-navigator > div#compact-tabs-button
+{
+	position: absolute;
+	width: 4rem;
+	line-height: 4rem;
+	font-size: 1.5rem;
+	color: white;
+	text-align: center;
+	cursor: pointer;
+	display: none !important;
+}
+body > nav#page-navigator.compact:not(.transparent) > div.tabs-container
+{
+	width: 20rem;
+	padding-left: 2rem;
+	/*background-color: rgba(255, 255, 255, .03125);*/
+}
+body > nav#page-navigator > div.tabs-container div.mvc-logo
+{
+	width: 6rem;
+	margin: 0 1rem 0 0;
+	background-image: url(../../files/images/logos/mvc-x64.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+}
+body > nav#page-navigator.compact:not(.transparent) > div.tabs-container div.mvc-logo
+{
+	width: -moz-fit-content;
+	width: fit-content;
+	padding-left: 4rem;
+	background-image: url(../../files/images/logos/m-x64.png);
+	background-position: left center;
+	background-size: 3rem;
+	color: white;
+	font-size: 2rem;
+	font-weight: 200;
+	font-stretch: normal;
+	line-height: 4rem;
+}
+body > nav#page-navigator > div.tabs-container > a
+{
+	height: 4rem;
+	margin: 0 1rem;
+	font-weight: 500;
+	color: white;
+}
+body > nav#page-navigator > div.tabs-container > a:not(:first-of-type):hover,
+body > nav#page-navigator > div.tabs-container > a:not(:first-of-type):active,
+body > nav#page-navigator > div.tabs-container > a:not(:first-of-type).active,
+body > nav#page-navigator > div.tabs-container > a:not(:first-of-type):focus
+{
+	color: rgb(38, 118, 187);
+	text-decoration: none;
+}
+body > nav#page-navigator.transparent > div.tabs-container > a
+{
+	text-shadow: 0 0 .25rem black;
+}
+body > nav#page-navigator.transparent > div.tabs-container > a:not(:first-of-type):hover,
+body > nav#page-navigator.transparent > div.tabs-container > a:not(:first-of-type):active,
+body > nav#page-navigator.transparent > div.tabs-container > a:not(:first-of-type).active,
+body > nav#page-navigator.transparent > div.tabs-container > a:not(:first-of-type):focus
+{
+	color: white;
+	text-decoration: underline;
+}
+body > nav#page-navigator > div.tabs-container > a:not(:first-of-type).active
+{
+	cursor: default;
+}
+body > nav#page-navigator.transparent > div.tabs-container > a:first-of-type
+{
+	position: fixed;
+}
+body > nav#page-navigator.compact:not(.transparent) > div.tabs-container > a:first-of-type
+{
+	margin-left: 0;
+}
+body > nav#page-navigator.transparent > div.tabs-container > a:nth-of-type(2)
+{
+	margin-left: 9rem;
+}
+body > nav#page-navigator > div.right-container
+{
+	width: -moz-fit-content;
+	width: fit-content;
+	height: 4rem;
+	float: right;
+}
+/*body > nav#page-navigator.compact:not(.transparent) > div.right-container
+{
+	padding-right: 2rem;
+}*/
+body > nav#page-navigator > div.right-container > div.announcement-container
+{
+	width: -moz-fit-content;
+	width: fit-content;
+}
+body > nav#page-navigator > div.right-container > div.announcement-container div.text-container
+{
+	--tooltip-top: calc(100% + .5rem);
+	position: relative;
+	height: 2rem;
+	margin: 1rem 0;
+	padding: 0 1rem;
+	border-radius: .25rem;
+	background-image: linear-gradient(to right, rgb(255, 192, 0), rgb(255, 128, 0));
+	font-weight: 700;
+	font-stretch: normal;
+	color: white;
+	line-height: 2rem;
+}
+body > nav#page-navigator > div.right-container > div.announcement-container div.text-container::before
+{
+	position: absolute;
+	right: -.975rem;
+	top: 50%;
+	border: .5rem solid transparent;
+	border-left-color: rgb(255, 128, 0);
+	transform: translateY(-50%);
+	content: "";
+}
+body > nav#page-navigator > div.right-container button
+{
+	height: 2rem;
+	margin: .75rem .5rem;
+	font-weight: 300;
+	line-height: 2rem;
+}
+body > nav#page-navigator > div.right-container div.button,
+body > nav#page-navigator > div.compact-tabs-menu div.button
+{
+	--tooltip-top: calc(100% + .25rem);
+	position: relative;
+	width: 4rem;
+	height: 4rem;
+	border-radius: 1rem;
+	color: rgb(192, 192, 192);
+	cursor: pointer;
+	z-index: 1;
+}
+body > nav#page-navigator > div.compact-tabs-menu div.button
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin-right: 1rem;
+}
+body > nav#page-navigator > div.right-container div.button > div.handler,
+body > nav#page-navigator > div.compact-tabs-menu div.button > div.handler
+{
+	position: absolute;
+	width: 4rem;
+	height: 4rem;
+}
+body > nav#page-navigator.transparent > div.right-container div.button > div.handler,
+body > nav#page-navigator > div.compact-tabs-menu div.button > div.handler
+{
+	width: 2rem;
+	height: 2rem;
+	margin: 1rem;
+	border-radius: 1rem;
+}
+body > nav#page-navigator > div.compact-tabs-menu div.button > div.handler
+{
+	width: 2.5rem;
+	height: 2.5rem;
+	margin: .75rem;
+	border-radius: 1.25rem;
+}
+body > nav#page-navigator > div.right-container div.button.active > div.handler,
+body > nav#page-navigator > div.right-container div.button:hover > div.handler,
+body > nav#page-navigator > div.right-container div.button:active > div.handler,
+body > nav#page-navigator > div.right-container div.button:focus > div.handler
+{
+	background-color: rgba(255, 255, 255, .125);
+}
+body > nav#page-navigator.transparent > div.right-container div.button.active > div.handler,
+body > nav#page-navigator.transparent > div.right-container div.button:hover > div.handler,
+body > nav#page-navigator.transparent > div.right-container div.button:active > div.handler,
+body > nav#page-navigator.transparent > div.right-container div.button:focus > div.handler,
+body > nav#page-navigator > div.compact-tabs-menu div.button.active > div.handler,
+body > nav#page-navigator > div.compact-tabs-menu div.button:hover > div.handler,
+body > nav#page-navigator > div.compact-tabs-menu div.button:active > div.handler,
+body > nav#page-navigator > div.compact-tabs-menu div.button:focus > div.handler
+{
+	background-color: rgba(255, 255, 255, .3333);
+}
+body > nav#page-navigator > div.right-container div.button.active > div.handler,
+body > nav#page-navigator > div.right-container div.button:active > div.handler,
+body > nav#page-navigator > div.right-container div.button:focus > div.handler
+{
+	background-color: rgba(0, 0, 0, .5);
+}
+body > nav#page-navigator.transparent > div.right-container div.button.active > div.handler,
+body > nav#page-navigator.transparent > div.right-container div.button:active > div.handler,
+body > nav#page-navigator.transparent > div.right-container div.button:focus > div.handler,
+body > nav#page-navigator > div.compact-tabs-menu div.button.active > div.handler,
+body > nav#page-navigator > div.compact-tabs-menu div.button:active > div.handler,
+body > nav#page-navigator > div.compact-tabs-menu div.button:focus > div.handler
+{
+	box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .1515);
+}
+body > nav#page-navigator.transparent > div.right-container div.button:focus > div.handler,
+body > nav#page-navigator > div.compact-tabs-menu div.button:focus > div.handler
+{
+	transition: box-shadow .125s;
+}
+body > nav#page-navigator > div.right-container div.button > i.icon,
+body > nav#page-navigator > div.compact-tabs-menu div.button > i.icon
+{
+	position: relative;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+body > nav#page-navigator > div.right-container div.button > i.icon::before
+{
+	width: 1rem;
+	height: 1rem;
+	margin: 1.5rem;
+	line-height: 1rem;
+}
+body > nav#page-navigator > div.compact-tabs-menu div.button > i.icon::before
+{
+	width: 2.5rem;
+	height: 2.5rem;
+	margin: .75rem;
+	font-size: 1.5rem;
+	line-height: 2.5rem;
+}
+body > nav#page-navigator > div.right-container div.button.active > i.icon::before,
+body > nav#page-navigator > div.right-container div.button:hover > i.icon::before,
+body > nav#page-navigator > div.right-container div.button:active > i.icon::before,
+body > nav#page-navigator > div.right-container div.button:focus > i.icon::before,
+body > nav#page-navigator > div.compact-tabs-menu div.button.active > i.icon::before,
+body > nav#page-navigator > div.compact-tabs-menu div.button:hover > i.icon::before,
+body > nav#page-navigator > div.compact-tabs-menu div.button:active > i.icon::before,
+body > nav#page-navigator > div.compact-tabs-menu div.button:focus > i.icon::before
+{
+	color: white;
+}
+body > nav#page-navigator > div.right-container div.button > div.counter,
+body > nav#page-navigator > div.compact-tabs-menu div.button > div.counter
+{
+	position: absolute;
+	bottom: .625rem;
+	right: .625rem;
+	width: 1rem;
+	height: 1rem;
+	border-radius: 1rem;
+	background-color: rgb(25, 94, 155);
+	color: white;
+	font-size: .75rem;
+	line-height: 1rem;
+	text-align: center;
+}
+body > nav#page-navigator > div.right-container div.button > div.counter.small,
+body > nav#page-navigator > div.compact-tabs-menu div.button > div.counter.small
+{
+	bottom: 1.125rem;
+	right: 1.125rem;
+	width: .5rem;
+	height: .5rem;
+	border-radius: .5rem;
+	font-size: .375rem;
+	line-height: .5rem;
+}
+body > nav#page-navigator > div.right-container div.button > div.counter.red,
+body > nav#page-navigator > div.compact-tabs-menu div.button > div.counter.red
+{
+	position: absolute;
+	background-color: rgb(192, 32, 32);
+	z-index: 1;
+}
+body > nav#page-navigator > div.right-container > div.search-container
+{
+	width: 2.5rem;
+	height: 4rem;
+	margin: 0 0 0 .5rem;
+	cursor: text;
+	transition: width .25s ease-in-out, background-color .25s;
+}
+body > nav#page-navigator > div.right-container > div.search-container:hover
+{
+	width: 16rem;
+}
+body > nav#page-navigator > div.right-container > div.search-container::before
+{
+	position: absolute;
+	width: 1rem;
+	height: 1rem;
+	margin: 1.5rem .75rem;
+	color: rgb(192, 192, 192);
+	z-index: 10;
+}
+body > nav#page-navigator > div.right-container > div.search-container:hover::before
+{
+	color: white;
+}
+body > nav#page-navigator > div.right-container > div.search-container > div.search-box
+{
+	width: 16rem;
+	height: 2.5rem;
+	margin: .75rem 0;
+	border-radius: 1.25rem;
+	line-height: 2.5rem;
+	color: rgb(192, 192, 192);
+	transition: background-color .25s;
+}
+body > nav#page-navigator > div.right-container > div.search-container:hover > div.search-box
+{
+	background-color: rgba(0, 0, 0, .75);
+}
+body > nav#page-navigator > div.right-container > div.search-container > div.search-box > input
+{
+	width: 12rem;
+	height: 2.5rem;
+	margin: 0 .5rem 0 2.5rem;
+	padding: 0;
+	border: 0;
+	background-color: transparent;
+	line-height: 2.5rem;
+	font-size: 1rem;
+	color: rgb(192, 192, 192);
+	opacity: 0;
+	box-sizing: content-box;
+	transition: opacity .125s;
+}
+body > nav#page-navigator > div.right-container > div.search-container:hover > div.search-box > input
+{
+	opacity: 1;
+	transition: opacity .5s;
+}
+body > nav#page-navigator > div.compact-tabs-menu
+{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	-webkit-backdrop-filter: blur(3rem) brightness(50%);
+	backdrop-filter: blur(3rem) brightness(50%);
+	overflow-x: hidden;
+	overflow-y: overlay;
+	display: none;
+}
+body > nav#page-navigator > div.compact-tabs-menu > div#tabs-menu-container
+{
+	height: auto;
+	margin: 0 4rem;
+	padding: 4rem 0 2rem;
+}
+body > nav#page-navigator > div.compact-tabs-menu > div#tabs-menu-container > a
+{
+	width: 100%;
+	height: 3rem;
+	margin: .75rem 0;
+	border-radius: .5rem;
+	font-size: 1.5rem;
+	text-align: center;
+	color: white;
+	line-height: 3rem;
+	text-decoration: none;
+	display: block;
+}
+body > nav#page-navigator > div.compact-tabs-menu > div#tabs-menu-container > a:hover,
+body > nav#page-navigator > div.compact-tabs-menu > div#tabs-menu-container > a:active,
+body > nav#page-navigator > div.compact-tabs-menu > div#tabs-menu-container > a:focus
+{
+	background-color: rgba(255, 255, 255, .125);
+}
+body > nav#page-navigator > div.compact-tabs-menu > div.footer
+{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: auto;
+	padding: 0 0 2rem;
+	color: white;
+	font-size: 1rem;
+	text-align: center;
+	line-height: 1rem;
+}
+body > nav#page-navigator > div.compact-tabs-menu > div.footer > div.mvc-logo
+{
+	width: 6rem;
+	height: 1.5rem;
+	margin: 0 auto 1rem;
+	background-image: url(../../files/images/logos/mvc-x32.png);
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+body > nav#page-navigator > div.compact-tabs-menu > i.close-icon
+{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 4rem;
+	line-height: 4rem;
+	font-size: 2rem;
+	text-align: center;
+	color: white;
+	cursor: pointer;
+}
+
+/* Header */
+body > header
+{
+	width: 100%;
+	padding: 0;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	overflow: hidden;
+}
+body > header.slider
+{
+	position: relative;
+	height: 100%;
+	overflow: hidden;
+}
+body:not(.ready) > header.slider > div.header-background-container > div.header-background,
+body:not(.ready) > header.slider > div.header-content-container > div.header-content
+{
+	animation-play-state: paused !important;
+}
+body > header.nav-header
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 0;
+	background-color: black;
+	transition: height .5s ease-in-out, opacity .5s ease-in-out;
+	box-shadow: 0 0 1rem black;
+	overflow: hidden;
+	opacity: 0;
+	z-index: 70;
+}
+body > header.nav-header.active
+{
+	height: 100%;
+	opacity: 1;
+}
+body > header.small
+{
+	position: relative;
+	height: 20rem;
+	mask-image: unset;
+	-webkit-mask-image: unset;
+}
+body > header.small > div.header-background-container > div.header-background
+{
+	background-attachment: scroll;
+	background-position: center;
+	mask-image: unset;
+	-webkit-mask-image: unset;
+}
+body > header.small > div.header-content-container
+{
+	width: calc(100% - 6rem);
+	padding: 4rem 3rem 0;
+}
+body > header > video#header-video-background
+{
+	width: 100%;
+	mask-image: url(../../files/images/backgrounds/wallpaper-mask-1920x.png);
+	mask-size: cover;
+	mask-position: center;
+	mask-repeat: no-repeat;
+	-webkit-mask-image: url(../../files/images/backgrounds/wallpaper-mask-1920x.png);
+	-webkit-mask-size: cover;
+	-webkit-mask-position: center;
+	-webkit-mask-repeat: no-repeat;
+}
+body > header > div.header-background-container
+{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+body > header > div.header-background-container > div.header-background
+{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-position: bottom center;
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	mask-image: linear-gradient(to top, transparent, white 50%);
+	mask-size: cover;
+	mask-position: bottom center;
+	mask-repeat: no-repeat;
+	-webkit-mask-image: linear-gradient(to top, transparent, white 50%);
+	-webkit-mask-size: cover;
+	-webkit-mask-position: bottom center;
+	-webkit-mask-repeat: no-repeat;
+}
+body > header > div.header-content-container
+{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+body > header > div.header-content-container > div.header-content
+{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+body > header > div.header-content-container > div.header-content > div.content-text
+{
+	position: absolute;
+	font-size: 2.25rem;
+	line-height: 2.25rem;
+	font-weight: 400;
+	text-transform: capitalize;
+	text-shadow: 0 0 .25rem black;
+	color: white;
+}
+body > header > div.header-content-container > div.header-content > div.content-text.small
+{
+	font-size: 1.125rem;
+	line-height: 1.125rem;
+	font-weight: 300;
+	text-transform: none;
+}
+
+/* Article */
+body > article
+{
+	margin: 0 2rem;
+	padding: 5% 0;
+}
+body > article.background
+{
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	-webkit-mask-image: linear-gradient(to bottom, transparent, white 10% 90%, transparent);
+	-webkit-mask-size: cover;
+	-webkit-mask-position: bottom center;
+	-webkit-mask-repeat: no-repeat;
+	mask-image: linear-gradient(to bottom, transparent, white 12.5% 87.5%, transparent);
+	mask-size: cover;
+	mask-position: bottom center;
+	mask-repeat: no-repeat;
+}
+body > article a
+{
+	color: white;
+	text-decoration: underline;
+}
+body > article a.colored
+{
+	color: rgb(38, 118, 187);
+	text-decoration: none;
+}
+body > article a:hover,
+body > article a:active,
+body > article a:focus
+{
+	text-decoration: none;
+}
+body > article a.colored:hover,
+body > article a.colored:active,
+body > article a.colored:focus
+{
+	text-decoration: underline;
+}
+body > article.background a
+{
+	color: white;
+	text-shadow: 0 0 .25rem black;
+	text-decoration: underline;
+}
+body > article.background a:hover,
+body > article.background a:active,
+body > article.background a:focus
+{
+	text-decoration: none;
+}
+body > article > div.container
+{
+	width: -moz-fit-content;
+	width: fit-content;
+	margin: 0 auto;
+}
+body > article > div.container div.note-container
+{
+	max-width: 22rem;
+	margin: 1rem auto;
+	padding: 1rem 2.5rem;
+	border-radius: .25rem;
+	border: .0625rem solid rgba(255, 255, 255, .25);
+	background-color: rgba(255, 255, 255, .0625);
+	color: white;
+	font-size: .875rem;
+	line-height: 1rem;
+}
+body > article > div.container div.note-container,
+body > article > div.container div.note-container *
+{
+	-webkit-user-select: text;
+	user-select: text;
+}
+body > article div.showcase-element
+{
+	min-width: 10rem;
+	min-height: 10rem;
+	margin: 2rem 1rem;
+	display: inline-table;
+	text-align: center;
+}
+body > article.background div.title
+{
+	font-size: 2.5rem;
+}
+body > article div.showcase-element i.icon,
+body > article div.showcase-element i.icon::before,
+body > article div.showcase-element img
+{
+	width: 100%;
+	height: 10rem;
+	margin: 0;
+	font-size: 6rem;
+	line-height: 10rem;
+	color: white;
+}
+body > article div.showcase-element i.icon.gray,
+body > article div.showcase-element i.icon.gray::before
+{
+	color: gray;
+}
+body > article div.showcase-element div.element-title
+{
+	width: 100%;
+	margin: .5rem 0;
+	font-size: 1.25rem;
+	color: white;
+	line-height: 1.5rem;
+}
+body > article div.thumbnail-container
+{
+	width: 100%;
+	text-align: center;
+}
+body > article div.thumbnail
+{
+	position: relative;
+	width: 20rem;
+	height: 11.25rem;
+	margin: .75rem;
+	border-radius: .25rem;
+	overflow: hidden;
+	transition: box-shadow .25s ease-in-out, transform .25s ease-in-out;
+	display: inline-table;
+}
+body > article a div.thumbnail
+{
+	cursor: pointer;
+}
+body > article div.thumbnail:hover
+{
+	box-shadow: 0 0 .5rem .0625rem black;
+	transform: scale(1.025);
+}
+body > article div.thumbnail div.background
+{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, .25);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	transition: filter .25s ease-in-out;
+}
+body > article div.thumbnail:hover div.background
+{
+	filter: blur(.5rem) brightness(75%);
+}
+body > article div.thumbnail div.text
+{
+	position: absolute;
+	width: 17rem;
+	height: 10.25rem;
+	padding: .5rem 1.5rem;
+	color: white;
+	font-size: 2rem;
+	font-weight: 200;
+	font-stretch: normal;
+	line-height: 3.4167rem;
+	text-shadow: 0 0 .5rem black;
+	text-align: start;
+	transition: opacity .25s ease-in-out;
+	opacity: 0;
+}
+body > article div.thumbnail:hover div.text
+{
+	opacity: 1;
+}
+body > article div.table-cell
+{
+	border: .0625rem solid white;
+	border-right-width: 0;
+	display: inline-table;
+}
+body > article div.table-cell:last-child
+{
+	border-right-width: .0625rem;
+}
+body > article div.table-cell div.cell-title,
+body > article div.table-cell div.cell-line
+{
+	width: 15rem;
+	height: 1.5rem;
+	color: white;
+	line-height: 1.5rem;
+}
+body > article div.table-cell div.cell-title
+{
+	margin: 1rem .75rem;
+	font-size: 1.25rem;
+	text-align: center;
+	font-weight: 400;
+	font-stretch: normal;
+}
+body > article div.table-cell div.cell-line
+{
+	margin: .5rem .75rem;
+	font-size: 1rem;
+	font-stretch: normal;
+}
+body > article div.table-cell div.cell-line.small
+{
+	font-size: .85rem;
+	font-weight: 300;
+}
+body > article div.table-cell div.cell-line > i.icon
+{
+	padding: 0 .5rem 0 0;
+	display: inline-table;
+}
+body > article div.table-cell div.cell-line > i.icon::before
+{
+	margin: 0;
+}
+body > article div.table-cell div.cell-line > div.text
+{
+	height: 1.5rem;
+	display: inline-table;
+}
+
+/* Footer */
+body > footer
+{
+	width: 54.25rem;
+	margin: 3rem auto 0;
+	padding: 4rem calc(50% - 57.25rem * .5) 5%;
+	border-radius: .5rem;
+	background-color: black;
+	box-shadow: 0 0 .25rem black;
+}
+body > footer > div.container
+{
+	width: 11rem;
+	height: 16rem;
+	padding: 0 1rem;
+	border-right: .0625rem solid rgba(255, 255, 255, .03125);
+}
+body > footer > div.container:first-of-type
+{
+	width: 13rem;
+	padding: 0 1rem 0 0;
+}
+body > footer > div.container:last-of-type
+{
+	width: 12rem;
+	padding: 0 0 0 2rem;
+	border-right: none;
+}
+body > footer > div.container.inline
+{
+	display: inline-table;
+}
+body > footer a
+{
+	text-decoration: none;
+}
+body > footer div.footer-title
+{
+	height: 1.25rem;
+	margin: 0 0 1.25rem;
+	color: white;
+	font-size: 1.125rem;
+	line-height: 1.25rem;
+	text-transform: capitalize;
+	font-stretch: normal;
+}
+body > footer div.footer-icon
+{
+	width: 8rem;
+	height: 2rem;
+	background-position: center left;
+	background-size: contain;
+	background-repeat: no-repeat;
+	line-height: 1.25rem;
+}
+body > footer div.footer-icon.mvc-icon
+{
+	background-image: url(../../files/images/logos/mvc-x32.png);
+}
+body > footer div.footer-icon.mediamax-icon
+{
+	background-image: url(../../files/images/logos/mediamax-text-x32.png);
+}
+body > footer div.footer-icon.flag-icon-tn
+{
+	width: max-content;
+	margin: .25rem 3.6928125rem;
+}
+body > footer div.footer-icon.flag-icon-tn::before
+{
+	width: 2rem;
+	height: 2rem;
+	border-radius: 100%;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	display: block;
+}
+body > footer div.footer-text
+{
+	color: white;
+	line-height: 1.5rem;
+}
+body > footer div.footer-link
+{
+	width: -moz-fit-content;
+	width: fit-content;
+	height: 1rem;
+	margin: .75rem 0;
+	line-height: 1rem;
+	text-transform: capitalize;
+}
+body > footer div.footer-link.icon
+{
+	width: 2rem;
+	height: 2rem;
+	margin: 0;
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	line-height: 2rem;
+	display: inline-block;
+}
+body > footer div.footer-link.icon.discord
+{
+	background-image: url(../../files/images/logos/discord-white-x32.png);
+}
+body > footer div.footer-link.icon.discord:hover,
+body > footer :focus div.footer-link.icon.discord
+{
+	background-image: url(../../files/images/logos/discord-x32.png);
+}
+body > footer div.footer-link.icon.trustpilot
+{
+	background-image: url(../../files/images/logos/trustpilot-white-x32.png);
+}
+body > footer div.footer-link.icon.trustpilot:hover,
+body > footer :focus div.footer-link.icon.trustpilot
+{
+	background-image: url(../../files/images/logos/trustpilot-x32.png);
+}
+body > footer div.footer-link.icon.youtube
+{
+	background-image: url(../../files/images/logos/youtube-white-x32.png);
+}
+body > footer div.footer-link.icon.youtube:hover,
+body > footer :focus div.footer-link.icon.youtube
+{
+	background-image: url(../../files/images/logos/youtube-x32.png);
+}
+body > footer div.footer-link a
+{
+	color: rgb(192, 192, 192);
+	text-decoration: underline;
+}
+body > footer div.footer-link:hover a,
+body > footer div.footer-link:active a,
+body > footer div.footer-link:focus a,
+body > footer div.footer-link a:hover,
+body > footer div.footer-link a:active,
+body > footer div.footer-link a:focus
+{
+	color: white;
+	text-decoration: none;
+}
+
+/* Others */
+div.trustpilot-widget > a
+{
+	color: transparent;
+}

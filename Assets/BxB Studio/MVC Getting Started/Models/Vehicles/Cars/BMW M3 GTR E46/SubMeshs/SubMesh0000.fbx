@@ -1,0 +1,248 @@
+; FBX 6.1.0 project file
+; Copyright (C) 1997-2008 Autodesk Inc. and/or its licensors.
+; All rights reserved.
+; ----------------------------------------------------
+
+FBXHeaderExtension:  {
+	FBXHeaderVersion: 1003
+	FBXVersion: 6100
+	CreationTimeStamp:  {
+		Version: 1000
+		Year: 2020
+		Month: 12
+		Day: 14
+		Hour: 18
+		Minute: 53
+		Second: 08
+		Millisecond: 999
+	}
+	Creator: "EJM Software FBX Exporter"
+	OtherFlags:  {
+		FlagPLE: 0
+	}
+}
+CreationTime: "2020-12-14 18:53:08:999"
+Creator: "EJM Software FBX Exporter"
+
+; Object definitions
+;------------------------------------------------------------------
+
+Definitions:  {
+	Version: 100
+	Count: 4
+		ObjectType: "Model" {
+			Count: 1
+		}
+		ObjectType: "Material" {
+			Count: 1
+		}
+		ObjectType: "Texture" {
+			Count: 1
+		}
+		ObjectType: "GlobalSettings" {
+			Count: 1
+		}
+}
+
+
+; Object properties
+;------------------------------------------------------------------
+
+Objects:  {
+	Model: "Model::SubMesh0000", "Mesh" {
+		Version: 232
+		Properties60:  {
+			Property: "GeometricScaling", "Vector3D", "",1,1,1
+			Property:"Show","bool","",1
+			Property:"NegativePercentShapeSupport","bool","",1
+			Property:"DefaultAttributeIndex","int","",0
+			Property:"Visibility","Visibility","A+",1
+			Property:"Color","ColorRGB","N",0.23921568627451,0.52156862745098,0.0235294117647059
+			Property: "BBoxMin","Vector3D","N",0,0,0
+			Property: "BBoxMax","Vector3D","N",0,0,0
+		}
+		MultiLayer: 1
+		MultiTake: 1
+		Shading: T
+		Culling: "CullingOff"
+		Vertices: -0.000451,0.046427,0.030469,-0.003478,0.027966,0.082228,-0.004502,0.045463,0.088493,-0.000451,0.046427,0.030469,-0.002301,0.016109,0.067354,-0.003478,0.027966,0.082228,-0.004947,0.139021,0.038550,-0.011024,0.128657,0.088006,-0.016911,0.206321,0.088328,-0.008929,0.189300,0.027881,-0.004947,0.139021,0.038550,-0.016911,0.206321,0.088328,-0.025837,0.260412,0.035850,-0.009908,0.204127,0.029703,-0.016911,0.206321,0.088328,-0.028681,0.260774,0.087978,-0.025837,0.260412,0.035850,-0.016911,0.206321,0.088328,-0.027343,0.265320,0.041788,-0.025837,0.260412,0.035850,-0.028681,0.260774,0.087978,-0.029553,0.265046,0.082882,-0.027343,0.265320,0.041788,-0.028681,0.260774,0.087978,-0.009908,0.204127,0.029703,-0.008929,0.189300,0.027881,-0.016911,0.206321,0.088328,-0.000451,0.046427,0.030469,0.000000,0.000000,0.000000,-0.002301,0.016109,0.067354,-0.003694,0.113212,0.036298,-0.000451,0.046427,0.030469,-0.004502,0.045463,0.088493,-0.009765,0.112603,0.088100,-0.003694,0.113212,0.036298,-0.004502,0.045463,0.088493,-0.004947,0.139021,0.038550,-0.004342,0.126561,0.037463,-0.011024,0.128657,0.088006
+		PolygonVertexIndex: 1,0,-3,4,3,-6,7,6,-9,10,9,-12,13,12,-15,16,15,-18,19,18,-21,22,21,-24,25,24,-27,28,27,-30,31,30,-33,34,33,-36,37,36,-39
+		GeometryVersion: 124
+		LayerElementNormal: 0 {
+			Version: 101
+			Name: ""
+			MappingInformationType: "ByVertice"
+			ReferenceInformationType: "Direct"
+			Normals: 0.998265,0.016033,0.056658,0.997311,0.027211,0.068045,0.995601,0.046715,0.081217,0.998265,0.016033,0.056658,0.998434,0.006650,0.055546,0.997311,0.027211,0.068045,0.989997,0.064745,0.125359,0.988352,0.068630,0.135833,0.981643,0.162849,0.099281,0.990903,0.079818,0.108358,0.989997,0.064745,0.125359,0.981643,0.162849,0.099281,0.969058,0.236369,0.071112,0.983044,0.145203,0.111981,0.981643,0.162849,0.099281,0.972750,0.225891,0.052256,0.969058,0.236369,0.071112,0.981643,0.162849,0.099281,0.970234,0.236655,0.051394,0.969058,0.236369,0.071112,0.972750,0.225891,0.052256,0.963931,0.260704,0.053578,0.970234,0.236655,0.051394,0.972750,0.225891,0.052256,0.983044,0.145203,0.111981,0.990903,0.079818,0.108358,0.981643,0.162849,0.099281,0.998265,0.016033,0.056658,0.999174,-0.015064,0.037734,0.998434,0.006650,0.055546,0.993450,0.062060,0.095948,0.998265,0.016033,0.056658,0.995601,0.046715,0.081217,0.990045,0.078295,0.116968,0.993450,0.062060,0.095948,0.995601,0.046715,0.081217,0.989997,0.064745,0.125359,0.990899,0.036813,0.129479,0.988352,0.068630,0.135833
+		}
+		LayerElementSmoothing: 0 {
+			Version: 102
+			Name: ""
+			MappingInformationType: "ByPolygon"
+			ReferenceInformationType: "Direct"
+			Smoothing: 1
+		}
+		LayerElementUV: 0 {
+			Version: 101
+			Name: "UVMap"
+			MappingInformationType: "ByVertice"
+			ReferenceInformationType: "Direct"
+			UV: 0.569546,0.536050,0.581229,0.920022,0.451390,0.924527,0.569546,0.536050,0.691953,0.846294,0.581229,0.920022,0.902290,0.080167,0.968790,0.429130,0.425138,0.427570,0.550626,0.003906,0.902290,0.080167,0.425138,0.427570,0.039194,0.064735,0.446804,0.015743,0.425138,0.427570,0.036275,0.429130,0.039194,0.064735,0.425138,0.427570,0.003906,0.106650,0.039194,0.064735,0.036275,0.429130,0.005445,0.393902,0.003906,0.106650,0.036275,0.429130,0.446804,0.015743,0.550626,0.003906,0.425138,0.427570,0.569546,0.536050,0.943233,0.433036,0.691953,0.846294,0.112533,0.433036,0.569546,0.536050,0.451390,0.924527,0.003906,0.780534,0.112533,0.433036,0.451390,0.924527,0.902290,0.080167,0.989438,0.073566,0.968790,0.429130
+		}
+		LayerElementTexture: 0 {
+			Version: 101
+			Name: ""
+			MappingInformationType: "NoMappingInformation"
+			ReferenceInformationType: "IndexToDirect"
+			BlendMode: "Translucent"
+			TextureAlpha: 1
+			TextureId: 
+		}
+		LayerElementMaterial: 0 {
+			Version: 101
+			Name: ""
+			MappingInformationType: "ByPolygon"
+			ReferenceInformationType: "IndexToDirect"
+			Materials: 0,0,0,0,0,0,0,0,0,0,0,0,0
+		}
+		Layer: 0 {
+			Version: 100
+			LayerElement:  {
+				Type: "LayerElementNormal"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementSmoothing"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementUV"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementTexture"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementMaterial"
+				TypedIndex: 0
+			}
+		}
+	}
+
+	Material: "Material::grill", "" {
+		Version: 102
+		ShadingModel: "lambert"
+		MultiLayer: 0
+		Properties60:  {
+			Property: "ShadingModel", "KString", "", "Lambert"
+			Property: "MultiLayer", "bool", "",0
+			Property: "EmissiveColor", "ColorRGB", "",0.8000,0.8000,0.8000
+			Property: "EmissiveFactor", "double", "",0.0000
+			Property: "AmbientColor", "ColorRGB", "",0.0000,0.0000,0.0000
+			Property: "AmbientFactor", "double", "",1.0000
+			Property: "DiffuseColor", "ColorRGB", "",0.0000,0.0000,0.0000
+			Property: "DiffuseFactor", "double", "",0.8000
+			Property: "Bump", "Vector3D", "",0,0,0
+			Property: "TransparentColor", "ColorRGB", "",1,1,1
+			Property: "TransparencyFactor", "double", "",0.0000
+			Property: "SpecularColor", "ColorRGB", "",1.0000,1.0000,1.0000
+			Property: "SpecularFactor", "double", "",0.5000
+			Property: "ShininessExponent", "double", "",12.3
+			Property: "ReflectionColor", "ColorRGB", "",0,0,0
+			Property: "ReflectionFactor", "double", "",1
+			Property: "Emissive", "ColorRGB", "",0,0,0
+			Property: "Ambient", "ColorRGB", "",1.0,1.0,1.00.0,0.0,0.0
+			Property: "Diffuse", "ColorRGB", "",0.8,0.8,0.80.0,0.0,0.0
+			Property: "Specular", "ColorRGB", "",1.0,1.0,1.0
+			Property: "Shininess", "double", "",12.3
+			Property: "Opacity", "double", "",1.0
+			Property: "Reflectivity", "double", "",0
+		}
+	}
+
+	Texture: "Texture::grill_diff", "" {
+		Type: "TextureVideoClip"
+		Version: 202
+		TextureName: "Texture::grill_diff"
+		Properties60:  {
+			Property: "TextureTypeUse", "enum", "",0
+			Property: "Texture alpha", "Number", "A+",1
+			Property: "CurrentMappingType", "enum", "",0
+			Property: "WrapModeU", "enum", "",0
+			Property: "WrapModeV", "enum", "",0
+			Property: "UVSwap", "bool", "",0
+			Property: "Translation", "Vector", "A+",0,0,0
+			Property: "Rotation", "Vector", "A+",0,0,0
+			Property: "Scaling", "Vector", "A+",1,1,1
+			Property: "TextureRotationPivot", "Vector3D", "",0,0,0
+			Property: "TextureScalingPivot", "Vector3D", "",0,0,0
+			Property: "UseMaterial", "bool", "",1
+			Property: "UseMipMap", "bool", "",0
+			Property: "CurrentTextureBlendMode", "enum", "",1
+			Property: "UVSet", "KString", "", "UVChannel_1"
+		}
+		FileName: "C:/Users/media/Documents/Universal Vehicle Controller/Assets"
+		ModelUVTranslation: 0,0
+		ModelUVScaling: 1,1
+		Texture_Alpha_Source: "None"
+		Cropping: 0,0,0,0
+	}
+
+
+
+GlobalSettings:  {
+		Version: 1000
+		Properties60:  {
+			Property: "UpAxis", "int", "",1
+			Property: "UpAxisSign", "int", "",1
+			Property: "FrontAxis", "int", "",2
+			Property: "FrontAxisSign", "int", "",1
+			Property: "CoordAxis", "int", "",0
+			Property: "CoordAxisSign", "int", "",1
+			Property: "UnitScaleFactor", "double", "",100
+		}
+}
+
+}
+
+
+; Object connections
+;------------------------------------------------------------------
+
+Connections:  {
+	Connect: "OO", "Model::SubMesh0000", "Model::Scene"
+	Connect: "OO", "Material::grill", "Model::SubMesh0000"
+	Connect: "OO", "Texture::grill_diff", "Model::SubMesh0000"
+}
+
+
+;Version 5 settings
+;------------------------------------------------------------------
+
+Version5:  {
+	AmbientRenderSettings:  {
+		Version: 101
+		AmbientLightColor: 0.0,0.0,0.0,0
+	}
+	FogOptions:  {
+		FogEnable: 0
+		FogMode: 0
+		FogDensity: 0.000
+		FogStart: 5.000
+		FogEnd: 25.000
+		FogColor: 0.1,0.1,0.1,1
+	}
+	Settings:  {
+		FrameRate: "24"
+		TimeFormat: 1
+		SnapOnFrames: 0
+		ReferenceTimeIndex: -1
+		TimeLineStartTime: 0
+		TimeLineStopTime: 479181389250
+	}
+	RendererSetting:  {
+		DefaultCamera: "Producer Perspective"
+		DefaultViewingMode: 0
+	}
+}

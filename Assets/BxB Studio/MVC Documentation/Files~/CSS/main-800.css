@@ -1,0 +1,52 @@
+@media screen and (max-width: 800px)
+{
+	body > div#page-loader
+	{
+		--progress-bar-height: .5rem;
+	}
+	body > header:not(#download-header) > div.header-content-container > div.header-content > div.content-text
+	{
+		font-size: 1.75rem !important;
+		font-weight: 600;
+		line-height: 1.75rem !important;
+	}
+	body > .background div.title, body > .background div.sub-title, body > .background div.paragraph
+	{
+		max-width: 25rem;
+	}
+	body > article:not(#payment-methods) div.showcase-element
+	{
+		min-height: unset !important;
+		margin: 1rem auto !important;
+		padding: .25rem 2rem !important;
+		display: block !important;
+		text-align: unset !important;
+	}
+	body > article:not(#payment-methods) div.showcase-element i.icon,
+	body > article:not(#payment-methods) div.showcase-element i.icon::before,
+	body > article:not(#payment-methods) div.showcase-element img
+	{
+		width: 2rem !important;
+		height: 2rem !important;
+		font-size: 2rem !important;
+		line-height: 2rem !important;
+	}
+	body > article:not(#payment-methods) div.showcase-element i.icon
+	{
+		margin-top: 1rem !important;
+		margin-bottom: 1rem !important;
+		margin-right: .5rem;
+		display: inline-block;
+	}
+	body > article:not(#payment-methods) div.showcase-element div.element-title
+	{
+		width: -moz-fit-content !important;
+		width: fit-content !important;
+		height: 2rem !important;
+		margin-top: 1rem !important;
+		margin-bottom: 1rem !important;
+		font-size: 2rem;
+		line-height: 2rem !important;
+		display: inline-block;
+	}
+}

@@ -1,0 +1,248 @@
+; FBX 6.1.0 project file
+; Copyright (C) 1997-2008 Autodesk Inc. and/or its licensors.
+; All rights reserved.
+; ----------------------------------------------------
+
+FBXHeaderExtension:  {
+	FBXHeaderVersion: 1003
+	FBXVersion: 6100
+	CreationTimeStamp:  {
+		Version: 1000
+		Year: 2021
+		Month: 01
+		Day: 29
+		Hour: 18
+		Minute: 12
+		Second: 02
+		Millisecond: 648
+	}
+	Creator: "EJM Software FBX Exporter"
+	OtherFlags:  {
+		FlagPLE: 0
+	}
+}
+CreationTime: "2021-01-29 18:12:02:648"
+Creator: "EJM Software FBX Exporter"
+
+; Object definitions
+;------------------------------------------------------------------
+
+Definitions:  {
+	Version: 100
+	Count: 4
+		ObjectType: "Model" {
+			Count: 1
+		}
+		ObjectType: "Material" {
+			Count: 1
+		}
+		ObjectType: "Texture" {
+			Count: 1
+		}
+		ObjectType: "GlobalSettings" {
+			Count: 1
+		}
+}
+
+
+; Object properties
+;------------------------------------------------------------------
+
+Objects:  {
+	Model: "Model::SubMesh0026", "Mesh" {
+		Version: 232
+		Properties60:  {
+			Property: "GeometricScaling", "Vector3D", "",1,1,1
+			Property:"Show","bool","",1
+			Property:"NegativePercentShapeSupport","bool","",1
+			Property:"DefaultAttributeIndex","int","",0
+			Property:"Visibility","Visibility","A+",1
+			Property:"Color","ColorRGB","N",0.23921568627451,0.52156862745098,0.0235294117647059
+			Property: "BBoxMin","Vector3D","N",0,0,0
+			Property: "BBoxMax","Vector3D","N",0,0,0
+		}
+		MultiLayer: 1
+		MultiTake: 1
+		Shading: T
+		Culling: "CullingOff"
+		Vertices: -0.299243,-0.249879,0.328704,0.116416,-0.267492,0.294807,0.127974,-0.264511,0.325136,-0.308263,-0.253949,0.299102,0.116416,-0.267492,0.294807,-0.299243,-0.249879,0.328704,-0.308263,-0.253949,0.299102,0.104355,-0.328511,0.292387,0.089573,-0.310606,0.292523,-0.308263,-0.253949,0.299102,0.089573,-0.310606,0.292523,0.116416,-0.267492,0.294807,-0.308263,-0.253949,0.299102,-0.354134,-0.509932,0.275970,0.104355,-0.328511,0.292387,0.104355,-0.328511,0.292387,-0.354134,-0.509932,0.275970,0.230140,-0.509756,0.275970,-0.308263,-0.253949,-0.299095,-0.299243,-0.249879,-0.328697,0.116416,-0.267492,-0.294801,-0.299243,-0.249879,-0.328697,0.127974,-0.264511,-0.325128,0.116416,-0.267492,-0.294801,-0.308263,-0.253949,-0.299095,0.116416,-0.267492,-0.294801,0.107758,-0.271254,-0.294161,-0.308263,-0.253949,-0.299095,0.107758,-0.271254,-0.294161,0.089573,-0.310606,-0.292516,-0.308263,-0.253949,-0.299095,0.089573,-0.310606,-0.292516,0.104355,-0.328511,-0.292379,-0.308263,-0.253949,-0.299095,0.104355,-0.328511,-0.292379,-0.354134,-0.509932,-0.275962,0.104355,-0.328511,-0.292379,0.230140,-0.509756,-0.275962,-0.354134,-0.509932,-0.275962,0.104355,-0.328511,0.292387,0.230140,-0.509756,0.275970,0.283743,-0.331112,0.297081,0.104355,-0.328511,-0.292379,0.283743,-0.331112,-0.297073,0.230140,-0.509756,-0.275962
+		PolygonVertexIndex: 37,36,-39,34,33,-36,31,30,-33,28,27,-30,25,24,-27,22,21,-24,19,18,-21,16,15,-18,13,12,-15,10,9,-12,7,6,-9,4,3,-6,1,0,-3,43,42,-45,40,39,-42
+		GeometryVersion: 124
+		LayerElementNormal: 0 {
+			Version: 101
+			Name: ""
+			MappingInformationType: "ByVertice"
+			ReferenceInformationType: "Direct"
+			Normals: 0.435564,0.868528,-0.236524,-0.192282,0.977258,-0.089415,-0.131055,0.810342,-0.571115,0.266677,0.139669,-0.953613,-0.192282,0.977258,-0.089415,0.435564,0.868528,-0.236524,0.266677,0.139669,-0.953613,-0.186416,-0.086748,-0.978634,-0.877615,-0.115178,-0.465325,0.266677,0.139669,-0.953613,-0.877615,-0.115178,-0.465325,-0.192282,0.977258,-0.089415,0.266677,0.139669,-0.953613,0.523645,0.315461,-0.791379,-0.186416,-0.086748,-0.978634,-0.186416,-0.086748,-0.978634,0.523645,0.315461,-0.791379,-0.281101,0.750623,-0.597953,0.232887,0.143563,0.961850,0.435564,0.868528,0.236524,-0.069187,0.995790,-0.060132,0.435564,0.868528,0.236524,-0.103672,0.817862,0.565999,-0.069187,0.995790,-0.060132,0.232887,0.143563,0.961850,-0.069187,0.995790,-0.060132,-0.692681,0.556189,0.459181,0.232887,0.143563,0.961850,-0.692681,0.556189,0.459181,-0.922509,0.098523,0.373191,0.232887,0.143563,0.961850,-0.922509,0.098523,0.373191,-0.186782,-0.086935,0.978548,0.232887,0.143563,0.961850,-0.186782,-0.086935,0.978548,0.253554,0.578927,0.774954,-0.186782,-0.086935,0.978548,-0.576488,0.547765,0.606313,0.253554,0.578927,0.774954,-0.186416,-0.086748,-0.978634,-0.281101,0.750623,-0.597953,-0.841991,0.312153,-0.440013,-0.186782,-0.086935,0.978548,-0.655858,0.279653,0.701174,-0.576488,0.547765,0.606313
+		}
+		LayerElementSmoothing: 0 {
+			Version: 102
+			Name: ""
+			MappingInformationType: "ByPolygon"
+			ReferenceInformationType: "Direct"
+			Smoothing: 1
+		}
+		LayerElementUV: 0 {
+			Version: 101
+			Name: "UVMap"
+			MappingInformationType: "ByVertice"
+			ReferenceInformationType: "Direct"
+			UV: 19.692150,37.875810,-20.122520,22.188780,-22.151580,24.843640,24.724510,32.177550,-17.819290,22.809190,23.203280,34.992770,32.135580,-26.241080,-10.172220,-33.885460,-8.656698,-32.049860,31.855580,-24.226880,-8.935324,-30.045320,-11.685290,-25.617650,31.601750,-23.169560,36.304660,-49.520370,-10.700450,-30.844900,-10.698000,-30.838090,36.306980,-49.513900,-23.593680,-49.495770,-24.724490,32.177560,-23.203260,34.992780,17.819320,22.809180,-19.692310,37.875690,22.151460,24.843690,20.122430,22.188810,-31.737490,-20.226080,11.802750,-21.636750,10.915390,-22.028670,-31.906200,-24.599580,10.747780,-26.375670,8.885201,-30.414480,-32.135590,-26.241120,8.656692,-32.049900,10.172220,-33.885500,-31.601740,-23.169560,10.700460,-30.844900,-36.304660,-49.520360,10.698010,-30.838090,23.593690,-49.495770,-36.306980,-49.513890,-11.526400,-30.239700,-24.370380,-48.933020,-29.923800,-30.507970,11.526410,-30.239710,29.923810,-30.507970,24.370380,-48.933030
+		}
+		LayerElementTexture: 0 {
+			Version: 101
+			Name: ""
+			MappingInformationType: "NoMappingInformation"
+			ReferenceInformationType: "IndexToDirect"
+			BlendMode: "Translucent"
+			TextureAlpha: 1
+			TextureId: 
+		}
+		LayerElementMaterial: 0 {
+			Version: 101
+			Name: ""
+			MappingInformationType: "ByPolygon"
+			ReferenceInformationType: "IndexToDirect"
+			Materials: 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+		}
+		Layer: 0 {
+			Version: 100
+			LayerElement:  {
+				Type: "LayerElementNormal"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementSmoothing"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementUV"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementTexture"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementMaterial"
+				TypedIndex: 0
+			}
+		}
+	}
+
+	Material: "Material::interior", "" {
+		Version: 102
+		ShadingModel: "lambert"
+		MultiLayer: 0
+		Properties60:  {
+			Property: "ShadingModel", "KString", "", "Lambert"
+			Property: "MultiLayer", "bool", "",0
+			Property: "EmissiveColor", "ColorRGB", "",0.8000,0.8000,0.8000
+			Property: "EmissiveFactor", "double", "",0.0000
+			Property: "AmbientColor", "ColorRGB", "",0.1294,0.1294,0.1294
+			Property: "AmbientFactor", "double", "",1.0000
+			Property: "DiffuseColor", "ColorRGB", "",0.1294,0.1294,0.1294
+			Property: "DiffuseFactor", "double", "",0.8000
+			Property: "Bump", "Vector3D", "",0,0,0
+			Property: "TransparentColor", "ColorRGB", "",1,1,1
+			Property: "TransparencyFactor", "double", "",0.0000
+			Property: "SpecularColor", "ColorRGB", "",1.0000,1.0000,1.0000
+			Property: "SpecularFactor", "double", "",0.5000
+			Property: "ShininessExponent", "double", "",12.3
+			Property: "ReflectionColor", "ColorRGB", "",0,0,0
+			Property: "ReflectionFactor", "double", "",1
+			Property: "Emissive", "ColorRGB", "",0,0,0
+			Property: "Ambient", "ColorRGB", "",1.0,1.0,1.00.1,0.1,0.1
+			Property: "Diffuse", "ColorRGB", "",0.8,0.8,0.80.1,0.1,0.1
+			Property: "Specular", "ColorRGB", "",1.0,1.0,1.0
+			Property: "Shininess", "double", "",12.3
+			Property: "Opacity", "double", "",1.0
+			Property: "Reflectivity", "double", "",0
+		}
+	}
+
+	Texture: "Texture::interior_diff", "" {
+		Type: "TextureVideoClip"
+		Version: 202
+		TextureName: "Texture::interior_diff"
+		Properties60:  {
+			Property: "TextureTypeUse", "enum", "",0
+			Property: "Texture alpha", "Number", "A+",1
+			Property: "CurrentMappingType", "enum", "",0
+			Property: "WrapModeU", "enum", "",0
+			Property: "WrapModeV", "enum", "",0
+			Property: "UVSwap", "bool", "",0
+			Property: "Translation", "Vector", "A+",0,0,0
+			Property: "Rotation", "Vector", "A+",0,0,0
+			Property: "Scaling", "Vector", "A+",1,1,1
+			Property: "TextureRotationPivot", "Vector3D", "",0,0,0
+			Property: "TextureScalingPivot", "Vector3D", "",0,0,0
+			Property: "UseMaterial", "bool", "",1
+			Property: "UseMipMap", "bool", "",0
+			Property: "CurrentTextureBlendMode", "enum", "",1
+			Property: "UVSet", "KString", "", "UVChannel_1"
+		}
+		FileName: "C:/Users/media/Documents/Multiversal Vehicle Controller/Assets"
+		ModelUVTranslation: 0,0
+		ModelUVScaling: 1,1
+		Texture_Alpha_Source: "None"
+		Cropping: 0,0,0,0
+	}
+
+
+
+GlobalSettings:  {
+		Version: 1000
+		Properties60:  {
+			Property: "UpAxis", "int", "",1
+			Property: "UpAxisSign", "int", "",1
+			Property: "FrontAxis", "int", "",2
+			Property: "FrontAxisSign", "int", "",1
+			Property: "CoordAxis", "int", "",0
+			Property: "CoordAxisSign", "int", "",1
+			Property: "UnitScaleFactor", "double", "",100
+		}
+}
+
+}
+
+
+; Object connections
+;------------------------------------------------------------------
+
+Connections:  {
+	Connect: "OO", "Model::SubMesh0026", "Model::Scene"
+	Connect: "OO", "Material::interior", "Model::SubMesh0026"
+	Connect: "OO", "Texture::interior_diff", "Model::SubMesh0026"
+}
+
+
+;Version 5 settings
+;------------------------------------------------------------------
+
+Version5:  {
+	AmbientRenderSettings:  {
+		Version: 101
+		AmbientLightColor: 0.0,0.0,0.0,0
+	}
+	FogOptions:  {
+		FogEnable: 0
+		FogMode: 0
+		FogDensity: 0.000
+		FogStart: 5.000
+		FogEnd: 25.000
+		FogColor: 0.1,0.1,0.1,1
+	}
+	Settings:  {
+		FrameRate: "24"
+		TimeFormat: 1
+		SnapOnFrames: 0
+		ReferenceTimeIndex: -1
+		TimeLineStartTime: 0
+		TimeLineStopTime: 479181389250
+	}
+	RendererSetting:  {
+		DefaultCamera: "Producer Perspective"
+		DefaultViewingMode: 0
+	}
+}

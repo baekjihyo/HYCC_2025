@@ -1,0 +1,28 @@
+fileFormatVersion: 2
+guid: a52f9bc2fc0253a409c438acb338f615
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Roboto
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 304216
+  packageName: 'Multiversal Vehicle Controller: Community - Car Physics Controller'
+  packageVersion: 1.4.2-beta.3
+  assetPath: Assets/BxB Studio/MVC Documentation/Files~/CSS/fonts/roboto/Roboto-MediumItalic.ttf
+  uploadId: 749755

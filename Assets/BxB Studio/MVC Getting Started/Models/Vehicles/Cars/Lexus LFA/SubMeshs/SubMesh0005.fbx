@@ -1,0 +1,248 @@
+; FBX 6.1.0 project file
+; Copyright (C) 1997-2008 Autodesk Inc. and/or its licensors.
+; All rights reserved.
+; ----------------------------------------------------
+
+FBXHeaderExtension:  {
+	FBXHeaderVersion: 1003
+	FBXVersion: 6100
+	CreationTimeStamp:  {
+		Version: 1000
+		Year: 2021
+		Month: 02
+		Day: 10
+		Hour: 15
+		Minute: 40
+		Second: 07
+		Millisecond: 437
+	}
+	Creator: "EJM Software FBX Exporter"
+	OtherFlags:  {
+		FlagPLE: 0
+	}
+}
+CreationTime: "2021-02-10 15:40:07:437"
+Creator: "EJM Software FBX Exporter"
+
+; Object definitions
+;------------------------------------------------------------------
+
+Definitions:  {
+	Version: 100
+	Count: 4
+		ObjectType: "Model" {
+			Count: 1
+		}
+		ObjectType: "Material" {
+			Count: 1
+		}
+		ObjectType: "Texture" {
+			Count: 1
+		}
+		ObjectType: "GlobalSettings" {
+			Count: 1
+		}
+}
+
+
+; Object properties
+;------------------------------------------------------------------
+
+Objects:  {
+	Model: "Model::SubMesh0005", "Mesh" {
+		Version: 232
+		Properties60:  {
+			Property: "GeometricScaling", "Vector3D", "",1,1,1
+			Property:"Show","bool","",1
+			Property:"NegativePercentShapeSupport","bool","",1
+			Property:"DefaultAttributeIndex","int","",0
+			Property:"Visibility","Visibility","A+",1
+			Property:"Color","ColorRGB","N",0.23921568627451,0.52156862745098,0.0235294117647059
+			Property: "BBoxMin","Vector3D","N",0,0,0
+			Property: "BBoxMax","Vector3D","N",0,0,0
+		}
+		MultiLayer: 1
+		MultiTake: 1
+		Shading: T
+		Culling: "CullingOff"
+		Vertices: 0.117794,0.000063,-0.000019,0.110930,-0.033175,-0.010783,0.110930,-0.028080,-0.020621,0.110930,-0.033175,0.010746,0.110930,-0.020312,-0.028391,0.110930,-0.028080,0.020583,0.110930,-0.010762,-0.033524,0.110930,-0.020312,0.028425,0.110930,-0.010762,0.033486,0.110930,0.028464,-0.020763,0.110930,0.020694,0.028282,0.110930,0.033176,-0.010997,0.110930,0.028464,0.020726,0.110930,0.034831,-0.000019,0.110930,0.033176,0.011031,0.117794,0.000063,-0.000019,0.110930,-0.033175,-0.010783,0.110930,-0.034957,-0.000019,0.110930,-0.033175,0.010746,0.110930,-0.010762,-0.033524,0.110930,-0.000064,-0.035092,0.110930,-0.010762,0.033486,0.110930,0.010760,-0.033310,0.110930,-0.000064,0.035054,0.110930,0.020694,-0.028320,0.110930,0.010760,0.033272,0.110930,0.028464,-0.020763,0.110930,0.020694,0.028282,0.110930,0.028464,0.020726,0.110930,0.033176,0.011031
+		PolygonVertexIndex: 1,2,-1,2,4,-1,3,0,-6,4,6,-1,5,0,-8,7,0,-9,9,11,-1,0,12,-11,0,11,-14,0,13,-15,15,29,-29,15,27,-26,24,26,-16,15,25,-24,22,24,-16,21,15,-24,20,22,-16,19,20,-16,17,15,-19,16,15,-18
+		GeometryVersion: 124
+		LayerElementNormal: 0 {
+			Version: 101
+			Name: ""
+			MappingInformationType: "ByVertice"
+			ReferenceInformationType: "Direct"
+			Normals: 1.000000,0.000000,0.000000,0.982485,-0.176810,-0.058830,0.982392,-0.150741,-0.110377,0.982485,-0.176810,0.058830,0.982418,-0.110986,-0.150126,0.982392,-0.150741,0.110377,0.982642,-0.057601,-0.176341,0.982418,-0.110986,0.150126,0.982642,-0.057601,0.176341,0.982665,0.150057,-0.108865,0.982462,0.107970,0.152022,0.982441,0.178072,-0.055676,0.982665,0.150057,0.108865,0.982339,0.187112,0.000000,0.982441,0.178072,0.055676,1.000000,0.000000,0.000000,0.982485,-0.176810,-0.058830,0.982588,-0.185799,0.000000,0.982485,-0.176810,0.058830,0.982642,-0.057601,-0.176341,0.982461,0.001767,-0.186459,0.982642,-0.057601,0.176341,0.982368,0.057632,-0.177854,0.982461,0.001767,0.186459,0.982462,0.107970,-0.152022,0.982368,0.057632,0.177854,0.982665,0.150057,-0.108865,0.982462,0.107970,0.152022,0.982665,0.150057,0.108865,0.982441,0.178072,0.055676
+		}
+		LayerElementSmoothing: 0 {
+			Version: 102
+			Name: ""
+			MappingInformationType: "ByPolygon"
+			ReferenceInformationType: "Direct"
+			Smoothing: 1
+		}
+		LayerElementUV: 0 {
+			Version: 101
+			Name: "UVMap"
+			MappingInformationType: "ByVertice"
+			ReferenceInformationType: "Direct"
+			UV: 0.500607,0.498983,0.277486,0.052047,0.149273,0.145051,0.581851,0.006096,0.056017,0.271450,0.731792,0.057104,0.003906,0.417447,0.859215,0.150201,0.951101,0.274452,0.268006,0.944729,0.944725,0.730247,0.416104,0.990578,0.854442,0.856196,0.574820,0.990578,0.727477,0.943565,0.500607,0.498983,0.277486,0.052047,0.425862,0.003906,0.581851,0.006096,0.003906,0.417447,0.004526,0.572044,0.951101,0.274452,0.052791,0.721272,0.996146,0.422343,0.144551,0.851047,0.994086,0.579168,0.268006,0.944729,0.944725,0.730247,0.854442,0.856196,0.727477,0.943565
+		}
+		LayerElementTexture: 0 {
+			Version: 101
+			Name: ""
+			MappingInformationType: "NoMappingInformation"
+			ReferenceInformationType: "IndexToDirect"
+			BlendMode: "Translucent"
+			TextureAlpha: 1
+			TextureId: 
+		}
+		LayerElementMaterial: 0 {
+			Version: 101
+			Name: ""
+			MappingInformationType: "ByPolygon"
+			ReferenceInformationType: "IndexToDirect"
+			Materials: 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+		}
+		Layer: 0 {
+			Version: 100
+			LayerElement:  {
+				Type: "LayerElementNormal"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementSmoothing"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementUV"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementTexture"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementMaterial"
+				TypedIndex: 0
+			}
+		}
+	}
+
+	Material: "Material::rims_logo_flipped", "" {
+		Version: 102
+		ShadingModel: "lambert"
+		MultiLayer: 0
+		Properties60:  {
+			Property: "ShadingModel", "KString", "", "Lambert"
+			Property: "MultiLayer", "bool", "",0
+			Property: "EmissiveColor", "ColorRGB", "",0.8000,0.8000,0.8000
+			Property: "EmissiveFactor", "double", "",0.0000
+			Property: "AmbientColor", "ColorRGB", "",1.0000,1.0000,1.0000
+			Property: "AmbientFactor", "double", "",1.0000
+			Property: "DiffuseColor", "ColorRGB", "",1.0000,1.0000,1.0000
+			Property: "DiffuseFactor", "double", "",0.8000
+			Property: "Bump", "Vector3D", "",0,0,0
+			Property: "TransparentColor", "ColorRGB", "",1,1,1
+			Property: "TransparencyFactor", "double", "",0.0000
+			Property: "SpecularColor", "ColorRGB", "",1.0000,1.0000,1.0000
+			Property: "SpecularFactor", "double", "",0.5000
+			Property: "ShininessExponent", "double", "",12.3
+			Property: "ReflectionColor", "ColorRGB", "",0,0,0
+			Property: "ReflectionFactor", "double", "",1
+			Property: "Emissive", "ColorRGB", "",0,0,0
+			Property: "Ambient", "ColorRGB", "",1.0,1.0,1.01.0,1.0,1.0
+			Property: "Diffuse", "ColorRGB", "",0.8,0.8,0.81.0,1.0,1.0
+			Property: "Specular", "ColorRGB", "",1.0,1.0,1.0
+			Property: "Shininess", "double", "",12.3
+			Property: "Opacity", "double", "",1.0
+			Property: "Reflectivity", "double", "",0
+		}
+	}
+
+	Texture: "Texture::rims_logo_flipped_diff", "" {
+		Type: "TextureVideoClip"
+		Version: 202
+		TextureName: "Texture::rims_logo_flipped_diff"
+		Properties60:  {
+			Property: "TextureTypeUse", "enum", "",0
+			Property: "Texture alpha", "Number", "A+",1
+			Property: "CurrentMappingType", "enum", "",0
+			Property: "WrapModeU", "enum", "",0
+			Property: "WrapModeV", "enum", "",0
+			Property: "UVSwap", "bool", "",0
+			Property: "Translation", "Vector", "A+",0,0,0
+			Property: "Rotation", "Vector", "A+",0,0,0
+			Property: "Scaling", "Vector", "A+",1,1,1
+			Property: "TextureRotationPivot", "Vector3D", "",0,0,0
+			Property: "TextureScalingPivot", "Vector3D", "",0,0,0
+			Property: "UseMaterial", "bool", "",1
+			Property: "UseMipMap", "bool", "",0
+			Property: "CurrentTextureBlendMode", "enum", "",1
+			Property: "UVSet", "KString", "", "UVChannel_1"
+		}
+		FileName: "C:/Users/media/Documents/Multiversal Vehicle Controller/AssetsAssets/Resources/Models/Vehicles/Cars/Lexus LFA/Textures/fb64941664e2b4b03878fe6f0599a033.png"
+		ModelUVTranslation: 0,0
+		ModelUVScaling: 1,1
+		Texture_Alpha_Source: "None"
+		Cropping: 0,0,0,0
+	}
+
+
+
+GlobalSettings:  {
+		Version: 1000
+		Properties60:  {
+			Property: "UpAxis", "int", "",1
+			Property: "UpAxisSign", "int", "",1
+			Property: "FrontAxis", "int", "",2
+			Property: "FrontAxisSign", "int", "",1
+			Property: "CoordAxis", "int", "",0
+			Property: "CoordAxisSign", "int", "",1
+			Property: "UnitScaleFactor", "double", "",100
+		}
+}
+
+}
+
+
+; Object connections
+;------------------------------------------------------------------
+
+Connections:  {
+	Connect: "OO", "Model::SubMesh0005", "Model::Scene"
+	Connect: "OO", "Material::rims_logo_flipped", "Model::SubMesh0005"
+	Connect: "OO", "Texture::rims_logo_flipped_diff", "Model::SubMesh0005"
+}
+
+
+;Version 5 settings
+;------------------------------------------------------------------
+
+Version5:  {
+	AmbientRenderSettings:  {
+		Version: 101
+		AmbientLightColor: 0.0,0.0,0.0,0
+	}
+	FogOptions:  {
+		FogEnable: 0
+		FogMode: 0
+		FogDensity: 0.000
+		FogStart: 5.000
+		FogEnd: 25.000
+		FogColor: 0.1,0.1,0.1,1
+	}
+	Settings:  {
+		FrameRate: "24"
+		TimeFormat: 1
+		SnapOnFrames: 0
+		ReferenceTimeIndex: -1
+		TimeLineStartTime: 0
+		TimeLineStopTime: 479181389250
+	}
+	RendererSetting:  {
+		DefaultCamera: "Producer Perspective"
+		DefaultViewingMode: 0
+	}
+}
