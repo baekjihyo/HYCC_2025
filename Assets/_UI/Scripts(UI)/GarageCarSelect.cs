@@ -1,17 +1,17 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
+using Unity.Cinemachine;
 using System.Collections.Generic;
-
 
 public class GarageCarSelect : MonoBehaviour
 {
     [SerializeField] private UIDocument uiDocument;
     [SerializeField] private GameObject targetObject;
-    
+    [SerializeField] private CinemachineCamera cinemachineCamera;
+
     private void OnEnable()
     {
-
         Vector3[] carPositions = new Vector3[]
         {
             new Vector3(20, 2, 40),
@@ -23,36 +23,21 @@ public class GarageCarSelect : MonoBehaviour
         };
 
         var root = uiDocument.rootVisualElement;
-        var SelectCar1Button = root.Q<Button>("SelectCar1Button");
-        var SelectCar2Button = root.Q<Button>("SelectCar2Button");
-        var SelectCar3Button = root.Q<Button>("SelectCar3Button");
-        var SelectCar4Button = root.Q<Button>("SelectCar4Button");
-        var SelectCar5Button = root.Q<Button>("SelectCar5Button");
-        var SelectCar6Button = root.Q<Button>("SelectCar6Button");
 
-        SelectCar1Button.clicked += () =>
+        for (int i = 0; i < 6; i++)
         {
-            targetObject.transform.position = carPositions[0];
-        };
-        SelectCar2Button.clicked += () =>
-        {
-            targetObject.transform.position = carPositions[1];
-        };
-        SelectCar3Button.clicked += () =>
-        {
-            targetObject.transform.position = carPositions[2];
-        };
-        SelectCar4Button.clicked += () =>
-        {
-            targetObject.transform.position = carPositions[3];
-        };
-        SelectCar5Button.clicked += () =>
-        {
-            targetObject.transform.position = carPositions[4];
-        };
-        SelectCar6Button.clicked += () =>
-        {
-            targetObject.transform.position = carPositions[5];
-        };
+            int index = i;
+            var button = root.Q<Button>($"SelectCar{index + 1}Button");
+
+            button.clicked += () =>
+            {
+                targetObject.transform.position = carPositions[index];
+
+                if (cinemachineCamera.TryGetComponent(out CinemachineRotationComposer composer))
+                {
+                    cinemachineCamera.LookAt = targetObject.transform;
+                }
+            };
+        }
     }
 }

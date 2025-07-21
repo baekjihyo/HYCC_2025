@@ -1,3 +1,13 @@
+Button {
+    width: 600px;
+    height: 60px;
+    align-self: center;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
 .neon-button {
     background-color: rgb(0, 0, 0);
     border: 2px solid rgb(0, 255, 255);

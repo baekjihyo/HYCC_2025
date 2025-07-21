@@ -2,7 +2,6 @@ Button {
     width: 200px;
     height: 100px;
     font-size: 20px;
-    align-self: flex-end;
     margin-top: 10px;
     margin-right: 10px;
     margin-bottom: 10px;

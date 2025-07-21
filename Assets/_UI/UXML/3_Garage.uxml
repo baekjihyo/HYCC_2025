@@ -1,11 +1,12 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/_UI/USS/GarageButtons.uss?fileID=7433441132597879392&amp;guid=7a4fc54cb3cd2504c89a1abc0494c2ca&amp;type=3#GarageButtons" />
-    <ui:VisualElement name="ButonHolder" style="flex-grow: 1; flex-direction: row; justify-content: center;">
-        <ui:Button text="Car1" name="SelectCar1Button" />
-        <ui:Button text="Car2" name="SelectCar2Button" />
-        <ui:Button text="Car3" name="SelectCar3Button" />
-        <ui:Button text="Car4" name="SelectCar4Button" />
-        <ui:Button text="Car5" name="SelectCar5Button" />
-        <ui:Button text="Car6" name="SelectCar6Button" />
+    <Style src="project://database/Assets/_UI/USS/NeonButton.uss?fileID=7433441132597879392&amp;guid=bee03ae5fc7222f4686555f6bafcb0f6&amp;type=3#NeonButton" />
+    <ui:VisualElement name="ButonHolder" style="flex-grow: 1; flex-direction: row; justify-content: center; align-items: auto;">
+        <ui:Button text="Car1" name="SelectCar1Button" class="neon-button neon-label" />
+        <ui:Button text="Car2" name="SelectCar2Button" class="neon-button neon-label" />
+        <ui:Button text="Car3" name="SelectCar3Button" class="neon-button neon-label" />
+        <ui:Button text="Car4" name="SelectCar4Button" class="neon-button neon-label" />
+        <ui:Button text="Car5" name="SelectCar5Button" class="neon-button neon-label" />
+        <ui:Button text="Car6" name="SelectCar6Button" class="neon-button neon-label" />
     </ui:VisualElement>
 </ui:UXML>
