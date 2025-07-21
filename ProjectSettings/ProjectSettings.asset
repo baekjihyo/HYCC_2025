@@ -4,8 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 28
-  productGUID: b6800d3f1f072cd40864a47b50121074
-  AndroidProfiler: 0
+  productGUID: 0735503e53efff84e9de30e0b1c7038eler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
   defaultScreenOrientation: 4
@@ -142,7 +141,7 @@ PlayerSettings:
   tvOSBundleVersion: 1.0
   bundleVersion: 0.1.0
   preloadedAssets:
-  - {fileID: 11400000, guid: 2f3a07b182aa0c540b0503dda207f8bb, type: 2}
+  - {fileID: 11400000, guid: 66fb6d67bccfe7a4a8ee79edd1f7416b, type: 2}
   - {fileID: 11400000, guid: 77219d79bbb0b414bbc165652e6df3df, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -934,10 +933,10 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: dc697355-c055-48d2-8ccc-b322486ddf19
+  cloudProjectId: f82eedad-207b-4e54-bee1-b10dfb010c15
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Racing3D
+  projectName: My project 2025-07-20_08-24-08
   organizationId: baekjihyo08
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
