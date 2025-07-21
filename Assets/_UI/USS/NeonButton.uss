@@ -1,6 +1,6 @@
 Button {
-    width: 700px;
-    height: 80px;
+    width: 600px;
+    height: 60px;
     align-self: center;
     margin-top: 10px;
     margin-right: 10px;
@@ -28,7 +28,7 @@ Button {
     transition-property: color, unity-text-shadow-softness;
     transition-duration: 0.2s;
     font-size: 30px;
-    -unity-font-definition: resource('FlatSkin/Font/Roboto-BlackItalic');
+    -unity-font-definition: url("project://database/Assets/Fonts/Audiowide-Regular.ttf?fileID=12800000&guid=7f56c1a824ca1b045961e581d75a4f5b&type=3#Audiowide-Regular");
     -unity-font-style: bold;
     -unity-text-outline-color: rgba(55, 55, 55, 0.38);
     text-shadow: 0 0 2px rgba(0, 255, 255, 0.39);
@@ -44,6 +44,6 @@ Button {
 .neon-label:hover {
     color: rgb(0, 0, 0);
     font-size: 30px;
-    -unity-font-definition: resource('FlatSkin/Font/Roboto-BlackItalic');
+    -unity-font-definition: url("project://database/Assets/Fonts/RubikGlitch-Regular.ttf?fileID=12800000&guid=bc9718f9e568b8846945e29b1e7f5f10&type=3#RubikGlitch-Regular");
     letter-spacing: 5px;
 }

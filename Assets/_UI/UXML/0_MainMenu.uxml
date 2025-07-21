@@ -1,8 +1,8 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/_UI/USS/NeonButton.uss?fileID=7433441132597879392&amp;guid=3b31215f6e2a29a47bf26c0cf5508040&amp;type=3#NeonButton" />
-    <ui:VisualElement style="flex-grow: 1; background-image: url(&quot;project://database/Assets/_Art/Materials/Materials/Drone%20Camera%20Render%20Texture.renderTexture?fileID=8400000&amp;guid=54329c58d8c17df4c804111f673468cf&amp;type=2#Drone Camera Render Texture&quot;); -unity-background-scale-mode: scale-and-crop; justify-content: center;">
+    <ui:VisualElement style="flex-grow: 1; background-image: url(&quot;project://database/Assets/_Art/Materials/Materials/MainMenu_RacingCar.jpg?fileID=2800000&amp;guid=98694ab51614c084aafcb8de3b3a9955&amp;type=3#MainMenu_RacingCar&quot;); -unity-background-scale-mode: stretch-to-fill; justify-content: center;">
+        <ui:Label text="&lt;TYTLE&gt;" style="font-size: 100px; align-self: center; -unity-font-definition: url(&quot;project://database/Assets/Fonts/Audiowide-Regular.ttf?fileID=12800000&amp;guid=7f56c1a824ca1b045961e581d75a4f5b&amp;type=3#Audiowide-Regular&quot;); color: rgb(0, 255, 255); -unity-font-style: bold;" />
         <ui:VisualElement name="MainMenuContainer">
-            <ui:Label text="&lt;TITLE&gt;" style="font-size: 100px; align-self: center; -unity-font-definition: resource(&apos;FlatSkin/Font/Roboto-BoldItalic&apos;); letter-spacing: 5px; color: rgb(0, 255, 255); -unity-font-style: bold;" />
             <ui:Button text="Start" name="Button_Start" class="neon-button neon-label" />
             <ui:Button text="Options" name="Button_Options" class="neon-button neon-label" />
             <ui:Button text="Rankings" name="Button_Rankings" class="neon-button neon-label" />
