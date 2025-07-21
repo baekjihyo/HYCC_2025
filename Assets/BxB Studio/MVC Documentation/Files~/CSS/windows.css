@@ -1,0 +1,123 @@
+body > div.window-container
+{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	-webkit-backdrop-filter: blur(2rem) brightness(.75);
+	backdrop-filter: blur(2rem) brightness(.75);
+	z-index: 9996;
+	display: none;
+}
+body > div.window-container.stretch
+{
+	overflow: overlay;
+}
+body > div.window-container i.close-icon::before
+{
+	position: absolute;
+	top: .75rem;
+	right: 1rem;
+	width: 1.125rem;
+	height: 1.125rem;
+	margin: 0;
+	padding: .4375rem;
+	border-radius: 2rem;
+	background-color: rgba(0, 0, 0, .25);
+	color: rgb(192, 192, 192);
+	font-size: 1.125rem;
+	line-height: 1.125rem;
+	text-align: center;
+	-webkit-backdrop-filter: blur(.125rem);
+	backdrop-filter: blur(.125rem);
+	cursor: pointer;
+}
+body > div.window-container.stretch i.close-icon::before
+{
+	right: 2rem;
+}
+body > div.window-container i.close-icon.active::before,
+body > div.window-container i.close-icon:hover::before,
+body > div.window-container i.close-icon:active::before,
+body > div.window-container i.close-icon:focus::before
+{
+	background-color: rgb(192, 32, 32);
+	color: white;
+}
+body > div.window-container i.close-icon.active::before,
+body > div.window-container i.close-icon:active::before,
+body > div.window-container i.close-icon:focus::before
+{
+	box-shadow: 0 0 0 .25rem rgba(192, 32, 32, .5);
+	transition: box-shadow .125s;
+}
+body > div.window-container > div.window
+{
+	position: relative;
+	top: 50%;
+	width: 50rem;
+	height: 30rem;
+	margin: 0 auto;
+	border-radius: .5rem;
+	border: .0625rem solid rgba(255, 255, 255, .25);
+	background-color: rgb(255, 255, 255, .125);
+	transform: translateY(-50%);
+	overflow: hidden;
+}
+body > div.window-container.icon-spin1::before,
+body > div.window-container.loading > div.window::before
+{
+	position: absolute;
+	top: calc(50% - 1rem);
+	left: calc(50% - 1rem);
+	width: 2rem;
+	height: 2rem;
+	color: white;
+	font-family: "fontello";
+	font-size: 2rem;
+	font-stretch: normal;
+	line-height: 2rem;
+	content: "\e830";
+	z-index: 0;
+}
+body > div.window-container.wide > div.window
+{
+	width: 85%;
+	height: 90%;
+}
+body > div.window-container.stretch > div.window
+{
+	top: unset;
+	margin: 2rem auto;
+	height: unset;
+	min-height: 20rem;
+	transform: unset;
+}
+body > div.window-container.transparent > div.window
+{
+	background-color: rgba(255, 255, 255, .0625);
+	border: unset;
+	box-shadow: unset;
+	overflow: visible;
+}
+body > div.window-container.compact > div.window
+{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 100%;
+	height: -moz-fit-content;
+	height: fit-content;
+	background-color: transparent;
+	box-shadow: unset;
+	transform: translate(-50%, -50%);
+	overflow: visible;
+}
+body > div.window-container > div.window header,
+body > div.window-container > div.window div.container
+{
+	width: calc(100% - 5rem);
+	margin: 0 2.5rem;
+	padding: 1rem 0;
+}
