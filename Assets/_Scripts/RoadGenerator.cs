@@ -139,10 +139,10 @@ public class RoadGenerator : MonoBehaviour
 
     private void setLandmark()
     {
-        Vector3Int landPos = gridSize / 2 + Vector3Int.right * 5;
+        Vector3Int landPos = gridSize / 2 + Vector3Int.right * 7;
         Instantiate(Landmark, landPos + Vector3.down * landPos.y, Quaternion.identity, buildingParent);
-        for (int dx = -1; dx <= 1; dx++)
-            for (int dz = -1; dz <= 1; dz++)
+        for (int dx = -2; dx <= 2; dx++)
+            for (int dz = -2; dz <= 2; dz++)
             {
                 map[landPos.x + dx + 2, landPos.z + dz + 2] = 1;
                 for (int y = 0; y < gridSize.y; y++)
@@ -264,6 +264,7 @@ public class RoadGenerator : MonoBehaviour
         aPath.Clear();      // 리스트 초기화
         aPathDir.Clear();   // 리스트 초기화
         List<Node> openSet = new List<Node>();  // 탐색 중인 노드
+        List<Vector3Int> closedSetDebug = new List<Vector3Int>();  // 디버깅
         HashSet<Vector3Int> closedSet = new HashSet<Vector3Int>(); // 방문 완료 노드
         Node startNode = new Node(start) { gCost = 0, hCost = getHCost(start, goal), dir = beforeDir };
         openSet.Add(startNode);
@@ -280,6 +281,7 @@ public class RoadGenerator : MonoBehaviour
 
             openSet.Remove(currentNode);
             closedSet.Add(currentNode.pos);
+            closedSetDebug.Add(currentNode.pos);
 
             foreach (Vector3Int dir in getDirections(currentNode.dir))
             {
@@ -329,6 +331,12 @@ public class RoadGenerator : MonoBehaviour
                 }
             }
         }
+        
+        foreach (Vector3Int i in closedSetDebug)
+        {
+            Debug.DrawLine(i, i + Vector3.up * 0.5f, Color.red, 100f);
+        }
+        
         Debug.Log(start);
         //return; // 경로 없음
     }

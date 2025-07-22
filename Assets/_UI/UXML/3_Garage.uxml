@@ -1,12 +1,34 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/_UI/USS/GarageButtons.uss?fileID=7433441132597879392&amp;guid=7a4fc54cb3cd2504c89a1abc0494c2ca&amp;type=3#GarageButtons" />
-    <Style src="project://database/Assets/_UI/USS/NeonButton.uss?fileID=7433441132597879392&amp;guid=bee03ae5fc7222f4686555f6bafcb0f6&amp;type=3#NeonButton" />
-    <ui:VisualElement name="ButonHolder" style="flex-grow: 1; flex-direction: row; justify-content: center; align-items: auto;">
-        <ui:Button text="Car1" name="SelectCar1Button" class="neon-button neon-label" />
-        <ui:Button text="Car2" name="SelectCar2Button" class="neon-button neon-label" />
-        <ui:Button text="Car3" name="SelectCar3Button" class="neon-button neon-label" />
-        <ui:Button text="Car4" name="SelectCar4Button" class="neon-button neon-label" />
-        <ui:Button text="Car5" name="SelectCar5Button" class="neon-button neon-label" />
-        <ui:Button text="Car6" name="SelectCar6Button" class="neon-button neon-label" />
+    <Style src="project://database/Assets/_UI/USS/NeonButton.uss?fileID=7433441132597879392&amp;guid=bee03ae5fc7222f4686555f6bafcb0f6&amp;type=3" />
+    <ui:VisualElement name="Root" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex;">
+        <ui:VisualElement name="InfoPanel" class="info-panel" style="left: -400px; top: 3%;">
+            <ui:Button text="Select Car" name="ConfirmButton" class="neon-button confirm-button neon-label" style="left: auto; height: 80px;" />
+            <ui:Label name="CarNameLabel" text="Car Name" class="car-name" />
+            <ui:VisualElement name="SpecContainer">
+                <ui:Label name="TopSpeedLabel" text="Top Speed:" class="spec-label" />
+                <ui:Label name="SpeedValue" text="200 km/h" class="spec-value" />
+                <ui:Label name="AccelLabel" text="Acceleration:" class="spec-label" />
+                <ui:Label name="AccelValue" text="3.5s" class="spec-value" />
+                <ui:Label name="HandlingLabel" text="Handling:" class="spec-label" />
+                <ui:Label name="HandlingValue" text="8.5/10" class="spec-value" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="NicknameDialog" class="nickname-dialog" style="display: none; left: auto; align-self: center; top: 40%; align-items: stretch; justify-content: center; width: 600px;">
+            <ui:Label text="닉네임 입력" name="Label" class="dialog-title" style="height: 0; width: 0; position: absolute; top: 10px; align-self: flex-start; font-size: 30px;" />
+            <ui:TextField name="NicknameInput" max-length="12" placeholder="최대 12자" class="nickname-input" style="position: absolute; align-content: flex-start; align-self: center; width: 95%; height: 50px; color: rgb(0, 0, 0);" />
+            <ui:VisualElement style="flex-direction: column-reverse; justify-content: space-between; margin-top: 20px; position: absolute; height: 0; width: 0; flex-wrap: nowrap; align-self: center; bottom: 5px;">
+                <ui:Button text="취소" name="CancelButton" class="neon-button neon-label" style="width: 200px; height: 50px; left: 30px; -unity-font-style: normal;" />
+                <ui:Button text="확인" name="ConfirmNicknameButton" class="neon-button confirm-button neon-label" style="width: 200px; height: 50px; left: auto; right: 30px; bottom: 5px; -unity-font-style: normal;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="ButtonHolder" style="flex-grow: 1; flex-direction: row; justify-content: center; align-items: flex-start; top: 89%;">
+            <ui:Button text="Car1" name="SelectCar1Button" class="neon-button neon-label carSelectButton" />
+            <ui:Button text="Car2" name="SelectCar2Button" class="neon-button neon-label carSelectButton" />
+            <ui:Button text="Car3" name="SelectCar3Button" class="neon-button neon-label carSelectButton" />
+            <ui:Button text="Car4" name="SelectCar4Button" class="neon-button neon-label carSelectButton" />
+            <ui:Button text="Car5" name="SelectCar5Button" class="neon-button neon-label carSelectButton" />
+            <ui:Button text="Car6" name="SelectCar6Button" class="neon-button neon-label carSelectButton" />
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

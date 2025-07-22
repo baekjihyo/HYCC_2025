@@ -224,7 +224,7 @@ Light:
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 100
+  m_Intensity: 200
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -710,7 +710,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 44c8de098438e3e42bb6c53280e13083, type: 2}
+  - {fileID: 2100000, guid: 404f9faecac1f6d43b5fcefa89522ab1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -917,7 +917,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 191d337bf0a2f8a498b30fb24fed21ca, type: 2}
+  - {fileID: 2100000, guid: bacc7ee8fd0869d45be470f049e53d8b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -978,8 +978,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiDocument: {fileID: 1017074022}
-  targetObject: {fileID: 27350813}
+  targetObject: {fileID: 27350814}
   cinemachineCamera: {fileID: 1021327948}
+  carDataList:
+  - Name: 1993 Toyota Supra MK4
+    TopSpeed: 0
+    Acceleration: 0
+    Handling: 0
+  - Name: 2005 BMW M3 GTR E46
+    TopSpeed: 1
+    Acceleration: 1
+    Handling: 1
+  - Name: 2008 Subaru Impreza WRX STi - Police Edition
+    TopSpeed: 2
+    Acceleration: 2
+    Handling: 2
+  - Name: 2012 Lexus LFA
+    TopSpeed: 3
+    Acceleration: 3
+    Handling: 3
+  - Name: 2019 VW Golf MK7 GTI
+    TopSpeed: 4
+    Acceleration: 4
+    Handling: 4
+  - Name: 2020 Porsche Taycan Turbo S
+    TopSpeed: 5
+    Acceleration: 5
+    Handling: 5
+  carPositions:
+  - {x: 20, y: 2, z: 40}
+  - {x: 20, y: 2, z: 0}
+  - {x: 20, y: 2, z: -40}
+  - {x: -20, y: 2, z: 40}
+  - {x: -20, y: 2, z: 0}
+  - {x: -20, y: 2, z: -40}
 --- !u!114 &1017074022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1236,7 +1268,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 191d337bf0a2f8a498b30fb24fed21ca, type: 2}
+  - {fileID: 2100000, guid: bacc7ee8fd0869d45be470f049e53d8b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1292,13 +1324,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1050101902}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.703713, y: 0.28109476, z: -0.36632982, w: 0.539978}
+  m_LocalRotation: {x: 0.8848247, y: 0.09147132, z: -0.19616088, w: 0.4126005}
   m_LocalPosition: {x: 2, y: 3, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1514279971}
-  m_LocalEulerAnglesHint: {x: 105, y: 55, z: 0}
+  m_LocalEulerAnglesHint: {x: 130, y: 25, z: 0}
 --- !u!114 &1050101904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1333,7 +1365,7 @@ Light:
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 100
+  m_Intensity: 200
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -1467,7 +1499,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 191d337bf0a2f8a498b30fb24fed21ca, type: 2}
+  - {fileID: 2100000, guid: bacc7ee8fd0869d45be470f049e53d8b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1577,7 +1609,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 191d337bf0a2f8a498b30fb24fed21ca, type: 2}
+  - {fileID: 2100000, guid: bacc7ee8fd0869d45be470f049e53d8b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1687,7 +1719,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 191d337bf0a2f8a498b30fb24fed21ca, type: 2}
+  - {fileID: 2100000, guid: bacc7ee8fd0869d45be470f049e53d8b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2056,7 +2088,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 191d337bf0a2f8a498b30fb24fed21ca, type: 2}
+  - {fileID: 2100000, guid: bacc7ee8fd0869d45be470f049e53d8b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2247,7 +2279,7 @@ Light:
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 100
+  m_Intensity: 200
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -2441,13 +2473,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2133548644}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.21321179, y: 0.7867883, z: -0.40957606, w: 0.40957606}
+  m_LocalRotation: {x: 0.08682413, y: 0.85286856, z: -0.4924039, w: 0.1503838}
   m_LocalPosition: {x: -2, y: 3, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1514279971}
-  m_LocalEulerAnglesHint: {x: 55, y: 125, z: 0}
+  m_LocalEulerAnglesHint: {x: 60, y: 160, z: 0}
 --- !u!114 &2133548646
 MonoBehaviour:
   m_ObjectHideFlags: 0
