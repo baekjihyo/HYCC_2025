@@ -28,9 +28,8 @@ public class GarageCarSelect : MonoBehaviour
     public class CarData
     {
         public string Name;
-        public float TopSpeed;
-        public float Acceleration;
-        public float Handling;
+        public float TopSpeed, Acceleration, Handling;
+
     }
 
     [Header("References")]
@@ -52,13 +51,25 @@ public class GarageCarSelect : MonoBehaviour
 
     void Awake()
     {
-        string saveDir = Path.Combine(Application.dataPath, "Save");
+        string saveDir = Path.Combine(Application.dataPath, "_Save");
         if (!Directory.Exists(saveDir))
+        {
             Directory.CreateDirectory(saveDir);
+        };
         dataPath = Path.Combine(saveDir, "playerData.json");
-        
+
         if (!File.Exists(dataPath))
-            File.WriteAllText(dataPath, JsonUtility.ToJson(new PlayerDataList(), true));
+        { 
+        File.WriteAllText(dataPath, JsonUtility.ToJson(new PlayerDataList(), true));
+        };
+            
+        var json = File.ReadAllText(dataPath);
+        var list = JsonUtility.FromJson<PlayerDataList>(json);
+        if (list.Records != null && list.Records.Count > 0)
+            playerData = list.Records[list.Records.Count - 1];
+        else
+            playerData = new PlayerData();
+
     }
 
     void OnEnable()
@@ -132,11 +143,15 @@ public class GarageCarSelect : MonoBehaviour
     {
         if (isAnimating) return;
 
-        currentCarIndex = index;
+        bool isClosed = infoPanel.style.display == DisplayStyle.None;
+        bool differentCar = currentCarIndex != index;
+        bool show = isClosed || differentCar;
+
         targetObject.position = carPositions[index];
         cinemachineCamera.LookAt = targetObject;
 
-        bool show = infoPanel.style.display == DisplayStyle.None;
+        currentCarIndex = index;
+        
         StartCoroutine(AnimateInfoPanel(show, index));
     }
 
