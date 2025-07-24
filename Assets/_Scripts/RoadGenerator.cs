@@ -7,26 +7,16 @@ using UnityEngine;
 
 /// <summary>
 /// <버그>
-/// a* wayPoint 누락 버그 수정 ### 핵심버그
-/// => a star 도달 불능점
-/// => 맵을 크게 만들고 wayPoint 간 거리 줄이면 발생 확률 낮아짐
-/// 
-/// 첫부분 급코너 수정 ## 수정 된건가?? >> 아님
-/// 
-/// 뭔가 a*에 문제가 있나?
-/// 아니 길이 뚫려있는데 왜 못찾아가
-/// 
-/// 
-/// 
-/// <추가>
-/// 
+/// pathDir 방향 오류
+/// => 의심대상 (pathDir dir aPathDir)
+/// => 의문정 : path는 정상인데 왜 pathDir만 문제일까?
 /// 
 /// <할거>
 /// 튜토리얼용 맵 뽑기
 /// 
 /// <부분 완료>
-/// 시작부 직선코스 
-/// A* 안전 공간 미확보 수정
+/// 시작부 직선코스 >> 스타팅 모델링이 오면
+/// 첫부분 급코너 수정 >> 확실하진 않은데 지금까지 버그 없음 (사실상 해결로 보는 중)
 /// 
 /// 
 /// </summary>
@@ -78,28 +68,33 @@ public class RoadGenerator : MonoBehaviour
     public Transform parent; // 디버깅용
 
     // 내부 변수
-    private byte[,,] grid; // void 0 // road 1 // 시작점까지 이동 가능한 점 2
-    public List<byte> gridList; // 디버깅 용
-    private List<Vector3Int> path = new List<Vector3Int>();     // 도로가 시작점부터 순서대로 그리드의 어느 좌표로 이동하는지를 저장함
-    private List<Vector3Int> pathDir = new List<Vector3Int>();  // 얘는 도로의 방향을 저장함 // path랑 pathDir에서 리스트 내 위치가 같으면 같은 도로임
-    private List<Vector3Int> aPath = new List<Vector3Int>();    // path랑 똑같지만 aStar를 실행할 때 부분적으로만(각 wayPoint 사이) 작동함
-    private List<Vector3Int> aPathDir = new List<Vector3Int>();
-    private List<Vector3> roadPoint = new List<Vector3>();  // 얘는 보간이 적용된 path라고 생각하면 됨
-    private List<Vector3> roadDir = new List<Vector3>();
-    private List<Vector3Int> wayPoint = new List<Vector3Int>();
-    private byte[,] map; // 건물이 설치될 위치를 구하기 위한 그리드
+    [SerializeField] private byte[,,] grid; // void 0 // road 1 // 시작점까지 이동 가능한 점 2
+    [SerializeField] private List<byte> gridList; // 디버깅 용
+    [SerializeField] private List<Vector3Int> path = new List<Vector3Int>();     // 도로가 시작점부터 순서대로 그리드의 어느 좌표로 이동하는지를 저장함
+    [SerializeField] private List<Vector3Int> pathDir = new List<Vector3Int>();  // 얘는 도로의 방향을 저장함 // path랑 pathDir에서 리스트 내 위치가 같으면 같은 도로임
+    [SerializeField] private List<Vector3Int> aPath = new List<Vector3Int>();    // path랑 똑같지만 aStar를 실행할 때 부분적으로만(각 wayPoint 사이) 작동함
+    [SerializeField] private List<Vector3Int> aPathDir = new List<Vector3Int>();
+    [SerializeField] private List<Vector3> roadPoint = new List<Vector3>();  // 얘는 보간이 적용된 path라고 생각하면 됨
+    [SerializeField] private List<Vector3> roadDir = new List<Vector3>();
+    [SerializeField] private List<Vector3Int> wayPoint = new List<Vector3Int>();
+    [SerializeField] private byte[,] map; // 건물이 설치될 위치를 구하기 위한 그리드
+    [SerializeField] private bool closedRoad; // 도로가 제대로 연결됐는지를 나타냄
 
     private void Start()
     {
         if (smoothness == 0)    // smoothness 값은 0이 되면 코드가 무한 반복 됨
             smoothness = 0.01f; // 그거 방지용 코드
 
-        //gridSize += new Vector3Int(2, 2, 2); // 외부 여유 그리드 확보
-        grid = new byte[gridSize.x, gridSize.y, gridSize.z]; // 그리드 생성
-        map = new byte[gridSize.x + 4, gridSize.z + 4];
-        setLandmark(); // 랜드마크 생성
-        generateWayPoints(); // wayPoint 생성
-        generateRoadMap(); // wayPoint를 잇는 도로를 그리드 위에 생성
+        while (!closedRoad)
+        {
+            closedRoad = true;
+            clearVar(); // 변수 초기화
+            grid = new byte[gridSize.x, gridSize.y, gridSize.z]; // 그리드 생성
+            map = new byte[gridSize.x + 4, gridSize.z + 4];
+            setLandmark(); // 랜드마크 생성
+            generateWayPoints(); // wayPoint 생성
+            generateRoadMap(); // wayPoint를 잇는 도로를 그리드 위에 생성
+        }
 
         gridList = new List<byte>(); // 디버깅용
         setLine(); // 그리드에 그려진 도로를 보간법을 이용해 부드럽게 이어줌
@@ -107,15 +102,19 @@ public class RoadGenerator : MonoBehaviour
 
 
         // 디버깅
-        Debug.DrawLine(path[0], path[0] + Vector3.up * 10, Color.yellow, 100f);
-        for (int i = 0; i < path.Count; i++)
+        Debug.DrawLine(path[0], path[0] + Vector3.up * 5, Color.yellow, 100f);
+        for (int i = 0; i < path.Count - 1; i++)
         {
-            //Debug.DrawLine(path[i], path[i] + Vector3.up, Color.green, 100f); // road
+            Debug.DrawLine(new Vector3(path[i].x, path[i].y * height, path[i].z) + Vector3.up * 0.25f, new Vector3(path[i + 1].x, path[i + 1].y * height, path[i + 1].z) + Vector3.up * 0.25f, Color.blue, 100f); // road
             Instantiate(roadPrefab, path[i], Quaternion.identity, parent); // block
+        }
+        for (int i = 0; i < roadPoint.Count - 1; i++)
+        {
+            Debug.DrawLine(new Vector3(roadPoint[i].x, roadPoint[i].y * height, roadPoint[i].z)  + Vector3.up * 0.15f, new Vector3(roadPoint[i+1].x, roadPoint[i+1].y * height, roadPoint[i+1].z) + Vector3.up * 0.15f, Color.red, 100f); // vertex line
         }
         foreach (var p in roadPoint)
         {
-            Vector3 q = new Vector3(p.x, p.y * height, p.z);
+            //Vector3 q = new Vector3(p.x, p.y * height, p.z);
             //Debug.DrawLine(q, q + Vector3.up, Color.red, 100f); // vertex line
         }
         for (int x = 0; x < grid.GetLength(0); x++)
@@ -125,22 +124,39 @@ public class RoadGenerator : MonoBehaviour
                     gridList.Add(grid[x, y, z]);
                     if (grid[x, y, z] == 1)
                     {
-                        Debug.DrawLine(new Vector3(x, y * height, z), new Vector3(x, y * height, z) + Vector3.up * 0.25f, Color.blue, 100f); // 장애물
+                        //Debug.DrawLine(new Vector3(x, y * height, z), new Vector3(x, y * height, z) + Vector3.up * 0.25f, Color.blue, 100f); // 장애물
                     }
                     else if (grid[x, y, z] == 2)
                     {
                         //Debug.DrawLine(new Vector3(x, y * height, z), new Vector3(x, y * height, z) + Vector3.up * 1f, Color.green, 100f); // 장애물
                     }
                 }
+        // 디버깅 용
+        for (int i = 0; i < wayPoint.Count; i++)
+            Debug.DrawLine(wayPoint[i], wayPoint[i] + Vector3.up * 2, Color.cyan, 100f);
 
         build(); // 주변 건물 설치
+        //clearVar();
 
+    }
+
+    private void clearVar()
+    {
+        grid = null;
+        gridList.Clear(); // 디버깅용
+        path.Clear();
+        pathDir.Clear();
+        aPath.Clear();
+        aPathDir.Clear();
+        roadPoint.Clear();
+        roadDir.Clear();
+        wayPoint.Clear();
+        map = null;
     }
 
     private void setLandmark()
     {
         Vector3Int landPos = gridSize / 2 + Vector3Int.right * 7;
-        Instantiate(Landmark, landPos + Vector3.down * landPos.y, Quaternion.identity, buildingParent);
         for (int dx = -2; dx <= 2; dx++)
             for (int dz = -2; dz <= 2; dz++)
             {
@@ -207,8 +223,8 @@ public class RoadGenerator : MonoBehaviour
                 beforeDir = pathDir[pathDir.Count - 1];
 
             findPath(beforeWayPoint, wayPoint[i], beforeDir);   // findPath가 aStar임
-            //if (aPath == null)  // wayPoint까지 경로가 없으면 다음 wayPoint로 넘어감
-            //    continue;
+            if (!closedRoad)  // wayPoint까지 경로가 없으면 도로 생성을 중지
+                return;
 
             beforeWayPoint = wayPoint[i];   // 이전 wayPoint를 현재 wayPoint로 바꿈 // 다음 루프에서 쓰기 위함
 
@@ -221,27 +237,20 @@ public class RoadGenerator : MonoBehaviour
         }
 
         // 아래는 마지막 wayPoint와 시작 wayPoint를 잇는 코드
+        grid[wayPoint[0].x, wayPoint[0].y, wayPoint[0].z] = 0;      // 시작점을 찾을 수 있게 그리드에서 시작점 도로를 없애줌
 
-        // 시작점을 찾을 수 있게 그리드에서 시작점 도로를 없애줌
-        grid[wayPoint[0].x, wayPoint[0].y, wayPoint[0].z] = 0;
-
-        // 시작점과 부드럽게 이어지는 지점 표시
-        Debug.DrawLine(path[0], path[0] + pathDir[0] * 5, Color.red, 100f); // 디버깅 용
-        foreach (Vector3Int dir in getDirections(pathDir[0] * -1))
+        foreach (Vector3Int dir in getDirections(pathDir[0] * -1))  // 시작점과 부드럽게 이어지는 지점 표시
             if (isInBounds(wayPoint[0] + dir))
-            {
                 grid[wayPoint[0].x + dir.x, wayPoint[0].y + dir.y, wayPoint[0].z + dir.x] = 2;
-                Debug.DrawLine(wayPoint[0] + dir, wayPoint[0], Color.green, 100f); // 시작점과 연결되는 노드 위치
-            }
 
         // A*
         findPath(beforeWayPoint, wayPoint[0], pathDir[pathDir.Count - 1]);
+        if (!closedRoad)  // wayPoint까지 경로가 없으면 도로 생성을 중지
+            return;
 
-        //grid[wayPoint[0].x, wayPoint[0].y, wayPoint[0].z] = 1;  // 시작점에 다시 도로로 변환 대입
-
+        // path data
         for (int j = 0; j < aPath.Count; j++)
         {
-            //Debug.DrawLine(aPath[j], aPath[j] + Vector3.up * 5, Color.green, 100f); // 디버깅 용
             path.Add(aPath[j]);
             pathDir.Add(aPathDir[j]);
         }
@@ -251,10 +260,6 @@ public class RoadGenerator : MonoBehaviour
         path.Add(path[1]);
         pathDir.Add(pathDir[0]);
         pathDir.Add(pathDir[1]);
-
-        // 디버깅 용
-        for (int i = 0; i < wayPoint.Count; i++)
-            Debug.DrawLine(wayPoint[i], wayPoint[i] + Vector3.up * 5, Color.cyan, 100f);
     }
 
     // 얘가 aStar 알고리즘임
@@ -264,7 +269,6 @@ public class RoadGenerator : MonoBehaviour
         aPath.Clear();      // 리스트 초기화
         aPathDir.Clear();   // 리스트 초기화
         List<Node> openSet = new List<Node>();  // 탐색 중인 노드
-        List<Vector3Int> closedSetDebug = new List<Vector3Int>();  // 디버깅
         HashSet<Vector3Int> closedSet = new HashSet<Vector3Int>(); // 방문 완료 노드
         Node startNode = new Node(start) { gCost = 0, hCost = getHCost(start, goal), dir = beforeDir };
         openSet.Add(startNode);
@@ -281,7 +285,6 @@ public class RoadGenerator : MonoBehaviour
 
             openSet.Remove(currentNode);
             closedSet.Add(currentNode.pos);
-            closedSetDebug.Add(currentNode.pos);
 
             foreach (Vector3Int dir in getDirections(currentNode.dir))
             {
@@ -297,13 +300,13 @@ public class RoadGenerator : MonoBehaviour
                     continue;
 
                 // 이동 경로 중 막혀서 갈 수 없는 길이면 패스
-                if (isBlocked(currentNode.pos, dir))
+                if (isBlocked(currentNode, dir, closedSet))
                     continue;
 
                 // 도로를 시작점에 연결할 때 현재 노드가 시작점까지 연결 불가능한 노드면 패스
                 if (wayPoint[0] == neighborPos && grid[currentNode.pos.x, currentNode.pos.y, currentNode.pos.z] == 2)
                 {
-                    Debug.DrawLine(currentNode.pos, neighborPos, Color.red, 100f);
+                    //Debug.DrawLine(currentNode.pos, neighborPos, Color.red, 100f);
                     Debug.Log("aaa");
                     continue;
                 }
@@ -311,16 +314,15 @@ public class RoadGenerator : MonoBehaviour
                 int tentativeG = currentNode.gCost + Mathf.Abs(dir.x) + Mathf.Abs(dir.y) + Mathf.Abs(dir.z); // 첫 노드부터 다음 노드까지 이동비용
 
                 Node neighborNode = openSet.Find(n => n.pos == neighborPos);
-                if (neighborNode == null)   // 이웃노드가 탐색중이지 않은 노드인 경우
+                if (neighborNode == null)   // 이웃노드가 탐색되지 않은 노드인 경우
                 {
                     neighborNode = new Node(neighborPos)
                     {
                         // 비용 저장
                         gCost = tentativeG,
                         hCost = getHCost(neighborPos, goal),
-
-                        dir = dir, // 이 노드가 이전 노드로부터 어느 방향으로 왔는지 저장
-                        parent = currentNode // 현재 노드를 부모 노드로 설정 // 어떤 노드에서 왔는지 확인할 때 사용
+                        dir = dir,                              // 이 노드가 이전 노드로부터 어느 방향으로 왔는지 저장
+                        parent = currentNode                    // 현재 노드를 부모 노드로 설정 // 어떤 노드에서 왔는지 확인할 때 사용
                     };
                     openSet.Add(neighborNode); // 탐색 중인 노드 목록에 추가
                 }
@@ -328,17 +330,12 @@ public class RoadGenerator : MonoBehaviour
                 {
                     neighborNode.gCost = tentativeG;
                     neighborNode.parent = currentNode;
+                    neighborNode.dir = dir;
                 }
             }
         }
-        
-        foreach (Vector3Int i in closedSetDebug)
-        {
-            Debug.DrawLine(i, i + Vector3.up * 0.5f, Color.red, 100f);
-        }
-        
         Debug.Log(start);
-        //return; // 경로 없음
+        closedRoad = false;
     }
 
     // 탐색된 aStar 경로를 저장
@@ -359,6 +356,7 @@ public class RoadGenerator : MonoBehaviour
         aPathDir.Reverse();
     }
 
+    // 도로가 /. 이런식으로 생길 때를 막기 위한 함수
     private void block(Vector3Int pos, Vector3Int dir)
     {
         if (isInBounds(new Vector3Int(pos.x, pos.y, pos.z)))
@@ -385,42 +383,6 @@ public class RoadGenerator : MonoBehaviour
         if (isInBounds(new Vector3Int(pos.x + dir.x, pos.y + dir.y, pos.z + dir.z)))
             grid[pos.x + dir.x, pos.y + dir.y, pos.z + dir.z] = 1;
 
-    }
-
-    // aStar의 비용 계산식 : f(n) = g(n) + h(n)
-    // f(n) : 해당 노드의 비용 // g(n) : 시작점부터 해당 노드까지 이동하는데 필요한 비용
-    // h(n) : 휴리스틱함수, 효율적인 길 탐색을 위한 보정치, 단 휴리스틱이 적용되면 탐색된 길이 최단경로가 아닐 수 있음
-    //        단지 탐색 과정의 효율을 위해 사용
-    // h(n) = 0 으로 만들면 최단경로를 얻을 수 있음 (미방문 노드의 비용은 무한대 또는 그에 준하는 아주 큰 값) // 이게 다익스트라 알고리즘
-
-    // 주어진 노드들 중 f(n) 값이 가장 작은 노드를 선택
-    private Node getLowestFCostNode(List<Node> nodes)
-    {
-        Node best = nodes[0];
-        foreach (Node node in nodes)
-        {
-            if (node.fCost < best.fCost || (node.fCost == best.fCost && node.hCost < best.hCost))
-                best = node;
-        }
-        return best;
-    }
-
-    // aStar 휴리스틱 함수
-    // a, b 사이의 (택시) 거리값 반환
-    // 택시 거리 : 직교로만 움직일 수 있을 때의 거리 
-    // ex) 원점과 (4,3) 사이 거리
-    // 유클리드 거리 : 5 = {(4-0)^2 + (3-0)^2} ^ 0.5 // 택시 거리 : 7 = |4-0| + |3-0|
-    private int getHCost(Vector3Int a, Vector3Int b)    // a b 중 하나는 현재 노드고 다른 하나는 다음 노드임
-    {
-        return Mathf.Abs(a.x - b.x) + Mathf.Abs(a.y - b.y) + Mathf.Abs(a.z - b.z);
-    }
-
-    // 지정된 위치가 그리드 범위 안에 있는지 검사하는 코드
-    private bool isInBounds(Vector3Int pos)
-    {
-        return 0 <= pos.x && pos.x < gridSize.x &&
-               0 <= pos.y && pos.y < gridSize.y &&
-               0 <= pos.z && pos.z < gridSize.z;
     }
 
     // 한 노드에서 갈 수 있는 모든 방향을 리스트로 반환함
@@ -500,24 +462,62 @@ public class RoadGenerator : MonoBehaviour
         return newDir;
     }
 
-    // 앞으로 갈 길이 막혔는지 확인하는 코드
-    // 예를들어 대각선을 이동할때 대각선 옆방향이 비었는지 확인하는 코드임
-    // <이동가능>   <이동 불가능>
-    //  0 /          1 /
-    //  / 0          / 1        (0 void // 1 장애물)
-    private bool isBlocked(Vector3Int current, Vector3Int dir)
+    // 앞으로 갈 길이 막혔는지 확인하는 코드 (ex 대각선)
+    private bool isBlocked(Node current, Vector3Int dir, HashSet<Vector3Int> closedSet)
     {
-        if ((isInBounds(new Vector3Int(current.x, current.y, current.z)) && grid[current.x, current.y, current.z] == 1) || // 0 0 0
-            (isInBounds(new Vector3Int(current.x + dir.x, current.y, current.z)) && grid[current.x + dir.x, current.y, current.z] == 1) || // x 0 0
-            (isInBounds(new Vector3Int(current.x, current.y + dir.y, current.z)) && grid[current.x, current.y + dir.y, current.z] == 1) || // 0 y 0
-            (isInBounds(new Vector3Int(current.x, current.y, current.z + dir.z)) && grid[current.x, current.y, current.z + dir.z] == 1) || // 0 0 z
-            (isInBounds(new Vector3Int(current.x + dir.x, current.y + dir.y, current.z)) && grid[current.x + dir.x, current.y + dir.y, current.z] == 1) || // x y 0
-            (isInBounds(new Vector3Int(current.x, current.y + dir.y, current.z + dir.z)) && grid[current.x, current.y + dir.y, current.z + dir.z] == 1) || // 0 y z
-            (isInBounds(new Vector3Int(current.x + dir.x, current.y, current.z + dir.z)) && grid[current.x + dir.x, current.y, current.z + dir.z] == 1) || // x 0 z
-            (isInBounds(new Vector3Int(current.x + dir.x, current.y + dir.z, current.z + dir.z)) && grid[current.x + dir.x, current.y + dir.z, current.z + dir.z] == 1)) // x y z
+        Vector3Int pos = current.pos;
+        if ((isInBounds(new Vector3Int(pos.x, pos.y, pos.z)) && (grid[pos.x, pos.y, pos.z] == 1 || isParentNode(new Vector3Int(pos.x, pos.y, pos.z), current, closedSet))) || // 0 0 0
+            (isInBounds(new Vector3Int(pos.x + dir.x, pos.y, pos.z)) && (grid[pos.x + dir.x, pos.y, pos.z] == 1 || isParentNode(new Vector3Int(pos.x + dir.x, pos.y, pos.z), current, closedSet))) || // x 0 0
+            (isInBounds(new Vector3Int(pos.x, pos.y + dir.y, pos.z)) && (grid[pos.x, pos.y + dir.y, pos.z] == 1 || isParentNode(new Vector3Int(pos.x, pos.y + dir.y, pos.z), current, closedSet))) || // 0 y 0
+            (isInBounds(new Vector3Int(pos.x, pos.y, pos.z + dir.z)) && (grid[pos.x, pos.y, pos.z + dir.z] == 1 || isParentNode(new Vector3Int(pos.x, pos.y, pos.z + dir.z), current, closedSet))) || // 0 0 z
+            (isInBounds(new Vector3Int(pos.x + dir.x, pos.y + dir.y, pos.z)) && (grid[pos.x + dir.x, pos.y + dir.y, pos.z] == 1 || isParentNode(new Vector3Int(pos.x + dir.x, pos.y + dir.y, pos.z), current, closedSet))) || // x y 0
+            (isInBounds(new Vector3Int(pos.x, pos.y + dir.y, pos.z + dir.z)) && (grid[pos.x, pos.y + dir.y, pos.z + dir.z] == 1 || isParentNode(new Vector3Int(pos.x, pos.y + dir.y, pos.z + dir.z), current, closedSet))) || // 0 y z
+            (isInBounds(new Vector3Int(pos.x + dir.x, pos.y, pos.z + dir.z)) && (grid[pos.x + dir.x, pos.y, pos.z + dir.z] == 1 || isParentNode(new Vector3Int(pos.x + dir.x, pos.y, pos.z + dir.z), current, closedSet))) || // x 0 z
+            (isInBounds(new Vector3Int(pos.x + dir.x, pos.y + dir.z, pos.z + dir.z)) && (grid[pos.x + dir.x, pos.y + dir.z, pos.z + dir.z] == 1 || isParentNode(new Vector3Int(pos.x + dir.x, pos.y + dir.z, pos.z + dir.z), current, closedSet)))) // x y z
             return true;
 
         return false;
+    }
+
+    // 해당 위치를 부모노드가 지나갔는지 확인
+    private bool isParentNode(Vector3Int pos, Node current, HashSet<Vector3Int> closedSet)
+    {
+        if (closedSet.Contains(pos))
+        {
+            while (current.parent != null)
+            {
+                if (current.parent.pos == pos)
+                    return true;
+                current = current.parent;
+            }
+        }
+        return false;
+    }
+
+    // 주어진 노드들 중 f(n) 값이 가장 작은 노드를 선택
+    private Node getLowestFCostNode(List<Node> nodes)
+    {
+        Node best = nodes[0];
+        foreach (Node node in nodes)
+        {
+            if (node.fCost < best.fCost || (node.fCost == best.fCost && node.hCost < best.hCost))
+                best = node;
+        }
+        return best;
+    }
+
+    // aStar 휴리스틱 함수
+    private int getHCost(Vector3Int a, Vector3Int b)    // a b 중 하나는 현재 노드고 다른 하나는 다음 노드임
+    {
+        return Mathf.Abs(a.x - b.x) + Mathf.Abs(a.y - b.y) + Mathf.Abs(a.z - b.z);
+    }
+
+    // 지정된 위치가 그리드 범위 안에 있는지 검사하는 코드
+    private bool isInBounds(Vector3Int pos)
+    {
+        return 0 <= pos.x && pos.x < gridSize.x &&
+               0 <= pos.y && pos.y < gridSize.y &&
+               0 <= pos.z && pos.z < gridSize.z;
     }
 
     // grid에 저장된 도로를 부드럽게 이어주는 함수
@@ -576,11 +576,7 @@ public class RoadGenerator : MonoBehaviour
         }
     }
 
-    // 두 점을 부드럽게 이어주는 함수
-    // vec1, vec2는 두 점의 위치이고 vec1Grd, vec2Grd는 두 점(도로)에서 방향 값임 // Grd는 gradient의 약어
-    // 엄밀히 말하면 vec1Grd, vec2Grd는 각 점에서 미분값(기울기 값 또는 변화량)을 의미하는데 그게 방향이랑 같음
-    // scale 값은 경사에 쓰려고 넣었는데 안쓰는 중 // 하지만 나중에 수정할까봐 남겨놓음
-    // 다항함수 보간법을 조금 개량해서 만든 보간법
+    // 두 점을 부드럽게 이어주는 함수 (보간함수)
     private List<Vector3> interpolation(Vector3 vec1, Vector3 vec2, Vector3 vec1Grd, Vector3 vec2Grd, float scale)
     {
         List<Vector3> points = new List<Vector3>(); // 보간되어 찾아진 각 지점들의 위치와 방향을 저장하는 리스트
@@ -618,7 +614,7 @@ public class RoadGenerator : MonoBehaviour
             points.Add(new Vector3(x, y, z));       // 홀수번째 : 위치
             points.Add(new Vector3(dx, dy, dz));    // 짝수번째 : 방향
                                                     // 이렇게 위치가 홀짝으로 나뉜 이유는 원래 위치만 저장했지만 방향도 필요해져서 이렇게 나눔
-                                                    // 따로 return에 넣을 때 따로 나눠서 넣으면 코드가 더러워짐
+                                                    // return에 넣을 때 따로 나눠서 넣으면 코드가 더러워짐
         }
 
         return points; // 반환
@@ -696,6 +692,10 @@ public class RoadGenerator : MonoBehaviour
             map[pos.x, pos.z + i.z] = 1;
             pos += i;
         }
+
+        // 랜드마크 설치
+        Vector3Int landPos = gridSize / 2 + Vector3Int.right * 7;
+        Instantiate(Landmark, landPos + Vector3.down * landPos.y, Quaternion.identity, buildingParent);
 
         // 건물 설치
         for (int x = 0; x < gridSize.x + 4; x++)

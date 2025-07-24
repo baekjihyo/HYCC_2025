@@ -8,7 +8,6 @@
     border-radius: 0 15px 15px 0;
     padding: 20px;
     top: 15%;
-    box-shadow: 0 0 20px rgba(0, 100, 255, 0.5);
     border: 2px solid rgb(0, 170, 255);
     z-index: 100;
 }
@@ -63,7 +62,6 @@
     border-radius: 15px;
     padding: 20px;
     z-index: 1000;
-    box-shadow: 0 0 30px rgba(0, 100, 255, 0.8);
     transition: left 0.3s ease-out;
 }
 .nickname-dialog.show {
