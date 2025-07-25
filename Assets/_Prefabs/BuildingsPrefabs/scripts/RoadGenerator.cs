@@ -5,23 +5,6 @@ using UnityEngine;
 
 // RoadGenerator.cs
 
-/// <summary>
-/// <버그>
-/// pathDir 방향 오류
-/// => 의심대상 (pathDir dir aPathDir)
-/// => 의문정 : path는 정상인데 왜 pathDir만 문제일까?
-/// 
-/// <할거>
-/// 튜토리얼용 맵 뽑기
-/// 
-/// <부분 완료>
-/// 시작부 직선코스 >> 스타팅 모델링이 오면
-/// 첫부분 급코너 수정 >> 확실하진 않은데 지금까지 버그 없음 (사실상 해결로 보는 중)
-/// 
-/// 
-/// </summary>
-
-
 // 노드 클래스
 // 아마 너가 만든 코드에도 같은 이름의 클래스가 있어서 버그가 날 수 있으니까
 // 다른 맵에서 돌리거나 코드파일 다른 곳에 옮겨 놓고 돌려야함
@@ -41,109 +24,70 @@ public class Node
     }
 }
 
-// 디버깅 용이라 적힌건 무시하셈
-// 건물 배치 코드 만들기 위해 나중에 코드가 좀 바뀔 수도 있음
-// 그리고 왜인지는 모르겠는데 가끔 도로가 꼬이는 버그가 발생함 // 그거 수정해야됨
+
 [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer), typeof(MeshCollider))] // 메쉬관련 컴포넌트가 없으면 강제 추가
 public class RoadGenerator : MonoBehaviour
 {
     // 맵 설정
     public Vector3Int gridSize = new Vector3Int(40, 7, 40); // 그리드 사이즈
-    public float height = 1f;   // 도로 간의 높이 // 정배율은 1인데 개인적으로 0.5 쯤 돼야 도로가 이쁜듯
-    public float roadHeight = 0.1f; // 도로 두께
-    public float roadWidth = 0.25f; // 도로 너비
-    public float guardRailHeight = 0.1f; // 가드레일 높이
-    public float guardRailWidth = 0.05f; // 가드레일 두께
-    public float smoothness = 0.125f; // 곡면을 얼마나 부드럽게 이을건지 설정 // 0 ~ 1 사이 값만 허용 // 절대 0 넣지 말기
-    public int startLength = 3; // 처음 직선 구간 길이
-    public int maxWayPoint = 30;    // wayPoint의 최대 개수
-    public float minDistance = 10f;  // wayPoint 사이의 최소거리
-    public Transform buildingParent;       // 건물이 생성될 부모 오브젝트
+    public float height = 1f;               // 도로 간의 높이 // 정배율은 1인데 개인적으로 0.5 쯤 돼야 도로가 이쁜듯
+    public float scale = 1f;                // 맵 크기
+    public float roadHeight = 0.1f;         // 도로 두께
+    public float roadWidth = 0.25f;         // 도로 너비
+    public float lineWidth = 0.05f;          // 중앙선 너비
+    public float colliderHeight = 1f;       // 콜라이더 높이
+    public float guardRailHeight = 0.1f;    // 가드레일 높이
+    public float guardRailWidth = 0.05f;    // 가드레일 두께
+    public float smoothness = 0.125f;       // 곡면을 얼마나 부드럽게 이을건지 설정 // 0 ~ 1 사이 값만 허용 // 절대 0 넣지 말기
+    public int startLength = 3;             // 처음 직선 구간 길이
+    public int maxWayPoint = 30;            // wayPoint의 최대 개수
+    public float minDistance = 10f;         // wayPoint 사이의 최소거리
+    public GameObject roadLine;             // 중앙선 텍스쳐 오브젝트
+    public Transform buildingParent;        // 건물이 생성될 부모 오브젝트
     public GameObject Landmark;             // 랜드마크 
     public List<GameObject> building_O;     // 2 * 2 건물
     public List<GameObject> building_I;     // 1 * 2 건물
     public List<GameObject> building_L;     // 2 * 2 꺽인 건물
     public List<GameObject> building_dot;   // 1 * 1 건물
-    public GameObject roadPrefab; // 디버깅용
-    public Transform parent; // 디버깅용
 
     // 내부 변수
-    [SerializeField] private byte[,,] grid; // void 0 // road 1 // 시작점까지 이동 가능한 점 2
-    [SerializeField] private List<byte> gridList; // 디버깅 용
-    [SerializeField] private List<Vector3Int> path = new List<Vector3Int>();     // 도로가 시작점부터 순서대로 그리드의 어느 좌표로 이동하는지를 저장함
-    [SerializeField] private List<Vector3Int> pathDir = new List<Vector3Int>();  // 얘는 도로의 방향을 저장함 // path랑 pathDir에서 리스트 내 위치가 같으면 같은 도로임
-    [SerializeField] private List<Vector3Int> aPath = new List<Vector3Int>();    // path랑 똑같지만 aStar를 실행할 때 부분적으로만(각 wayPoint 사이) 작동함
-    [SerializeField] private List<Vector3Int> aPathDir = new List<Vector3Int>();
-    [SerializeField] private List<Vector3> roadPoint = new List<Vector3>();  // 얘는 보간이 적용된 path라고 생각하면 됨
-    [SerializeField] private List<Vector3> roadDir = new List<Vector3>();
-    [SerializeField] private List<Vector3Int> wayPoint = new List<Vector3Int>();
-    [SerializeField] private byte[,] map; // 건물이 설치될 위치를 구하기 위한 그리드
-    [SerializeField] private bool closedRoad; // 도로가 제대로 연결됐는지를 나타냄
+    private byte[,,] grid;                                      // void 0 // road 1 // 시작점까지 이동 가능한 점 2
+    private List<Vector3Int> path = new List<Vector3Int>();     // 도로가 시작점부터 순서대로 그리드의 어느 좌표로 이동하는지를 저장함
+    private List<Vector3Int> pathDir = new List<Vector3Int>();  // 얘는 도로의 방향을 저장함 // path랑 pathDir에서 리스트 내 위치가 같으면 같은 도로임
+    private List<Vector3Int> aPath = new List<Vector3Int>();    // path랑 똑같지만 aStar를 실행할 때 부분적으로만(각 wayPoint 사이) 작동함
+    private List<Vector3Int> aPathDir = new List<Vector3Int>();
+    private List<Vector3> roadPoint = new List<Vector3>();      // 얘는 보간이 적용된 path라고 생각하면 됨
+    private List<Vector3> roadDir = new List<Vector3>();
+    private List<Vector3Int> wayPoint = new List<Vector3Int>();
+    private byte[,] map;                                        // 건물이 설치될 위치를 구하기 위한 그리드
+    private bool closedRoad;                                    // 도로가 제대로 연결됐는지를 나타냄
 
     private void Start()
-    {
+    {   
         if (smoothness == 0)    // smoothness 값은 0이 되면 코드가 무한 반복 됨
             smoothness = 0.01f; // 그거 방지용 코드
 
         while (!closedRoad)
         {
             closedRoad = true;
-            clearVar(); // 변수 초기화
-            grid = new byte[gridSize.x, gridSize.y, gridSize.z]; // 그리드 생성
+            clearVar();             // 변수 초기화
+            grid = new byte[gridSize.x, gridSize.y, gridSize.z];    // 그리드 생성
             map = new byte[gridSize.x + 4, gridSize.z + 4];
-            setLandmark(); // 랜드마크 생성
-            generateWayPoints(); // wayPoint 생성
-            generateRoadMap(); // wayPoint를 잇는 도로를 그리드 위에 생성
+            setLandmark();          // 랜드마크 생성
+            generateWayPoints();    // wayPoint 생성
+            generateRoadMap();      // wayPoint를 잇는 도로를 그리드 위에 생성
         }
 
-        gridList = new List<byte>(); // 디버깅용
-        setLine(); // 그리드에 그려진 도로를 보간법을 이용해 부드럽게 이어줌
-        setMesh(); // 보간된 도로를 그래픽으로 변환
-
-
-        // 디버깅
-        Debug.DrawLine(path[0], path[0] + Vector3.up * 5, Color.yellow, 100f);
-        for (int i = 0; i < path.Count - 1; i++)
-        {
-            Debug.DrawLine(new Vector3(path[i].x, path[i].y * height, path[i].z) + Vector3.up * 0.25f, new Vector3(path[i + 1].x, path[i + 1].y * height, path[i + 1].z) + Vector3.up * 0.25f, Color.blue, 100f); // road
-            Instantiate(roadPrefab, path[i], Quaternion.identity, parent); // block
-        }
-        for (int i = 0; i < roadPoint.Count - 1; i++)
-        {
-            Debug.DrawLine(new Vector3(roadPoint[i].x, roadPoint[i].y * height, roadPoint[i].z)  + Vector3.up * 0.15f, new Vector3(roadPoint[i+1].x, roadPoint[i+1].y * height, roadPoint[i+1].z) + Vector3.up * 0.15f, Color.red, 100f); // vertex line
-        }
-        foreach (var p in roadPoint)
-        {
-            //Vector3 q = new Vector3(p.x, p.y * height, p.z);
-            //Debug.DrawLine(q, q + Vector3.up, Color.red, 100f); // vertex line
-        }
-        for (int x = 0; x < grid.GetLength(0); x++)
-            for (int y = 0; y < grid.GetLength(1); y++)
-                for (int z = 0; z < grid.GetLength(2); z++)
-                {
-                    gridList.Add(grid[x, y, z]);
-                    if (grid[x, y, z] == 1)
-                    {
-                        //Debug.DrawLine(new Vector3(x, y * height, z), new Vector3(x, y * height, z) + Vector3.up * 0.25f, Color.blue, 100f); // 장애물
-                    }
-                    else if (grid[x, y, z] == 2)
-                    {
-                        //Debug.DrawLine(new Vector3(x, y * height, z), new Vector3(x, y * height, z) + Vector3.up * 1f, Color.green, 100f); // 장애물
-                    }
-                }
-        // 디버깅 용
-        for (int i = 0; i < wayPoint.Count; i++)
-            Debug.DrawLine(wayPoint[i], wayPoint[i] + Vector3.up * 2, Color.cyan, 100f);
-
-        build(); // 주변 건물 설치
-        //clearVar();
+        setLine();  // 그리드에 그려진 도로를 보간법을 이용해 부드럽게 이어줌
+        setMesh();  // 보간된 도로를 그래픽으로 변환
+        build();    // 주변 건물 설치
+        clearVar(); // 변수 초기화
 
     }
 
     private void clearVar()
     {
         grid = null;
-        gridList.Clear(); // 디버깅용
         path.Clear();
         pathDir.Clear();
         aPath.Clear();
@@ -255,7 +199,7 @@ public class RoadGenerator : MonoBehaviour
             pathDir.Add(aPathDir[j]);
         }
 
-        // 나중에 리스트 연산을 편하게 하기 위해 첫 두점을 마지막에도 추가
+        // 리스트 연산 편의용
         path.Add(path[0]);
         path.Add(path[1]);
         pathDir.Add(pathDir[0]);
@@ -265,21 +209,21 @@ public class RoadGenerator : MonoBehaviour
     // 얘가 aStar 알고리즘임
     private void findPath(Vector3Int start, Vector3Int goal, Vector3Int beforeDir)
     {
-        // 초기 설정
-        aPath.Clear();      // 리스트 초기화
-        aPathDir.Clear();   // 리스트 초기화
-        List<Node> openSet = new List<Node>();  // 탐색 중인 노드
-        HashSet<Vector3Int> closedSet = new HashSet<Vector3Int>(); // 방문 완료 노드
+        aPath.Clear();
+        aPathDir.Clear();
+
+        List<Node> openSet = new List<Node>();                      // 탐색 중인 노드
+        HashSet<Vector3Int> closedSet = new HashSet<Vector3Int>();  // 방문 완료 노드
         Node startNode = new Node(start) { gCost = 0, hCost = getHCost(start, goal), dir = beforeDir };
         openSet.Add(startNode);
 
         while (openSet.Count > 0)
         {
-            Node currentNode = getLowestFCostNode(openSet); // 탐색 노드 중 가장 저비용인 노드를 현재노드로 선택
+            Node currentNode = getLowestFCostNode(openSet);         // 탐색 노드 중 가장 저비용인 노드를 현재노드로 선택
 
-            if (currentNode.pos == goal) // 도착점 도달
+            if (currentNode.pos == goal)                            // 도착점 도달
             {
-                reconstructPath(currentNode); // 이동경로(도로) 저장
+                reconstructPath(currentNode);                       // 이동경로(도로) 저장
                 return;
             }
 
@@ -305,28 +249,23 @@ public class RoadGenerator : MonoBehaviour
 
                 // 도로를 시작점에 연결할 때 현재 노드가 시작점까지 연결 불가능한 노드면 패스
                 if (wayPoint[0] == neighborPos && grid[currentNode.pos.x, currentNode.pos.y, currentNode.pos.z] == 2)
-                {
-                    //Debug.DrawLine(currentNode.pos, neighborPos, Color.red, 100f);
-                    Debug.Log("aaa");
                     continue;
-                }
 
                 int tentativeG = currentNode.gCost + Mathf.Abs(dir.x) + Mathf.Abs(dir.y) + Mathf.Abs(dir.z); // 첫 노드부터 다음 노드까지 이동비용
 
                 Node neighborNode = openSet.Find(n => n.pos == neighborPos);
-                if (neighborNode == null)   // 이웃노드가 탐색되지 않은 노드인 경우
+                if (neighborNode == null)                       // 이웃노드가 탐색되지 않은 노드인 경우
                 {
                     neighborNode = new Node(neighborPos)
                     {
-                        // 비용 저장
                         gCost = tentativeG,
                         hCost = getHCost(neighborPos, goal),
                         dir = dir,                              // 이 노드가 이전 노드로부터 어느 방향으로 왔는지 저장
                         parent = currentNode                    // 현재 노드를 부모 노드로 설정 // 어떤 노드에서 왔는지 확인할 때 사용
                     };
-                    openSet.Add(neighborNode); // 탐색 중인 노드 목록에 추가
+                    openSet.Add(neighborNode);                  // 탐색 중인 노드 목록에 추가
                 }
-                else if (tentativeG < neighborNode.gCost) // 이웃노드가 탐색 중인 노드이고 현재 이동 방법이 더 빠른(저비용인) 방법이면 현재 이동 방법으로 갱신
+                else if (tentativeG < neighborNode.gCost)       // 이웃노드가 탐색 중인 노드이고 현재 이동 방법이 더 빠른(저비용인) 방법이면 현재 이동 방법으로 갱신
                 {
                     neighborNode.gCost = tentativeG;
                     neighborNode.parent = currentNode;
@@ -334,24 +273,22 @@ public class RoadGenerator : MonoBehaviour
                 }
             }
         }
-        Debug.Log(start);
         closedRoad = false;
     }
 
     // 탐색된 aStar 경로를 저장
     private void reconstructPath(Node endNode)
     {
-        // 초기 설정
         Node current = endNode;
 
         while (current.parent != null)
         {
             aPath.Add(current.parent.pos);
             aPathDir.Add(current.dir);
-            block(current.parent.pos, current.dir); // 그리드에 이동 불능점 표시
+            block(current.parent.pos, current.dir);             // 그리드에 이동 불능점 표시
             current = current.parent;
         }
-        grid[endNode.pos.x, endNode.pos.y, endNode.pos.z] = 0; // 다음 A*를 위해 끝점 0으로 설정
+        grid[endNode.pos.x, endNode.pos.y, endNode.pos.z] = 0;  // 다음 A*를 위해 끝점 0으로 설정
         aPath.Reverse();
         aPathDir.Reverse();
     }
@@ -389,14 +326,11 @@ public class RoadGenerator : MonoBehaviour
     // 너무 급격히 꺽이는 노드는 제외
     private List<Vector3Int> getDirections(Vector3Int dir)
     {
-        // 기본 설정
         Vector3Int v0 = new Vector3Int(dir.x, 0, dir.z);
         Vector3Int v1 = Vector3Int.zero;
         Vector3Int v2 = Vector3Int.zero;
         int scale = 1;
 
-        // v1 v2는 dir의 법선벡터
-        // scale은 3 * 3 단위 격자 안에 넣기 위해 크기 조정용으로 넣은거임
         if (dir.x == 0 && dir.z != 0)
         {
             v1 = new Vector3Int(1, 0, 0);
@@ -507,7 +441,7 @@ public class RoadGenerator : MonoBehaviour
     }
 
     // aStar 휴리스틱 함수
-    private int getHCost(Vector3Int a, Vector3Int b)    // a b 중 하나는 현재 노드고 다른 하나는 다음 노드임
+    private int getHCost(Vector3Int a, Vector3Int b)
     {
         return Mathf.Abs(a.x - b.x) + Mathf.Abs(a.y - b.y) + Mathf.Abs(a.z - b.z);
     }
@@ -536,19 +470,19 @@ public class RoadGenerator : MonoBehaviour
 
             if (currentDir == beforeDir)
             {
-                if (currentDir == nextDir)  // 이전, 현재, 다음 셋의 방향이 같을 때 연산량을 줄이기 위해
-                {                           // 중간 노드를 연산하지 않고 직선으로 이음
-                    if (i == path.Count - 3)    // 마지막 항
+                if (currentDir == nextDir)                  // 이전, 현재, 다음 셋의 방향이 같을 때 중간 노드를 연산하지 않고 직선으로 이음
+                {
+                    if (i == path.Count - 3)                // 마지막 항
                     {
                         roadPoint.RemoveAt(0);
                         roadDir.RemoveAt(0);
                         roadPoint.Add(beforePos + beforeDir * 0.5f);
                         roadDir.Add(beforeDir);
                     }
-                    continue;   // 일반항
+                    continue;
                 }
-                else if (beforePos.y != path[i].y)  // 좀 헷갈리게 써놓긴 했는데 [i]면 현재고 [i+1]이면 다음임
-                {                                   // 이전이랑 현재의 높이가 다르면 보간으로 이음
+                else if (beforePos.y != path[i].y)          // 이전이랑 현재의 높이가 다르면 보간으로 이음
+                {
                     List<Vector3> curve = interpolation(beforePos + beforeDir * 0.5f, path[i] + currentDir * 0.5f, beforeDir.normalized, currentDir.normalized, 1);
                     for (int j = 0; j < curve.Count / 2; j++)
                     {
@@ -556,13 +490,13 @@ public class RoadGenerator : MonoBehaviour
                         roadDir.Add(curve[2 * j + 1]);
                     }
                 }
-                else // 현재랑 다음이랑 방향이 다르면 이전과 현재를 직선으로 이음 (이전과 현재는 방향은 같은 상황)
+                else                                        // 현재랑 다음이랑 방향이 다르면 이전과 현재를 직선으로 이음 (이전과 현재는 방향은 같은 상황)
                 {
                     roadPoint.Add(beforePos + beforeDir * 0.5f);
                     roadDir.Add(beforeDir);
                 }
             }
-            else // 이전이랑 현재랑 방향이 다르면 이전과 현재를 곡선으로 이음
+            else                                            // 이전이랑 현재랑 방향이 다르면 이전과 현재를 곡선으로 이음
             {
                 List<Vector3> curve = interpolation(beforePos + beforeDir * 0.5f, path[i] + currentDir * 0.5f, beforeDir.normalized, currentDir.normalized, 1);
                 for (int j = 0; j < curve.Count / 2; j++)
@@ -581,25 +515,22 @@ public class RoadGenerator : MonoBehaviour
     {
         List<Vector3> points = new List<Vector3>(); // 보간되어 찾아진 각 지점들의 위치와 방향을 저장하는 리스트
 
-        // x에 대한 계수값
         float Xa = 2 * vec1.x - 2 * vec2.x + vec1Grd.x + vec2Grd.x;
         float Xb = -3 * vec1.x + 3 * vec2.x - 2 * vec1Grd.x - vec2Grd.x;
         float Xc = vec1Grd.x;
         float Xd = vec1.x;
 
-        // y에 대한 계수값
         float Ya = 2 * vec1.y - 2 * vec2.y + vec1Grd.y + vec2Grd.y;
         float Yb = -3 * vec1.y + 3 * vec2.y - 2 * vec1Grd.y - vec2Grd.y;
         float Yc = vec1Grd.y;
         float Yd = vec1.y;
 
-        // z에 대한 계수값
         float Za = 2 * vec1.z - 2 * vec2.z + vec1Grd.z + vec2Grd.z;
         float Zb = -3 * vec1.z + 3 * vec2.z - 2 * vec1Grd.z - vec2Grd.z;
         float Zc = vec1Grd.z;
         float Zd = vec1.z;
 
-        for (float t = 0f; t <= 1f - smoothness / scale; t += smoothness / scale) // 매개변수 t(0 <= t <= 1)는 xyz 값이 균일해지도록 하는 기준 역할을 함
+        for (float t = 0f; t <= 1f - smoothness / scale; t += smoothness / scale)
         {
             // 위치
             float x = (Xa * t * t * t) + (Xb * t * t) + (Xc * t) + Xd;
@@ -613,76 +544,135 @@ public class RoadGenerator : MonoBehaviour
 
             points.Add(new Vector3(x, y, z));       // 홀수번째 : 위치
             points.Add(new Vector3(dx, dy, dz));    // 짝수번째 : 방향
-                                                    // 이렇게 위치가 홀짝으로 나뉜 이유는 원래 위치만 저장했지만 방향도 필요해져서 이렇게 나눔
-                                                    // return에 넣을 때 따로 나눠서 넣으면 코드가 더러워짐
         }
 
-        return points; // 반환
+        return points;
     }
 
     // 부드러워진 도로(선)를 바탕으로 도로 그래픽을 만듦
     private void setMesh()
     {
+        // roadLine에 컴포넌트 강제 추가
+        if (roadLine != null)
+        {
+            if (roadLine.GetComponent<MeshFilter>() == null)
+                roadLine.AddComponent<MeshFilter>();
+
+            if (roadLine.GetComponent<MeshRenderer>() == null)
+                roadLine.AddComponent<MeshRenderer>();
+        }
+
         // 메쉬 컴포넌트 설정
-        MeshFilter meshFilter = GetComponent<MeshFilter>();
+        MeshFilter meshFilterT = GetComponent<MeshFilter>();
+        MeshFilter meshFilterL = roadLine.GetComponent<MeshFilter>();
         MeshCollider collider = GetComponent<MeshCollider>();
-        Mesh mesh = new Mesh();
-        mesh.name = "RoadMesh";
+        Mesh meshT = new Mesh();
+        Mesh meshL = new Mesh();
+        Mesh meshC = new Mesh();
+        meshT.name = "TextureMesh";
+        meshL.name = "LineMesh";
+        meshC.name = "ColliderMesh";
 
         // 변수 설정
-        Vector3[] vertices = new Vector3[roadPoint.Count * 8];
-        int[] triangles = new int[roadPoint.Count * 48]; // 8 * 2 * 3
+        Vector3[] verticesT = new Vector3[roadPoint.Count * 8];
+        int[] trianglesT = new int[roadPoint.Count * 48]; // 8 * 2 * 3
+        Vector3[] verticesL = new Vector3[roadPoint.Count * 2];
+        int[] trianglesL = new int[roadPoint.Count * 6]; // 1 * 2 * 3
+        Vector3[] verticesC = new Vector3[roadPoint.Count * 4];
+        int[] trianglesC = new int[roadPoint.Count * 24]; // 4 * 2 * 3
 
-        // 버텍스(꼭짓점) 생성
+        // 버텍스 생성
         for (int i = 0; i < roadPoint.Count; i++)
         {
             Vector3 vecH = new Vector3(roadPoint[i].x, roadPoint[i].y * height, roadPoint[i].z);
 
-            vertices[i * 8 + 0] = vecH + Vector3.Cross(roadDir[i], Vector3.up).normalized * (roadWidth + guardRailWidth) * 0.5f + Vector3.up * guardRailHeight;
-            vertices[i * 8 + 1] = vecH + Vector3.Cross(roadDir[i], Vector3.up).normalized * roadWidth * 0.5f + Vector3.up * guardRailHeight;
-            vertices[i * 8 + 2] = vecH + Vector3.Cross(roadDir[i], Vector3.up).normalized * roadWidth * 0.5f;
-            vertices[i * 8 + 3] = vecH + Vector3.Cross(roadDir[i], Vector3.down).normalized * roadWidth * 0.5f;
-            vertices[i * 8 + 4] = vecH + Vector3.Cross(roadDir[i], Vector3.down).normalized * roadWidth * 0.5f + Vector3.up * guardRailHeight;
-            vertices[i * 8 + 5] = vecH + Vector3.Cross(roadDir[i], Vector3.down).normalized * (roadWidth + guardRailWidth) * 0.5f + Vector3.up * guardRailHeight;
-            vertices[i * 8 + 6] = vecH + Vector3.Cross(roadDir[i], Vector3.down).normalized * (roadWidth + guardRailWidth) * 0.5f + Vector3.down * roadHeight;
-            vertices[i * 8 + 7] = vecH + Vector3.Cross(roadDir[i], Vector3.up).normalized * (roadWidth + guardRailWidth) * 0.5f + Vector3.down * roadHeight;
+            // [texture]
+            verticesT[i * 8 + 0] = (vecH + Vector3.Cross(roadDir[i], Vector3.up).normalized * (roadWidth + guardRailWidth) * 0.5f + Vector3.up * guardRailHeight) * scale;
+            verticesT[i * 8 + 1] = (vecH + Vector3.Cross(roadDir[i], Vector3.up).normalized * roadWidth * 0.5f + Vector3.up * guardRailHeight) * scale;
+            verticesT[i * 8 + 2] = (vecH + Vector3.Cross(roadDir[i], Vector3.up).normalized * roadWidth * 0.5f) * scale;
+            verticesT[i * 8 + 3] = (vecH + Vector3.Cross(roadDir[i], Vector3.down).normalized * roadWidth * 0.5f) * scale;
+            verticesT[i * 8 + 4] = (vecH + Vector3.Cross(roadDir[i], Vector3.down).normalized * roadWidth * 0.5f + Vector3.up * guardRailHeight) * scale;
+            verticesT[i * 8 + 5] = (vecH + Vector3.Cross(roadDir[i], Vector3.down).normalized * (roadWidth + guardRailWidth) * 0.5f + Vector3.up * guardRailHeight) * scale;
+            verticesT[i * 8 + 6] = (vecH + Vector3.Cross(roadDir[i], Vector3.down).normalized * (roadWidth + guardRailWidth) * 0.5f + Vector3.down * roadHeight) * scale;
+            verticesT[i * 8 + 7] = (vecH + Vector3.Cross(roadDir[i], Vector3.up).normalized * (roadWidth + guardRailWidth) * 0.5f + Vector3.down * roadHeight) * scale;
+
+            // [center line]
+            verticesL[i * 2 + 0] = (vecH + Vector3.Cross(roadDir[i], Vector3.up).normalized * lineWidth * 0.5f + Vector3.up * 0.01f) * scale;
+            verticesL[i * 2 + 1] = (vecH + Vector3.Cross(roadDir[i], Vector3.down).normalized * lineWidth * 0.5f + Vector3.up * 0.01f) * scale;
+
+            // [collider]
+            verticesC[i * 4 + 0] = (vecH + Vector3.Cross(roadDir[i], Vector3.up).normalized * roadWidth * 0.5f) * scale;
+            verticesC[i * 4 + 1] = (vecH + Vector3.Cross(roadDir[i], Vector3.down).normalized * roadWidth * 0.5f) * scale;
+            verticesC[i * 4 + 2] = (vecH + Vector3.Cross(roadDir[i], Vector3.down).normalized * roadWidth * 0.5f + Vector3.up * colliderHeight * height) * scale;
+            verticesC[i * 4 + 3] = (vecH + Vector3.Cross(roadDir[i], Vector3.up).normalized * roadWidth * 0.5f + Vector3.up * colliderHeight * height) * scale;
+
         }
 
-        // 버텍스를 바탕으로 폴리곤(삼각형) 생성
+        // 폴리곤 생성
+        int lenT = verticesT.Length;
+        int lenL = verticesL.Length;
+        int lenC = verticesC.Length;
+
         for (int i = 0; i < roadPoint.Count; i++)
         {
-            // triangle
-            int len = vertices.Length;
-            triangles[i * 48 + 0] = (i * 8 + 8) % len; triangles[i * 48 + 1] = (i * 8 + 0) % len; triangles[i * 48 + 2] = (i * 8 + 7) % len; //
-            triangles[i * 48 + 3] = (i * 8 + 8) % len; triangles[i * 48 + 4] = (i * 8 + 7) % len; triangles[i * 48 + 5] = (i * 8 + 15) % len; //
-            triangles[i * 48 + 6] = (i * 8 + 8) % len; triangles[i * 48 + 7] = (i * 8 + 9) % len; triangles[i * 48 + 8] = (i * 8 + 1) % len; //
-            triangles[i * 48 + 9] = (i * 8 + 8) % len; triangles[i * 48 + 10] = (i * 8 + 1) % len; triangles[i * 48 + 11] = (i * 8 + 0) % len; //
-            triangles[i * 48 + 12] = (i * 8 + 10) % len; triangles[i * 48 + 13] = (i * 8 + 2) % len; triangles[i * 48 + 14] = (i * 8 + 1) % len; //
-            triangles[i * 48 + 15] = (i * 8 + 10) % len; triangles[i * 48 + 16] = (i * 8 + 1) % len; triangles[i * 48 + 17] = (i * 8 + 9) % len; //
-            triangles[i * 48 + 18] = (i * 8 + 10) % len; triangles[i * 48 + 19] = (i * 8 + 11) % len; triangles[i * 48 + 20] = (i * 8 + 3) % len; //
-            triangles[i * 48 + 21] = (i * 8 + 10) % len; triangles[i * 48 + 22] = (i * 8 + 3) % len; triangles[i * 48 + 23] = (i * 8 + 2) % len; //
-            triangles[i * 48 + 24] = (i * 8 + 12) % len; triangles[i * 48 + 25] = (i * 8 + 4) % len; triangles[i * 48 + 26] = (i * 8 + 3) % len; //
-            triangles[i * 48 + 27] = (i * 8 + 12) % len; triangles[i * 48 + 28] = (i * 8 + 3) % len; triangles[i * 48 + 29] = (i * 8 + 11) % len; //
-            triangles[i * 48 + 30] = (i * 8 + 12) % len; triangles[i * 48 + 31] = (i * 8 + 13) % len; triangles[i * 48 + 32] = (i * 8 + 5) % len; //
-            triangles[i * 48 + 33] = (i * 8 + 12) % len; triangles[i * 48 + 34] = (i * 8 + 5) % len; triangles[i * 48 + 35] = (i * 8 + 4) % len; //
-            triangles[i * 48 + 36] = (i * 8 + 14) % len; triangles[i * 48 + 37] = (i * 8 + 6) % len; triangles[i * 48 + 38] = (i * 8 + 5) % len; //
-            triangles[i * 48 + 39] = (i * 8 + 14) % len; triangles[i * 48 + 40] = (i * 8 + 5) % len; triangles[i * 48 + 41] = (i * 8 + 13) % len; //
-            triangles[i * 48 + 42] = (i * 8 + 14) % len; triangles[i * 48 + 43] = (i * 8 + 15) % len; triangles[i * 48 + 44] = (i * 8 + 7) % len; //
-            triangles[i * 48 + 45] = (i * 8 + 14) % len; triangles[i * 48 + 46] = (i * 8 + 7) % len; triangles[i * 48 + 47] = (i * 8 + 6) % len; //
+            // [texture]
+            trianglesT[i * 48 + 0] = (i * 8 + 8) % lenT; trianglesT[i * 48 + 1] = (i * 8 + 0) % lenT; trianglesT[i * 48 + 2] = (i * 8 + 7) % lenT; //
+            trianglesT[i * 48 + 3] = (i * 8 + 8) % lenT; trianglesT[i * 48 + 4] = (i * 8 + 7) % lenT; trianglesT[i * 48 + 5] = (i * 8 + 15) % lenT; //
+            trianglesT[i * 48 + 6] = (i * 8 + 8) % lenT; trianglesT[i * 48 + 7] = (i * 8 + 9) % lenT; trianglesT[i * 48 + 8] = (i * 8 + 1) % lenT; //
+            trianglesT[i * 48 + 9] = (i * 8 + 8) % lenT; trianglesT[i * 48 + 10] = (i * 8 + 1) % lenT; trianglesT[i * 48 + 11] = (i * 8 + 0) % lenT; //
+            trianglesT[i * 48 + 12] = (i * 8 + 10) % lenT; trianglesT[i * 48 + 13] = (i * 8 + 2) % lenT; trianglesT[i * 48 + 14] = (i * 8 + 1) % lenT; //
+            trianglesT[i * 48 + 15] = (i * 8 + 10) % lenT; trianglesT[i * 48 + 16] = (i * 8 + 1) % lenT; trianglesT[i * 48 + 17] = (i * 8 + 9) % lenT; //
+            trianglesT[i * 48 + 18] = (i * 8 + 10) % lenT; trianglesT[i * 48 + 19] = (i * 8 + 11) % lenT; trianglesT[i * 48 + 20] = (i * 8 + 3) % lenT; //
+            trianglesT[i * 48 + 21] = (i * 8 + 10) % lenT; trianglesT[i * 48 + 22] = (i * 8 + 3) % lenT; trianglesT[i * 48 + 23] = (i * 8 + 2) % lenT; //
+            trianglesT[i * 48 + 24] = (i * 8 + 12) % lenT; trianglesT[i * 48 + 25] = (i * 8 + 4) % lenT; trianglesT[i * 48 + 26] = (i * 8 + 3) % lenT; //
+            trianglesT[i * 48 + 27] = (i * 8 + 12) % lenT; trianglesT[i * 48 + 28] = (i * 8 + 3) % lenT; trianglesT[i * 48 + 29] = (i * 8 + 11) % lenT; //
+            trianglesT[i * 48 + 30] = (i * 8 + 12) % lenT; trianglesT[i * 48 + 31] = (i * 8 + 13) % lenT; trianglesT[i * 48 + 32] = (i * 8 + 5) % lenT; //
+            trianglesT[i * 48 + 33] = (i * 8 + 12) % lenT; trianglesT[i * 48 + 34] = (i * 8 + 5) % lenT; trianglesT[i * 48 + 35] = (i * 8 + 4) % lenT; //
+            trianglesT[i * 48 + 36] = (i * 8 + 14) % lenT; trianglesT[i * 48 + 37] = (i * 8 + 6) % lenT; trianglesT[i * 48 + 38] = (i * 8 + 5) % lenT; //
+            trianglesT[i * 48 + 39] = (i * 8 + 14) % lenT; trianglesT[i * 48 + 40] = (i * 8 + 5) % lenT; trianglesT[i * 48 + 41] = (i * 8 + 13) % lenT; //
+            trianglesT[i * 48 + 42] = (i * 8 + 14) % lenT; trianglesT[i * 48 + 43] = (i * 8 + 15) % lenT; trianglesT[i * 48 + 44] = (i * 8 + 7) % lenT; //
+            trianglesT[i * 48 + 45] = (i * 8 + 14) % lenT; trianglesT[i * 48 + 46] = (i * 8 + 7) % lenT; trianglesT[i * 48 + 47] = (i * 8 + 6) % lenT; //
+
+            // [center line]
+            trianglesL[i * 6 + 0] = (i * 2 + 0) % lenL; trianglesL[i * 6 + 1] = (i * 2 + 3) % lenL; trianglesL[i * 6 + 2] = (i * 2 + 1) % lenL;
+            trianglesL[i * 6 + 3] = (i * 2 + 0) % lenL; trianglesL[i * 6 + 4] = (i * 2 + 2) % lenL; trianglesL[i * 6 + 5] = (i * 2 + 3) % lenL;
+
+            // [collider]
+            trianglesC[i * 24 + 0] = (i * 4 + 0) % lenC; trianglesC[i * 24 + 1] = (i * 4 + 3) % lenC; trianglesC[i * 24 + 2] = (i * 4 + 7) % lenC;
+            trianglesC[i * 24 + 3] = (i * 4 + 0) % lenC; trianglesC[i * 24 + 4] = (i * 4 + 7) % lenC; trianglesC[i * 24 + 5] = (i * 4 + 4) % lenC;
+            trianglesC[i * 24 + 6] = (i * 4 + 0) % lenC; trianglesC[i * 24 + 7] = (i * 4 + 4) % lenC; trianglesC[i * 24 + 8] = (i * 4 + 5) % lenC;
+            trianglesC[i * 24 + 9] = (i * 4 + 0) % lenC; trianglesC[i * 24 + 10] = (i * 4 + 5) % lenC; trianglesC[i * 24 + 11] = (i * 4 + 1) % lenC;
+            trianglesC[i * 24 + 12] = (i * 4 + 2) % lenC; trianglesC[i * 24 + 13] = (i * 4 + 1) % lenC; trianglesC[i * 24 + 14] = (i * 4 + 5) % lenC;
+            trianglesC[i * 24 + 15] = (i * 4 + 2) % lenC; trianglesC[i * 24 + 16] = (i * 4 + 5) % lenC; trianglesC[i * 24 + 17] = (i * 4 + 6) % lenC;
+            trianglesC[i * 24 + 18] = (i * 4 + 2) % lenC; trianglesC[i * 24 + 19] = (i * 4 + 6) % lenC; trianglesC[i * 24 + 20] = (i * 4 + 7) % lenC;
+            trianglesC[i * 24 + 21] = (i * 4 + 2) % lenC; trianglesC[i * 24 + 22] = (i * 4 + 7) % lenC; trianglesC[i * 24 + 23] = (i * 4 + 3) % lenC;
         }
 
-        // 대입
-        mesh.vertices = vertices;
-        mesh.triangles = triangles;
-        mesh.RecalculateNormals();
+        // [texture]
+        meshT.vertices = verticesT;
+        meshT.triangles = trianglesT;
+        meshT.RecalculateNormals();
+        meshFilterT.mesh = meshT;
 
-        meshFilter.mesh = mesh;
-        collider.sharedMesh = meshFilter.sharedMesh;
+        // [center line]
+        meshL.vertices = verticesL;
+        meshL.triangles = trianglesL;
+        meshL.RecalculateNormals();
+        meshFilterL.mesh = meshL;
+
+        // [collider]
+        meshC.vertices = verticesC;
+        meshC.triangles = trianglesC;
+        meshC.RecalculateNormals();
+        collider.sharedMesh = meshC;
     }
 
     // 건물 배치 함수
     private void build()
     {
+        // scale
+        buildingParent.localScale = Vector3.one * scale;
+
         // 설치 불가능한 지역 검사 // 0 설치 가능 // 1 설치 불가능
         Vector3Int pos = new Vector3Int(path[0].x + 2, path[0].y, path[0].z + 2);
         foreach (var i in pathDir)
@@ -695,16 +685,16 @@ public class RoadGenerator : MonoBehaviour
 
         // 랜드마크 설치
         Vector3Int landPos = gridSize / 2 + Vector3Int.right * 7;
-        Instantiate(Landmark, landPos + Vector3.down * landPos.y, Quaternion.identity, buildingParent);
+        Instantiate(Landmark, (landPos + Vector3.down * landPos.y) * scale, Quaternion.identity, buildingParent);
 
         // 건물 설치
         for (int x = 0; x < gridSize.x + 4; x++)
             for (int z = 0; z < gridSize.z + 4; z++)
             {
                 // O형
-                if (isInMap(new Vector3Int(x + 1, 0, z + 1)) && map[x, z] == 0 && map[x + 1, z] == 0 && map[x, z + 1] == 0 && map[x + 1, z + 1] == 0) // O형
+                if (isInMap(new Vector3Int(x + 1, 0, z + 1)) && map[x, z] == 0 && map[x + 1, z] == 0 && map[x, z + 1] == 0 && map[x + 1, z + 1] == 0) // O
                 {
-                    Instantiate(building_O[Random.Range(0, building_O.Count)], new Vector3(x - 1.5f, 0, z - 1.5f), Quaternion.Euler(0, Random.Range(0, 4) * 90, 0), buildingParent);
+                    Instantiate(building_O[Random.Range(0, building_O.Count)], new Vector3(x - 1.5f, 0, z - 1.5f) * scale, Quaternion.Euler(0, Random.Range(0, 4) * 90, 0), buildingParent);
                     map[x, z] = 1;
                     map[x + 1, z] = 1;
                     map[x, z + 1] = 1;
@@ -713,28 +703,28 @@ public class RoadGenerator : MonoBehaviour
                 // L형
                 else if (isInMap(new Vector3Int(x + 1, 0, z + 1)) && map[x + 1, z] == 0 && map[x, z + 1] == 0 && map[x + 1, z + 1] == 0) // void x0 z0
                 {
-                    Instantiate(building_L[Random.Range(0, building_L.Count)], new Vector3(x - 1.5f, 0, z - 1.5f), Quaternion.Euler(0, 0, 0), buildingParent);
+                    Instantiate(building_L[Random.Range(0, building_L.Count)], new Vector3(x - 1.5f, 0, z - 1.5f) * scale, Quaternion.Euler(0, 0, 0), buildingParent);
                     map[x + 1, z] = 1;
                     map[x, z + 1] = 1;
                     map[x + 1, z + 1] = 1;
                 }
                 else if (isInMap(new Vector3Int(x + 1, 0, z + 1)) && map[x, z] == 0 && map[x, z + 1] == 0 && map[x + 1, z + 1] == 0) // void x+ z0
                 {
-                    Instantiate(building_L[Random.Range(0, building_L.Count)], new Vector3(x - 1.5f, 0, z - 1.5f), Quaternion.Euler(0, 270, 0), buildingParent);
+                    Instantiate(building_L[Random.Range(0, building_L.Count)], new Vector3(x - 1.5f, 0, z - 1.5f) * scale, Quaternion.Euler(0, 270, 0), buildingParent);
                     map[x, z] = 1;
                     map[x, z + 1] = 1;
                     map[x + 1, z + 1] = 1;
                 }
                 else if (isInMap(new Vector3Int(x + 1, 0, z + 1)) && map[x, z] == 0 && map[x + 1, z] == 0 && map[x + 1, z + 1] == 0) // void x0 z+
                 {
-                    Instantiate(building_L[Random.Range(0, building_L.Count)], new Vector3(x - 1.5f, 0, z - 1.5f), Quaternion.Euler(0, 90, 0), buildingParent);
+                    Instantiate(building_L[Random.Range(0, building_L.Count)], new Vector3(x - 1.5f, 0, z - 1.5f) * scale, Quaternion.Euler(0, 90, 0), buildingParent);
                     map[x, z] = 1;
                     map[x + 1, z] = 1;
                     map[x + 1, z + 1] = 1;
                 }
                 else if (isInMap(new Vector3Int(x + 1, 0, z + 1)) && map[x, z] == 0 && map[x + 1, z] == 0 && map[x, z + 1] == 0) // void x+ z+
                 {
-                    Instantiate(building_L[Random.Range(0, building_L.Count)], new Vector3(x - 1.5f, 0, z - 1.5f), Quaternion.Euler(0, 180, 0), buildingParent);
+                    Instantiate(building_L[Random.Range(0, building_L.Count)], new Vector3(x - 1.5f, 0, z - 1.5f) * scale, Quaternion.Euler(0, 180, 0), buildingParent);
                     map[x, z] = 1;
                     map[x + 1, z] = 1;
                     map[x, z + 1] = 1;
@@ -742,20 +732,20 @@ public class RoadGenerator : MonoBehaviour
                 // I형
                 else if (isInMap(new Vector3Int(x + 1, 0, z)) && map[x, z] == 0 && map[x + 1, z] == 0) // x+
                 {
-                    Instantiate(building_I[Random.Range(0, building_I.Count)], new Vector3(x - 1.5f, 0, z - 1.5f), Quaternion.Euler(0, 0, 0), buildingParent);
+                    Instantiate(building_I[Random.Range(0, building_I.Count)], new Vector3(x - 1.5f, 0, z - 1.5f) * scale, Quaternion.Euler(0, 0, 0), buildingParent);
                     map[x, z] = 1;
                     map[x + 1, z] = 1;
                 }
                 else if (isInMap(new Vector3Int(x, 0, z + 1)) && map[x, z] == 0 && map[x, z + 1] == 0) // z+
                 {
-                    Instantiate(building_I[Random.Range(0, building_I.Count)], new Vector3(x - 1.5f, 0, z - 1.5f), Quaternion.Euler(0, 90, 0), buildingParent);
+                    Instantiate(building_I[Random.Range(0, building_I.Count)], new Vector3(x - 1.5f, 0, z - 1.5f) * scale, Quaternion.Euler(0, 90, 0), buildingParent);
                     map[x, z] = 1;
                     map[x, z + 1] = 1;
                 }
                 // dot
                 else if (map[x, z] == 0) // dot
                 {
-                    Instantiate(building_dot[Random.Range(0, building_dot.Count)], new Vector3(x - 2f, 0, z - 2f), Quaternion.Euler(0, Random.Range(0, 4) * 90, 0), buildingParent);
+                    Instantiate(building_dot[Random.Range(0, building_dot.Count)], new Vector3(x - 2f, 0, z - 2f) * scale, Quaternion.Euler(0, Random.Range(0, 4) * 90, 0), buildingParent);
                     map[x, z] = 1;
                 }
             }
