@@ -13,6 +13,13 @@
             "SelectedMapLevel": "Normal",
             "Score": 0,
             "Timestamp": "2025-07-24 08:34:08"
+        },
+        {
+            "Nickname": "Test1",
+            "SelectedCarIndex": 3,
+            "SelectedMapLevel": "Normal",
+            "Score": 0,
+            "Timestamp": "2025-07-25 23:49:37"
         }
     ]
 }
