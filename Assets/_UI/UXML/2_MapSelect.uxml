@@ -1,9 +1,26 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ui:UXML
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ui="UnityEngine.UIElements"
-    xmlns:uie="UnityEditor.UIElements"
-    xsi:noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd"
->
-    
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/_UI/USS/NeonButton.uss?fileID=7433441132597879392&amp;guid=bee03ae5fc7222f4686555f6bafcb0f6&amp;type=3#NeonButton" />
+    <Style src="project://database/Assets/_UI/USS/MapSelect.uss?fileID=7433441132597879392&amp;guid=efe8e33f31ad795438f70d796afb9fbc&amp;type=3#MapSelect" />
+    <ui:VisualElement style="width: 1920px; height: 1080px; flex-direction: row; background-color: rgb(47, 67, 93);">
+        <ui:VisualElement name="MapInformations" style="flex-grow: 1; width: 600px; position: absolute; height: 95%; left: auto; margin-top: 30px; margin-right: 30px; margin-bottom: 30px; margin-left: 30px; background-color: rgba(0, 0, 0, 0.27);">
+            <ui:VisualElement name="MapPictures" style="flex-grow: 1; margin-top: 20px; margin-right: 20px; margin-bottom: 20px; margin-left: 20px; width: 80%; align-self: center; height: 10%; position: relative; background-color: rgb(255, 255, 255);" />
+            <ui:Label text="MapName" name="MapName" style="font-size: 30px; color: rgb(255, 255, 255);" />
+            <ui:Label text="MapDifficulty" name="MapDifficulty" style="font-size: 30px; color: rgb(255, 255, 255);" />
+            <ui:Label text="맵의 테마는 무엇인가&#10;맵의 난이도는 어떤가&#10;어떤 차량을 추천하는가&#10;어떤 특징을 가지고 있는가" name="MapInformation" style="font-size: 25px; color: rgb(255, 255, 255);" />
+        </ui:VisualElement>
+        <ui:VisualElement name="Maps" style="flex-grow: 1; right: -30px; position: absolute; width: 1200px; height: 100%; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; align-items: center; top: 50px;">
+            <ui:VisualElement name="MapBox0" class="map-box" style="flex-grow: 1; right: auto; left: 20px; top: 50px; position: absolute;">
+                <ui:VisualElement name="MapPicture0" class="map-picture" style="flex-grow: 1; background-color: rgb(0, 255, 255);" />
+                <ui:Button text="Button" name="MapSelectButton0" class="map-select-button" />
+            </ui:VisualElement>
+            <ui:VisualElement name="MapBox1" class="map-box" style="flex-grow: 1; top: 350px; left: 0; justify-content: flex-start; align-self: auto; flex-direction: row-reverse; align-items: center; position: absolute;">
+                <ui:VisualElement name="MapPicture1" class="map-picture" style="flex-grow: 1; background-color: rgb(150, 255, 255);" />
+                <ui:Button text="Button" name="MapSelectButton1" class="map-select-button" />
+            </ui:VisualElement>
+            <ui:VisualElement name="MapBox2" class="map-box" style="flex-grow: 1; left: -20px; top: 650px; position: absolute;">
+                <ui:VisualElement name="MapPicture2" class="map-picture" style="flex-grow: 1; background-color: rgb(200, 255, 255);" />
+                <ui:Button text="Button" name="MapSelectButton2" class="map-select-button" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
 </ui:UXML>

@@ -1,0 +1,30 @@
+.map-select-button {
+    left: 0;
+    width: 100px;
+    height: 100px;
+}
+
+.map-box {
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    flex-direction: row-reverse;
+    align-items: center;
+    width: 1100px;
+    position: absolute;
+    align-content: center;
+    justify-content: center;
+    height: 200px;
+}
+
+.map-picture {
+    width: 180px;
+    height: 260px;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    transform-origin: center center;
+    transition: transform 0.2s ease;
+}
