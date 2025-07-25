@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: e44af8091779fcb40801d5b284353dbe
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 62697
+  packageName: 'Car''Toon : The Sport Car with interior'
+  packageVersion: 1.0
+  assetPath: Assets/Cartoon SportCar B01/Standard Assets/script/FreeLookCam.cs
+  uploadId: 117599

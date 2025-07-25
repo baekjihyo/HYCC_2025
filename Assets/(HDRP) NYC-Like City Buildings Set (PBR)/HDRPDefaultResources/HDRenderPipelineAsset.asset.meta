@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a23885eecf62d8349b1fa34979aed6d7
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 239452
+  packageName: (HDRP) NYC-like City Buildings Set (PBR)
+  packageVersion: 1.0
+  assetPath: Assets/(HDRP) NYC-Like City Buildings Set (PBR)/HDRPDefaultResources/HDRenderPipelineAsset.asset
+  uploadId: 552700

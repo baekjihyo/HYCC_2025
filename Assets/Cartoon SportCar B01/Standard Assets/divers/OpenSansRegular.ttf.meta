@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: b51a3e520f9164da198dc59c8acfccd6
+TrueTypeFontImporter:
+  serializedVersion: 2
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 1
+  characterPadding: 0
+  includeFontData: 1
+  use2xBehaviour: 0
+  fontNames: []
+  customCharacters: 
+  fontRenderingMode: 0
+  userData: 
+  assetBundleName: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 62697
+  packageName: 'Car''Toon : The Sport Car with interior'
+  packageVersion: 1.0
+  assetPath: Assets/Cartoon SportCar B01/Standard Assets/divers/OpenSansRegular.ttf
+  uploadId: 117599

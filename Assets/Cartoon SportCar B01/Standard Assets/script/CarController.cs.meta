@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 3ea65b38d485c374caa584a03f1de571
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 62697
+  packageName: 'Car''Toon : The Sport Car with interior'
+  packageVersion: 1.0
+  assetPath: Assets/Cartoon SportCar B01/Standard Assets/script/CarController.cs
+  uploadId: 117599

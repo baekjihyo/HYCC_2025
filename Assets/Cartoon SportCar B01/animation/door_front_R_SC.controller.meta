@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 4806beb9ee98ac74c85870f585ea11f7
+timeCreated: 1461697264
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 62697
+  packageName: 'Car''Toon : The Sport Car with interior'
+  packageVersion: 1.0
+  assetPath: Assets/Cartoon SportCar B01/animation/door_front_R_SC.controller
+  uploadId: 117599

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 9ab98b66288df7b4fa182075f2f12bd6
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 62697
+  packageName: 'Car''Toon : The Sport Car with interior'
+  packageVersion: 1.0
+  assetPath: Assets/Cartoon SportCar B01/Standard Assets/script/CrossPlatformInput/Scripts/AxisTouchButton.cs
+  uploadId: 117599

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 1caf40fc8bebb6b43b2550c05ca791d6
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 62697
+  packageName: 'Car''Toon : The Sport Car with interior'
+  packageVersion: 1.0
+  assetPath: Assets/Cartoon SportCar B01/Standard Assets/script/CrossPlatformInput/Scripts/TouchPad.cs
+  uploadId: 117599

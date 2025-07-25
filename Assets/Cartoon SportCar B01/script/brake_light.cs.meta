@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 37f9761a8bd354e4ea58544b8b976c43
+timeCreated: 1462223080
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 62697
+  packageName: 'Car''Toon : The Sport Car with interior'
+  packageVersion: 1.0
+  assetPath: Assets/Cartoon SportCar B01/script/brake_light.cs
+  uploadId: 117599

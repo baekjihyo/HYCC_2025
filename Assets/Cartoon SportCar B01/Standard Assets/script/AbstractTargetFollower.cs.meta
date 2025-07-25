@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: ca13b9e829288a84c873d88a5dad4b4b
+timeCreated: 1461307626
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 62697
+  packageName: 'Car''Toon : The Sport Car with interior'
+  packageVersion: 1.0
+  assetPath: Assets/Cartoon SportCar B01/Standard Assets/script/AbstractTargetFollower.cs
+  uploadId: 117599

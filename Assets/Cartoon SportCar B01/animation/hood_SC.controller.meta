@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 74c79facdadedce40bf34113038aa929
+timeCreated: 1461698099
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 62697
+  packageName: 'Car''Toon : The Sport Car with interior'
+  packageVersion: 1.0
+  assetPath: Assets/Cartoon SportCar B01/animation/hood_SC.controller
+  uploadId: 117599
