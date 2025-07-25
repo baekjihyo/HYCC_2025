@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 [System.Serializable]
@@ -21,6 +22,7 @@ public class MapSelectController : MonoBehaviour
     private VisualElement root;
     private Button[] mapSelectButtons;
     private VisualElement[] mapPictures;
+    private Button confirmButton;
 
     private Label nameLabel;
     private Label diffLabel;
@@ -44,11 +46,32 @@ public class MapSelectController : MonoBehaviour
         mapSelectButtons = new Button[count];
         mapPictures      = new VisualElement[count];
 
+        confirmButton = root.Q<Button>("MapConfirm");
+        confirmButton.clicked += () =>
+        {
+            // 플레이어 데이터 저장
+
+            if (currentIndex == -1)
+            {
+                confirmButton.AddToClassList("disabled");
+
+                Debug.LogWarning("Map Null");
+                return;
+            }
+            else
+            {
+                confirmButton.RemoveFromClassList("disabled");
+
+                SceneManager.LoadScene("3_Garage");
+            }
+        }
+            ;
+
         for (int i = 0; i < count; i++)
         {
             int idx = i;
             mapSelectButtons[idx] = root.Q<Button>($"MapSelectButton{idx}");
-            mapPictures[idx]      = root.Q<VisualElement>($"MapPicture{idx}");
+            mapPictures[idx] = root.Q<VisualElement>($"MapPicture{idx}");
 
             mapSelectButtons[idx].clickable.clicked += () =>
             {
@@ -67,10 +90,10 @@ public class MapSelectController : MonoBehaviour
                     ));
                 }
 
-                runningExpand = StartCoroutine( AnimateScale(
+                runningExpand = StartCoroutine(AnimateScale(
                     mapPictures[idx],
                     from: Vector3.one,
-                    to: new Vector3(1f,1.15f,1f),
+                    to: new Vector3(1f, 1.15f, 1f),
                     duration: 0.15f
                 ));
 

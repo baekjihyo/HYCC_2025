@@ -7,6 +7,7 @@
             <ui:Label text="MapName" name="MapName" style="font-size: 30px; color: rgb(255, 255, 255);" />
             <ui:Label text="MapDifficulty" name="MapDifficulty" style="font-size: 30px; color: rgb(255, 255, 255);" />
             <ui:Label text="맵의 테마는 무엇인가&#10;맵의 난이도는 어떤가&#10;어떤 차량을 추천하는가&#10;어떤 특징을 가지고 있는가" name="MapInformation" style="font-size: 25px; color: rgb(255, 255, 255);" />
+            <ui:Button text="Button" name="MapConfirm" class="map-confirm" />
         </ui:VisualElement>
         <ui:VisualElement name="Maps" style="flex-grow: 1; right: -30px; position: absolute; width: 1200px; height: 100%; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; align-items: center; top: 50px;">
             <ui:VisualElement name="MapBox0" class="map-box" style="flex-grow: 1; right: auto; left: 20px; top: 50px; position: absolute;">
