@@ -53,15 +53,15 @@ public class RoadGenerator : MonoBehaviour
 
     // 내부 변수
     private byte[,,] grid;                                      // void 0 // road 1 // 시작점까지 이동 가능한 점 2
-    private List<Vector3Int> path = new List<Vector3Int>();     // 도로가 시작점부터 순서대로 그리드의 어느 좌표로 이동하는지를 저장함
-    private List<Vector3Int> pathDir = new List<Vector3Int>();  // 얘는 도로의 방향을 저장함 // path랑 pathDir에서 리스트 내 위치가 같으면 같은 도로임
-    private List<Vector3Int> aPath = new List<Vector3Int>();    // path랑 똑같지만 aStar를 실행할 때 부분적으로만(각 wayPoint 사이) 작동함
-    private List<Vector3Int> aPathDir = new List<Vector3Int>();
-    private List<Vector3> roadPoint = new List<Vector3>();      // 얘는 보간이 적용된 path라고 생각하면 됨
-    private List<Vector3> roadDir = new List<Vector3>();
-    private List<Vector3Int> wayPoint = new List<Vector3Int>();
-    private byte[,] map;                                        // 건물이 설치될 위치를 구하기 위한 그리드
-    private bool closedRoad;                                    // 도로가 제대로 연결됐는지를 나타냄
+    public List<Vector3Int> path = new List<Vector3Int>();     // 도로가 시작점부터 순서대로 그리드의 어느 좌표로 이동하는지를 저장함
+    public List<Vector3Int> pathDir = new List<Vector3Int>();  // 얘는 도로의 방향을 저장함 // path랑 pathDir에서 리스트 내 위치가 같으면 같은 도로임
+    public List<Vector3Int> aPath = new List<Vector3Int>();    // path랑 똑같지만 aStar를 실행할 때 부분적으로만(각 wayPoint 사이) 작동함
+    public List<Vector3Int> aPathDir = new List<Vector3Int>();
+    public List<Vector3> roadPoint = new List<Vector3>();      // 얘는 보간이 적용된 path라고 생각하면 됨
+    public List<Vector3> roadDir = new List<Vector3>();
+    public List<Vector3Int> wayPoint = new List<Vector3Int>();
+    public byte[,] map;                                        // 건물이 설치될 위치를 구하기 위한 그리드
+    public bool closedRoad;                                    // 도로가 제대로 연결됐는지를 나타냄
 
     private void Start()
     {
@@ -77,18 +77,18 @@ public class RoadGenerator : MonoBehaviour
         while (!closedRoad)
         {
             closedRoad = true;
-            // clearVar();             // 변수 초기화
+            clearVar();             // 변수 초기화
             grid = new byte[gridSize.x, gridSize.y, gridSize.z];    // 그리드 생성
             map = new byte[gridSize.x + 4, gridSize.z + 4];
             setLandmark();          // 랜드마크 생성
             generateWayPoints();    // wayPoint 생성
             generateRoadMap();      // wayPoint를 잇는 도로를 그리드 위에 생성
         }
-
+        
         setLine();  // 그리드에 그려진 도로를 보간법을 이용해 부드럽게 이어줌
         setMesh();  // 보간된 도로를 그래픽으로 변환
         build();    // 주변 건물 설치
-        // clearVar(); // 변수 초기화
+        //clearVar(); // 변수 초기화
         Instantiate(car, new Vector3(gridSize.x / 2, gridSize.y /2 * height + carHeight, gridSize.z / 2) * scale, Quaternion.identity);
 
     }
@@ -725,7 +725,7 @@ public class RoadGenerator : MonoBehaviour
 
     private Material setMaterial(Color color)
     {
-        Material newMat = new Material(Shader.Find("Standard"));
+        Material newMat = new Material(Shader.Find("Universal Render Pipeline/Lit"));
         newMat.color = color;
         newMat.SetFloat("_Metallic", 0f);
         newMat.SetFloat("_Glossiness", 0f);
@@ -737,6 +737,7 @@ public class RoadGenerator : MonoBehaviour
     {
         // object
         GameObject building = new GameObject("Building");
+        building.layer = 10;
         building.transform.SetParent(this.transform);
         Transform buildingParent = building.GetComponent<Transform>();
 
@@ -755,8 +756,9 @@ public class RoadGenerator : MonoBehaviour
 
         // 랜드마크 설치
         Vector3Int landPos = gridSize / 2 + Vector3Int.right * 7;
-        Instantiate(Landmark, (landPos + Vector3.down * landPos.y) * scale, Quaternion.identity, buildingParent);
-
+        GameObject building_LandMark = Instantiate(Landmark, (landPos + Vector3.down * landPos.y) * scale, Quaternion.identity, buildingParent);
+        building_LandMark.layer = 10;
+        building_LandMark.transform.localRotation = Quaternion.Euler(-90f, 0f, 0f); //임시로 프리펩이 90도 돌아가서 넣은 코드
         // 건물 설치
         for (int x = 0; x < gridSize.x + 4; x++)
             for (int z = 0; z < gridSize.z + 4; z++)
@@ -764,60 +766,77 @@ public class RoadGenerator : MonoBehaviour
                 // O형
                 if (isInMap(new Vector3Int(x + 1, 0, z + 1)) && map[x, z] == 0 && map[x + 1, z] == 0 && map[x, z + 1] == 0 && map[x + 1, z + 1] == 0) // O
                 {
-                    Instantiate(building_O[Random.Range(0, building_O.Count)], new Vector3(x - 1.5f, 0, z - 1.5f) * scale, Quaternion.Euler(0, Random.Range(0, 4) * 90, 0), buildingParent);
+                    GameObject building_ = Instantiate(building_O[Random.Range(0, building_O.Count)], new Vector3(x - 1.5f, 0, z - 1.5f) * scale, Quaternion.Euler(0, Random.Range(0, 4) * 90, 0), buildingParent);
                     map[x, z] = 1;
                     map[x + 1, z] = 1;
                     map[x, z + 1] = 1;
                     map[x + 1, z + 1] = 1;
+                    building_.layer = 10;
+                    building_.transform.localRotation = Quaternion.Euler(-90f, 0f, 0f); //임시로 프리펩이 90도 돌아가서 넣은 코드
                 }
                 // L형
                 else if (isInMap(new Vector3Int(x + 1, 0, z + 1)) && map[x + 1, z] == 0 && map[x, z + 1] == 0 && map[x + 1, z + 1] == 0) // void x0 z0
                 {
-                    Instantiate(building_L[Random.Range(0, building_L.Count)], new Vector3(x - 1.5f, 0, z - 1.5f) * scale, Quaternion.Euler(0, 0, 0), buildingParent);
+                    GameObject building_ = Instantiate(building_L[Random.Range(0, building_L.Count)], new Vector3(x - 1.5f, 0, z - 1.5f) * scale, Quaternion.Euler(0, 0, 0), buildingParent);
                     map[x + 1, z] = 1;
                     map[x, z + 1] = 1;
                     map[x + 1, z + 1] = 1;
+                    building_.layer = 10;
+                    building_.transform.localRotation = Quaternion.Euler(-90f, 0f, 0f); //임시로 프리펩이 90도 돌아가서 넣은 코드
                 }
                 else if (isInMap(new Vector3Int(x + 1, 0, z + 1)) && map[x, z] == 0 && map[x, z + 1] == 0 && map[x + 1, z + 1] == 0) // void x+ z0
                 {
-                    Instantiate(building_L[Random.Range(0, building_L.Count)], new Vector3(x - 1.5f, 0, z - 1.5f) * scale, Quaternion.Euler(0, 270, 0), buildingParent);
+                    GameObject building_ = Instantiate(building_L[Random.Range(0, building_L.Count)], new Vector3(x - 1.5f, 0, z - 1.5f) * scale, Quaternion.Euler(0, 270, 0), buildingParent);
                     map[x, z] = 1;
                     map[x, z + 1] = 1;
                     map[x + 1, z + 1] = 1;
+                    building_.layer = 10;
+                    building_.transform.localRotation = Quaternion.Euler(-90f, 0f, 0f); //임시로 프리펩이 90도 돌아가서 넣은 코드
                 }
                 else if (isInMap(new Vector3Int(x + 1, 0, z + 1)) && map[x, z] == 0 && map[x + 1, z] == 0 && map[x + 1, z + 1] == 0) // void x0 z+
                 {
-                    Instantiate(building_L[Random.Range(0, building_L.Count)], new Vector3(x - 1.5f, 0, z - 1.5f) * scale, Quaternion.Euler(0, 90, 0), buildingParent);
+                    GameObject building_ = Instantiate(building_L[Random.Range(0, building_L.Count)], new Vector3(x - 1.5f, 0, z - 1.5f) * scale, Quaternion.Euler(0, 90, 0), buildingParent);
                     map[x, z] = 1;
                     map[x + 1, z] = 1;
                     map[x + 1, z + 1] = 1;
+                    building_.layer = 10;
+                    building_.transform.localRotation = Quaternion.Euler(-90f, 0f, 0f); //임시로 프리펩이 90도 돌아가서 넣은 코드 
                 }
                 else if (isInMap(new Vector3Int(x + 1, 0, z + 1)) && map[x, z] == 0 && map[x + 1, z] == 0 && map[x, z + 1] == 0) // void x+ z+
                 {
-                    Instantiate(building_L[Random.Range(0, building_L.Count)], new Vector3(x - 1.5f, 0, z - 1.5f) * scale, Quaternion.Euler(0, 180, 0), buildingParent);
+                    GameObject building_ = Instantiate(building_L[Random.Range(0, building_L.Count)], new Vector3(x - 1.5f, 0, z - 1.5f) * scale, Quaternion.Euler(0, 180, 0), buildingParent);
                     map[x, z] = 1;
                     map[x + 1, z] = 1;
                     map[x, z + 1] = 1;
+                    building_.layer = 10;
+                    building_.transform.localRotation = Quaternion.Euler(-90f, 0f, 0f); //임시로 프리펩이 90도 돌아가서 넣은 코드
                 }
                 // I형
                 else if (isInMap(new Vector3Int(x + 1, 0, z)) && map[x, z] == 0 && map[x + 1, z] == 0) // x+
                 {
-                    Instantiate(building_I[Random.Range(0, building_I.Count)], new Vector3(x - 1.5f, 0, z - 1.5f) * scale, Quaternion.Euler(0, 0, 0), buildingParent);
+                    GameObject building_ = Instantiate(building_I[Random.Range(0, building_I.Count)], new Vector3(x - 1.5f, 0, z - 1.5f) * scale, Quaternion.Euler(0, 0, 0), buildingParent);
                     map[x, z] = 1;
                     map[x + 1, z] = 1;
+                    building_.layer = 10;
+                    building_.transform.localRotation = Quaternion.Euler(-90f, 0f, 0f); //임시로 프리펩이 90도 돌아가서 넣은 코드
                 }
                 else if (isInMap(new Vector3Int(x, 0, z + 1)) && map[x, z] == 0 && map[x, z + 1] == 0) // z+
                 {
-                    Instantiate(building_I[Random.Range(0, building_I.Count)], new Vector3(x - 1.5f, 0, z - 1.5f) * scale, Quaternion.Euler(0, 90, 0), buildingParent);
+                    GameObject building_ = Instantiate(building_I[Random.Range(0, building_I.Count)], new Vector3(x - 1.5f, 0, z - 1.5f) * scale, Quaternion.Euler(0, 90, 0), buildingParent);
                     map[x, z] = 1;
                     map[x, z + 1] = 1;
+                    building_.layer = 10;
+                    building_.transform.localRotation = Quaternion.Euler(-90f, 0f, 0f); //임시로 프리펩이 90도 돌아가서 넣은 코드
                 }
                 // dot
                 else if (map[x, z] == 0) // dot
                 {
-                    Instantiate(building_dot[Random.Range(0, building_dot.Count)], new Vector3(x - 2f, 0, z - 2f) * scale, Quaternion.Euler(0, Random.Range(0, 4) * 90, 0), buildingParent);
+                    GameObject building_ = Instantiate(building_dot[Random.Range(0, building_dot.Count)], new Vector3(x - 2f, 0, z - 2f) * scale, Quaternion.Euler(0, Random.Range(0, 4) * 90, 0), buildingParent);
                     map[x, z] = 1;
+                    building_.layer = 10;
+                    building_.transform.localRotation = Quaternion.Euler(-90f, 0f, 0f); //임시로 프리펩이 90도 돌아가서 넣은 코드
                 }
+                
             }
     }
     

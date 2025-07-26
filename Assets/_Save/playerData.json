@@ -1,0 +1,22 @@
+{
+    "Records": [
+        {
+            "tutorialScore": 0,
+            "selectedMapIndex": 0,
+            "selectedCarIndex": 0,
+            "playerNickname": "",
+            "RunSpeed": 0.0,
+            "Fallcount": 0,
+            "selectedAt": "2025-07-26 21:42:40"
+        },
+        {
+            "tutorialScore": 0,
+            "selectedMapIndex": 0,
+            "selectedCarIndex": 3,
+            "playerNickname": "testsete",
+            "RunSpeed": 0.0,
+            "Fallcount": 0,
+            "selectedAt": "2025-07-26 21:43:19"
+        }
+    ]
+}
