@@ -35,7 +35,7 @@ public class MainMenu : MonoBehaviour
 
         tutorialNoButton.clicked += () =>
         {
-            SceneManager.LoadScene("3_Garage");
+            SceneManager.LoadScene("2_MapSelect");
         };
 
         quitButton.clicked += () =>

@@ -9,22 +9,6 @@ using System.IO;
 public class GarageCarSelect : MonoBehaviour
 {
     [System.Serializable]
-    public class PlayerData
-    {
-        public string Nickname;
-        public int SelectedCarIndex;
-        public string SelectedMapLevel;
-        public int Score;
-        public string Timestamp;
-    }
-    
-    [System.Serializable]
-    private class PlayerDataList
-    {
-        public List<PlayerData> Records = new List<PlayerData>();
-    }
-
-    [System.Serializable]
     public class CarData
     {
         public string Name;
@@ -45,31 +29,31 @@ public class GarageCarSelect : MonoBehaviour
 
     private int currentCarIndex = -1;
     private bool isAnimating = false;
+    private string dataPath;
 
     private PlayerData playerData;
-    private string dataPath;
 
     void Awake()
     {
-        string saveDir = Path.Combine(Application.dataPath, "_Save");
+        string saveDir  = Path.Combine(Application.dataPath, "_Save");
         if (!Directory.Exists(saveDir))
-        {
             Directory.CreateDirectory(saveDir);
-        };
+
         dataPath = Path.Combine(saveDir, "playerData.json");
 
         if (!File.Exists(dataPath))
-        { 
-        File.WriteAllText(dataPath, JsonUtility.ToJson(new PlayerDataList(), true));
-        };
-            
-        var json = File.ReadAllText(dataPath);
-        var list = JsonUtility.FromJson<PlayerDataList>(json);
-        if (list.Records != null && list.Records.Count > 0)
-            playerData = list.Records[list.Records.Count - 1];
+        {
+            var emptyList = new PlayerDataList();
+            File.WriteAllText(dataPath, JsonUtility.ToJson(emptyList, true));
+        }
+
+        var json     = File.ReadAllText(dataPath);
+        var dataList = JsonUtility.FromJson<PlayerDataList>(json);
+
+        if (dataList.Records.Count > 0)
+            playerData = dataList.Records[dataList.Records.Count - 1];
         else
             playerData = new PlayerData();
-
     }
 
     void OnEnable()
@@ -106,20 +90,29 @@ public class GarageCarSelect : MonoBehaviour
         root.Q<Button>("ConfirmNicknameButton").clicked += () =>
         {
             string nick = nicknameInput.value.Trim();
-            if (string.IsNullOrEmpty(nick)) { Debug.LogWarning("닉네임을 입력해주세요!"); return; }
+            if (string.IsNullOrEmpty(nick))
+            {
+                Debug.LogWarning("닉네임을 입력해주세요!");
+                return;
+            }
 
-            var dataList = JsonUtility.FromJson<PlayerDataList>(File.ReadAllText(dataPath));
+            var json     = File.ReadAllText(dataPath);
+            var dataList = JsonUtility.FromJson<PlayerDataList>(json);
+
             var newRecord = new PlayerData
             {
-                Nickname = nick,
-                SelectedCarIndex = currentCarIndex,
-                SelectedMapLevel = "Normal",
-                Score = 0,
-                Timestamp = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
+                tutorialScore     = playerData.tutorialScore,
+                selectedMapIndex  = playerData.selectedMapIndex,
+                selectedCarIndex  = currentCarIndex,
+                playerNickname    = nick,
+                lastRunScore      = 0f,
+                selectedAt        = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
             };
             dataList.Records.Add(newRecord);
+
             File.WriteAllText(dataPath, JsonUtility.ToJson(dataList, true));
-            Debug.Log($"Appended record: {newRecord.Nickname} at {newRecord.Timestamp}");
+
+            Debug.Log($"Appended record: {newRecord.playerNickname} at {newRecord.selectedAt}");
 
             nicknameInput.value = "";
             SceneManager.LoadScene("4_Racing");
@@ -133,9 +126,9 @@ public class GarageCarSelect : MonoBehaviour
             nicknameDialog.style.display = DisplayStyle.None;
         };
 
-        if (!string.IsNullOrEmpty(playerData.Nickname))
+        if (!string.IsNullOrEmpty(playerData.playerNickname))
         {
-            nicknameInput.value = playerData.Nickname;
+            nicknameInput.value = playerData.playerNickname;
         }
     }
 

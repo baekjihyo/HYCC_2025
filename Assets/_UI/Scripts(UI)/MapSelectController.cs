@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
+using System.IO;
 
 [System.Serializable]
 public struct MapInfo
@@ -28,7 +29,7 @@ public class MapSelectController : MonoBehaviour
     private Label diffLabel;
     private Label infoLabel;
 
-    private int currentIndex = -1;
+    private int currentIndex = 0;
 
     private Coroutine runningExpand;
     private Coroutine runningShrink;
@@ -44,28 +45,33 @@ public class MapSelectController : MonoBehaviour
 
         int count = mapInfos.Length;
         mapSelectButtons = new Button[count];
-        mapPictures      = new VisualElement[count];
+        mapPictures = new VisualElement[count];
 
         confirmButton = root.Q<Button>("MapConfirm");
         confirmButton.clicked += () =>
         {
-            // 플레이어 데이터 저장
+            string saveDir = Path.Combine(Application.dataPath, "_Save");
+            string savePath = Path.Combine(saveDir, "playerData.json");
 
-            if (currentIndex == -1)
+            if (!Directory.Exists(saveDir))
+                Directory.CreateDirectory(saveDir);
+
+            PlayerData pd = new PlayerData();
+            if (File.Exists(savePath))
             {
-                confirmButton.AddToClassList("disabled");
-
-                Debug.LogWarning("Map Null");
-                return;
+                string existingJson = File.ReadAllText(savePath);
+                pd = JsonUtility.FromJson<PlayerData>(existingJson);
             }
-            else
-            {
-                confirmButton.RemoveFromClassList("disabled");
 
-                SceneManager.LoadScene("3_Garage");
-            }
-        }
-            ;
+            pd.selectedMapIndex = currentIndex;
+            pd.selectedAt = System.DateTime.Now.ToString("o");
+
+            string newJson = JsonUtility.ToJson(pd);
+            File.AppendAllText(savePath, newJson + "\n");
+
+            SceneManager.LoadScene("3_Garage");
+        };
+
 
         for (int i = 0; i < count; i++)
         {
@@ -105,6 +111,15 @@ public class MapSelectController : MonoBehaviour
                 currentIndex = idx;
             };
         }
+
+        currentIndex = 0;
+
+        var firstInfo = mapInfos[0];
+        nameLabel.text = firstInfo.mapName;
+        diffLabel.text = firstInfo.mapDifficulty;
+        infoLabel.text = firstInfo.mapInformation;
+
+        mapPictures[0].transform.scale = new Vector3(1f, 1.15f, 1f);
     }
 
     IEnumerator AnimateScale(VisualElement ve, Vector3 from, Vector3 to, float duration)
