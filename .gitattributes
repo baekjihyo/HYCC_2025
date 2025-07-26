@@ -12,3 +12,5 @@ building.blend filter=lfs diff=lfs merge=lfs -text
 building3.blend filter=lfs diff=lfs merge=lfs -text
 building_collection.blend filter=lfs diff=lfs merge=lfs -text
 Building3.blend filter=lfs diff=lfs merge=lfs -text
+building_Asset.blend filter=lfs diff=lfs merge=lfs -text
+sky_island.blend filter=lfs diff=lfs merge=lfs -text
