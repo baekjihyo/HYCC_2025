@@ -1,24 +1,25 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/_UI/USS/MainMenu.uss?fileID=7433441132597879392&amp;guid=3b31215f6e2a29a47bf26c0cf5508040&amp;type=3#MainMenu" />
-    <ui:VisualElement style="flex-grow: 1; background-image: url(&quot;project://database/Assets/_Art/Materials/Materials/Pictures/MainMenu_RacingCar.jpg?fileID=2800000&amp;guid=98694ab51614c084aafcb8de3b3a9955&amp;type=3#MainMenu_RacingCar&quot;); -unity-background-scale-mode: stretch-to-fill; justify-content: center; align-self: stretch;">
-        <ui:Label text="&lt;TYTLE&gt;" style="font-size: 100px; align-self: center; -unity-font-definition: url(&quot;project://database/Assets/Fonts/Audiowide-Regular.ttf?fileID=12800000&amp;guid=7f56c1a824ca1b045961e581d75a4f5b&amp;type=3#Audiowide-Regular&quot;); color: rgb(0, 255, 255); -unity-font-style: bold;" />
-        <ui:VisualElement name="MainMenuContainer">
-            <ui:Button text="Start" name="Button_Start" class="neon-button neon-label" />
-            <ui:Button text="Options" name="Button_Options" class="neon-button neon-label" />
-            <ui:Button text="Rankings" name="Button_Rankings" class="neon-button neon-label" />
-            <ui:Button text="Quit" name="Button_Quit" class="neon-button neon-label" />
-        </ui:VisualElement>
-        <ui:VisualElement name="TutorialPromptContainer" style="display: none; flex-direction: column; align-items: center;">
-            <ui:Label text="튜토리얼을 먼저 하시겠습니까?" style="color: white; font-size: 40px; -unity-font-style: bold; -unity-text-align: upper-center;" />
-            <ui:Button name="Button_TutorialYes" text="Yes" class="neon-button neon-label" />
-            <ui:Button name="Button_TutorialNo" text="No" class="neon-button neon-label" />
-        </ui:VisualElement>
-        <ui:VisualElement name="QuitPopupContainer" style="display: none; flex-direction: column; align-items: center; justify-content: center; position: absolute; top: 30%; left: 25%; width: 50%; height: 30%; background-color: rgba(0, 0, 0, 0.85); border-radius: 10px; padding: 20px;">
-            <ui:Label text="정말 종료하시겠습니까?" style="color: white; font-size: 30px; -unity-font-style: bold; margin-bottom: 20px;" />
-            <ui:VisualElement style="flex-direction: row; justify-content: space-evenly; width: 100%;">
-                <ui:Button name="Button_QuitConfirm" text="확인" class="neon-button neon-label" style="width: 400px;" />
-                <ui:Button name="Button_QuitCancel" text="취소" class="neon-button neon-label" style="width: 400px;" />
+    <ui:VisualElement style="flex-grow: 1; background-image: url(&quot;project://database/Assets/_Arts/Materials/Pictures/MainMenu_RacingCar.jpg?fileID=2800000&amp;guid=98694ab51614c084aafcb8de3b3a9955&amp;type=3#MainMenu_RacingCar&quot;); -unity-background-scale-mode: stretch-to-fill; justify-content: center; align-self: stretch; background-position-y: top 0; display: flex;">
+        <ui:VisualElement name="QuitPopupContainer" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/_Arts/Materials/Pictures/MainMenu_RacingCar_Blur.jpg?fileID=2800000&amp;guid=059b67ef5487c3645abbabe6539544e5&amp;type=3#MainMenu_RacingCar_Blur&quot;); display: none;">
+            <ui:VisualElement style="display: flex; flex-direction: column; align-items: center; justify-content: center; position: absolute; top: 30%; left: 25%; width: 950px; height: 300px; background-color: rgba(0, 0, 0, 0.85); border-radius: 10px; padding: 20px;">
+                <ui:Label text="종료하시겠습니까?" style="color: white; font-size: 40px; -unity-font-style: bold; margin-bottom: 20px; -unity-font-definition: url(&quot;project://database/Library/unity%20default%20resources?fileID=10102&amp;guid=0000000000000000e000000000000000&amp;type=0#LegacyRuntime&quot;);" />
+                <ui:VisualElement style="flex-direction: row; justify-content: space-evenly; width: 100%;">
+                    <ui:Button name="Button_QuitConfirm" text="YES" class="neon-button neon-label" style="width: 400px;" />
+                    <ui:Button name="Button_QuitCancel" text="NO" class="neon-button neon-label" style="width: 400px;" />
+                </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
+        <ui:VisualElement name="MainMenuContainer" style="position: absolute; bottom: 0; align-self: center; flex-direction: row; align-items: flex-end;">
+            <ui:Button text="Rankings" name="Button_Rankings" class="neon-button neon-label" />
+            <ui:Button text="Start" name="Button_Start" class="neon-button neon-label" />
+            <ui:Button text="Quit" name="Button_Quit" class="neon-button neon-label" />
+        </ui:VisualElement>
+        <ui:VisualElement name="TutorialPromptContainer" style="display: none; flex-direction: column; align-items: center; width: 950px; height: 300px; align-self: center; background-color: rgba(0, 0, 0, 0.78); top: -100px;">
+            <ui:Label text="튜토리얼을 먼저 하시겠습니까?" style="color: white; font-size: 40px; -unity-font-style: bold; -unity-text-align: upper-center; -unity-font-definition: url(&quot;project://database/Library/unity%20default%20resources?fileID=10102&amp;guid=0000000000000000e000000000000000&amp;type=0#LegacyRuntime&quot;); position: absolute; top: 20px;" />
+            <ui:Button name="Button_TutorialYes" text="Yes" class="neon-button neon-label" style="position: absolute; right: 50px; bottom: 50px;" />
+            <ui:Button name="Button_TutorialNo" text="No" class="neon-button neon-label" style="position: absolute; left: 50px; bottom: 50px;" />
+        </ui:VisualElement>
+        <ui:Label text="RACING 3D" style="font-size: 100px; align-self: center; -unity-font-definition: url(&quot;project://database/Assets/Fonts/Audiowide-Regular.ttf?fileID=12800000&amp;guid=7f56c1a824ca1b045961e581d75a4f5b&amp;type=3#Audiowide-Regular&quot;); color: rgb(0, 255, 255); -unity-font-style: normal; position: absolute; top: 797px; left: 56px;" />
     </ui:VisualElement>
 </ui:UXML>

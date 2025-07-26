@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 20, z: 5}
+  m_LocalScale: {x: 2, y: 8, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1048644577922402029}
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3b5d36097568af04f8dfbd2d31cc88ce, type: 2}
+  - {fileID: 2100000, guid: 579d167621596b0419dc2ebf58efe561, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -96,7 +96,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1048644577922402029}
   m_Layer: 0
-  m_Name: building_Mark
+  m_Name: building_O
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

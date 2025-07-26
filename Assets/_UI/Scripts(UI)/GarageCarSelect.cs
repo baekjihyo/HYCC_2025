@@ -84,6 +84,9 @@ public class GarageCarSelect : MonoBehaviour
             buttonHolder.style.display = DisplayStyle.None;
             infoPanel.style.display = DisplayStyle.None;
             nicknameDialog.style.display = DisplayStyle.Flex;
+
+            nicknameInput.value = "";
+
             nicknameInput.Focus();
         };
 
@@ -101,12 +104,13 @@ public class GarageCarSelect : MonoBehaviour
 
             var newRecord = new PlayerData
             {
-                tutorialScore     = playerData.tutorialScore,
-                selectedMapIndex  = playerData.selectedMapIndex,
-                selectedCarIndex  = currentCarIndex,
-                playerNickname    = nick,
-                lastRunScore      = 0f,
-                selectedAt        = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
+                tutorialScore       = playerData.tutorialScore,
+                selectedMapIndex    = playerData.selectedMapIndex,
+                selectedCarIndex    = currentCarIndex,
+                playerNickname      = nick,
+                RunSpeed            = 0f,
+                Fallcount           = 0,
+                selectedAt          = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
             };
             dataList.Records.Add(newRecord);
 

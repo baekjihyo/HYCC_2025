@@ -13,6 +13,7 @@ public class PlayerData
     public int selectedMapIndex;
     public int selectedCarIndex;
     public string playerNickname;
-    public float lastRunScore;
+    public float RunSpeed;
+    public int Fallcount;
     public string selectedAt;
 }

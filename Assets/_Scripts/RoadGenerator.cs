@@ -5,20 +5,6 @@ using UnityEngine;
 
 // RoadGenerator.cs
 
-/// <summary>
-/// <버그>
-/// 
-/// <할거>
-/// 튜토리얼용 맵 뽑기
-/// 
-/// <부분 완료>
-/// 시작부 직선코스 >> 스타팅 모델링이 오면
-/// 첫부분 급코너 수정 >> 확실하진 않은데 지금까지 버그 없음 (사실상 해결로 보는 중)
-/// 
-/// 
-/// </summary>
-
-
 // 노드 클래스
 // 아마 너가 만든 코드에도 같은 이름의 클래스가 있어서 버그가 날 수 있으니까
 // 다른 맵에서 돌리거나 코드파일 다른 곳에 옮겨 놓고 돌려야함
@@ -38,29 +24,32 @@ public class Node
     }
 }
 
-// 디버깅 용이라 적힌건 무시하셈
+
 [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer), typeof(MeshCollider))] // 메쉬관련 컴포넌트가 없으면 강제 추가
+[RequireComponent(typeof(Rigidbody))]
 public class RoadGenerator : MonoBehaviour
 {
-    // 맵 설정
+    // 테마별 / 설정별 변수
     public Vector3Int gridSize = new Vector3Int(40, 7, 40); // 그리드 사이즈
-    public float height = 1f;               // 도로 간의 높이 // 정배율은 1인데 개인적으로 0.5 쯤 돼야 도로가 이쁜듯
-    public float scale = 1f;                // 맵 크기
-    public float roadHeight = 0.1f;         // 도로 두께
-    public float roadWidth = 0.25f;         // 도로 너비
-    public float colliderHeight = 1f;       // 콜라이더 높이
-    public float guardRailHeight = 0.1f;    // 가드레일 높이
-    public float guardRailWidth = 0.05f;    // 가드레일 두께
-    public float smoothness = 0.125f;       // 곡면을 얼마나 부드럽게 이을건지 설정 // 0 ~ 1 사이 값만 허용 // 절대 0 넣지 말기
-    public int startLength = 3;             // 처음 직선 구간 길이
     public int maxWayPoint = 30;            // wayPoint의 최대 개수
-    public float minDistance = 10f;         // wayPoint 사이의 최소거리
-    public Transform buildingParent;        // 건물이 생성될 부모 오브젝트
+    public float minDistance = 7f;         // wayPoint 사이의 최소거리
+    public float carHeight = 0f;            // 자동차 생성 높이 조절
+    public GameObject car;                  // 자동차 오브젝트
     public GameObject Landmark;             // 랜드마크 
     public List<GameObject> building_O;     // 2 * 2 건물
     public List<GameObject> building_I;     // 1 * 2 건물
     public List<GameObject> building_L;     // 2 * 2 꺽인 건물
     public List<GameObject> building_dot;   // 1 * 1 건물
+
+    // 모든 맵 공통 변수
+    public float height = 0.5f;               // 도로 간의 높이 // 정배율은 1인데 개인적으로 0.5 쯤 돼야 도로가 이쁜듯
+    public float scale = 10f;                // 맵 크기
+    public float roadHeight = 0.05f;         // 도로 두께
+    public float roadWidth = 0.6f;         // 도로 너비
+    public float lineWidth = 0.02f;         // 중앙선 너비
+    public float colliderHeight = 1f;       // 콜라이더 높이
+    public float smoothness = 0.125f;       // 곡면을 얼마나 부드럽게 이을건지 설정 // 0 ~ 1 사이 값만 허용 // 절대 0 넣지 말기
+    public int startLength = 3;             // 처음 직선 구간 길이
 
     // 내부 변수
     private byte[,,] grid;                                      // void 0 // road 1 // 시작점까지 이동 가능한 점 2
@@ -75,14 +64,20 @@ public class RoadGenerator : MonoBehaviour
     private bool closedRoad;                                    // 도로가 제대로 연결됐는지를 나타냄
 
     private void Start()
-    {   
+    {
+        Transform trans = GetComponent<Transform>();
+        trans.position = Vector3.zero;
+
+        Rigidbody rigid = GetComponent<Rigidbody>();
+        rigid.isKinematic = true;
+
         if (smoothness == 0)    // smoothness 값은 0이 되면 코드가 무한 반복 됨
             smoothness = 0.01f; // 그거 방지용 코드
 
         while (!closedRoad)
         {
             closedRoad = true;
-            clearVar();             // 변수 초기화
+            // clearVar();             // 변수 초기화
             grid = new byte[gridSize.x, gridSize.y, gridSize.z];    // 그리드 생성
             map = new byte[gridSize.x + 4, gridSize.z + 4];
             setLandmark();          // 랜드마크 생성
@@ -90,26 +85,11 @@ public class RoadGenerator : MonoBehaviour
             generateRoadMap();      // wayPoint를 잇는 도로를 그리드 위에 생성
         }
 
-        setLine(); // 그리드에 그려진 도로를 보간법을 이용해 부드럽게 이어줌
-        setMesh(); // 보간된 도로를 그래픽으로 변환
-
-
-        // 디버깅
-        Debug.DrawLine(path[0], path[0] + Vector3.up * 5, Color.yellow, 100f);
-        for (int i = 0; i < path.Count - 1; i++)
-        {
-            Debug.DrawLine(new Vector3(path[i].x, path[i].y * height, path[i].z) + Vector3.up * 0.25f, new Vector3(path[i + 1].x, path[i + 1].y * height, path[i + 1].z) + Vector3.up * 0.25f, Color.blue, 100f); // road
-        }
-        for (int i = 0; i < roadPoint.Count - 1; i++)
-        {
-            Debug.DrawLine(new Vector3(roadPoint[i].x, roadPoint[i].y * height, roadPoint[i].z)  + Vector3.up * 0.15f, new Vector3(roadPoint[i+1].x, roadPoint[i+1].y * height, roadPoint[i+1].z) + Vector3.up * 0.15f, Color.red, 100f); // vertex line
-        }
-        // 디버깅 용
-        for (int i = 0; i < wayPoint.Count; i++)
-            Debug.DrawLine(wayPoint[i], wayPoint[i] + Vector3.up * 2, Color.cyan, 100f);
-
-        build(); // 주변 건물 설치
-        clearVar();
+        setLine();  // 그리드에 그려진 도로를 보간법을 이용해 부드럽게 이어줌
+        setMesh();  // 보간된 도로를 그래픽으로 변환
+        build();    // 주변 건물 설치
+        // clearVar(); // 변수 초기화
+        Instantiate(car, new Vector3(gridSize.x / 2, gridSize.y /2 * height + carHeight, gridSize.z / 2) * scale, Quaternion.identity);
 
     }
 
@@ -301,7 +281,6 @@ public class RoadGenerator : MonoBehaviour
                 }
             }
         }
-        Debug.Log("길 없음 => 도로 재생성"); // 디버깅용
         closedRoad = false;
     }
 
@@ -581,17 +560,62 @@ public class RoadGenerator : MonoBehaviour
     // 부드러워진 도로(선)를 바탕으로 도로 그래픽을 만듦
     private void setMesh()
     {
+        // 라인 설정
+        GameObject lineC = new GameObject("Line Center");
+        GameObject lineR = new GameObject("Line Right");
+        GameObject lineL = new GameObject("Line Left");
+
+        lineC.transform.SetParent(this.transform);
+        lineR.transform.SetParent(this.transform);
+        lineL.transform.SetParent(this.transform);
+
         // 메쉬 컴포넌트 설정
-        MeshFilter meshFilter = GetComponent<MeshFilter>();
-        MeshCollider collider = GetComponent<MeshCollider>();
+        MeshFilter meshFilterT = GetComponent<MeshFilter>();
+        MeshRenderer rendererT = GetComponent<MeshRenderer>();
+        rendererT.material = setMaterial(Color.gray);   // 도로색
         Mesh meshT = new Mesh();
-        Mesh meshC = new Mesh();
         meshT.name = "TextureMesh";
+
+        MeshFilter meshFilterLc = lineC.AddComponent<MeshFilter>();
+        MeshRenderer rendererLc = lineC.AddComponent<MeshRenderer>();
+        rendererLc.material = setMaterial(Color.white);     // 라인색 중앙
+        Mesh meshLc = new Mesh();
+        meshLc.name = "LineMeshCenter";
+
+        MeshFilter meshFilterLr = lineR.AddComponent<MeshFilter>();
+        MeshRenderer rendererLr = lineR.AddComponent<MeshRenderer>();
+        rendererLr.material = setMaterial(Color.white);     // 라인색 오른쪽
+        Mesh meshLr = new Mesh();
+        meshLr.name = "LineMeshRight";
+
+        MeshFilter meshFilterLl = lineL.AddComponent<MeshFilter>();
+        MeshRenderer rendererLl = lineL.AddComponent<MeshRenderer>();
+        rendererLl.material = setMaterial(Color.white);     // 라인색 왼쪽
+        Mesh meshLl = new Mesh();
+        meshLl.name = "LineMeshLeft";
+
+        MeshCollider collider = GetComponent<MeshCollider>();
+        Mesh meshC = new Mesh();
         meshC.name = "ColliderMesh";
 
+        PhysicsMaterial physMat = new PhysicsMaterial();
+        physMat.dynamicFriction = 0f;
+        physMat.staticFriction = 0f;
+        collider.material = physMat;
+
         // 변수 설정
-        Vector3[] verticesT = new Vector3[roadPoint.Count * 8];
-        int[] trianglesT = new int[roadPoint.Count * 48]; // 8 * 2 * 3
+        Vector3[] verticesT = new Vector3[roadPoint.Count * 4];
+        int[] trianglesT = new int[roadPoint.Count * 24]; // 4 * 2 * 3
+
+        Vector3[] verticesLc = new Vector3[roadPoint.Count * 2];
+        int[] trianglesLc = new int[roadPoint.Count * 6]; // 1 * 2 * 3
+
+        Vector3[] verticesLr = new Vector3[roadPoint.Count * 2];
+        int[] trianglesLr = new int[roadPoint.Count * 6]; // 1 * 2 * 3
+
+        Vector3[] verticesLl = new Vector3[roadPoint.Count * 2];
+        int[] trianglesLl = new int[roadPoint.Count * 6]; // 1 * 2 * 3
+
         Vector3[] verticesC = new Vector3[roadPoint.Count * 4];
         int[] trianglesC = new int[roadPoint.Count * 24]; // 4 * 2 * 3
 
@@ -601,14 +625,22 @@ public class RoadGenerator : MonoBehaviour
             Vector3 vecH = new Vector3(roadPoint[i].x, roadPoint[i].y * height, roadPoint[i].z);
 
             // [texture]
-            verticesT[i * 8 + 0] = (vecH + Vector3.Cross(roadDir[i], Vector3.up).normalized * (roadWidth + guardRailWidth) * 0.5f + Vector3.up * guardRailHeight) * scale;
-            verticesT[i * 8 + 1] = (vecH + Vector3.Cross(roadDir[i], Vector3.up).normalized * roadWidth * 0.5f + Vector3.up * guardRailHeight) * scale;
-            verticesT[i * 8 + 2] = (vecH + Vector3.Cross(roadDir[i], Vector3.up).normalized * roadWidth * 0.5f) * scale;
-            verticesT[i * 8 + 3] = (vecH + Vector3.Cross(roadDir[i], Vector3.down).normalized * roadWidth * 0.5f) * scale;
-            verticesT[i * 8 + 4] = (vecH + Vector3.Cross(roadDir[i], Vector3.down).normalized * roadWidth * 0.5f + Vector3.up * guardRailHeight) * scale;
-            verticesT[i * 8 + 5] = (vecH + Vector3.Cross(roadDir[i], Vector3.down).normalized * (roadWidth + guardRailWidth) * 0.5f + Vector3.up * guardRailHeight) * scale;
-            verticesT[i * 8 + 6] = (vecH + Vector3.Cross(roadDir[i], Vector3.down).normalized * (roadWidth + guardRailWidth) * 0.5f + Vector3.down * roadHeight) * scale;
-            verticesT[i * 8 + 7] = (vecH + Vector3.Cross(roadDir[i], Vector3.up).normalized * (roadWidth + guardRailWidth) * 0.5f + Vector3.down * roadHeight) * scale;
+            verticesT[i * 4 + 0] = (vecH + Vector3.Cross(roadDir[i], Vector3.up).normalized * roadWidth * 0.5f + Vector3.down * roadHeight) * scale;
+            verticesT[i * 4 + 1] = (vecH + Vector3.Cross(roadDir[i], Vector3.down).normalized * roadWidth * 0.5f + Vector3.down * roadHeight) * scale;
+            verticesT[i * 4 + 2] = (vecH + Vector3.Cross(roadDir[i], Vector3.down).normalized * roadWidth * 0.5f ) * scale;
+            verticesT[i * 4 + 3] = (vecH + Vector3.Cross(roadDir[i], Vector3.up).normalized * roadWidth * 0.5f) * scale;
+
+            // [center line]
+            verticesLc[i * 2 + 0] = (vecH + Vector3.Cross(roadDir[i], Vector3.up).normalized * lineWidth * 0.5f) * scale + Vector3.up * 0.01f;
+            verticesLc[i * 2 + 1] = (vecH + Vector3.Cross(roadDir[i], Vector3.down).normalized * lineWidth * 0.5f) * scale + Vector3.up * 0.01f;
+
+            // [right line]
+            verticesLr[i * 2 + 0] = (vecH + Vector3.Cross(roadDir[i], Vector3.up).normalized * (roadWidth - 0.1f) * 0.5f) * scale + Vector3.up * 0.01f;
+            verticesLr[i * 2 + 1] = (vecH + Vector3.Cross(roadDir[i], Vector3.up).normalized * (roadWidth - lineWidth * 2 - 0.1f) * 0.5f) * scale + Vector3.up * 0.01f;
+
+            // [left line]
+            verticesLl[i * 2 + 0] = (vecH + Vector3.Cross(roadDir[i], Vector3.down).normalized * (roadWidth - lineWidth * 2 - 0.1f) * 0.5f) * scale + Vector3.up * 0.01f;
+            verticesLl[i * 2 + 1] = (vecH + Vector3.Cross(roadDir[i], Vector3.down).normalized * (roadWidth - 0.1f) * 0.5f) * scale + Vector3.up * 0.01f;
 
             // [collider]
             verticesC[i * 4 + 0] = (vecH + Vector3.Cross(roadDir[i], Vector3.up).normalized * roadWidth * 0.5f) * scale;
@@ -618,58 +650,96 @@ public class RoadGenerator : MonoBehaviour
 
         }
 
-
         // 폴리곤 생성
         int lenT = verticesT.Length;
+        int lenL = verticesLc.Length;
+        int lenLr = verticesLr.Length;
+        int lenLl = verticesLl.Length;
         int lenC = verticesC.Length;
 
         for (int i = 0; i < roadPoint.Count; i++)
         {
             // [texture]
-            trianglesT[i * 48 + 0] = (i * 8 + 8) % lenT; trianglesT[i * 48 + 1] = (i * 8 + 0) % lenT; trianglesT[i * 48 + 2] = (i * 8 + 7) % lenT; //
-            trianglesT[i * 48 + 3] = (i * 8 + 8) % lenT; trianglesT[i * 48 + 4] = (i * 8 + 7) % lenT; trianglesT[i * 48 + 5] = (i * 8 + 15) % lenT; //
-            trianglesT[i * 48 + 6] = (i * 8 + 8) % lenT; trianglesT[i * 48 + 7] = (i * 8 + 9) % lenT; trianglesT[i * 48 + 8] = (i * 8 + 1) % lenT; //
-            trianglesT[i * 48 + 9] = (i * 8 + 8) % lenT; trianglesT[i * 48 + 10] = (i * 8 + 1) % lenT; trianglesT[i * 48 + 11] = (i * 8 + 0) % lenT; //
-            trianglesT[i * 48 + 12] = (i * 8 + 10) % lenT; trianglesT[i * 48 + 13] = (i * 8 + 2) % lenT; trianglesT[i * 48 + 14] = (i * 8 + 1) % lenT; //
-            trianglesT[i * 48 + 15] = (i * 8 + 10) % lenT; trianglesT[i * 48 + 16] = (i * 8 + 1) % lenT; trianglesT[i * 48 + 17] = (i * 8 + 9) % lenT; //
-            trianglesT[i * 48 + 18] = (i * 8 + 10) % lenT; trianglesT[i * 48 + 19] = (i * 8 + 11) % lenT; trianglesT[i * 48 + 20] = (i * 8 + 3) % lenT; //
-            trianglesT[i * 48 + 21] = (i * 8 + 10) % lenT; trianglesT[i * 48 + 22] = (i * 8 + 3) % lenT; trianglesT[i * 48 + 23] = (i * 8 + 2) % lenT; //
-            trianglesT[i * 48 + 24] = (i * 8 + 12) % lenT; trianglesT[i * 48 + 25] = (i * 8 + 4) % lenT; trianglesT[i * 48 + 26] = (i * 8 + 3) % lenT; //
-            trianglesT[i * 48 + 27] = (i * 8 + 12) % lenT; trianglesT[i * 48 + 28] = (i * 8 + 3) % lenT; trianglesT[i * 48 + 29] = (i * 8 + 11) % lenT; //
-            trianglesT[i * 48 + 30] = (i * 8 + 12) % lenT; trianglesT[i * 48 + 31] = (i * 8 + 13) % lenT; trianglesT[i * 48 + 32] = (i * 8 + 5) % lenT; //
-            trianglesT[i * 48 + 33] = (i * 8 + 12) % lenT; trianglesT[i * 48 + 34] = (i * 8 + 5) % lenT; trianglesT[i * 48 + 35] = (i * 8 + 4) % lenT; //
-            trianglesT[i * 48 + 36] = (i * 8 + 14) % lenT; trianglesT[i * 48 + 37] = (i * 8 + 6) % lenT; trianglesT[i * 48 + 38] = (i * 8 + 5) % lenT; //
-            trianglesT[i * 48 + 39] = (i * 8 + 14) % lenT; trianglesT[i * 48 + 40] = (i * 8 + 5) % lenT; trianglesT[i * 48 + 41] = (i * 8 + 13) % lenT; //
-            trianglesT[i * 48 + 42] = (i * 8 + 14) % lenT; trianglesT[i * 48 + 43] = (i * 8 + 15) % lenT; trianglesT[i * 48 + 44] = (i * 8 + 7) % lenT; //
-            trianglesT[i * 48 + 45] = (i * 8 + 14) % lenT; trianglesT[i * 48 + 46] = (i * 8 + 7) % lenT; trianglesT[i * 48 + 47] = (i * 8 + 6) % lenT; //
+            trianglesT[i * 24 + 0] = (i * 4 + 0) % lenT; trianglesT[i * 24 + 1] = (i * 4 + 7) % lenT; trianglesT[i * 24 + 2] = (i * 4 + 3) % lenT;
+            trianglesT[i * 24 + 3] = (i * 4 + 0) % lenT; trianglesT[i * 24 + 4] = (i * 4 + 4) % lenT; trianglesT[i * 24 + 5] = (i * 4 + 7) % lenT;
+            trianglesT[i * 24 + 6] = (i * 4 + 0) % lenT; trianglesT[i * 24 + 7] = (i * 4 + 5) % lenT; trianglesT[i * 24 + 8] = (i * 4 + 4) % lenT;
+            trianglesT[i * 24 + 9] = (i * 4 + 0) % lenT; trianglesT[i * 24 + 10] = (i * 4 + 1) % lenT; trianglesT[i * 24 + 11] = (i * 4 + 5) % lenT;
+            trianglesT[i * 24 + 12] = (i * 4 + 2) % lenT; trianglesT[i * 24 + 13] = (i * 4 + 5) % lenT; trianglesT[i * 24 + 14] = (i * 4 + 1) % lenT;
+            trianglesT[i * 24 + 15] = (i * 4 + 2) % lenT; trianglesT[i * 24 + 16] = (i * 4 + 6) % lenT; trianglesT[i * 24 + 17] = (i * 4 + 5) % lenT;
+            trianglesT[i * 24 + 18] = (i * 4 + 2) % lenT; trianglesT[i * 24 + 19] = (i * 4 + 7) % lenT; trianglesT[i * 24 + 20] = (i * 4 + 6) % lenT;
+            trianglesT[i * 24 + 21] = (i * 4 + 2) % lenT; trianglesT[i * 24 + 22] = (i * 4 + 3) % lenT; trianglesT[i * 24 + 23] = (i * 4 + 7) % lenT;
+
+            // [center line]
+            trianglesLc[i * 6 + 0] = (i * 2 + 0) % lenL; trianglesLc[i * 6 + 1] = (i * 2 + 3) % lenL; trianglesLc[i * 6 + 2] = (i * 2 + 1) % lenL;
+            trianglesLc[i * 6 + 3] = (i * 2 + 0) % lenL; trianglesLc[i * 6 + 4] = (i * 2 + 2) % lenL; trianglesLc[i * 6 + 5] = (i * 2 + 3) % lenL;
+
+            // [right line]
+            trianglesLr[i * 6 + 0] = (i * 2 + 0) % lenLr; trianglesLr[i * 6 + 1] = (i * 2 + 3) % lenLr; trianglesLr[i * 6 + 2] = (i * 2 + 1) % lenLr;
+            trianglesLr[i * 6 + 3] = (i * 2 + 0) % lenLr; trianglesLr[i * 6 + 4] = (i * 2 + 2) % lenLr; trianglesLr[i * 6 + 5] = (i * 2 + 3) % lenLr;
+
+            // [left line]
+            trianglesLl[i * 6 + 0] = (i * 2 + 0) % lenLl; trianglesLl[i * 6 + 1] = (i * 2 + 3) % lenLl; trianglesLl[i * 6 + 2] = (i * 2 + 1) % lenLl;
+            trianglesLl[i * 6 + 3] = (i * 2 + 0) % lenLl; trianglesLl[i * 6 + 4] = (i * 2 + 2) % lenLl; trianglesLl[i * 6 + 5] = (i * 2 + 3) % lenLl;
 
             // [collider]
-            trianglesC[i * 24 + 0] = (i * 4 + 0) % lenC;    trianglesC[i * 24 + 1] = (i * 4 + 3) % lenC;    trianglesC[i * 24 + 2] = (i * 4 + 7) % lenC;
-            trianglesC[i * 24 + 3] = (i * 4 + 0) % lenC;    trianglesC[i * 24 + 4] = (i * 4 + 7) % lenC;    trianglesC[i * 24 + 5] = (i * 4 + 4) % lenC;
-            trianglesC[i * 24 + 6] = (i * 4 + 0) % lenC;    trianglesC[i * 24 + 7] = (i * 4 + 4) % lenC;    trianglesC[i * 24 + 8] = (i * 4 + 5) % lenC;
-            trianglesC[i * 24 + 9] = (i * 4 + 0) % lenC;    trianglesC[i * 24 + 10] = (i * 4 + 5) % lenC;   trianglesC[i * 24 + 11] = (i * 4 + 1) % lenC;
-            trianglesC[i * 24 + 12] = (i * 4 + 2) % lenC;   trianglesC[i * 24 + 13] = (i * 4 + 1) % lenC;   trianglesC[i * 24 + 14] = (i * 4 + 5) % lenC;
-            trianglesC[i * 24 + 15] = (i * 4 + 2) % lenC;   trianglesC[i * 24 + 16] = (i * 4 + 5) % lenC;   trianglesC[i * 24 + 17] = (i * 4 + 6) % lenC;
-            trianglesC[i * 24 + 18] = (i * 4 + 2) % lenC;   trianglesC[i * 24 + 19] = (i * 4 + 6) % lenC;   trianglesC[i * 24 + 20] = (i * 4 + 7) % lenC;
-            trianglesC[i * 24 + 21] = (i * 4 + 2) % lenC;   trianglesC[i * 24 + 22] = (i * 4 + 7) % lenC;   trianglesC[i * 24 + 23] = (i * 4 + 3) % lenC;
+            trianglesC[i * 24 + 0] = (i * 4 + 0) % lenC; trianglesC[i * 24 + 1] = (i * 4 + 3) % lenC; trianglesC[i * 24 + 2] = (i * 4 + 7) % lenC;
+            trianglesC[i * 24 + 3] = (i * 4 + 0) % lenC; trianglesC[i * 24 + 4] = (i * 4 + 7) % lenC; trianglesC[i * 24 + 5] = (i * 4 + 4) % lenC;
+            trianglesC[i * 24 + 6] = (i * 4 + 0) % lenC; trianglesC[i * 24 + 7] = (i * 4 + 4) % lenC; trianglesC[i * 24 + 8] = (i * 4 + 5) % lenC;
+            trianglesC[i * 24 + 9] = (i * 4 + 0) % lenC; trianglesC[i * 24 + 10] = (i * 4 + 5) % lenC; trianglesC[i * 24 + 11] = (i * 4 + 1) % lenC;
+            trianglesC[i * 24 + 12] = (i * 4 + 2) % lenC; trianglesC[i * 24 + 13] = (i * 4 + 1) % lenC; trianglesC[i * 24 + 14] = (i * 4 + 5) % lenC;
+            trianglesC[i * 24 + 15] = (i * 4 + 2) % lenC; trianglesC[i * 24 + 16] = (i * 4 + 5) % lenC; trianglesC[i * 24 + 17] = (i * 4 + 6) % lenC;
+            trianglesC[i * 24 + 18] = (i * 4 + 2) % lenC; trianglesC[i * 24 + 19] = (i * 4 + 6) % lenC; trianglesC[i * 24 + 20] = (i * 4 + 7) % lenC;
+            trianglesC[i * 24 + 21] = (i * 4 + 2) % lenC; trianglesC[i * 24 + 22] = (i * 4 + 7) % lenC; trianglesC[i * 24 + 23] = (i * 4 + 3) % lenC;
         }
 
-        // 대입
+        // [texture]
         meshT.vertices = verticesT;
         meshT.triangles = trianglesT;
         meshT.RecalculateNormals();
+        meshFilterT.mesh = meshT;
 
+        // [center line]
+        meshLc.vertices = verticesLc;
+        meshLc.triangles = trianglesLc;
+        meshLc.RecalculateNormals();
+        meshFilterLc.mesh = meshLc;
+
+        // [right line]
+        meshLr.vertices = verticesLr;
+        meshLr.triangles = trianglesLr;
+        meshLr.RecalculateNormals();
+        meshFilterLr.mesh = meshLr;
+
+        // [left line]
+        meshLl.vertices = verticesLl;
+        meshLl.triangles = trianglesLl;
+        meshLl.RecalculateNormals();
+        meshFilterLl.mesh = meshLl;
+
+        // [collider]
         meshC.vertices = verticesC;
         meshC.triangles = trianglesC;
         meshC.RecalculateNormals();
-
-        meshFilter.mesh = meshT;
         collider.sharedMesh = meshC;
+    }
+
+    private Material setMaterial(Color color)
+    {
+        Material newMat = new Material(Shader.Find("Standard"));
+        newMat.color = color;
+        newMat.SetFloat("_Metallic", 0f);
+        newMat.SetFloat("_Glossiness", 0f);
+        return newMat;
     }
 
     // 건물 배치 함수
     private void build()
     {
+        // object
+        GameObject building = new GameObject("Building");
+        building.transform.SetParent(this.transform);
+        Transform buildingParent = building.GetComponent<Transform>();
+
         // scale
         buildingParent.localScale = Vector3.one * scale;
 
