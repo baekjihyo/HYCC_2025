@@ -32,6 +32,18 @@ PrefabInstance:
       propertyPath: tireCompoundIndex
       value: 18
       objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076888, guid: dd7303a945a4372458d0c1c4dbb0504e, type: 3}
+      propertyPath: m_ImplicitCom
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076888, guid: dd7303a945a4372458d0c1c4dbb0504e, type: 3}
+      propertyPath: m_CenterOfMass.y
+      value: 0.46890903
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076888, guid: dd7303a945a4372458d0c1c4dbb0504e, type: 3}
+      propertyPath: m_CenterOfMass.z
+      value: -0.03722596
+      objectReference: {fileID: 0}
     - target: {fileID: 7486787342897076889, guid: dd7303a945a4372458d0c1c4dbb0504e, type: 3}
       propertyPath: steering.method
       value: 0
@@ -59,6 +71,134 @@ PrefabInstance:
     - target: {fileID: 7486787342897076889, guid: dd7303a945a4372458d0c1c4dbb0504e, type: 3}
       propertyPath: stability.useHandbrakeABS
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076889, guid: dd7303a945a4372458d0c1c4dbb0504e, type: 3}
+      propertyPath: lights.Array.data[0].emissionColor.b
+      value: 11.984314
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076889, guid: dd7303a945a4372458d0c1c4dbb0504e, type: 3}
+      propertyPath: lights.Array.data[0].emissionColor.g
+      value: 11.984314
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076889, guid: dd7303a945a4372458d0c1c4dbb0504e, type: 3}
+      propertyPath: lights.Array.data[0].emissionColor.r
+      value: 11.984314
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076889, guid: dd7303a945a4372458d0c1c4dbb0504e, type: 3}
+      propertyPath: lights.Array.data[1].emissionColor.b
+      value: 11.984314
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076889, guid: dd7303a945a4372458d0c1c4dbb0504e, type: 3}
+      propertyPath: lights.Array.data[1].emissionColor.g
+      value: 11.984314
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076889, guid: dd7303a945a4372458d0c1c4dbb0504e, type: 3}
+      propertyPath: lights.Array.data[1].emissionColor.r
+      value: 11.984314
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076889, guid: dd7303a945a4372458d0c1c4dbb0504e, type: 3}
+      propertyPath: lights.Array.data[2].emissionColor.b
+      value: 11.984314
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076889, guid: dd7303a945a4372458d0c1c4dbb0504e, type: 3}
+      propertyPath: lights.Array.data[2].emissionColor.g
+      value: 11.984314
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076889, guid: dd7303a945a4372458d0c1c4dbb0504e, type: 3}
+      propertyPath: lights.Array.data[2].emissionColor.r
+      value: 11.984314
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076889, guid: dd7303a945a4372458d0c1c4dbb0504e, type: 3}
+      propertyPath: lights.Array.data[3].emissionColor.b
+      value: 11.984314
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076889, guid: dd7303a945a4372458d0c1c4dbb0504e, type: 3}
+      propertyPath: lights.Array.data[3].emissionColor.g
+      value: 11.984314
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076889, guid: dd7303a945a4372458d0c1c4dbb0504e, type: 3}
+      propertyPath: lights.Array.data[3].emissionColor.r
+      value: 11.984314
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076889, guid: dd7303a945a4372458d0c1c4dbb0504e, type: 3}
+      propertyPath: lights.Array.data[10].emissionColor.g
+      value: 1.0039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076889, guid: dd7303a945a4372458d0c1c4dbb0504e, type: 3}
+      propertyPath: lights.Array.data[10].emissionColor.r
+      value: 11.984314
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076889, guid: dd7303a945a4372458d0c1c4dbb0504e, type: 3}
+      propertyPath: lights.Array.data[11].emissionColor.g
+      value: 1.0039215
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076889, guid: dd7303a945a4372458d0c1c4dbb0504e, type: 3}
+      propertyPath: lights.Array.data[11].emissionColor.r
+      value: 11.984314
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076889, guid: dd7303a945a4372458d0c1c4dbb0504e, type: 3}
+      propertyPath: lights.Array.data[12].emissionColor.g
+      value: 1.0039215
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076889, guid: dd7303a945a4372458d0c1c4dbb0504e, type: 3}
+      propertyPath: lights.Array.data[12].emissionColor.r
+      value: 11.984314
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076889, guid: dd7303a945a4372458d0c1c4dbb0504e, type: 3}
+      propertyPath: lights.Array.data[13].emissionColor.g
+      value: 4.0156865
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076889, guid: dd7303a945a4372458d0c1c4dbb0504e, type: 3}
+      propertyPath: lights.Array.data[13].emissionColor.r
+      value: 11.984314
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076889, guid: dd7303a945a4372458d0c1c4dbb0504e, type: 3}
+      propertyPath: lights.Array.data[14].emissionColor.g
+      value: 4.0156865
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076889, guid: dd7303a945a4372458d0c1c4dbb0504e, type: 3}
+      propertyPath: lights.Array.data[14].emissionColor.r
+      value: 11.984314
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076889, guid: dd7303a945a4372458d0c1c4dbb0504e, type: 3}
+      propertyPath: lights.Array.data[15].emissionColor.b
+      value: 11.984314
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076889, guid: dd7303a945a4372458d0c1c4dbb0504e, type: 3}
+      propertyPath: lights.Array.data[15].emissionColor.g
+      value: 11.984314
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076889, guid: dd7303a945a4372458d0c1c4dbb0504e, type: 3}
+      propertyPath: lights.Array.data[15].emissionColor.r
+      value: 11.984314
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076889, guid: dd7303a945a4372458d0c1c4dbb0504e, type: 3}
+      propertyPath: lights.Array.data[16].emissionColor.b
+      value: 11.984314
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076889, guid: dd7303a945a4372458d0c1c4dbb0504e, type: 3}
+      propertyPath: lights.Array.data[16].emissionColor.g
+      value: 11.984314
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076889, guid: dd7303a945a4372458d0c1c4dbb0504e, type: 3}
+      propertyPath: lights.Array.data[16].emissionColor.r
+      value: 11.984314
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076889, guid: dd7303a945a4372458d0c1c4dbb0504e, type: 3}
+      propertyPath: lights.Array.data[17].emissionColor.g
+      value: 1.0039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076889, guid: dd7303a945a4372458d0c1c4dbb0504e, type: 3}
+      propertyPath: lights.Array.data[17].emissionColor.r
+      value: 11.984314
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076889, guid: dd7303a945a4372458d0c1c4dbb0504e, type: 3}
+      propertyPath: lights.Array.data[18].emissionColor.g
+      value: 1.0039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486787342897076889, guid: dd7303a945a4372458d0c1c4dbb0504e, type: 3}
+      propertyPath: lights.Array.data[18].emissionColor.r
+      value: 11.984314
       objectReference: {fileID: 0}
     - target: {fileID: 7486787342897076894, guid: dd7303a945a4372458d0c1c4dbb0504e, type: 3}
       propertyPath: m_Name
